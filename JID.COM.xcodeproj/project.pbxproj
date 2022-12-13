@@ -16,6 +16,8 @@
 		84CEE4D829192C900092B333 /* RealtimePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEE4D729192C900092B333 /* RealtimePage.swift */; };
 		84CEE4DB2919DD960092B333 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 84CEE4DA2919DD960092B333 /* PopupView */; };
 		84F67F0A29482650005EEA6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84F67F0929482650005EEA6B /* GoogleService-Info.plist */; };
+		84F67F1229483D19005EEA6B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 84F67F1129483D19005EEA6B /* FirebaseAnalytics */; };
+		84F67F1429483D19005EEA6B /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 84F67F1329483D19005EEA6B /* FirebaseMessaging */; };
 		FA0BBEDC28E295CD000278C6 /* SegmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0BBEDB28E295CD000278C6 /* SegmentModel.swift */; };
 		FA11848E28A0F636005C61AF /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = FA11848D28A0F636005C61AF /* SwiftyJSON */; };
 		FA16400B28D953E100954717 /* SegmentRuas.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA16400A28D953E100954717 /* SegmentRuas.swift */; };
@@ -165,11 +167,13 @@
 			files = (
 				FAD134B329068AD60036D231 /* MapboxCoreMaps.xcframework in Frameworks */,
 				FAD134AB29068AD60036D231 /* Turf.xcframework in Frameworks */,
+				84F67F1229483D19005EEA6B /* FirebaseAnalytics in Frameworks */,
 				FA11848E28A0F636005C61AF /* SwiftyJSON in Frameworks */,
 				84CEE4DB2919DD960092B333 /* PopupView in Frameworks */,
 				FAD134B129068AD60036D231 /* MapboxMobileEvents.xcframework in Frameworks */,
 				FABA168D28B2020300BFD24D /* BottomSheet in Frameworks */,
 				FA7FE4C928A4D9ED00669633 /* Alamofire in Frameworks */,
+				84F67F1429483D19005EEA6B /* FirebaseMessaging in Frameworks */,
 				FAD134AD29068AD60036D231 /* MapboxMaps.xcframework in Frameworks */,
 				FA8A12B628E48FD300EECFD3 /* SDWebImageSwiftUI in Frameworks */,
 				FA8A12C128E566E500EECFD3 /* SDWebImage in Frameworks */,
@@ -350,6 +354,8 @@
 				FA8A12B528E48FD300EECFD3 /* SDWebImageSwiftUI */,
 				FA8A12C028E566E500EECFD3 /* SDWebImage */,
 				84CEE4DA2919DD960092B333 /* PopupView */,
+				84F67F1129483D19005EEA6B /* FirebaseAnalytics */,
+				84F67F1329483D19005EEA6B /* FirebaseMessaging */,
 			);
 			productName = JID.COM;
 			productReference = FA6BF78B289EC043006EECC0 /* JID.COM.app */;
@@ -386,6 +392,7 @@
 				FA8A12B428E48FD300EECFD3 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				FA8A12BF28E566E500EECFD3 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				84CEE4D92919DD960092B333 /* XCRemoteSwiftPackageReference "PopupView" */,
+				84F67F1029483D19005EEA6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = FA6BF78C289EC043006EECC0 /* Products */;
 			projectDirPath = "";
@@ -689,6 +696,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		84F67F1029483D19005EEA6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		FA11848C28A0F636005C61AF /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
@@ -736,6 +751,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 84CEE4D92919DD960092B333 /* XCRemoteSwiftPackageReference "PopupView" */;
 			productName = PopupView;
+		};
+		84F67F1129483D19005EEA6B /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84F67F1029483D19005EEA6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		84F67F1329483D19005EEA6B /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84F67F1029483D19005EEA6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 		FA11848D28A0F636005C61AF /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;

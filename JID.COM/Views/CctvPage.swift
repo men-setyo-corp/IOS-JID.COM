@@ -80,24 +80,24 @@ struct CctvPage: View {
                                             }
                                             .padding(10)
                                             .foregroundColor(.white)
-                                            ZStack{
-                                                HStack{
-                                                    Spacer()
-                                                    NavigationLink(
-                                                        destination: MapPage(),
-                                                    label:{
-                                                        Image(systemName: "map")
-                                                            .font(.system(size: 18))
-                                                            .foregroundColor(Color(UIColor(hexString: "#390099")))
-                                                    })
-                                                    .padding(7)
-                                                    .background(Color(UIColor(hexString: "#DFEFFF")))
-                                                    .clipShape(Circle())
-                                                }
-                                            }
-                                            .padding(.top, 70)
-                                            .padding(.horizontal)
-                                            .padding(.vertical)
+//                                            ZStack{
+//                                                HStack{
+//                                                    Spacer()
+//                                                    NavigationLink(
+//                                                        destination: MapPage(),
+//                                                    label:{
+//                                                        Image(systemName: "map")
+//                                                            .font(.system(size: 18))
+//                                                            .foregroundColor(Color(UIColor(hexString: "#390099")))
+//                                                    })
+//                                                    .padding(7)
+//                                                    .background(Color(UIColor(hexString: "#DFEFFF")))
+//                                                    .clipShape(Circle())
+//                                                }
+//                                            }
+//                                            .padding(.top, 70)
+//                                            .padding(.horizontal)
+//                                            .padding(.vertical)
                                         }
                                         .frame(maxWidth: .infinity)
                                         .background(backgroundImage)
