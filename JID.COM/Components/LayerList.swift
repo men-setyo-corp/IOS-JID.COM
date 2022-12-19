@@ -77,8 +77,9 @@ struct LayerList: View {
                         ForEach (0..<getInfo.count){ val in
                             
                             Button{
-                                if val == 4 {
-                                    let HcekData = cekItmes(key: "rams", sumber: "items")
+                                if val == 4 || val == 6 {
+                                    let keyCek = ["", "","","","rams","","rough"]
+                                    let HcekData = cekItmes(key: keyCek[val], sumber: "items")
                                     if HcekData != "sama" {
                                         showWarning.toggle()
                                     }else{
@@ -129,8 +130,9 @@ struct LayerList: View {
                     LazyVGrid(columns: items, spacing: 10) {
                         ForEach (0..<getSisin.count){ val in
                             Button{
-                                if val == 6 {
-                                    let HcekData = cekItmes(key: "level", sumber: "items")
+                                if val == 0 || val == 1 || val == 2 || val == 3 || val == 4 || val == 5 || val == 6 || val == 7 || val == 8 || val == 9 || val == 10 {
+                                    let keyCek = ["vms", "cctv","rtms","rtms2","radar","speed","level","pump","wim","cars","bike"]
+                                    let HcekData = cekItmes(key: keyCek[val], sumber: "items")
                                     if HcekData != "sama" {
                                         showWarning.toggle()
                                     }else{

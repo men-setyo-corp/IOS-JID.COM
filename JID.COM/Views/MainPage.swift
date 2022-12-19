@@ -103,7 +103,7 @@ struct MainPage: View {
                 case 1:
                     CctvPage()
                 case 2:
-                    MapPage()
+                    MapPage(showCarousel: false, idruas: 0)
                 case 3:
                     AntrianPage()
                 case 4:

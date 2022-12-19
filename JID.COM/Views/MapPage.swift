@@ -21,6 +21,9 @@ struct MapPage: View {    @State var offset: CGFloat = 0
     @State private var showPopup = false
     @State private var showingCctv = true
     
+    @State var showCarousel : Bool
+    @State var idruas : Int
+    
     @StateObject var modelLogin : LoginModel = LoginModel()
     
     var body: some View {
@@ -44,11 +47,14 @@ struct MapPage: View {    @State var offset: CGFloat = 0
                     
                     Spacer()
                 }
-                
                 Layerset(isShowModal: $showingSheet)
                 
             }
             
+            ZStack{
+                CctvCarousel(isShowCctv: $showCarousel, idruas: $idruas)
+            }
+            .padding(.bottom, 35)
         }
         
     }
@@ -56,6 +62,6 @@ struct MapPage: View {    @State var offset: CGFloat = 0
 
 struct MapPage_Previews: PreviewProvider {
     static var previews: some View {
-        MapPage()
+        MapPage(showCarousel: false, idruas: 0)
     }
 }

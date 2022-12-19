@@ -69,19 +69,11 @@ class RestAreamodel: ObservableObject{
                     symbollayer.textAnchor = .constant(.top)
                     symbollayer.textRadialOffset = .constant(1.6)
                     
-                    try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceDataGerbang)
-                    try! setmapView.mapboxMap.style.addLayer(symbollayer, layerPosition: nil)
-                    
-                    DispatchQueue.main.async {
-                        do {
-                            try setmapView.mapboxMap.style.updateLayer(withId: "restarea-symbol", type: SymbolLayer.self) { layer in
-                                layer.visibility = .constant(Dataset.stsInfoJalanTol[4] == "yes" ? .visible : .none)
-                            }
-                        } catch {
-                            print("Gagal menjalankan proses toggle layer restarea")
-                        }
-                        
+                    if setmapView.mapboxMap.style.sourceExists(withId: "source-restarea")  == false {
+                        try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceDataGerbang)
+                        try! setmapView.mapboxMap.style.addLayer(symbollayer, layerPosition: nil)
                     }
+                    
                     
                 }
             }

@@ -91,7 +91,7 @@ struct CctvPage: View {
                                             Spacer()
                                             
                                             NavigationLink(
-                                                destination: MapPage(),
+                                                destination: MapPage(showCarousel: true, idruas: result.id_ruas),
                                             label:{
                                                 Image(systemName: "map")
                                                     .font(.system(size: 18))
@@ -101,6 +101,8 @@ struct CctvPage: View {
                                             .background(Color(UIColor(hexString: "#DFEFFF")))
                                             .clipShape(Circle())
                                             .shadow(radius: 2)
+                                            .accentColor(.black) 
+                                            
                                             
 //                                            ZStack{
 //                                                HStack{
