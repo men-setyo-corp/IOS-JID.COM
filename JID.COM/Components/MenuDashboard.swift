@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MenuDashboard: View {
+    @StateObject var modelLogin : LoginModel = LoginModel()
     
     @State var aktiveClick: Bool = false
     @State var selectedIndex = 0
@@ -26,7 +27,7 @@ struct MenuDashboard: View {
     let tabPemeliharaaanBarName = ["Dashboard\nPemeliharaan", "Data\nPemeliharaan", "Water\nLevel Sensor"]
     
     //Peralatan
-    let tabPeralatanBarName = ["Dashboard\nPeralatan", "Monitoring\nAlat", "Realtime\nCCTV", "Realtime\nVMS"]
+    let tabPeralatanBarName = ["Dashboard\nPeralatan", "Monitoring\nAlat", "Realtime\nCCTV", "Realtime\nDMS"]
     
     @State var tabArryData = ["Dashboard\nLalu Lintas", "Realtime\nTraffic", "Antrian\nGerbang", "Lalin\nPer Jam"];
     @State var tabArryUrl = ["dashboard_lalin/mobile", "realtime_lalin/mobile", "antrian_gerbang/mobile", "lalin_perjam/mobile"];
@@ -65,6 +66,7 @@ struct MenuDashboard: View {
                         }
                         .background(selectedIndex == num ? Color(UIColor(hexString: "#DFEFFF")) : Color(.white))
                         .cornerRadius(10)
+                        
                     }
                     Spacer()
                 }

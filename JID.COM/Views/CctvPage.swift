@@ -71,15 +71,37 @@ struct CctvPage: View {
                                     NavigationLink(
                                         destination: SegmentRuas(writer: parseKey),
                                     label:{
-                                        ZStack{
-                                            VStack{
-                                                Text(result.nama_ruas_2)
-                                                    .font(.system(size: 20, weight: .bold))
-                                                Text(result.nama_ruas)
-                                                    .font(.subheadline)
-                                            }
-                                            .padding(10)
-                                            .foregroundColor(.white)
+                                        HStack{
+//                                            VStack(alignment: .leading){
+//                                                Text(result.nama_ruas_2)
+//                                                    .font(.system(size: 20, weight: .bold))
+//                                                    .foregroundColor(.black)
+//                                                Text(result.nama_ruas)
+//                                                    .font(.system(size: 12, weight:.bold))
+//                                                    .foregroundColor(.black)
+//                                                    .multilineTextAlignment(.leading)
+//                                            }
+//                                            .padding(10)
+//                                            .foregroundColor(.white)
+                                            Spacer()
+                                            Text(result.nama_ruas)
+                                                .font(.system(size: 12, weight:.bold))
+                                                .foregroundColor(.black)
+                                                .multilineTextAlignment(.center)
+                                            Spacer()
+                                            
+                                            NavigationLink(
+                                                destination: MapPage(),
+                                            label:{
+                                                Image(systemName: "map")
+                                                    .font(.system(size: 18))
+                                                    .foregroundColor(Color(UIColor(hexString: "#390099")))
+                                            })
+                                            .padding(7)
+                                            .background(Color(UIColor(hexString: "#DFEFFF")))
+                                            .clipShape(Circle())
+                                            .shadow(radius: 2)
+                                            
 //                                            ZStack{
 //                                                HStack{
 //                                                    Spacer()
@@ -93,16 +115,26 @@ struct CctvPage: View {
 //                                                    .padding(7)
 //                                                    .background(Color(UIColor(hexString: "#DFEFFF")))
 //                                                    .clipShape(Circle())
+//                                                    .shadow(radius: 2)
 //                                                }
 //                                            }
-//                                            .padding(.top, 70)
 //                                            .padding(.horizontal)
 //                                            .padding(.vertical)
+                                            
                                         }
+                                        .padding(15)
                                         .frame(maxWidth: .infinity)
-                                        .background(backgroundImage)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 16)
+                                                .stroke(Color.black.opacity(0.5), lineWidth: 0.5)
+                                        )
+                                        .background{
+                                            RoundedRectangle(cornerRadius: 16)
+                                                .fill(Color.white.opacity(0.08))
+                                        }
                                         .cornerRadius(16)
                                         .padding(.top, 10)
+                                        .shadow(radius: 5)
                                     })
                                     
                                 }
@@ -112,7 +144,6 @@ struct CctvPage: View {
                     }
                     .padding(.horizontal, 10)
                     .background(.white)
-                    
                     
                     Spacer()
                 }

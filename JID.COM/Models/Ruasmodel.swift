@@ -23,7 +23,7 @@ class Ruasmodel: ObservableObject {
     var modelLogin : LoginModel = LoginModel()
     
     func getRuas(completion: @escaping ([Getruas]) -> ()){
-        DispatchQueue.global(qos: .background).async {
+        DispatchQueue.global().async {
             let paramsData: Parameters = ["id_ruas": self.modelLogin.scope]
             RestApiController().resAPI(endPoint: "data_ruas/", method: .put, dataParam: paramsData){ (results) in
                 let getJSON = JSON(results ?? "Null data from API")

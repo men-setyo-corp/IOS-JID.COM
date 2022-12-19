@@ -27,9 +27,14 @@ struct LayerList: View {
     @State var getStsInfo = Dataset.stsInfoJalanTol
     @State var getStsSisin = Dataset.stsSisinfokom
     @State var getStsEvent = Dataset.stsEventTol
-//    
-//    var itemLayar = self.modelLogin.item
-//    var layarList = itemLayar.components(separatedBy: ",")
+    
+    @State var showWarning : Bool = false
+    
+    @State var itemsList : [String] = []
+    @State var scopeList : [String] = []
+    @State var reportList : [String] = []
+    @State var dashboardList : [String] = []
+    
     
     var body: some View {
         ZStack{
@@ -54,6 +59,8 @@ struct LayerList: View {
 //                        .font(.system(size: 15))
 //                        .foregroundColor(presCheck ? Color(UIColor(hexString: "#000000")) : Color(UIColor(hexString: "#A1A1A1")))
                 }
+              
+                
                 Text("Pilih untuk mendapatkan informasi tertentu")
                     .padding(.vertical, 1)
                     .foregroundColor(Color(UIColor(hexString: "#A1A1A1")))
@@ -68,14 +75,28 @@ struct LayerList: View {
                     
                     LazyVGrid(columns: items, spacing: 10) {
                         ForEach (0..<getInfo.count){ val in
+                            
                             Button{
-                                if getStsInfo[val]=="yes" {
-                                    getStsInfo[val] = "no"
+                                if val == 4 {
+                                    let HcekData = cekItmes(key: "rams", sumber: "items")
+                                    if HcekData != "sama" {
+                                        showWarning.toggle()
+                                    }else{
+                                        if getStsInfo[val]=="yes" {
+                                            getStsInfo[val] = "no"
+                                        }else{
+                                            getStsInfo[val] = "yes"
+                                        }
+                                        Dataset.stsInfoJalanTol = getStsInfo
+                                    }
                                 }else{
-                                    getStsInfo[val] = "yes"
+                                    if getStsInfo[val]=="yes" {
+                                        getStsInfo[val] = "no"
+                                    }else{
+                                        getStsInfo[val] = "yes"
+                                    }
+                                    Dataset.stsInfoJalanTol = getStsInfo
                                 }
-                                Dataset.stsInfoJalanTol = getStsInfo
-                                print("change kayar")
                             }label:{
                                 Text("\(getInfo[val])")
                                     .font(.system(size: 9))
@@ -89,6 +110,10 @@ struct LayerList: View {
                                     )
                                     .cornerRadius(50)
                             }
+                            .alert("Maaf anda tidak memiliki akses" ,isPresented: $showWarning){
+                                //alert in button
+                            }
+                            
                             
                         }
                         
@@ -104,12 +129,26 @@ struct LayerList: View {
                     LazyVGrid(columns: items, spacing: 10) {
                         ForEach (0..<getSisin.count){ val in
                             Button{
-                                if getStsSisin[val]=="yes" {
-                                    getStsSisin[val] = "no"
+                                if val == 6 {
+                                    let HcekData = cekItmes(key: "level", sumber: "items")
+                                    if HcekData != "sama" {
+                                        showWarning.toggle()
+                                    }else{
+                                        if getStsSisin[val]=="yes" {
+                                            getStsSisin[val] = "no"
+                                        }else{
+                                            getStsSisin[val] = "yes"
+                                        }
+                                        Dataset.stsSisinfokom = getStsSisin
+                                    }
                                 }else{
-                                    getStsSisin[val] = "yes"
+                                    if getStsSisin[val]=="yes" {
+                                        getStsSisin[val] = "no"
+                                    }else{
+                                        getStsSisin[val] = "yes"
+                                    }
+                                    Dataset.stsSisinfokom = getStsSisin
                                 }
-                                Dataset.stsSisinfokom = getStsSisin
                             }label:{
                                 Text("\(getSisin[val])")
                                     .font(.system(size: 9))
@@ -123,6 +162,10 @@ struct LayerList: View {
                                     )
                                     .cornerRadius(50)
                             }
+                            .alert("Maaf anda tidak memiliki akses" ,isPresented: $showWarning){
+                                //alert in button
+                            }
+                            
                         }
                         
                     }
@@ -178,6 +221,53 @@ struct LayerList: View {
         .padding(.bottom, 1)
         
     }
+    
+    func cekItmes(key:String, sumber: String) -> String {
+        let itemLayar = modelLogin.item
+        itemsList = itemLayar.components(separatedBy: ",")
+        let scopeLayar = self.modelLogin.scope
+        scopeList = scopeLayar.components(separatedBy: ",")
+        let dashboardLayar = self.modelLogin.dashboard
+        dashboardList = dashboardLayar.components(separatedBy: ",")
+        let reportLayar = self.modelLogin.report
+        reportList = reportLayar.components(separatedBy: ",")
+        
+        var returnlet : String = ""
+        if sumber == "dashboard" {
+            if dashboardList.contains(key) {
+                returnlet = "sama"
+            }else{
+                returnlet = "beda"
+            }
+        }
+        
+        if sumber == "scope" {
+            if scopeList.contains(key) {
+                returnlet = "sama"
+            }else{
+                returnlet = "beda"
+            }
+        }
+        
+        if sumber == "report" {
+            if reportList.contains(key) {
+                returnlet = "sama"
+            }else{
+                returnlet = "beda"
+            }
+        }
+        
+        if sumber == "items" {
+            if itemsList.contains(key) {
+                returnlet = "sama"
+            }else{
+                returnlet = "beda"
+            }
+        }
+        
+        return returnlet
+    }
+    
 }
 
 struct LayerList_Previews: PreviewProvider {

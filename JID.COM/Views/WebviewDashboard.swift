@@ -47,8 +47,14 @@ struct WebviewDashboard: View {
                     if urlweb.isEmpty {
                         CardLoadingWebview()
                     }else{
-                        WebView(url: URL(string: baseUrl+urlweb)!, showLoading: $showLoading)
-                            .overlay(showLoading ? ProgressView("Loading...").toAnyView() : EmptyView().toAnyView())
+                        if title == "Dashboard Radar" {
+                            WebView(url: URL(string: urlweb)!, showLoading: $showLoading)
+                                .overlay(showLoading ? ProgressView("Loading...").toAnyView() : EmptyView().toAnyView())
+                        }else{
+                            WebView(url: URL(string: baseUrl+urlweb)!, showLoading: $showLoading)
+                                .overlay(showLoading ? ProgressView("Loading...").toAnyView() : EmptyView().toAnyView())
+                        }
+                        
                     }
                 }
                 

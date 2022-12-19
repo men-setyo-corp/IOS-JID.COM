@@ -11,6 +11,7 @@ struct ContentView: View {
     
     @StateObject var modelLogin : LoginModel = LoginModel()
     
+    
     var body: some View {
         NavigationView{
             if modelLogin.isLogin {
@@ -26,7 +27,7 @@ struct ContentView: View {
                 Dataset.stsInfoJalanTol = ["yes","no","no","no","no","yes","no"]
             }
             if Dataset.stsSisinfokom.isEmpty {
-                Dataset.stsSisinfokom = ["no","yes","yes","yes","yes","yes","yes","no","no","no","no","no","no","no","no"]
+                Dataset.stsSisinfokom = ["no","yes","yes","yes","yes","yes","yes","yes","no","no","no"]
             }
             if Dataset.stsEventTol.isEmpty {
                 Dataset.stsEventTol = ["no","no","yes"]

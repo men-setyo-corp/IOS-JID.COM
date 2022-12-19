@@ -83,7 +83,7 @@ class vmsModel: ObservableObject{
                         } catch {
                             print("Gagal menjalankan proses toggle layer pemeliharaan")
                         }
-                        PemeliharaanModel().setUpPemeliharaanAPI(setmapView: setmapView)
+                        
                     }
                     
                 }

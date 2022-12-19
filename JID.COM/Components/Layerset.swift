@@ -76,6 +76,7 @@ struct Layerset: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
         .ignoresSafeArea()
         .animation(Animation.easeOut, value: isShowModal)
+       
         
     }
     

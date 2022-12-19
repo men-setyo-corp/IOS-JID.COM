@@ -8,14 +8,42 @@
 
 /* Begin PBXBuildFile section */
 		840E1CB7294493D0007788BC /* DetailEventLalin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E1CB6294493D0007788BC /* DetailEventLalin.swift */; };
+		842CA79F294961B6006D513F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 842CA79E294961B6006D513F /* GoogleService-Info.plist */; };
+		848A19422949DB97003A30D0 /* NotificationTest.apns in Resources */ = {isa = PBXBuildFile; fileRef = 848A19412949DB97003A30D0 /* NotificationTest.apns */; };
 		8490317229363E47003A8280 /* CctvCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8490317129363E47003A8280 /* CctvCarousel.swift */; };
+		8494E4B5294AACC600AC11FE /* GangguanLalinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494E4B4294AACC600AC11FE /* GangguanLalinModel.swift */; };
+		8494E4B7294AB23A00AC11FE /* GangguanModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494E4B6294AB23A00AC11FE /* GangguanModal.swift */; };
+		8494E4B9294ABC6100AC11FE /* RekaysaLalinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494E4B8294ABC6100AC11FE /* RekaysaLalinModel.swift */; };
+		8494E4BB294ABF5500AC11FE /* RekayasaLalinModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494E4BA294ABF5500AC11FE /* RekayasaLalinModal.swift */; };
+		8494E4BD294AC27600AC11FE /* LineRekayasaLalinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494E4BC294AC27600AC11FE /* LineRekayasaLalinModel.swift */; };
+		8494E4BF294AF68300AC11FE /* BatasKmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494E4BE294AF68300AC11FE /* BatasKmModel.swift */; };
+		8494E4C1294B031F00AC11FE /* JalanPenghubungModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494E4C0294B031F00AC11FE /* JalanPenghubungModel.swift */; };
+		8494E4C3294B0EBE00AC11FE /* GerbangTollModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494E4C2294B0EBE00AC11FE /* GerbangTollModel.swift */; };
+		8494E4C5294B13B100AC11FE /* GerbangTollModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494E4C4294B13B100AC11FE /* GerbangTollModal.swift */; };
 		84A0B4DD2947EEED006260FD /* vmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0B4DC2947EEED006260FD /* vmsModel.swift */; };
 		84A0B4DF2947FE1F006260FD /* vmsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0B4DE2947FE1F006260FD /* vmsModal.swift */; };
 		84CEE4D42919201D0092B333 /* SplashScrean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEE4D32919201D0092B333 /* SplashScrean.swift */; };
 		84CEE4D62919270D0092B333 /* AntrianPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEE4D52919270D0092B333 /* AntrianPage.swift */; };
 		84CEE4D829192C900092B333 /* RealtimePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEE4D729192C900092B333 /* RealtimePage.swift */; };
 		84CEE4DB2919DD960092B333 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 84CEE4DA2919DD960092B333 /* PopupView */; };
-		84F67F0A29482650005EEA6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84F67F0929482650005EEA6B /* GoogleService-Info.plist */; };
+		84DBF789294C695800B6578C /* RestAreaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF788294C695800B6578C /* RestAreaModel.swift */; };
+		84DBF78B294D3C6B00B6578C /* ResAreaModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF78A294D3C6B00B6578C /* ResAreaModal.swift */; };
+		84DBF78D294D750F00B6578C /* RtmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF78C294D750F00B6578C /* RtmsModel.swift */; };
+		84DBF78F294D76E300B6578C /* RtmsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF78E294D76E300B6578C /* RtmsModal.swift */; };
+		84DBF791294D966E00B6578C /* Rtms2Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF790294D966E00B6578C /* Rtms2Model.swift */; };
+		84DBF793294D983C00B6578C /* Rtms2Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF792294D983C00B6578C /* Rtms2Modal.swift */; };
+		84DBF795294DA14200B6578C /* RadarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF794294DA14200B6578C /* RadarModel.swift */; };
+		84DBF797294DA45100B6578C /* RadarModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF796294DA45100B6578C /* RadarModal.swift */; };
+		84DBF79B294DB2BB00B6578C /* SpeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF79A294DB2BB00B6578C /* SpeedModel.swift */; };
+		84DBF79D294DB62500B6578C /* SpeedModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF79C294DB62500B6578C /* SpeedModal.swift */; };
+		84DBF79F294EC46F00B6578C /* WaterLevelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF79E294EC46F00B6578C /* WaterLevelModel.swift */; };
+		84DBF7A1294EC90000B6578C /* WaterLevelModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF7A0294EC90000B6578C /* WaterLevelModal.swift */; };
+		84DBF7A3294ECC5000B6578C /* PompaBanjirModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF7A2294ECC5000B6578C /* PompaBanjirModel.swift */; };
+		84DBF7A5294ECD7C00B6578C /* PompaBanjirModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF7A4294ECD7C00B6578C /* PompaBanjirModal.swift */; };
+		84DBF7A7294ED77F00B6578C /* WimModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF7A6294ED77F00B6578C /* WimModel.swift */; };
+		84DBF7A9294EDA2E00B6578C /* WimModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF7A8294EDA2E00B6578C /* WimModal.swift */; };
+		84DBF7AB294EDE6B00B6578C /* BikeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF7AA294EDE6B00B6578C /* BikeModel.swift */; };
+		84DBF7AD294EDFE900B6578C /* GpsKendaraanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF7AC294EDFE900B6578C /* GpsKendaraanModel.swift */; };
 		84F67F1229483D19005EEA6B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 84F67F1129483D19005EEA6B /* FirebaseAnalytics */; };
 		84F67F1429483D19005EEA6B /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 84F67F1329483D19005EEA6B /* FirebaseMessaging */; };
 		FA0BBEDC28E295CD000278C6 /* SegmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0BBEDB28E295CD000278C6 /* SegmentModel.swift */; };
@@ -99,14 +127,42 @@
 
 /* Begin PBXFileReference section */
 		840E1CB6294493D0007788BC /* DetailEventLalin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventLalin.swift; sourceTree = "<group>"; };
+		842CA79E294961B6006D513F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		848A19412949DB97003A30D0 /* NotificationTest.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = NotificationTest.apns; path = ../../NotificationTest.apns; sourceTree = "<group>"; };
 		8490317129363E47003A8280 /* CctvCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CctvCarousel.swift; sourceTree = "<group>"; };
+		8494E4B4294AACC600AC11FE /* GangguanLalinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GangguanLalinModel.swift; sourceTree = "<group>"; };
+		8494E4B6294AB23A00AC11FE /* GangguanModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GangguanModal.swift; sourceTree = "<group>"; };
+		8494E4B8294ABC6100AC11FE /* RekaysaLalinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RekaysaLalinModel.swift; sourceTree = "<group>"; };
+		8494E4BA294ABF5500AC11FE /* RekayasaLalinModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RekayasaLalinModal.swift; sourceTree = "<group>"; };
+		8494E4BC294AC27600AC11FE /* LineRekayasaLalinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineRekayasaLalinModel.swift; sourceTree = "<group>"; };
+		8494E4BE294AF68300AC11FE /* BatasKmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatasKmModel.swift; sourceTree = "<group>"; };
+		8494E4C0294B031F00AC11FE /* JalanPenghubungModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JalanPenghubungModel.swift; sourceTree = "<group>"; };
+		8494E4C2294B0EBE00AC11FE /* GerbangTollModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GerbangTollModel.swift; sourceTree = "<group>"; };
+		8494E4C4294B13B100AC11FE /* GerbangTollModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GerbangTollModal.swift; sourceTree = "<group>"; };
 		84A0B4DC2947EEED006260FD /* vmsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vmsModel.swift; sourceTree = "<group>"; };
 		84A0B4DE2947FE1F006260FD /* vmsModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vmsModal.swift; sourceTree = "<group>"; };
 		84A0B4E029482527006260FD /* JID.COM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JID.COM.entitlements; sourceTree = "<group>"; };
 		84CEE4D32919201D0092B333 /* SplashScrean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScrean.swift; sourceTree = "<group>"; };
 		84CEE4D52919270D0092B333 /* AntrianPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntrianPage.swift; sourceTree = "<group>"; };
 		84CEE4D729192C900092B333 /* RealtimePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimePage.swift; sourceTree = "<group>"; };
-		84F67F0929482650005EEA6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84DBF788294C695800B6578C /* RestAreaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAreaModel.swift; sourceTree = "<group>"; };
+		84DBF78A294D3C6B00B6578C /* ResAreaModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResAreaModal.swift; sourceTree = "<group>"; };
+		84DBF78C294D750F00B6578C /* RtmsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RtmsModel.swift; sourceTree = "<group>"; };
+		84DBF78E294D76E300B6578C /* RtmsModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RtmsModal.swift; sourceTree = "<group>"; };
+		84DBF790294D966E00B6578C /* Rtms2Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rtms2Model.swift; sourceTree = "<group>"; };
+		84DBF792294D983C00B6578C /* Rtms2Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rtms2Modal.swift; sourceTree = "<group>"; };
+		84DBF794294DA14200B6578C /* RadarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarModel.swift; sourceTree = "<group>"; };
+		84DBF796294DA45100B6578C /* RadarModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarModal.swift; sourceTree = "<group>"; };
+		84DBF79A294DB2BB00B6578C /* SpeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedModel.swift; sourceTree = "<group>"; };
+		84DBF79C294DB62500B6578C /* SpeedModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedModal.swift; sourceTree = "<group>"; };
+		84DBF79E294EC46F00B6578C /* WaterLevelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterLevelModel.swift; sourceTree = "<group>"; };
+		84DBF7A0294EC90000B6578C /* WaterLevelModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterLevelModal.swift; sourceTree = "<group>"; };
+		84DBF7A2294ECC5000B6578C /* PompaBanjirModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PompaBanjirModel.swift; sourceTree = "<group>"; };
+		84DBF7A4294ECD7C00B6578C /* PompaBanjirModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PompaBanjirModal.swift; sourceTree = "<group>"; };
+		84DBF7A6294ED77F00B6578C /* WimModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WimModel.swift; sourceTree = "<group>"; };
+		84DBF7A8294EDA2E00B6578C /* WimModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WimModal.swift; sourceTree = "<group>"; };
+		84DBF7AA294EDE6B00B6578C /* BikeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeModel.swift; sourceTree = "<group>"; };
+		84DBF7AC294EDFE900B6578C /* GpsKendaraanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GpsKendaraanModel.swift; sourceTree = "<group>"; };
 		FA0BBEDB28E295CD000278C6 /* SegmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentModel.swift; sourceTree = "<group>"; };
 		FA16400A28D953E100954717 /* SegmentRuas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentRuas.swift; sourceTree = "<group>"; };
 		FA16400C28D954D200954717 /* Writer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Writer.swift; sourceTree = "<group>"; };
@@ -231,6 +287,22 @@
 				FA8A12AA28E2CE8A00EECFD3 /* ListCctvModel.swift */,
 				FA8A12AC28E3EDFE00EECFD3 /* CctvMapModel.swift */,
 				84A0B4DC2947EEED006260FD /* vmsModel.swift */,
+				8494E4B4294AACC600AC11FE /* GangguanLalinModel.swift */,
+				8494E4B8294ABC6100AC11FE /* RekaysaLalinModel.swift */,
+				8494E4BC294AC27600AC11FE /* LineRekayasaLalinModel.swift */,
+				8494E4BE294AF68300AC11FE /* BatasKmModel.swift */,
+				8494E4C0294B031F00AC11FE /* JalanPenghubungModel.swift */,
+				8494E4C2294B0EBE00AC11FE /* GerbangTollModel.swift */,
+				84DBF788294C695800B6578C /* RestAreaModel.swift */,
+				84DBF78C294D750F00B6578C /* RtmsModel.swift */,
+				84DBF790294D966E00B6578C /* Rtms2Model.swift */,
+				84DBF794294DA14200B6578C /* RadarModel.swift */,
+				84DBF79A294DB2BB00B6578C /* SpeedModel.swift */,
+				84DBF79E294EC46F00B6578C /* WaterLevelModel.swift */,
+				84DBF7A2294ECC5000B6578C /* PompaBanjirModel.swift */,
+				84DBF7A6294ED77F00B6578C /* WimModel.swift */,
+				84DBF7AA294EDE6B00B6578C /* BikeModel.swift */,
+				84DBF7AC294EDFE900B6578C /* GpsKendaraanModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -255,7 +327,8 @@
 		FA6BF78D289EC043006EECC0 /* JID.COM */ = {
 			isa = PBXGroup;
 			children = (
-				84F67F0929482650005EEA6B /* GoogleService-Info.plist */,
+				848A19412949DB97003A30D0 /* NotificationTest.apns */,
+				842CA79E294961B6006D513F /* GoogleService-Info.plist */,
 				84A0B4E029482527006260FD /* JID.COM.entitlements */,
 				FAC0E64D28BC9CD0007146E5 /* Components */,
 				FABA169028B3279400BFD24D /* Views */,
@@ -314,6 +387,17 @@
 				8490317129363E47003A8280 /* CctvCarousel.swift */,
 				840E1CB6294493D0007788BC /* DetailEventLalin.swift */,
 				84A0B4DE2947FE1F006260FD /* vmsModal.swift */,
+				8494E4B6294AB23A00AC11FE /* GangguanModal.swift */,
+				8494E4BA294ABF5500AC11FE /* RekayasaLalinModal.swift */,
+				8494E4C4294B13B100AC11FE /* GerbangTollModal.swift */,
+				84DBF78A294D3C6B00B6578C /* ResAreaModal.swift */,
+				84DBF78E294D76E300B6578C /* RtmsModal.swift */,
+				84DBF792294D983C00B6578C /* Rtms2Modal.swift */,
+				84DBF796294DA45100B6578C /* RadarModal.swift */,
+				84DBF79C294DB62500B6578C /* SpeedModal.swift */,
+				84DBF7A0294EC90000B6578C /* WaterLevelModal.swift */,
+				84DBF7A4294ECD7C00B6578C /* PompaBanjirModal.swift */,
+				84DBF7A8294EDA2E00B6578C /* WimModal.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -408,11 +492,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				848A19422949DB97003A30D0 /* NotificationTest.apns in Resources */,
 				FA3E42E028A3662100C30323 /* toll.json in Resources */,
 				FA6BF7AB289ECA3A006EECC0 /* lalin.json in Resources */,
-				84F67F0A29482650005EEA6B /* GoogleService-Info.plist in Resources */,
 				FA6BF796289EC047006EECC0 /* Preview Assets.xcassets in Resources */,
 				FA6BF793289EC047006EECC0 /* Assets.xcassets in Resources */,
+				842CA79F294961B6006D513F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,13 +510,19 @@
 			files = (
 				84A0B4DD2947EEED006260FD /* vmsModel.swift in Sources */,
 				FA3E42DE28A3620E00C30323 /* catatan.swift in Sources */,
+				84DBF797294DA45100B6578C /* RadarModal.swift in Sources */,
 				FA6BF791289EC043006EECC0 /* ContentView.swift in Sources */,
+				84DBF7A1294EC90000B6578C /* WaterLevelModal.swift in Sources */,
 				FA7FE4CB28A56DB200669633 /* GetIP.swift in Sources */,
 				FA8A12B328E4364A00EECFD3 /* WriteImg.swift in Sources */,
+				84DBF7A3294ECC5000B6578C /* PompaBanjirModel.swift in Sources */,
 				FAC0E65328BCA877007146E5 /* PemeliharaanComponent.swift in Sources */,
 				FA8A12BA28E52C7300EECFD3 /* SnapImage.swift in Sources */,
+				8494E4C1294B031F00AC11FE /* JalanPenghubungModel.swift in Sources */,
 				FAC0E65528BCA99D007146E5 /* Initdata.swift in Sources */,
 				FA6BF78F289EC043006EECC0 /* JID_COMApp.swift in Sources */,
+				84DBF79D294DB62500B6578C /* SpeedModal.swift in Sources */,
+				8494E4BD294AC27600AC11FE /* LineRekayasaLalinModel.swift in Sources */,
 				840E1CB7294493D0007788BC /* DetailEventLalin.swift in Sources */,
 				84CEE4D62919270D0092B333 /* AntrianPage.swift in Sources */,
 				FABA169228B327AC00BFD24D /* LoginPage.swift in Sources */,
@@ -440,8 +531,12 @@
 				FA8A12BC28E52D1E00EECFD3 /* SnapImgSingle.swift in Sources */,
 				84CEE4D829192C900092B333 /* RealtimePage.swift in Sources */,
 				FA16401728DBE35800954717 /* WebviewPresent.swift in Sources */,
+				84DBF7A7294ED77F00B6578C /* WimModel.swift in Sources */,
+				84DBF789294C695800B6578C /* RestAreaModel.swift in Sources */,
 				FA0BBEDC28E295CD000278C6 /* SegmentModel.swift in Sources */,
+				84DBF78F294D76E300B6578C /* RtmsModal.swift in Sources */,
 				FA829A9528EC64ED0084AB82 /* SnapCarousel.swift in Sources */,
+				84DBF795294DA14200B6578C /* RadarModel.swift in Sources */,
 				FA8A12AF28E427C900EECFD3 /* ImageLoad.swift in Sources */,
 				FABA169428B327C600BFD24D /* MapPage.swift in Sources */,
 				FA8A12AD28E3EDFF00EECFD3 /* CctvMapModel.swift in Sources */,
@@ -450,25 +545,42 @@
 				FA7FE4CD28A6472500669633 /* ConManager.swift in Sources */,
 				FA16400F28DAEB0B00954717 /* KejadianLalin.swift in Sources */,
 				FA8A12A928E2B3F700EECFD3 /* CctvSegemnt.swift in Sources */,
+				8494E4B9294ABC6100AC11FE /* RekaysaLalinModel.swift in Sources */,
+				84DBF7AD294EDFE900B6578C /* GpsKendaraanModel.swift in Sources */,
 				FA16400D28D954D200954717 /* Writer.swift in Sources */,
+				8494E4B7294AB23A00AC11FE /* GangguanModal.swift in Sources */,
 				FA3E42F228A3B9D500C30323 /* LoginModel.swift in Sources */,
 				FA8A12AB28E2CE8A00EECFD3 /* ListCctvModel.swift in Sources */,
+				84DBF78B294D3C6B00B6578C /* ResAreaModal.swift in Sources */,
+				84DBF78D294D750F00B6578C /* RtmsModel.swift in Sources */,
 				FA3E42E628A38A7B00C30323 /* ColorSet.swift in Sources */,
 				FA32DA8C28B3D1B5006C6B0F /* PemeliharaanModel.swift in Sources */,
+				84DBF793294D983C00B6578C /* Rtms2Modal.swift in Sources */,
 				FA16401528DBE02A00954717 /* WebviewDashboard.swift in Sources */,
 				FA829A9728ED269A0084AB82 /* CarauselView.swift in Sources */,
+				8494E4BF294AF68300AC11FE /* BatasKmModel.swift in Sources */,
 				FA7B35A228B343DB0022FCC1 /* TollModel.swift in Sources */,
 				84CEE4D42919201D0092B333 /* SplashScrean.swift in Sources */,
+				84DBF7A5294ECD7C00B6578C /* PompaBanjirModal.swift in Sources */,
+				84DBF7AB294EDE6B00B6578C /* BikeModel.swift in Sources */,
 				FAAFB0AC28D06E7700F8DE63 /* MainPage.swift in Sources */,
 				FA16401328DB490F00954717 /* MenuDashboard.swift in Sources */,
 				FAAFB0B428D2DC0D00F8DE63 /* CctvPage.swift in Sources */,
 				FAAFB0B228D2AB3E00F8DE63 /* HomePage.swift in Sources */,
+				84DBF79B294DB2BB00B6578C /* SpeedModel.swift in Sources */,
 				FA7A2A3C28F290B3005672CC /* LayerList.swift in Sources */,
+				84DBF7A9294EDA2E00B6578C /* WimModal.swift in Sources */,
 				FABA168F28B326D500BFD24D /* SetBottomSheet.swift in Sources */,
+				8494E4C5294B13B100AC11FE /* GerbangTollModal.swift in Sources */,
 				FAC0E65728BCAA00007146E5 /* Dataset.swift in Sources */,
 				FA3E42E428A3732600C30323 /* RestApiController.swift in Sources */,
+				8494E4B5294AACC600AC11FE /* GangguanLalinModel.swift in Sources */,
+				84DBF791294D966E00B6578C /* Rtms2Model.swift in Sources */,
 				84A0B4DF2947FE1F006260FD /* vmsModal.swift in Sources */,
 				FA7B35A428B348A10022FCC1 /* LalinModel.swift in Sources */,
+				8494E4C3294B0EBE00AC11FE /* GerbangTollModel.swift in Sources */,
+				84DBF79F294EC46F00B6578C /* WaterLevelModel.swift in Sources */,
+				8494E4BB294ABF5500AC11FE /* RekayasaLalinModal.swift in Sources */,
 				8490317229363E47003A8280 /* CctvCarousel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

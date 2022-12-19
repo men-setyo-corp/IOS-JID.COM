@@ -17,7 +17,7 @@ struct HomePage: View {
     @State var tipe_lalin : String = ""
     @State var isShowModal : Bool = false
     
-    @State var dataInSide = Data_event_lalin(id: 0 , title: "", nama_ruas: "", km: "", jalur: "", lajur: "", waktu: "", jenis_event: "", arah_jalur: "", ket_status: "", ket: "", range_km: "", waktu_end: "")
+    @State var dataInSide = Data_event_lalin(id: 0 , title: "", nama_ruas: "", nama_ruas_2: "", km: "", jalur: "", lajur: "", waktu: "", jenis_event: "", arah_jalur: "", ket_status: "", ket: "", range_km: "", waktu_end: "")
     
     var body: some View {
         ZStack{
@@ -130,22 +130,29 @@ struct HomePage: View {
                                 HStack{
                                     Spacer()
                                     Text("Waktu")
-                                        .font(.system(size: 12, weight: .bold))
-                                        .frame(width: 80, alignment: .center)
+                                        .font(.system(size: 11, weight: .bold))
+                                        .frame(width: 60, alignment: .center)
                                         .multilineTextAlignment(.center)
                                         .foregroundColor(.black)
                                     
                                     Spacer()
-                                    Text("KM")
-                                        .font(.system(size: 12, weight: .bold))
-                                        .frame(width: 50, alignment: .center)
+                                    Text("Ruas/KM")
+                                        .font(.system(size: 11, weight: .bold))
+                                        .frame(width: 80, alignment: .center)
                                         .multilineTextAlignment(.center)
                                         .foregroundColor(.black)
                                     
                                     Spacer()
                                     Text("Jenis")
-                                        .font(.system(size: 12, weight: .bold))
-                                        .frame(width: 80, alignment: .center)
+                                        .font(.system(size: 11, weight: .bold))
+                                        .frame(width: 70, alignment: .center)
+                                        .multilineTextAlignment(.center)
+                                        .foregroundColor(.black)
+                                    
+                                    Spacer()
+                                    Text("")
+                                        .font(.system(size: 11, weight: .bold))
+                                        .frame(width: 10, alignment: .center)
                                         .multilineTextAlignment(.center)
                                         .foregroundColor(.black)
                                     
@@ -172,31 +179,39 @@ struct HomePage: View {
                                                 }else if btnRekayasa == true {
                                                     titleJdl = "Rekayasa Lalu Lintas"
                                                 }
-                                                dataInSide = Data_event_lalin(id: result.idx , title: titleJdl, nama_ruas: result.nama_ruas, km: result.km, jalur: result.jalur, lajur: result.lajur, waktu: result.waktu, jenis_event: result.jenis_event, arah_jalur: result.arah_jalur, ket_status: result.ket_status, ket: result.ket, range_km: result.range_km, waktu_end: result.waktu_end)
+                                              
+                                               
+                                                dataInSide = Data_event_lalin(id: result.idx , title: titleJdl, nama_ruas: result.nama_ruas, nama_ruas_2: result.nama_ruas_2, km: result.km, jalur: result.jalur, lajur: result.lajur, waktu: result.waktu, jenis_event: result.jenis_event, arah_jalur: result.arah_jalur, ket_status: result.ket_status, ket: result.ket, range_km: result.range_km, waktu_end: result.waktu_end)
                                                 
                                             }label:{
                                                 VStack{
                                                     HStack{
                                                         Spacer()
                                                         Text(result.waktu)
-                                                            .font(.system(size: 12))
-                                                            .frame(width: 80, alignment: .center)
+                                                            .font(.system(size: 10))
+                                                            .frame(width: 60, alignment: .center)
                                                             .multilineTextAlignment(.center)
-                                                            .foregroundColor(result.ket_status == "Dalam Penanganan" || result.ket_status == "Dalam Proses" ? .orange : .red)
+                                                            .foregroundColor(.black)
                                                         
                                                         Spacer()
-                                                        Text(result.km)
-                                                            .font(.system(size: 12))
-                                                            .frame(width: 50, alignment: .center)
+                                                        Text("\(result.nama_ruas_2)/\(result.km) \(result.jalur)")
+                                                            .font(.system(size: 10))
+                                                            .frame(width: 80, alignment: .center)
                                                             .multilineTextAlignment(.center)
-                                                            .foregroundColor(result.ket_status == "Dalam Penanganan" || result.ket_status == "Dalam Proses" ? .orange : .red)
+                                                            .foregroundColor(.black)
                                                         
                                                         Spacer()
                                                         Text(result.jenis_event)
-                                                            .font(.system(size: 12))
-                                                            .frame(width: 80, alignment: .center)
+                                                            .font(.system(size: 10))
+                                                            .frame(width: 70, alignment: .center)
                                                             .multilineTextAlignment(.center)
-                                                            .foregroundColor(result.ket_status == "Dalam Penanganan" || result.ket_status == "Dalam Proses" ? .orange : .red)
+                                                            .foregroundColor(.black)
+                                                        
+                                                        Spacer()
+                                                        Rectangle()
+                                                            .fill(result.ket_status == "Dalam Penanganan" || result.ket_status == "Dalam Proses" ? .orange : .red)
+                                                            .frame(width: 15, height: 15)
+                                                            .cornerRadius(50)
                                                         
                                                         Spacer()
                                                     }
@@ -219,7 +234,7 @@ struct HomePage: View {
                                         .fill(.red)
                                         .frame(width: 10, height: 10)
                                         .cornerRadius(50)
-                                    Text("Belum Di Tangani")
+                                    Text(btnGangguan == true ? "Belum Ditangani" : "Dalam Rencana")
                                         .font(.system(size: 9))
                                         .foregroundColor(.black)
                                     
@@ -227,7 +242,7 @@ struct HomePage: View {
                                         .fill(.orange)
                                         .frame(width: 10, height: 10)
                                         .cornerRadius(50)
-                                    Text("Dalam Proses")
+                                    Text(btnGangguan == true ? "Dalam Penanganan" : "Dalam Proses")
                                         .font(.system(size: 9))
                                         .foregroundColor(.black)
                                 }

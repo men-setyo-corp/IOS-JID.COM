@@ -11,9 +11,7 @@ import BottomSheet
 import Alamofire
 import PopupView
 
-struct MapPage: View {
-    
-    @State var offset: CGFloat = 0
+struct MapPage: View {    @State var offset: CGFloat = 0
     @State var translation: CGSize = CGSize(width: 0, height: 0)
     
     @State private var showingCredits = false
@@ -46,7 +44,6 @@ struct MapPage: View {
                     
                     Spacer()
                 }
-                
                 
                 Layerset(isShowModal: $showingSheet)
                 

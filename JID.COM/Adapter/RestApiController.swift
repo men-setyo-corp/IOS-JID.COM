@@ -24,14 +24,21 @@ class RestApiController{
         let data : JSONObject
     }
     
+    struct responseAPILine: Codable {
+        let msg: String
+        let status: Int
+        let linedata : JSONObject
+    }
+    
     func getAPI(from url: String,completion: @escaping (_ data: JSONObject?) -> ()) {
+        
         let urlset = URL(string: url_based+url)!
         var request = URLRequest(url: urlset)
         
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("2345391662", forHTTPHeaderField: "Authorization")
         
-        if url == "showlalin" {
+        if url == "showlalin" || url == "data/jalan_penghubung" || url == "data/pompa" || url == "data/bike" {
             request.httpMethod = "GET"
         }else{
             let json: [String: Any] = ["id_ruas": modelLogin.scope]
@@ -56,6 +63,41 @@ class RestApiController{
                 return
             }
             completion(json.data)
+            
+        })
+        task.resume()
+    }
+    
+    func getAPILine(from url: String,completion: @escaping (_ data: JSONObject?) -> ()) {
+        
+        let urlset = URL(string: url_based+url)!
+        var request = URLRequest(url: urlset)
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("2345391662", forHTTPHeaderField: "Authorization")
+        
+        let json: [String: Any] = ["id_ruas": modelLogin.scope]
+        let params = try? JSONSerialization.data(withJSONObject: json)
+        request.httpMethod = "POST"
+        request.httpBody = params
+        
+        let task = URLSession.shared.dataTask(with: (request), completionHandler: { getdata, response, error in
+            guard let getdata = getdata, error == nil else{
+                print("something went wrong of get data form api")
+                return
+            }
+            var result: responseAPILine?
+            do{
+                result = try JSONDecoder().decode(responseAPILine.self, from: getdata)
+            }catch{
+                print("failed to convert \(error.localizedDescription)")
+            }
+            
+            guard let json = result else{
+                return
+            }
+            completion(json.linedata)
+            
         })
         task.resume()
     }

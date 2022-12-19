@@ -16,7 +16,7 @@ struct SegmentRuas: View {
     @State var datasegment : [Getsegment] = []
     
     var items: [GridItem] {
-      Array(repeating: .init(.adaptive(minimum: 120)), count: 2)
+      Array(repeating: .init(.adaptive(minimum: 120)), count: 1)
     }
     
     var body: some View {
@@ -42,7 +42,7 @@ struct SegmentRuas: View {
                     }
                     Spacer()
                 }
-                .padding(.horizontal,25)
+                .padding(.horizontal,10)
                 
                 ZStack{
                     TextField("cari segment", text: $search)
@@ -71,7 +71,7 @@ struct SegmentRuas: View {
                         .padding(.bottom, 10)
                         .searchable(text: $search)
                 }
-                .padding(.horizontal, 25)
+                .padding(.horizontal, 10)
                 
                 ScrollView{
                     let parseKey = Writer(
@@ -82,82 +82,101 @@ struct SegmentRuas: View {
                     NavigationLink(
                         destination: CctvSegemnt(writer: parseKey),
                     label:{
-                        ZStack{
-                            VStack{
-                                HStack{
-                                    Image("cctv_icon")
-                                        .font(.system(size: 35, weight: .bold))
-                                        .foregroundColor(Color(UIColor(hexString: "#390099")))
-                                }
-                                .padding(15)
-                                .background(Color(UIColor(hexString: "#DFEFFF")))
-                                .clipShape(Circle())
-                                Text("Semua Segment")
-                                    .font(.system(size:12))
+                        HStack{
+                            ZStack{
+                                Image(systemName: "camera.fill")
+                                    .font(.system(size: 18))
                                     .foregroundColor(Color(UIColor(hexString: "#390099")))
-                                    .multilineTextAlignment(.center)
                             }
+                            .padding(7)
+                            .background(Color(UIColor(hexString: "#DFEFFF")))
+                            .clipShape(Circle())
+                            
+                            Spacer()
+                            Text("SEMUA SEGMENT")
+                                .font(.system(size:12, weight: .bold))
+                                .foregroundColor(Color(UIColor(hexString: "#390099")))
+                                .multilineTextAlignment(.center)
+                            Spacer()
                         }
+                        .padding(.vertical, 15)
+                        .padding(.horizontal, 15)
                         .frame(maxWidth: .infinity)
-                        .frame(height: 180, alignment: .center)
-                        .background(Color(.white))
-                        .cornerRadius(10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(Color.black.opacity(0.5), lineWidth: 0.5)
+                        )
+                        .background{
+                            RoundedRectangle(cornerRadius: 16)
+                                .fill(Color.white.opacity(0.08))
+                        }
+                        .cornerRadius(16)
                         .padding(.top, 10)
                         .shadow(radius: 2)
-                        .padding(.horizontal, 26)
                     })
                     
-                    LazyVGrid(columns: items, spacing: 5) {
-                        if datasegment.isEmpty {
-                            ForEach(1..<10){row in
-                                CardShimmerSegment()
-                            }
-                        }else{
-                            ForEach(searchResults) { row in
-                                let parseKey = Writer(
-                                    id_key: row.id_ruas,
-                                    id_segment: row.idx,
-                                    nama_ruas: row.nama_segment
-                                )
-                                NavigationLink(
-                                    destination: CctvSegemnt(writer:parseKey),
-                                label:{
-                                    ZStack{
-                                        VStack{
-                                            HStack{
-                                                Image("cctv_icon")
-                                                    .font(.system(size: 35, weight: .bold))
-                                                    .foregroundColor(Color(UIColor(hexString: "#390099")))
-                                            }
-                                            .padding(15)
-                                            .background(Color(UIColor(hexString: "#DFEFFF")))
-                                            .clipShape(Circle())
-                                            Text(row.nama_segment)
-                                                .font(.system(size:9))
-                                                .foregroundColor(Color(UIColor(hexString: "#390099")))
-                                                .multilineTextAlignment(.center)
-                                        }.padding(.horizontal, 5)
-                                    }
-                                    .frame(maxWidth: .infinity)
-                                    .frame(height: 180, alignment: .center)
-                                    .background(Color(.white))
-                                    .cornerRadius(10)
-                                    .padding(.top, 10)
-                                    .shadow(radius: 2)
-                                    .padding(.horizontal,4)
-                                })
-                            }
+//                    LazyVGrid(columns: items, spacing: 5) {
+//                    }
+//                    .padding(.bottom, 10)
+//                    .padding(.horizontal, 25)
+                    
+                    if datasegment.isEmpty {
+                        ForEach(1..<10){row in
+                            CardShimmerSegment()
                         }
-                        
+                    }else{
+                        ForEach(searchResults) { row in
+                            let parseKey = Writer(
+                                id_key: row.id_ruas,
+                                id_segment: row.idx,
+                                nama_ruas: row.nama_segment
+                            )
+                            NavigationLink(
+                                destination: CctvSegemnt(writer:parseKey),
+                            label:{
+                                HStack{
+                                    ZStack{
+                                        Image(systemName: "camera.fill")
+                                            .font(.system(size: 18))
+                                            .foregroundColor(Color(UIColor(hexString: "#390099")))
+                                    }
+                                    .padding(7)
+                                    .background(Color(UIColor(hexString: "#DFEFFF")))
+                                    .clipShape(Circle())
+                                    
+                                    Spacer()
+                                    Text(row.nama_segment)
+                                        .font(.system(size:12))
+                                        .foregroundColor(Color(UIColor(hexString: "#390099")))
+                                        .multilineTextAlignment(.center)
+                                    Spacer()
+                                }
+                                .padding(.vertical, 15)
+                                .padding(.horizontal, 15)
+                                .frame(maxWidth: .infinity)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .stroke(Color.black.opacity(0.5), lineWidth: 0.5)
+                                )
+                                .background{
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .fill(Color.white.opacity(0.08))
+                                }
+                                .cornerRadius(16)
+                                .padding(.top, 10)
+                                .shadow(radius: 2)
+                            })
+                        }
                     }
-                    .padding(.bottom, 10)
-                    .padding(.horizontal, 25)
                     
                 }
+                .padding(.horizontal, 10)
                 .padding(.bottom, 5)
                 
                 Spacer()
             }
+            .padding(.horizontal)
+            .background(.white)
         }
         .background(.white)
         .navigationBarHidden(true)

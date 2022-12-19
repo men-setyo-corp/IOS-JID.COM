@@ -21,7 +21,7 @@ class SegmentModel: ObservableObject {
     @Published var errorMsg: String = ""
     
     func getSegment(idruas: Int, completion: @escaping ([Getsegment]) -> ()){
-        DispatchQueue.global(qos: .background).async {
+        DispatchQueue.global().async {
             let paramsData: Parameters = ["id_ruas": idruas]
             RestApiController().resAPI(endPoint: "data/segment", method: .put, dataParam: paramsData){ (results) in
                 let getJSON = JSON(results ?? "Null data from API")

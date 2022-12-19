@@ -110,7 +110,7 @@ struct DetailEventLalin: View {
                                 .font(.system(size: 12))
                                 .foregroundColor(.black)
                             Spacer()
-                            Text(dataDetailEvent.arah_jalur)
+                            Text("\(dataDetailEvent.arah_jalur)")
                                 .font(.system(size: 11, weight: .bold))
                                 .foregroundColor(.black)
                         }
@@ -178,7 +178,7 @@ struct DetailEventLalin: View {
 }
 
 struct DetailEventLalin_Previews: PreviewProvider {
-    static let senddataDetailEvent = Data_event_lalin(id: 0, title: "", nama_ruas: "", km: "", jalur: "", lajur: "", waktu: "", jenis_event: "", arah_jalur: "", ket_status: "", ket: "", range_km: "", waktu_end: "")
+    static let senddataDetailEvent = Data_event_lalin(id: 0, title: "", nama_ruas: "", nama_ruas_2: "", km: "", jalur: "", lajur: "", waktu: "", jenis_event: "", arah_jalur: "", ket_status: "", ket: "", range_km: "", waktu_end: "")
     
     static var previews: some View {
         DetailEventLalin(isShowModal: .constant(true), dataDetailEvent: senddataDetailEvent)

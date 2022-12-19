@@ -148,6 +148,7 @@ struct CctvSegemnt: View {
                                                         .font(.system(size: 10))
                                                         .foregroundColor(Color.black)
                                                 }
+                                                .padding(.horizontal, 10)
                                                 .padding(.top, 5)
                                                 .padding(.bottom, 10)
                                             }

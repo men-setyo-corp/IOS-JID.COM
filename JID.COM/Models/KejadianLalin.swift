@@ -12,6 +12,7 @@ import SwiftyJSON
 struct Kejadian: Codable, Identifiable {
     let idx : Int
     let nama_ruas: String
+    let nama_ruas_2: String
     let km: String
     let arah_jalur: String
     let dampak: String
@@ -34,7 +35,7 @@ class KejadianLalin: ObservableObject {
     var modelLogin : LoginModel = LoginModel()
     
     func getKejadianLalin(tipe_lalin: String, completion: @escaping ([Kejadian]) -> ()){
-        DispatchQueue.global(qos: .background).async {
+        DispatchQueue.global().async {
             let paramsData: Parameters = ["id_ruas": self.modelLogin.scope]
             RestApiController().resAPI(endPoint: "kejadian_lalin_by_ruas/", method: .post ,dataParam: paramsData){ (results) in
                 let getJSON = JSON(results ?? "Null data from API")

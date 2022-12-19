@@ -66,6 +66,7 @@ class PemeliharaanModel: ObservableObject{
                         } catch {
                             print("Galam menjalankan proses toggle layer pemeliharaan")
                         }
+                        
                     }
                     
                     self.timer.invalidate()

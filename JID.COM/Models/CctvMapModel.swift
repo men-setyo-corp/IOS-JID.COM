@@ -169,7 +169,7 @@ class CctvMapModel: ObservableObject{
                     } catch {
                         print("Gagal menjalankan proses toggle layer cctv")
                     }
-                    vmsModel().setUpVMSAPI(setmapView: self.mapView)
+                    
                 }
 //                self.timer.invalidate()
 //                self.timer = Timer.scheduledTimer(timeInterval: 110, target: self, selector: #selector(self.setUpdateLayersCctv), userInfo: nil, repeats: true)
