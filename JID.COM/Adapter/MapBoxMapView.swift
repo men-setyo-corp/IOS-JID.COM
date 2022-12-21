@@ -128,7 +128,7 @@ class MapViewController: UIViewController {
         //set ornamnents and gestures default mapbox
         mapView.gestures.options.rotateEnabled = false
         mapView.ornaments.attributionButton.isHidden = true
-        mapView.ornaments.logoView.isHidden = true
+        mapView.ornaments.logoView.isHidden = false
         
         mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onMapClick)))
         
@@ -193,6 +193,7 @@ class MapViewController: UIViewController {
             let writerForSecondView = Dataset().Dataset_pemeliharaan(dataSet: dataSet)
             let nav = UIHostingController(rootView: PemeliharaanComponent(writer: writerForSecondView))
             nav.modalPresentationStyle = .pageSheet
+            nav.view.backgroundColor = .white
             if let sheet = nav.sheetPresentationController{
                 sheet.detents = [.medium(), .large()]
             }
@@ -201,6 +202,7 @@ class MapViewController: UIViewController {
             let writerForSecondView = Dataset().Dataset_gangguan(dataSet: dataSet)
             let nav = UIHostingController(rootView: GangguanModal(writer: writerForSecondView))
             nav.modalPresentationStyle = .pageSheet
+            nav.view.backgroundColor = .white
             if let sheet = nav.sheetPresentationController{
                 sheet.detents = [.medium(), .large()]
             }
@@ -209,6 +211,7 @@ class MapViewController: UIViewController {
             let writerForSecondView = Dataset().Dataset_pemeliharaan(dataSet: dataSet)
             let nav = UIHostingController(rootView: RekayasaLalinModal(writer: writerForSecondView))
             nav.modalPresentationStyle = .pageSheet
+            nav.view.backgroundColor = .white
             if let sheet = nav.sheetPresentationController{
                 sheet.detents = [.medium(), .large()]
             }
@@ -219,7 +222,7 @@ class MapViewController: UIViewController {
             nav.modalPresentationStyle = .pageSheet
             nav.view.backgroundColor = .clear
             if let sheet = nav.sheetPresentationController{
-                sheet.detents = [.large(), .medium()]
+                sheet.detents = [.large(), .large()]
             }
             present(nav, animated: true, completion: nil)
         }else if dataSet["title"].stringValue == "cctv list"{
@@ -236,13 +239,14 @@ class MapViewController: UIViewController {
             nav.modalPresentationStyle = .pageSheet
             nav.view.backgroundColor = .clear
             if let sheet = nav.sheetPresentationController{
-                sheet.detents = [.large(), .medium()]
+                sheet.detents = [.large(), .large()]
             }
             present(nav, animated: true, completion: nil)
         }else if dataSet["title"].stringValue == "gerbang tol" {
             let writerForSecondView = Dataset().Dataset_gerbangtoll(dataSet: dataSet)
             let nav = UIHostingController(rootView: GerbangTollModal(writer: writerForSecondView))
             nav.modalPresentationStyle = .pageSheet
+            nav.view.backgroundColor = .white
             if let sheet = nav.sheetPresentationController{
                 sheet.detents = [.medium(), .medium()]
             }
@@ -253,13 +257,14 @@ class MapViewController: UIViewController {
             nav.modalPresentationStyle = .pageSheet
             nav.view.backgroundColor = .clear
             if let sheet = nav.sheetPresentationController{
-                sheet.detents = [.large(), .medium()]
+                sheet.detents = [.large(), .large()]
             }
             present(nav, animated: true, completion: nil)
         }else if dataSet["title"].stringValue == "rtms" {
             let writerForSecondView = Dataset().Dataset_rtms(dataSet: dataSet)
             let nav = UIHostingController(rootView: RtmsModal(writer: writerForSecondView))
             nav.modalPresentationStyle = .pageSheet
+            nav.view.backgroundColor = .white
             if let sheet = nav.sheetPresentationController{
                 sheet.detents = [.medium(), .medium()]
             }
@@ -270,13 +275,14 @@ class MapViewController: UIViewController {
             nav.modalPresentationStyle = .pageSheet
             nav.view.backgroundColor = .clear
             if let sheet = nav.sheetPresentationController{
-                sheet.detents = [.large(), .medium()]
+                sheet.detents = [.large(), .large()]
             }
             present(nav, animated: true, completion: nil)
         }else if dataSet["title"].stringValue == "radar" {
             let writerForSecondView = Dataset().Dataset_radar(dataSet: dataSet)
             let nav = UIHostingController(rootView: RadarModal(writer: writerForSecondView))
             nav.modalPresentationStyle = .pageSheet
+            nav.view.backgroundColor = .white
             if let sheet = nav.sheetPresentationController{
                 sheet.detents = [.medium(), .large()]
             }
@@ -285,6 +291,7 @@ class MapViewController: UIViewController {
             let writerForSecondView = Dataset().Dataset_speed(dataSet: dataSet)
             let nav = UIHostingController(rootView: SpeedModal(writer: writerForSecondView))
             nav.modalPresentationStyle = .pageSheet
+            nav.view.backgroundColor = .white
             if let sheet = nav.sheetPresentationController{
                 sheet.detents = [.medium(), .large()]
             }
@@ -293,6 +300,7 @@ class MapViewController: UIViewController {
             let writerForSecondView = Dataset().Dataset_wakterlevel(dataSet: dataSet)
             let nav = UIHostingController(rootView: WaterLevelModal(writer: writerForSecondView))
             nav.modalPresentationStyle = .pageSheet
+            nav.view.backgroundColor = .white
             if let sheet = nav.sheetPresentationController{
                 sheet.detents = [.medium(), .large()]
             }
@@ -301,6 +309,7 @@ class MapViewController: UIViewController {
             let writerForSecondView = Dataset().Dataset_pompa(dataSet: dataSet)
             let nav = UIHostingController(rootView: PompaBanjirModal(writer: writerForSecondView))
             nav.modalPresentationStyle = .pageSheet
+            nav.view.backgroundColor = .white
             if let sheet = nav.sheetPresentationController{
                 sheet.detents = [.medium(), .large()]
             }
@@ -310,6 +319,7 @@ class MapViewController: UIViewController {
             let writerForSecondView = Dataset().Dataset_wim(dataSet: dataSet)
             let nav = UIHostingController(rootView: WimModal(writer: writerForSecondView))
             nav.modalPresentationStyle = .pageSheet
+            nav.view.backgroundColor = .white
             if let sheet = nav.sheetPresentationController{
                 sheet.detents = [.medium(), .large()]
             }

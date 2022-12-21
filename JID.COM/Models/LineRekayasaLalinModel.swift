@@ -47,8 +47,11 @@ class LineRekayasaLalinModel: ObservableObject{
                     lineLayer.lineCap = .constant(.round)
                     lineLayer.lineJoin = .constant(.round)
                     
-                    try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceData)
-                    try! setmapView.mapboxMap.style.addLayer(lineLayer, layerPosition: nil)
+                    if setmapView.mapboxMap.style.sourceExists(withId: self.sourceData) == false {
+                        try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceData)
+                        try! setmapView.mapboxMap.style.addLayer(lineLayer, layerPosition: nil)
+                    }
+                    
                     
                     self.mapView = setmapView
                     
@@ -102,8 +105,10 @@ class LineRekayasaLalinModel: ObservableObject{
                     symbollayer.iconAllowOverlap = .constant(false)
                     symbollayer.symbolSpacing = .constant(5)
                     
-                    try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceDatasymbolline)
-                    try! setmapView.mapboxMap.style.addLayer(symbollayer, layerPosition: nil)
+                    if setmapView.mapboxMap.style.sourceExists(withId: self.sourceDatasymbolline) == false {
+                        try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceDatasymbolline)
+                        try! setmapView.mapboxMap.style.addLayer(symbollayer, layerPosition: nil)
+                    }
                     
                     DispatchQueue.main.async {
                         do {

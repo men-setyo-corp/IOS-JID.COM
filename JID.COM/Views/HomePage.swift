@@ -164,7 +164,7 @@ struct HomePage: View {
                                 
                                 ScrollView{
                                     if self.dataresult.isEmpty {
-                                        ForEach(0...3,id: \.self){_ in
+                                        ForEach(0...5,id: \.self){_ in
                                             CardKejadian()
                                         }
                                     }else{
@@ -253,7 +253,7 @@ struct HomePage: View {
                         
                     }
                     .frame(maxWidth: .infinity)
-                    .frame(height: 300, alignment: .topLeading)
+                    .frame(height: 350, alignment: .topLeading)
                     .background(Color(.white))
                     .cornerRadius(15)
                     .padding(.top, 10)

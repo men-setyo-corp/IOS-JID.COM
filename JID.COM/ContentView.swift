@@ -27,10 +27,10 @@ struct ContentView: View {
                 Dataset.stsInfoJalanTol = ["yes","no","no","no","no","yes","no"]
             }
             if Dataset.stsSisinfokom.isEmpty {
-                Dataset.stsSisinfokom = ["no","yes","yes","yes","yes","yes","yes","yes","no","no","no"]
+                Dataset.stsSisinfokom = ["no","no","no","no","no","no","no","no","no","no","no"]
             }
             if Dataset.stsEventTol.isEmpty {
-                Dataset.stsEventTol = ["no","no","yes"]
+                Dataset.stsEventTol = ["no","no","no"]
             }
             
         }

@@ -81,7 +81,7 @@ struct MenuDashboard: View {
                             destination: WebviewDashboard(urlweb: tabArryUrl[num], title: tabArryData[num]),
                         label:{
                             Image(systemName: tabMidleBarIcon[num])
-                                .font(.system(size: 20, weight: .bold))
+                                .font(.system(size: 25, weight: .bold))
                                 .foregroundColor(Color(UIColor(hexString: "#390099")))
                         })
                         .padding(15)
@@ -105,7 +105,7 @@ struct MenuDashboard: View {
                                 destination: WebviewDashboard(urlweb: menuGangguan[num], title: tabBottomBarName[num]),
                             label:{
                                 Image(systemName: tabGangguanIcon[num])
-                                    .font(.system(size: 20, weight: .bold))
+                                    .font(.system(size: 25, weight: .bold))
                                     .foregroundColor(Color(UIColor(hexString: "#390099")))
                             })
                             .padding(15)

@@ -25,7 +25,7 @@ struct Carausel3: View {
         VStack(spacing: 15){
             Text("\(indeSelected)")
             TabView(selection: $indeSelected) {
-                ForEach(0..<emojis.endIndex) { index in
+                ForEach(0..<Int(emojis.endIndex), id: \.self) { index in
                     viewCard()
                         .tabItem {
                             Text(emojis[index])

@@ -12,6 +12,7 @@ struct CctvPage: View {
     
     @StateObject var modelLogin : LoginModel = LoginModel()
     @State var search = ""
+    @State var stoprun = true
     @State var dataruas : [Getruas] = []
     
     var body: some View {
@@ -91,7 +92,7 @@ struct CctvPage: View {
                                             Spacer()
                                             
                                             NavigationLink(
-                                                destination: MapPage(showCarousel: true, idruas: result.id_ruas),
+                                                destination: MapPage(showCarousel: true, idruas: result.id_ruas, stopRun: stoprun),
                                             label:{
                                                 Image(systemName: "map")
                                                     .font(.system(size: 18))
@@ -101,9 +102,8 @@ struct CctvPage: View {
                                             .background(Color(UIColor(hexString: "#DFEFFF")))
                                             .clipShape(Circle())
                                             .shadow(radius: 2)
-                                            .accentColor(.black) 
-                                            
-                                            
+                                            .accentColor(.black)
+                                          
 //                                            ZStack{
 //                                                HStack{
 //                                                    Spacer()
@@ -162,6 +162,7 @@ struct CctvPage: View {
             .background(.white)
             //end zstack
         }
+        
         //end navigation view
     }
     

@@ -42,16 +42,31 @@ struct MainPage: View {
                         }
                         Spacer()
                         HStack(alignment: .center){
-                            Button{
-                                print("Notification pressed")
-                            } label:{
+//                            Rectangle()
+//                                .fill(.red)
+//                                .frame(width: 10, height: 10)
+//                                .cornerRadius(50)
+//                                .padding(.leading, 10)
+                            NavigationLink(
+                                destination: HistoriNotif(),
+                            label:{
                                 Image(systemName: "bell.fill")
                                     .font(.system(size: 18, weight: .bold))
                                     .foregroundColor(Color(UIColor(hexString: "#390099")))
-                            }
+                            })
                             .padding(7)
                             .background(Color(UIColor(hexString: "#DFEFFF")))
                             .clipShape(Circle())
+//                            Button{
+//                                print("Notification pressed")
+//                            } label:{
+//                                Image(systemName: "bell.fill")
+//                                    .font(.system(size: 18, weight: .bold))
+//                                    .foregroundColor(Color(UIColor(hexString: "#390099")))
+//                            }
+//                            .padding(7)
+//                            .background(Color(UIColor(hexString: "#DFEFFF")))
+//                            .clipShape(Circle())
                             
                             Button{
                                 showAlertLogout = true
@@ -103,7 +118,7 @@ struct MainPage: View {
                 case 1:
                     CctvPage()
                 case 2:
-                    MapPage(showCarousel: false, idruas: 0)
+                    MapPage(showCarousel: false, idruas: 0, stopRun: false)
                 case 3:
                     AntrianPage()
                 case 4:
@@ -111,7 +126,7 @@ struct MainPage: View {
                 default:
                     NavigationView{
                         Text("Home Main")
-                    }
+                    }.foregroundColor(.white)
                 }
             }
             

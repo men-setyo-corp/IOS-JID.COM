@@ -69,7 +69,6 @@ struct SnapImgSingle: View {
                 .padding(.top, 4)
             }
             .padding(.top, 13)
-            
         }
         .frame(width: 310)
         .padding(15)

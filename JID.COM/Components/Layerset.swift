@@ -35,12 +35,16 @@ struct Layerset: View {
                     ZStack{
                         Capsule()
                             .frame(width: 40, height: 6)
-                            .background(Color(UIColor(hexString: "#E8E8E4")))
+                            .background(Color(UIColor(hexString: "#101010")))
+                        Text("ScrollUp")
+                            .foregroundColor(.black)
+                            .font(.system(size: 9, weight: .bold))
                     }
                     .frame(height:40)
                     .frame(maxWidth:.infinity)
-                    .background(Color.white.opacity(0.00001))
+                    .background(Color.white)
                     .gesture(dragGesture)
+                    
                     
                     LayerList()
                     

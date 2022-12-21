@@ -27,6 +27,7 @@ class LoginModel: ObservableObject {
     @AppStorage("report") var report: String = ""
     @AppStorage("dashboard") var dashboard: String = ""
     @AppStorage("isLogin") var isLogin: Bool = false
+    @AppStorage("fcmToken") var fcmToken: String = ""
     
     //mark: auth login
     func PresLogin(paramsData: Parameters, completion: @escaping (Bool) -> (Void)) async throws{
@@ -64,7 +65,7 @@ class LoginModel: ObservableObject {
         let deviceNm = UIDevice.current.name
         let strIPAddress : String = getIP().getIPAddress()
     
-        let parameters : Parameters = ["name": name, "device_name":deviceNm, "addr": strIPAddress]
+        let parameters : Parameters = ["name": name, "device_name":deviceNm, "addr": strIPAddress, "token": fcmToken]
         DispatchQueue.main.async {
             RestApiController().resAPI(endPoint: "add_session_dev/", method: .put ,dataParam: parameters){ results in
                 let getJSON = JSON(results ?? "Null data from API")

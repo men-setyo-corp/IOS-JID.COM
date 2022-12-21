@@ -14,7 +14,7 @@ import SwiftUI
 class RadarModel: ObservableObject{
 
     var geoJSONSource = GeoJSONSource()
-    let sourceDataRtms = "source-radar"
+    let sourceData = "source-radar"
     var mapView: MapView!
     var sizeIcon: Double = 0.8
     
@@ -42,7 +42,7 @@ class RadarModel: ObservableObject{
                         "Point"
                     }
                     
-                    symbollayer.source = self.sourceDataRtms
+                    symbollayer.source = self.sourceData
                     
                     
                     symbollayer.iconImage = .constant(.name("ic_radar"))
@@ -53,8 +53,11 @@ class RadarModel: ObservableObject{
                     symbollayer.textAnchor = .constant(.top)
                     symbollayer.textRadialOffset = .constant(1.6)
                     
-                    try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceDataRtms)
-                    try! setmapView.mapboxMap.style.addLayer(symbollayer, layerPosition: nil)
+                    if setmapView.mapboxMap.style.sourceExists(withId: self.sourceData) == false {
+                        try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceData)
+                        try! setmapView.mapboxMap.style.addLayer(symbollayer, layerPosition: nil)
+                    }
+                    
                     
                     DispatchQueue.main.async {
                         do {

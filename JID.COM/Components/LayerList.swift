@@ -74,7 +74,7 @@ struct LayerList: View {
                         .foregroundColor(.black)
                     
                     LazyVGrid(columns: items, spacing: 10) {
-                        ForEach (0..<getInfo.count){ val in
+                        ForEach (0..<Int(getInfo.count), id: \.self){ val in
                             
                             Button{
                                 if val == 4 || val == 6 {
@@ -128,7 +128,7 @@ struct LayerList: View {
                         .frame(maxWidth: .infinity,alignment: .leading)
                         .foregroundColor(.black)
                     LazyVGrid(columns: items, spacing: 10) {
-                        ForEach (0..<getSisin.count){ val in
+                        ForEach (0..<Int(getSisin.count), id: \.self){ val in
                             Button{
                                 if val == 0 || val == 1 || val == 2 || val == 3 || val == 4 || val == 5 || val == 6 || val == 7 || val == 8 || val == 9 || val == 10 {
                                     let keyCek = ["vms", "cctv","rtms","rtms2","radar","speed","level","pump","wim","cars","bike"]
@@ -180,7 +180,7 @@ struct LayerList: View {
                         .frame(maxWidth: .infinity,alignment: .leading)
                         .foregroundColor(.black)
                     HStack{
-                        ForEach (0..<getEvent.count){ val in
+                        ForEach (0..<Int(getEvent.count), id: \.self){ val in
                             Spacer()
                             VStack{
                                 Button{

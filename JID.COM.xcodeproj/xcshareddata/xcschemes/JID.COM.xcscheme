@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FA6BF78A289EC043006EECC0"
-               BuildableName = "JID.COM.app"
+               BuildableName = "JID.app"
                BlueprintName = "JID.COM"
                ReferencedContainer = "container:JID.COM.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA6BF78A289EC043006EECC0"
-            BuildableName = "JID.COM.app"
+            BuildableName = "JID.app"
             BlueprintName = "JID.COM"
             ReferencedContainer = "container:JID.COM.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA6BF78A289EC043006EECC0"
-            BuildableName = "JID.COM.app"
+            BuildableName = "JID.app"
             BlueprintName = "JID.COM"
             ReferencedContainer = "container:JID.COM.xcodeproj">
          </BuildableReference>

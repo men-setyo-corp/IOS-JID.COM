@@ -53,8 +53,11 @@ class PemeliharaanModel: ObservableObject{
                     symbollayer.textRadialOffset = .constant(1.4)
                     symbollayer.iconAllowOverlap = .constant(false)
                     
-                    try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceData)
-                    try! setmapView.mapboxMap.style.addLayer(symbollayer, layerPosition: nil)
+                    if setmapView.mapboxMap.style.sourceExists(withId: "source-pemeiliharaan") == false {
+                        try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceData)
+                        try! setmapView.mapboxMap.style.addLayer(symbollayer, layerPosition: nil)
+                    }
+                   
                     
                     self.mapView = setmapView
                     

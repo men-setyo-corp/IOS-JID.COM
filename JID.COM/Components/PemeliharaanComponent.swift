@@ -122,6 +122,7 @@ struct PemeliharaanComponent: View {
             .padding(.bottom, 10)
             .background(Color.white)
         }
+        .background(Color.white)
         .frame(maxWidth: .infinity, alignment: .bottom)
     }
 }

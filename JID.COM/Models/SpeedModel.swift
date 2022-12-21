@@ -14,7 +14,7 @@ import SwiftUI
 class SpeedModel: ObservableObject{
 
     var geoJSONSource = GeoJSONSource()
-    let sourceDataRtms = "source-speed"
+    let sourceData = "source-speed"
     var mapView: MapView!
     var sizeIcon: Double = 0.8
     
@@ -43,7 +43,7 @@ class SpeedModel: ObservableObject{
                         "Point"
                     }
                     
-                    symbollayer.source = self.sourceDataRtms
+                    symbollayer.source = self.sourceData
                     
                     let expressionIcon = Exp(.switchCase) {
                         Exp(.eq) {
@@ -68,8 +68,11 @@ class SpeedModel: ObservableObject{
                     symbollayer.textAnchor = .constant(.top)
                     symbollayer.textRadialOffset = .constant(1.6)
                     
-                    try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceDataRtms)
-                    try! setmapView.mapboxMap.style.addLayer(symbollayer, layerPosition: nil)
+                    if setmapView.mapboxMap.style.sourceExists(withId: self.sourceData) == false {
+                        try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceData)
+                        try! setmapView.mapboxMap.style.addLayer(symbollayer, layerPosition: nil)
+                    }
+                    
                     
                     DispatchQueue.main.async {
                         do {

@@ -45,8 +45,11 @@ class JalanPenghubungModel: ObservableObject{
                     lineLayer.lineColor = .constant(StyleColor(.gray))
                     lineLayer.lineWidth = .constant(3.0)
                     
-                    try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceData)
-                    try! setmapView.mapboxMap.style.addLayer(lineLayer, layerPosition: nil)
+                    if setmapView.mapboxMap.style.sourceExists(withId: self.sourceData) == false {
+                        try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceData)
+                        try! setmapView.mapboxMap.style.addLayer(lineLayer, layerPosition: nil)
+                    }
+                    
                     
                     DispatchQueue.main.async {
                         do {

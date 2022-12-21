@@ -69,8 +69,11 @@ class RtmsModel: ObservableObject{
                     symbollayer.textAnchor = .constant(.top)
                     symbollayer.textRadialOffset = .constant(1.6)
                     
-                    try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceDataRtms)
-                    try! setmapView.mapboxMap.style.addLayer(symbollayer, layerPosition: nil)
+                    if setmapView.mapboxMap.style.sourceExists(withId: "source-rtms") == false{
+                        try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceDataRtms)
+                        try! setmapView.mapboxMap.style.addLayer(symbollayer, layerPosition: nil)
+                    }
+                    
                     
                     DispatchQueue.main.async {
                         do {

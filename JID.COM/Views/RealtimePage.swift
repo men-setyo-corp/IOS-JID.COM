@@ -33,6 +33,7 @@ struct RealtimePage: View {
             self.showLoading.toggle()
         }
         .navigationBarHidden(true)
+        .background(.white)
     }
 }
 

@@ -15,7 +15,7 @@ import SwiftUI
 class BatasKmModel: ObservableObject{
 
     var geoJSONSource = GeoJSONSource()
-    let sourceDataVms = "source-bataskm"
+    let sourceData = "source-bataskm"
     var mapView: MapView!
     var sizeIcon: Double = 0.9
     
@@ -44,7 +44,7 @@ class BatasKmModel: ObservableObject{
                         "Point"
                     }
                     
-                    symbollayer.source = self.sourceDataVms
+                    symbollayer.source = self.sourceData
                     
                     symbollayer.iconImage = .constant(.name("ic_bataskm"))
                     symbollayer.iconSize = .constant(0.5)
@@ -54,8 +54,11 @@ class BatasKmModel: ObservableObject{
                     symbollayer.textAnchor = .constant(.top)
                     symbollayer.textRadialOffset = .constant(1.6)
                     
-                    try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceDataVms)
-                    try! setmapView.mapboxMap.style.addLayer(symbollayer, layerPosition: nil)
+                    if setmapView.mapboxMap.style.sourceExists(withId: self.sourceData) == false {
+                        try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceData)
+                        try! setmapView.mapboxMap.style.addLayer(symbollayer, layerPosition: nil)
+                    }
+                    
                     
                     self.mapView = setmapView
                     

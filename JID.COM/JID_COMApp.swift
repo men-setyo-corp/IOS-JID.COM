@@ -8,13 +8,15 @@
 import SwiftUI
 import FirebaseCore
 import FirebaseMessaging
-import UserNotifications
+import Firebase
+import FirebaseAnalytics
 
 
 @main
 struct JID_COMApp: App {
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject var modelLogin : LoginModel = LoginModel()
 
     var body: some Scene {
         WindowGroup {
@@ -29,18 +31,21 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     let gcmMessageIDKey = "gcm.message_id"
     func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        UIApplication.shared.registerForRemoteNotifications()
+        
         FirebaseApp.configure()
-
+        
         Messaging.messaging().delegate = self
-
+        
         if #available(iOS 10.0, *) {
-              UNUserNotificationCenter.current().delegate = self
+            UNUserNotificationCenter.current().delegate = self
               
-              let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-              UNUserNotificationCenter.current().requestAuthorization(
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+                UNUserNotificationCenter.current().requestAuthorization(
                 options: authOptions,
                 completionHandler: { _, _ in }
-              )
+            )
         }else{
           let settings: UIUserNotificationSettings =
                 UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
@@ -49,6 +54,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         return true
     }
+    
     
     func application(_ application: UIApplication,
                      didReceiveRemoteNotification userInfo: [AnyHashable: Any]) async
@@ -70,6 +76,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print(deviceToken)
+        Messaging.messaging().setAPNSToken(deviceToken, type: .unknown)
     }
     
 }
@@ -80,6 +87,7 @@ extension AppDelegate: MessagingDelegate{
       print("Firebase registration token: \(String(describing: fcmToken))")
 
         let dataDict: [String: String] = ["token": fcmToken ?? ""]
+        LoginModel().fcmToken = fcmToken ?? ""
         print(dataDict)
     }
 }
@@ -100,7 +108,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                               didReceive response: UNNotificationResponse) async {
         let userInfo = response.notification.request.content.userInfo
 
-        print(userInfo)
+        print("Info Message: \(userInfo)")
     }
 }
 

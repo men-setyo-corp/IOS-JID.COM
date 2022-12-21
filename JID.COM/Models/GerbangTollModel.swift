@@ -69,8 +69,11 @@ class GerbangTollModel: ObservableObject{
                     symbollayer.textAnchor = .constant(.top)
                     symbollayer.textRadialOffset = .constant(1.6)
                     
-                    try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceDataGerbang)
-                    try! setmapView.mapboxMap.style.addLayer(symbollayer, layerPosition: nil)
+                    if setmapView.mapboxMap.style.sourceExists(withId: self.sourceDataGerbang) == false {
+                        try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceDataGerbang)
+                        try! setmapView.mapboxMap.style.addLayer(symbollayer, layerPosition: nil)
+                    }
+                    
                     
                     DispatchQueue.main.async {
                         do {

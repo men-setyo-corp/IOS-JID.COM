@@ -165,12 +165,12 @@ struct DetailEventLalin: View {
                 .background(Color(.white))
                 .cornerRadius(10)
                 .shadow(radius: 2)
-                .transition(.move(edge: .bottom))
+//                .transition(.move(edge: .bottom))
                 
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-        .ignoresSafeArea()
+        .ignoresSafeArea(.all)
         .animation(Animation.easeOut, value: isShowModal)
         
         

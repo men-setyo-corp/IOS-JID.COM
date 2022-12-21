@@ -15,7 +15,7 @@ class RekayasaLalinModel: ObservableObject{
     let sourceData = "source-rekayasalalin"
     var mapView: MapView!
     var timer = Timer()
-    var sizeIcon: Double = 0.6
+    var sizeIcon: Double = 0.8
     
     
     func setUpRekayasalalinAPI(setmapView: MapView)  {
@@ -67,8 +67,11 @@ class RekayasaLalinModel: ObservableObject{
                     symbollayer.textRadialOffset = .constant(1.4)
                     symbollayer.iconAllowOverlap = .constant(false)
                     
-                    try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceData)
-                    try! setmapView.mapboxMap.style.addLayer(symbollayer, layerPosition: nil)
+                    if setmapView.mapboxMap.style.sourceExists(withId: self.sourceData) == false {
+                        try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceData)
+                        try! setmapView.mapboxMap.style.addLayer(symbollayer, layerPosition: nil)
+                    }
+                    
                     
                     self.mapView = setmapView
                     
