@@ -100,6 +100,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     -> UNNotificationPresentationOptions {
         let userInfo = notification.request.content.userInfo
         print(userInfo)
+        LoginModel().statusNotif = 1
 
         return [[.banner, .badge, .sound]]
     }
@@ -107,7 +108,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                               didReceive response: UNNotificationResponse) async {
         let userInfo = response.notification.request.content.userInfo
-
+        LoginModel().statusNotif = 1
         print("Info Message: \(userInfo)")
     }
 }

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HistoriNotif: View {
     @Environment(\.presentationMode) var presentationMode
+    @StateObject var modelLogin : LoginModel = LoginModel()
+    @State var datahistori : [Gethistori] = []
     
     var body: some View {
         ZStack{
@@ -22,24 +24,69 @@ struct HistoriNotif: View {
                             .font(.system(size: 20, weight: .bold))
                     }
                     Spacer()
-                    Text("Hitori Notifikasi")
+                    Text("Histori Notifikasi")
                         .foregroundColor(Color.black)
                         .font(.system(size: 16, weight: .bold))
                     Spacer()
                 }
                 .padding(.horizontal,25)
-                Spacer()
-                Text("Welcome Histori notifikasi")
-                    .foregroundColor(Color.black)
-                Spacer()
+               
+                ScrollView{
+                    if datahistori.isEmpty{
+                        ForEach(0...10,id: \.self){_ in
+                            CardShimmerHistori()
+                        }
+                    }else{
+                        ForEach(datahistori) { gethistori in
+                            VStack(alignment: .leading){
+                                HStack{
+                                    VStack(alignment: .leading){
+                                        Text(gethistori.tipe_event)
+                                            .font(.system(size: 12, weight: .bold))
+                                            .foregroundColor(Color.black)
+                                        Text(gethistori.ket_status)
+                                            .font(.system(size: 12))
+                                            .foregroundColor(Color.black)
+                                        Text(gethistori.ket_jenis_event)
+                                            .font(.system(size: 12))
+                                            .foregroundColor(Color.black)
+                                        Text(gethistori.detail_ket_jenis_event)
+                                            .font(.system(size: 12))
+                                            .foregroundColor(Color.black)
+                                        
+                                        Divider()
+                                         .frame(height: 1)
+                                         .padding(.horizontal, 10)
+                                         .background(Color(UIColor(hexString: "#DFEFFF")))
+                                        Text("\(gethistori.nama_ruas) / \(gethistori.km) / \(gethistori.jalur)")
+                                            .font(.system(size: 12, weight: .bold))
+                                            .foregroundColor(Color.black)
+                                        Text(gethistori.tanggal)
+                                            .font(.system(size: 12, weight: .bold))
+                                            .foregroundColor(Color.black)
+                                    }
+                                    Spacer()
+                                }
+                                Divider()
+                                 .frame(height: 1)
+                                 .padding(.horizontal)
+                                 .background(Color(UIColor(hexString: "#000000")))
+                            }
+                            .padding(.bottom, 15)
+                            .padding(.horizontal, 25)
+                        }
+                    }
+                }
+                .padding(.vertical, 15)
+                
             }
         }
         .background(Color.white)
         .navigationBarBackButtonHidden(true)
         .onAppear{
-            print("hotoiri notif")
             HistoriNotifModel().loadHistori{ (dataresult) in
-                print(dataresult)
+                datahistori = dataresult
+                LoginModel().statusNotif = 0
             }
         }
     }
@@ -48,5 +95,39 @@ struct HistoriNotif: View {
 struct HistoriNotif_Previews: PreviewProvider {
     static var previews: some View {
         HistoriNotif()
+    }
+}
+
+
+struct CardShimmerHistori: View {
+    
+    @State var show = false
+    var center = (UIScreen.main.bounds.width / 2) + 110
+    
+    var body: some View{
+        ZStack{
+            Color.black.opacity(0.09)
+            .frame(height:150)
+            .cornerRadius(16)
+            
+            Color.white
+            .frame(height:150)
+            .cornerRadius(16)
+            .mask(
+                Rectangle()
+                .fill(
+                    LinearGradient(gradient: .init(colors: [.clear, Color.white.opacity(0.18)]), startPoint: .top, endPoint: .bottom)
+                )
+                .rotationEffect(.init(degrees: 70))
+                .offset(x: self.show ? center: -center)
+            )
+        }
+        .padding(.top, 10)
+        .padding(.horizontal)
+        .onAppear{
+//            withAnimation(Animation.default.speed(0.35).delay(0).repeatForever(autoreverses: false)){
+//                self.show.toggle()
+//            }
+        }
     }
 }

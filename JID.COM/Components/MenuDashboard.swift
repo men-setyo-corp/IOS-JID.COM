@@ -14,10 +14,14 @@ struct MenuDashboard: View {
     @State var selectedIndex = 0
     let tabTopBarName = ["Lalu Lintas", "Pemeliharaan", "Peralatan"]
     let tabMidleBarName = ["Dashboard\nLalu Lintas", "Realtime\nTraffic", "Antrian\nGerbang", "Lalin\nPer Jam"]
-    let tabMidleBarIcon = ["car.circle.fill", "clock.circle.fill", "waveform.circle.fill", "clock.fill"]
     let tabBottomBarName = ["Gangguan\nLalu Lintas"]
-    let tabBottomBarIcon = ["car.circle.fill", "clock.circle.fill", "waveform.circle.fill", "ellipsis.circle.fill"]
-    let tabGangguanIcon = ["exclamationmark.circle.fill"]
+    
+    let tabMidleBarIcon = ["dashboardsvg", "realtimesvg", "antriansvg", "lalinperjamscg"]
+    let tabPemeliharaanIcon = ["dashboardsvg", "pemeliharaansvg", "waterlevelsvg"]
+    let tabBottomBarIcon = ["dashboardsvg", "monitoringalat", "cctvscg", "dmssvg"]
+    
+    let tabGangguanIcon = ["gangguansvg"]
+    
     let setMenu = ["dashboard_lalin/mobile", "realtime_lalin/mobile", "antrian_gerbang/mobile", "lalin_perjam/mobile"]
     let menuGangguan = ["data_gangguan/mobile"]
     let menuPemeliharaan = ["dashboard_pemeliharaan/mobile", "data_pemeliharaan/mobile", "water_level_sensor/mobile"]
@@ -31,6 +35,7 @@ struct MenuDashboard: View {
     
     @State var tabArryData = ["Dashboard\nLalu Lintas", "Realtime\nTraffic", "Antrian\nGerbang", "Lalin\nPer Jam"];
     @State var tabArryUrl = ["dashboard_lalin/mobile", "realtime_lalin/mobile", "antrian_gerbang/mobile", "lalin_perjam/mobile"];
+    @State var tabArryIcon = ["dashboardsvg", "realtimesvg", "antriansvg", "lalinperjamscg"];
     
     var urlweb: String = ""
     @State var isShowBottomMenu: Bool = true
@@ -46,14 +51,17 @@ struct MenuDashboard: View {
                             if num == 0 {
                                 tabArryData = tabMidleBarName
                                 tabArryUrl = setMenu
+                                tabArryIcon = tabMidleBarIcon
                                 isShowBottomMenu = true
                             }else if num == 1 {
                                 tabArryData = tabPemeliharaaanBarName
                                 tabArryUrl = menuPemeliharaan
+                                tabArryIcon = tabPemeliharaanIcon
                                 isShowBottomMenu = false
                             }else if num == 2 {
                                 tabArryData = tabPeralatanBarName
                                 tabArryUrl = menuPeralatan
+                                tabArryIcon = tabBottomBarIcon
                                 isShowBottomMenu = false
                             }
                         }label:{
@@ -80,11 +88,11 @@ struct MenuDashboard: View {
                         NavigationLink(
                             destination: WebviewDashboard(urlweb: tabArryUrl[num], title: tabArryData[num]),
                         label:{
-                            Image(systemName: tabMidleBarIcon[num])
+                            Image(tabArryIcon[num])
                                 .font(.system(size: 25, weight: .bold))
                                 .foregroundColor(Color(UIColor(hexString: "#390099")))
                         })
-                        .padding(15)
+                        .padding(20)
                         .background(Color(UIColor(hexString: "#DFEFFF")))
                         .clipShape(Circle())
                         Text(tabArryData[num])
@@ -104,11 +112,11 @@ struct MenuDashboard: View {
                             NavigationLink(
                                 destination: WebviewDashboard(urlweb: menuGangguan[num], title: tabBottomBarName[num]),
                             label:{
-                                Image(systemName: tabGangguanIcon[num])
+                                Image(tabGangguanIcon[num])
                                     .font(.system(size: 25, weight: .bold))
                                     .foregroundColor(Color(UIColor(hexString: "#390099")))
                             })
-                            .padding(15)
+                            .padding(20)
                             .background(Color(UIColor(hexString: "#DFEFFF")))
                             .clipShape(Circle())
                             Text(tabBottomBarName[num])

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainPage: View {
+    @StateObject var modelLogin : LoginModel = LoginModel()
     
     init(){
         UITabBar.appearance().barTintColor = .systemBackground
@@ -15,7 +16,7 @@ struct MainPage: View {
     @State var selectedIndex = 0
     let tabbarImgaeName = ["house", "play.tv.fill", "map.fill", "bookmark.circle.fill", "stopwatch.fill"]
     let tabNameMenu = ["Home", "CCTV", "Map", "Antrian", "Realtime"]
-    @StateObject var modelLogin : LoginModel = LoginModel()
+    
     @State var showTopMenuBar = true
     @State var showAlertLogout = false
     
@@ -42,17 +43,12 @@ struct MainPage: View {
                         }
                         Spacer()
                         HStack(alignment: .center){
-//                            Rectangle()
-//                                .fill(.red)
-//                                .frame(width: 10, height: 10)
-//                                .cornerRadius(50)
-//                                .padding(.leading, 10)
                             NavigationLink(
                                 destination: HistoriNotif(),
                             label:{
                                 Image(systemName: "bell.fill")
                                     .font(.system(size: 18, weight: .bold))
-                                    .foregroundColor(Color(UIColor(hexString: "#390099")))
+                                    .foregroundColor(LoginModel().statusNotif == 1 ? Color.red : Color(UIColor(hexString: "#390099")))
                             })
                             .padding(7)
                             .background(Color(UIColor(hexString: "#DFEFFF")))

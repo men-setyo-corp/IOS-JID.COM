@@ -28,6 +28,7 @@ class LoginModel: ObservableObject {
     @AppStorage("dashboard") var dashboard: String = ""
     @AppStorage("isLogin") var isLogin: Bool = false
     @AppStorage("fcmToken") var fcmToken: String = ""
+    @AppStorage("statusNotif") var statusNotif: Int = 0
     
     //mark: auth login
     func PresLogin(paramsData: Parameters, completion: @escaping (Bool) -> (Void)) async throws{
