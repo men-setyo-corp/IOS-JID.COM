@@ -10,6 +10,20 @@ import MapboxMaps
 import SwiftyJSON
 import SwiftUI
 
+struct InitDataWL: Codable, Identifiable {
+    let id: Int
+    let ruas_id: Int
+    let nama_ruas: String
+    let url_cctv: String
+    let waktu_update: String
+    let nama_lokasi: String
+    let status_pompa: Bool
+    let pompa: String
+    let hujan: String
+    let level: String
+    let level_sensor: Int
+    let kode_alat_vendor: String
+}
 
 class WaterLevelModel: ObservableObject{
 
@@ -102,6 +116,34 @@ class WaterLevelModel: ObservableObject{
                         try! setmapView.mapboxMap.style.addLayer(symbollayer, layerPosition: nil)
                     }
                     
+                }
+            }
+        }
+    }
+    
+    
+    func getWaterLevelSensor(idruas: Int, completion: @escaping ([InitDataWL]) -> ())  {
+        var setIdruas = ""
+        if idruas == 0 {
+            setIdruas = ""
+        }else{
+            setIdruas = String(idruas)
+        }
+        DispatchQueue.global().async {
+            RestApiController().resAPIDevGet(endPoint: "water_level_sensor/v1/getWaterLevelSensor?id_ruas=\(setIdruas)", method: .get) { (results) in
+                let getJSON = JSON(results ?? "Null data from API")
+                DispatchQueue.main.async {
+                    if getJSON["status"].boolValue {
+                        do {
+                            let jsonData = try JSONEncoder().encode(getJSON["data"])
+                            let decodedSentences = try JSONDecoder().decode([InitDataWL].self, from: jsonData)
+                            completion(decodedSentences)
+                        } catch let myJSONError {
+                            print(myJSONError)
+                        }
+                    }else{
+                        print(getJSON["msg"].stringValue)
+                    }
                 }
             }
         }

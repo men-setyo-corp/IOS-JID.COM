@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftyJSON
 
 struct LayerList: View {
     
@@ -34,6 +35,9 @@ struct LayerList: View {
     @State var scopeList : [String] = []
     @State var reportList : [String] = []
     @State var dashboardList : [String] = []
+    
+//    list data items
+    @State var listSisinfokom : JSON = []
     
     
     var body: some View {
@@ -75,7 +79,6 @@ struct LayerList: View {
                     
                     LazyVGrid(columns: items, spacing: 10) {
                         ForEach (0..<Int(getInfo.count), id: \.self){ val in
-                            
                             Button{
                                 if val == 4 || val == 6 {
                                     let keyCek = ["", "","","","rams","","rough"]
@@ -127,40 +130,25 @@ struct LayerList: View {
                         .padding(.top, 20)
                         .frame(maxWidth: .infinity,alignment: .leading)
                         .foregroundColor(.black)
-                    LazyVGrid(columns: items, spacing: 10) {
-                        ForEach (0..<Int(getSisin.count), id: \.self){ val in
+                    LazyVGrid(columns: items, spacing: 9) {
+                        ForEach (0..<Int(listSisinfokom.count), id: \.self){ val in
                             Button{
-                                if val == 0 || val == 1 || val == 2 || val == 3 || val == 4 || val == 5 || val == 6 || val == 7 || val == 8 || val == 9 || val == 10 {
-                                    let keyCek = ["vms", "cctv","rtms","rtms2","radar","speed","level","pump","wim","cars","bike"]
-                                    let HcekData = cekItmes(key: keyCek[val], sumber: "items")
-                                    if HcekData != "sama" {
-                                        showWarning.toggle()
-                                    }else{
-                                        if getStsSisin[val]=="yes" {
-                                            getStsSisin[val] = "no"
-                                        }else{
-                                            getStsSisin[val] = "yes"
-                                        }
-                                        Dataset.stsSisinfokom = getStsSisin
-                                    }
+                                if getStsSisin[listSisinfokom[val]["key"].intValue]=="yes" {
+                                    getStsSisin[listSisinfokom[val]["key"].intValue] = "no"
                                 }else{
-                                    if getStsSisin[val]=="yes" {
-                                        getStsSisin[val] = "no"
-                                    }else{
-                                        getStsSisin[val] = "yes"
-                                    }
-                                    Dataset.stsSisinfokom = getStsSisin
+                                    getStsSisin[listSisinfokom[val]["key"].intValue] = "yes"
                                 }
+                                Dataset.stsSisinfokom = getStsSisin
                             }label:{
-                                Text("\(getSisin[val])")
+                                Text("\(listSisinfokom[val]["menu"].stringValue)")
                                     .font(.system(size: 9))
-                                    .foregroundColor(getStsSisin[val]=="yes" ? Color.black : Color.gray)
+                                    .foregroundColor(getStsSisin[listSisinfokom[val]["key"].intValue]=="yes" ? Color.black : Color.gray)
                                     .padding(10)
                                     .frame(maxWidth:.infinity, alignment: .leading)
-                                    .background(getStsSisin[val]=="yes" ? Color(UIColor(hexString: "#DFEFFF")) : nil)
+                                    .background(getStsSisin[listSisinfokom[val]["key"].intValue]=="yes" ? Color(UIColor(hexString: "#DFEFFF")) : nil)
                                     .overlay(
                                         RoundedRectangle(cornerRadius: 20)
-                                            .stroke(getStsSisin[val]=="yes" ? Color(UIColor(hexString: "#390099")) : .gray, lineWidth: 2)
+                                            .stroke(getStsSisin[listSisinfokom[val]["key"].intValue]=="yes" ? Color(UIColor(hexString: "#390099")) : .gray, lineWidth: 2)
                                     )
                                     .cornerRadius(50)
                             }
@@ -213,15 +201,21 @@ struct LayerList: View {
                     
                 }
                 
-                
-                
                 Spacer()
             }
             .padding(.horizontal, 25)
         }
         .frame(maxHeight: .infinity)
         .padding(.bottom, 1)
-        
+        .onAppear{
+            self.listSisinfokom = JSON(parseJSON: modelLogin.menuSisinfokom)
+            
+//            print(self.listSisinfokom)
+//            for i in (0..<self.listSisinfokom.count).reversed() {
+//                print(self.listSisinfokom[i]["key"])
+//            }
+            
+        }
     }
     
     func cekItmes(key:String, sumber: String) -> String {

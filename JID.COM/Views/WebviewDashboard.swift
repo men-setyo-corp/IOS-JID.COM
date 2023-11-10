@@ -16,7 +16,7 @@ extension View{
 struct WebviewDashboard: View {
     
     @Environment(\.presentationMode) var presentationMode
-    var baseUrl = "https://jid.jasamargalive.com/graph/"
+    var baseUrl = "https://jid.jasamarga.com/graph/"
     @State var urlweb : String
     @State var title : String
     @State var showLoading: Bool = false

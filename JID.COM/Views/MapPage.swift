@@ -55,7 +55,6 @@ struct MapPage: View {    @State var offset: CGFloat = 0
             ZStack{
                 CctvCarousel(isShowCctv: $showCarousel, idruas: $idruas, stopRun: $stopRun)
             }
-            .padding(.bottom, 45)
         }
         
     }

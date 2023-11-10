@@ -23,11 +23,12 @@ struct Rtms2Modal: View {
                             image
                                 .resizable()
                         } else if phase.error != nil {
-                            CardShimmerRtms2()
+                            ProgressView()
                         } else {
                             CardShimmerRtms2()
                         }
                     }
+                    .frame(maxWidth: .infinity)
                     .frame(height: 170)
                     .background(Color.white)
                     
@@ -140,7 +141,7 @@ struct Rtms2Modal: View {
     
     private func startRunSnap() {
         urlSet = "https://jid.jasamarga.com/cctv2/\(dataResult.key_id)?tx=\(Float.random(in: 0...1))"
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
             urlSet = "https://jid.jasamarga.com/cctv2/\(dataResult.key_id)?tx=\(Float.random(in: 0...1))"
             
             if stopRun == false {

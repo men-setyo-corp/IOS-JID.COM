@@ -65,7 +65,7 @@ class RekayasaLalinModel: ObservableObject{
                     symbollayer.textJustify = .constant(.center)
                     symbollayer.textAnchor = .constant(.top)
                     symbollayer.textRadialOffset = .constant(1.4)
-                    symbollayer.iconAllowOverlap = .constant(false)
+                    symbollayer.iconAllowOverlap = .constant(true)
                     
                     if setmapView.mapboxMap.style.sourceExists(withId: self.sourceData) == false {
                         try! setmapView.mapboxMap.style.addSource(self.geoJSONSource, id: self.sourceData)

@@ -86,27 +86,24 @@ class MapViewController: UIViewController {
                     RtmsModel().setUpRtmsAPI(setmapView: self.mapView)
                 }
                 if Dataset.stsSisinfokom[3]  == "yes" {
-                    Rtms2Model().setUpRtms2API(setmapView: self.mapView)
-                }
-                if Dataset.stsSisinfokom[4]  == "yes" {
                     RadarModel().setUpRadarAPI(setmapView: self.mapView)
                 }
-                if Dataset.stsSisinfokom[5]  == "yes" {
+                if Dataset.stsSisinfokom[4]  == "yes" {
                     SpeedModel().setUpSpeedAPI(setmapView: self.mapView)
                 }
-                if Dataset.stsSisinfokom[6]  == "yes" {
+                if Dataset.stsSisinfokom[5]  == "yes" {
                     WaterLevelModel().setUpWaterLevelAPI(setmapView: self.mapView)
                 }
-                if Dataset.stsSisinfokom[7]  == "yes" {
+                if Dataset.stsSisinfokom[6]  == "yes" {
                     PompaBanjirModel().setUpPompaBanjirAPI(setmapView: self.mapView)
                 }
-                if Dataset.stsSisinfokom[8]  == "yes" {
+                if Dataset.stsSisinfokom[7]  == "yes" {
                     WimModel().setUpWimAPI(setmapView: self.mapView)
                 }
-                if Dataset.stsSisinfokom[9]  == "yes" {
+                if Dataset.stsSisinfokom[8]  == "yes" {
                     GpsKendaraanModel().setUpGPSKendaraanAPI(setmapView: self.mapView)
                 }
-                if Dataset.stsSisinfokom[10]  == "yes" {
+                if Dataset.stsSisinfokom[9]  == "yes" {
                     BikeModel().setUpBikeAPI(setmapView: self.mapView)
                 }
                 
@@ -128,7 +125,7 @@ class MapViewController: UIViewController {
         //set ornamnents and gestures default mapbox
         mapView.gestures.options.rotateEnabled = false
         mapView.ornaments.attributionButton.isHidden = true
-        mapView.ornaments.logoView.isHidden = false
+        mapView.ornaments.logoView.isHidden = true
         
         mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onMapClick)))
         
@@ -167,8 +164,6 @@ class MapViewController: UIViewController {
                     }else if objData["title"].stringValue == "rest area"{
                         self.modalSheet(dataSet: objData)
                     }else if objData["title"].stringValue == "rtms"{
-                        self.modalSheet(dataSet: objData)
-                    }else if objData["title"].stringValue == "rtms2"{
                         self.modalSheet(dataSet: objData)
                     }else if objData["title"].stringValue == "radar"{
                         self.modalSheet(dataSet: objData)
@@ -225,14 +220,6 @@ class MapViewController: UIViewController {
                 sheet.detents = [.large(), .large()]
             }
             present(nav, animated: true, completion: nil)
-        }else if dataSet["title"].stringValue == "cctv list"{
-            let nav = UIHostingController(rootView: SnapImage())
-            nav.modalPresentationStyle = .pageSheet
-            nav.view.backgroundColor = .clear
-            if let sheet = nav.sheetPresentationController{
-                sheet.detents = [.large(), .medium()]
-            }
-            present(nav, animated: true, completion: nil)
         }else if dataSet["title"].stringValue == "vms" {
             let writerForSecondView = Dataset().Dataset_vms(dataSet: dataSet)
             let nav = UIHostingController(rootView: vmsModal(dataResult: writerForSecondView))
@@ -267,15 +254,6 @@ class MapViewController: UIViewController {
             nav.view.backgroundColor = .white
             if let sheet = nav.sheetPresentationController{
                 sheet.detents = [.medium(), .medium()]
-            }
-            present(nav, animated: true, completion: nil)
-        }else if dataSet["title"].stringValue == "rtms2" {
-            let writerForSecondView = Dataset().Dataset_rtms2(dataSet: dataSet)
-            let nav = UIHostingController(rootView: Rtms2Modal(dataResult: writerForSecondView))
-            nav.modalPresentationStyle = .pageSheet
-            nav.view.backgroundColor = .clear
-            if let sheet = nav.sheetPresentationController{
-                sheet.detents = [.large(), .large()]
             }
             present(nav, animated: true, completion: nil)
         }else if dataSet["title"].stringValue == "radar" {

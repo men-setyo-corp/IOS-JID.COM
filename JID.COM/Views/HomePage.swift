@@ -14,6 +14,7 @@ struct HomePage: View {
     @State var btnPemeliha : Bool = false
     
     @State var dataresult : [Kejadian] = []
+    @State var showloadinglist : Bool = true
     @State var tipe_lalin : String = ""
     @State var isShowModal : Bool = false
     
@@ -30,6 +31,7 @@ struct HomePage: View {
                                     Button{
                                         Task{
                                             do{
+                                                showloadinglist = true
                                                 dataresult = []
                                                 btnGangguan = true
                                                 btnRekayasa = false
@@ -37,6 +39,12 @@ struct HomePage: View {
                                                 tipe_lalin = "gangguan"
                                                 KejadianLalin().getKejadianLalin(tipe_lalin: tipe_lalin){ result in
                                                     self.dataresult = result
+                                                    
+                                                    if self.dataresult.isEmpty{
+                                                        self.showloadinglist = false
+                                                    }else{
+                                                        self.showloadinglist = true
+                                                    }
                                                 }
                                             }
                                         }
@@ -61,6 +69,7 @@ struct HomePage: View {
                                     Button{
                                         Task{
                                             do{
+                                                showloadinglist = true
                                                 dataresult = []
                                                 btnGangguan = false
                                                 btnRekayasa = true
@@ -68,6 +77,11 @@ struct HomePage: View {
                                                 tipe_lalin = "rekayasa"
                                                 KejadianLalin().getKejadianLalin(tipe_lalin: tipe_lalin){ result in
                                                     self.dataresult = result
+                                                    if self.dataresult.isEmpty{
+                                                        self.showloadinglist = false
+                                                    }else{
+                                                        self.showloadinglist = true
+                                                    }
                                                 }
                                             }
                                         }
@@ -92,6 +106,7 @@ struct HomePage: View {
                                     Button{
                                         Task{
                                             do{
+                                                showloadinglist = true
                                                 dataresult = []
                                                 btnGangguan = false
                                                 btnRekayasa = false
@@ -99,6 +114,11 @@ struct HomePage: View {
                                                 tipe_lalin = "pemeliharaan"
                                                 KejadianLalin().getKejadianLalin(tipe_lalin: tipe_lalin){ result in
                                                     self.dataresult = result
+                                                    if self.dataresult.isEmpty{
+                                                        self.showloadinglist = false
+                                                    }else{
+                                                        self.showloadinglist = true
+                                                    }
                                                 }
                                             }
                                         }
@@ -162,68 +182,89 @@ struct HomePage: View {
                                 .padding(.horizontal, 5)
                                 .background(Color(UIColor(hexString: "#DFEFFF")))
                                 
-                                ScrollView{
-                                    if self.dataresult.isEmpty {
-                                        ForEach(0...5,id: \.self){_ in
-                                            CardKejadian()
-                                        }
-                                    }else{
-                                        ForEach(dataresult) { result in
-                                            Button{
-                                                isShowModal =  true
-                                                var titleJdl = ""
-                                                if btnGangguan == true {
-                                                    titleJdl = "Gangguan Lalu Lintas"
-                                                }else if btnPemeliha == true {
-                                                    titleJdl = "Pemeliharaan Lalu Lintas"
-                                                }else if btnRekayasa == true {
-                                                    titleJdl = "Rekayasa Lalu Lintas"
+                                GeometryReader { geometry in
+                                    ScrollView{
+                                        if self.dataresult.isEmpty {
+                                            if showloadinglist == true {
+                                                ForEach(0...5,id: \.self){_ in
+                                                    CardKejadian()
                                                 }
-                                              
-                                               
-                                                dataInSide = Data_event_lalin(id: result.idx , title: titleJdl, nama_ruas: result.nama_ruas, nama_ruas_2: result.nama_ruas_2, km: result.km, jalur: result.jalur, lajur: result.lajur, waktu: result.waktu, jenis_event: result.jenis_event, arah_jalur: result.arah_jalur, ket_status: result.ket_status, ket: result.ket, range_km: result.range_km, waktu_end: result.waktu_end)
-                                                
-                                            }label:{
-                                                VStack{
-                                                    HStack{
-                                                        Spacer()
-                                                        Text(result.waktu)
-                                                            .font(.system(size: 10))
-                                                            .frame(width: 60, alignment: .center)
-                                                            .multilineTextAlignment(.center)
-                                                            .foregroundColor(.black)
-                                                        
-                                                        Spacer()
-                                                        Text("\(result.nama_ruas_2)/\(result.km) \(result.jalur)")
-                                                            .font(.system(size: 10))
-                                                            .frame(width: 80, alignment: .center)
-                                                            .multilineTextAlignment(.center)
-                                                            .foregroundColor(.black)
-                                                        
-                                                        Spacer()
-                                                        Text(result.jenis_event)
-                                                            .font(.system(size: 10))
-                                                            .frame(width: 70, alignment: .center)
-                                                            .multilineTextAlignment(.center)
-                                                            .foregroundColor(.black)
-                                                        
-                                                        Spacer()
-                                                        Rectangle()
-                                                            .fill(result.ket_status == "Dalam Penanganan" || result.ket_status == "Dalam Proses" ? .orange : .red)
-                                                            .frame(width: 15, height: 15)
-                                                            .cornerRadius(50)
-                                                        
-                                                        Spacer()
-                                                    }
-                                                    Divider()
-                                                     .frame(height: 1)
-                                                     .padding(.horizontal, 10)
-                                                     .background(Color(UIColor(hexString: "#DFEFFF")))
+                                            }else{
+                                                if tipe_lalin == "gangguan" {
+                                                    Text("Saat ini Belum ada Gangguan Lalin !")
+                                                        .font(.system(size: 11, weight: .bold))
+                                                        .frame(width: geometry.size.width)
+                                                        .frame(minHeight: geometry.size.height)
+                                                        .foregroundColor(.black)
+                                                }else if tipe_lalin == "rekayasa" {
+                                                    Text("Saat ini Belum ada Rekayasa Lalin !")
+                                                        .font(.system(size: 11, weight: .bold))
+                                                        .frame(width: geometry.size.width)
+                                                        .frame(minHeight: geometry.size.height)
+                                                        .foregroundColor(.black)
+                                                }else if tipe_lalin == "pemeliharaan"{
+                                                    Text("Saat ini Belum ada Pemeliharaan Lalin !")
+                                                        .font(.system(size: 11, weight: .bold))
+                                                        .frame(width: geometry.size.width)
+                                                        .frame(minHeight: geometry.size.height)
+                                                        .foregroundColor(.black)
                                                 }
-                                                .frame(alignment: .center)
                                             }
-                                            
-                                            
+                                        }else{
+                                            ForEach(dataresult) { result in
+                                                Button{
+                                                    isShowModal =  true
+                                                    var titleJdl = ""
+                                                    if btnGangguan == true {
+                                                        titleJdl = "Gangguan Lalu Lintas"
+                                                    }else if btnPemeliha == true {
+                                                        titleJdl = "Pemeliharaan Lalu Lintas"
+                                                    }else if btnRekayasa == true {
+                                                        titleJdl = "Rekayasa Lalu Lintas"
+                                                    }
+                                                    
+                                                    dataInSide = Data_event_lalin(id: result.idx , title: titleJdl, nama_ruas: result.nama_ruas, nama_ruas_2: result.nama_ruas_2, km: result.km, jalur: result.jalur, lajur: result.lajur, waktu: result.waktu, jenis_event: result.jenis_event, arah_jalur: result.arah_jalur, ket_status: result.ket_status, ket: result.ket, range_km: result.range_km, waktu_end: result.waktu_end)
+                                                    
+                                                }label:{
+                                                    VStack{
+                                                        HStack{
+                                                            Spacer()
+                                                            Text(result.waktu)
+                                                                .font(.system(size: 10))
+                                                                .frame(width: 60, alignment: .center)
+                                                                .multilineTextAlignment(.center)
+                                                                .foregroundColor(.black)
+                                                            
+                                                            Spacer()
+                                                            Text("\(result.nama_ruas_2)/\(result.km) \(result.jalur)")
+                                                                .font(.system(size: 10))
+                                                                .frame(width: 80, alignment: .center)
+                                                                .multilineTextAlignment(.center)
+                                                                .foregroundColor(.black)
+                                                            
+                                                            Spacer()
+                                                            Text(result.jenis_event)
+                                                                .font(.system(size: 10))
+                                                                .frame(width: 70, alignment: .center)
+                                                                .multilineTextAlignment(.center)
+                                                                .foregroundColor(.black)
+                                                            
+                                                            Spacer()
+                                                            Rectangle()
+                                                                .fill(result.ket_status == "Dalam Penanganan" || result.ket_status == "Dalam Proses" ? .orange : .red)
+                                                                .frame(width: 15, height: 15)
+                                                                .cornerRadius(50)
+                                                            
+                                                            Spacer()
+                                                        }
+                                                        Divider()
+                                                            .frame(height: 1)
+                                                            .padding(.horizontal, 10)
+                                                            .background(Color(UIColor(hexString: "#DFEFFF")))
+                                                    }
+                                                    .frame(alignment: .center)
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -273,7 +314,13 @@ struct HomePage: View {
             tipe_lalin = "gangguan"
             KejadianLalin().getKejadianLalin(tipe_lalin: "gangguan"){ result in
                 self.dataresult = result
+                if self.dataresult.isEmpty{
+                    self.showloadinglist = false
+                }else{
+                    self.showloadinglist = true
+                }
             }
+            
         }
         .background(.white)
     }

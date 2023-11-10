@@ -19,6 +19,7 @@ struct MainPage: View {
     
     @State var showTopMenuBar = true
     @State var showAlertLogout = false
+    @State var showProgresLoading = false
     
     var body: some View {
         VStack{
@@ -71,31 +72,35 @@ struct MainPage: View {
                                     .font(.system(size: 18, weight: .bold))
                                     .foregroundColor(Color(UIColor(hexString: "#390099")))
                             }
-                            .alert("Logout", isPresented: $showAlertLogout) {
+                            .alert("Peringatan Akun", isPresented: $showAlertLogout) {
                                 Button {
                                     // nothing needed here
                                 } label: {
-                                    Text("Cancel")
+                                    Text("Tidak")
                                         .bold()
                                         .tint(.purple)
                                 }
                                 .tint(.purple)
                                 Button {
+                                    self.showProgresLoading = true
                                     modelLogin.logoutLogin(){ success in
                                         if success {
-                                            print("berhasil logout")
+                                            modelLogin.isLogin = false
+                                            self.showProgresLoading = false
                                         }else{
+                                            modelLogin.isLogin = true
+                                            self.showProgresLoading = false
                                             modelLogin.showErr.toggle()
                                         }
                                     }
                                 } label: {
-                                    Text("Yes")
+                                    Text("Yakin")
                                         .foregroundColor(.red)
                                 }.alert(modelLogin.errorMsg ,isPresented: $modelLogin.showErr){
                                     //alert in button
                                 }
                             } message: {
-                                Text("Are you sure?")
+                                Text("Apakah anda yakin ingin keluar dari akun anda ?")
                             }
                             .padding(7)
                             .background(Color(UIColor(hexString: "#DFEFFF")))
@@ -108,6 +113,18 @@ struct MainPage: View {
             
             //set content menu
             ZStack{
+                if showProgresLoading {
+                    ProgressView("Loading...")
+                        .tint(Color(UIColor(hexString: "#00448C")))
+                        .foregroundColor(.black)
+                        .zIndex(2)
+                    Rectangle()
+                        .fill(.white.opacity(0.65))
+                        .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity)
+                        .edgesIgnoringSafeArea(.all)
+                        .zIndex(1)
+                    
+                }
                 switch selectedIndex{
                 case 0 :
                     HomePage()

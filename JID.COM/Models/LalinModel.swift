@@ -19,6 +19,7 @@ class LalinModel: ObservableObject{
     var mapViewlalin: MapView!
     var timer = Timer()
     @State var shwHideLalin: Bool = false;
+    var sizeIcon1: Double = 0.01
     
     func JSONLalin(from fileName: String) throws -> FeatureCollection? {
         guard let path = Bundle.main.path(forResource: fileName, ofType: "json") else {
@@ -81,14 +82,15 @@ class LalinModel: ObservableObject{
                     layer.visibility = .constant(Dataset.stsInfoJalanTol[5] == "yes" ? .visible : .none)
                 }
             } catch {
-                print("Galam menjalankan proses toggle layer cctv")
+                print("Gagal menjalankan proses toggle layer cctv")
             }
-           
+//            MidasModel().setUpMidasAPI(setmapView: self.mapViewlalin)
         }
         
         self.timer.invalidate()
         self.timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.setUpdateLayers), userInfo: nil, repeats: true)
         self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.runLayar), userInfo: nil, repeats: true)
+//        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.setUpdateLayersMidas), userInfo: nil, repeats: true)
         
     }
     
@@ -133,6 +135,24 @@ class LalinModel: ObservableObject{
                     
                 }
             }
+        }
+    }
+    
+    @objc func setUpdateLayersMidas(){
+        print("Update Midas is running...")
+        DispatchQueue.main.async {
+            if self.mapViewlalin.mapboxMap.style.sourceExists(withId: "source-midas") {
+                try! self.mapViewlalin.mapboxMap.style.updateLayer(withId: "midas-symbol", type: SymbolLayer.self){ symbollayar in
+                    if self.sizeIcon1 == 0.00 {
+                        self.sizeIcon1 += 0.01
+                    }else if self.sizeIcon1 == 0.04{
+                        self.sizeIcon1 -= 0.01
+                    }
+                    print(self.sizeIcon1)
+                    symbollayar.iconSize = .constant(self.sizeIcon1)
+                }
+            }
+            
         }
     }
     
@@ -282,24 +302,9 @@ class LalinModel: ObservableObject{
             }
         }
         if Dataset.stsSisinfokom[3]  == "yes" {
-            if self.mapViewlalin.mapboxMap.style.sourceExists(withId: "source-rtms2") {
-                try! self.mapViewlalin.mapboxMap.style.updateLayer(withId: "rtms2-symbol", type: SymbolLayer.self) { layer in
-                    layer.visibility = .constant(Dataset.stsSisinfokom[3] == "yes" ? .visible : .none)
-                }
-            }else{
-                Rtms2Model().setUpRtms2API(setmapView: self.mapViewlalin)
-            }
-        }else{
-            if self.mapViewlalin.mapboxMap.style.sourceExists(withId: "source-rtms2") {
-                try! self.mapViewlalin.mapboxMap.style.updateLayer(withId: "rtms2-symbol", type: SymbolLayer.self) { layer in
-                    layer.visibility = .constant(Dataset.stsSisinfokom[3] == "yes" ? .visible : .none)
-                }
-            }
-        }
-        if Dataset.stsSisinfokom[4]  == "yes" {
             if self.mapViewlalin.mapboxMap.style.sourceExists(withId: "source-radar") {
                 try! self.mapViewlalin.mapboxMap.style.updateLayer(withId: "radar-symbol", type: SymbolLayer.self) { layer in
-                    layer.visibility = .constant(Dataset.stsSisinfokom[4] == "yes" ? .visible : .none)
+                    layer.visibility = .constant(Dataset.stsSisinfokom[3] == "yes" ? .visible : .none)
                 }
             }else{
                 RadarModel().setUpRadarAPI(setmapView: self.mapViewlalin)
@@ -307,14 +312,14 @@ class LalinModel: ObservableObject{
         }else{
             if self.mapViewlalin.mapboxMap.style.sourceExists(withId: "source-radar") {
                 try! self.mapViewlalin.mapboxMap.style.updateLayer(withId: "radar-symbol", type: SymbolLayer.self) { layer in
-                    layer.visibility = .constant(Dataset.stsSisinfokom[4] == "yes" ? .visible : .none)
+                    layer.visibility = .constant(Dataset.stsSisinfokom[3] == "yes" ? .visible : .none)
                 }
             }
         }
-        if Dataset.stsSisinfokom[5]  == "yes" {
+        if Dataset.stsSisinfokom[4]  == "yes" {
             if self.mapViewlalin.mapboxMap.style.sourceExists(withId: "source-speed") {
                 try! self.mapViewlalin.mapboxMap.style.updateLayer(withId: "speed-symbol", type: SymbolLayer.self) { layer in
-                    layer.visibility = .constant(Dataset.stsSisinfokom[5] == "yes" ? .visible : .none)
+                    layer.visibility = .constant(Dataset.stsSisinfokom[4] == "yes" ? .visible : .none)
                 }
             }else{
                 SpeedModel().setUpSpeedAPI(setmapView: self.mapViewlalin)
@@ -322,14 +327,14 @@ class LalinModel: ObservableObject{
         }else{
             if self.mapViewlalin.mapboxMap.style.sourceExists(withId: "source-speed") {
                 try! self.mapViewlalin.mapboxMap.style.updateLayer(withId: "speed-symbol", type: SymbolLayer.self) { layer in
-                    layer.visibility = .constant(Dataset.stsSisinfokom[5] == "yes" ? .visible : .none)
+                    layer.visibility = .constant(Dataset.stsSisinfokom[4] == "yes" ? .visible : .none)
                 }
             }
         }
-        if Dataset.stsSisinfokom[6]  == "yes" {
+        if Dataset.stsSisinfokom[5]  == "yes" {
             if self.mapViewlalin.mapboxMap.style.sourceExists(withId: "source-waterlevel"){
                 try! self.mapViewlalin.mapboxMap.style.updateLayer(withId: "waterlevel-symbol", type: SymbolLayer.self) { layer in
-                    layer.visibility = .constant(Dataset.stsSisinfokom[6] == "yes" ? .visible : .none)
+                    layer.visibility = .constant(Dataset.stsSisinfokom[5] == "yes" ? .visible : .none)
                 }
             }else{
                 WaterLevelModel().setUpWaterLevelAPI(setmapView: self.mapViewlalin)
@@ -337,14 +342,14 @@ class LalinModel: ObservableObject{
         }else{
             if self.mapViewlalin.mapboxMap.style.sourceExists(withId: "source-waterlevel") {
                 try! self.mapViewlalin.mapboxMap.style.updateLayer(withId: "waterlevel-symbol", type: SymbolLayer.self) { layer in
-                    layer.visibility = .constant(Dataset.stsSisinfokom[6] == "yes" ? .visible : .none)
+                    layer.visibility = .constant(Dataset.stsSisinfokom[5] == "yes" ? .visible : .none)
                 }
             }
         }
-        if Dataset.stsSisinfokom[7]  == "yes" {
+        if Dataset.stsSisinfokom[6]  == "yes" {
             if self.mapViewlalin.mapboxMap.style.sourceExists(withId: "source-pompa") {
                 try! self.mapViewlalin.mapboxMap.style.updateLayer(withId: "pompa-symbol", type: SymbolLayer.self) { layer in
-                    layer.visibility = .constant(Dataset.stsSisinfokom[7] == "yes" ? .visible : .none)
+                    layer.visibility = .constant(Dataset.stsSisinfokom[6] == "yes" ? .visible : .none)
                 }
             }else{
                 PompaBanjirModel().setUpPompaBanjirAPI(setmapView: self.mapViewlalin)
@@ -352,14 +357,14 @@ class LalinModel: ObservableObject{
         }else{
             if self.mapViewlalin.mapboxMap.style.sourceExists(withId: "source-pompa") {
                 try! self.mapViewlalin.mapboxMap.style.updateLayer(withId: "pompa-symbol", type: SymbolLayer.self) { layer in
-                    layer.visibility = .constant(Dataset.stsSisinfokom[7] == "yes" ? .visible : .none)
+                    layer.visibility = .constant(Dataset.stsSisinfokom[6] == "yes" ? .visible : .none)
                 }
             }
         }
-        if Dataset.stsSisinfokom[8]  == "yes" {
+        if Dataset.stsSisinfokom[7]  == "yes" {
             if self.mapViewlalin.mapboxMap.style.sourceExists(withId: "source-wim") {
                 try! self.mapViewlalin.mapboxMap.style.updateLayer(withId: "wim-symbol", type: SymbolLayer.self) { layer in
-                    layer.visibility = .constant(Dataset.stsSisinfokom[8] == "yes" ? .visible : .none)
+                    layer.visibility = .constant(Dataset.stsSisinfokom[7] == "yes" ? .visible : .none)
                 }
             }else{
                 WimModel().setUpWimAPI(setmapView: self.mapViewlalin)
@@ -367,14 +372,14 @@ class LalinModel: ObservableObject{
         }else{
             if self.mapViewlalin.mapboxMap.style.sourceExists(withId: "source-wim") {
                 try! self.mapViewlalin.mapboxMap.style.updateLayer(withId: "wim-symbol", type: SymbolLayer.self) { layer in
-                    layer.visibility = .constant(Dataset.stsSisinfokom[8] == "yes" ? .visible : .none)
+                    layer.visibility = .constant(Dataset.stsSisinfokom[7] == "yes" ? .visible : .none)
                 }
             }
         }
-        if Dataset.stsSisinfokom[9]  == "yes" {
+        if Dataset.stsSisinfokom[8]  == "yes" {
             if self.mapViewlalin.mapboxMap.style.sourceExists(withId: "source-gpskendaraan") {
                 try! self.mapViewlalin.mapboxMap.style.updateLayer(withId: "gpskendaraan-symbol", type: SymbolLayer.self) { layer in
-                    layer.visibility = .constant(Dataset.stsSisinfokom[9] == "yes" ? .visible : .none)
+                    layer.visibility = .constant(Dataset.stsSisinfokom[8] == "yes" ? .visible : .none)
                 }
             }else{
                 GpsKendaraanModel().setUpGPSKendaraanAPI(setmapView: self.mapViewlalin)
@@ -382,14 +387,14 @@ class LalinModel: ObservableObject{
         }else{
             if self.mapViewlalin.mapboxMap.style.sourceExists(withId: "source-gpskendaraan") {
                 try! self.mapViewlalin.mapboxMap.style.updateLayer(withId: "gpskendaraan-symbol", type: SymbolLayer.self) { layer in
-                    layer.visibility = .constant(Dataset.stsSisinfokom[9] == "yes" ? .visible : .none)
+                    layer.visibility = .constant(Dataset.stsSisinfokom[8] == "yes" ? .visible : .none)
                 }
             }
         }
-        if Dataset.stsSisinfokom[10]  == "yes" {
+        if Dataset.stsSisinfokom[9]  == "yes" {
             if self.mapViewlalin.mapboxMap.style.sourceExists(withId: "source-bike") {
                 try! self.mapViewlalin.mapboxMap.style.updateLayer(withId: "bike-symbol", type: SymbolLayer.self) { layer in
-                    layer.visibility = .constant(Dataset.stsSisinfokom[10] == "yes" ? .visible : .none)
+                    layer.visibility = .constant(Dataset.stsSisinfokom[9] == "yes" ? .visible : .none)
                 }
             }else{
                 BikeModel().setUpBikeAPI(setmapView: self.mapViewlalin)
@@ -397,7 +402,7 @@ class LalinModel: ObservableObject{
         }else{
             if self.mapViewlalin.mapboxMap.style.sourceExists(withId: "source-bike") {
                 try! self.mapViewlalin.mapboxMap.style.updateLayer(withId: "bike-symbol", type: SymbolLayer.self) { layer in
-                    layer.visibility = .constant(Dataset.stsSisinfokom[10] == "yes" ? .visible : .none)
+                    layer.visibility = .constant(Dataset.stsSisinfokom[9] == "yes" ? .visible : .none)
                 }
             }
         }

@@ -32,8 +32,10 @@ class RadarModel: ObservableObject{
                     }
                     self.geoJSONSource.data = .featureCollection(featureCollection)
                     
-                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "radar_g_24")!,
-                                                             id: "ic_radar")
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "radar_on")!,
+                                                             id: "radaron")
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "radar_off")!,
+                                                             id: "radaroff")
                    
                     
                     var symbollayer = SymbolLayer(id: "radar-symbol")
@@ -43,9 +45,22 @@ class RadarModel: ObservableObject{
                     }
                     
                     symbollayer.source = self.sourceData
+                    let expressionIcon = Exp(.switchCase) {
+                        Exp(.eq) {
+                            Exp(.get) { "icon" }
+                                "radaron"
+                            }
+                        "radaron"
+                        Exp(.eq) {
+                            Exp(.get) { "icon" }
+                                "radaroff"
+                            }
+                        "radaroff"
+                        "radaron"
+                    }
                     
-                    
-                    symbollayer.iconImage = .constant(.name("ic_radar"))
+                    symbollayer.iconImage = .expression(expressionIcon)
+//                    symbollayer.iconImage = .constant(.name("ic_radar"))
                     symbollayer.iconSize = .constant(self.sizeIcon)
                     symbollayer.textField = .expression(Exp(.get){"nama_lokasi"})
                     symbollayer.textSize = .constant(8)

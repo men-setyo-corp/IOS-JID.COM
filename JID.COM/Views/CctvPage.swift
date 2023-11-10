@@ -138,7 +138,7 @@ struct CctvPage: View {
                                         .padding(.top, 10)
                                         .shadow(radius: 5)
                                     })
-                                    
+                                   
                                 }
                             }
                             

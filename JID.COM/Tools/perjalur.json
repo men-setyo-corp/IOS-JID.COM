@@ -1,0 +1,86 @@
+{
+    "status": true,
+    "data": [
+        {
+            "_id": {
+                "jalur": "A",
+                "tgl_entri": "2023-02"
+            },
+            "jalurA": 120,
+            "jalurB": 0
+        },
+        {
+            "_id": {
+                "jalur": "A",
+                "tgl_entri": "2023-04"
+            },
+            "jalurA": 74,
+            "jalurB": 0
+        },
+        {
+            "_id": {
+                "jalur": "A",
+                "tgl_entri": "2023-01"
+            },
+            "jalurA": 177,
+            "jalurB": 0
+        },
+        {
+            "_id": {
+                "jalur": "J",
+                "tgl_entri": "2023-03"
+            },
+            "jalurA": 0,
+            "jalurB": 0
+        },
+        {
+            "_id": {
+                "jalur": "A",
+                "tgl_entri": "2023-03"
+            },
+            "jalurA": 137,
+            "jalurB": 0
+        },
+        {
+            "_id": {
+                "jalur": "B",
+                "tgl_entri": "2023-01"
+            },
+            "jalurA": 0,
+            "jalurB": 53
+        },
+        {
+            "_id": {
+                "jalur": "B",
+                "tgl_entri": "2023-03"
+            },
+            "jalurA": 0,
+            "jalurB": 145
+        },
+        {
+            "_id": {
+                "jalur": "B",
+                "tgl_entri": "2023-04"
+            },
+            "jalurA": 0,
+            "jalurB": 60
+        },
+        {
+            "_id": {
+                "jalur": "J",
+                "tgl_entri": "2023-02"
+            },
+            "jalurA": 0,
+            "jalurB": 0
+        },
+        {
+            "_id": {
+                "jalur": "B",
+                "tgl_entri": "2023-02"
+            },
+            "jalurA": 0,
+            "jalurB": 77
+        }
+    ],
+    "msg": "Berhasil mengambil data jalur"
+}

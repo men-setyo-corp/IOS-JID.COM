@@ -12,6 +12,8 @@ import Alamofire
 class RestApiController{
     
     public let url_based = "https://jid.jasamarga.com/client-api/"
+    public let url_based_dev = "https://jid.jasamarga.com/t3s/"
+    
     let headers: HTTPHeaders? = ["Content-Type": "application/json",
                                  "Authorization": "2345391662"]
     
@@ -38,7 +40,7 @@ class RestApiController{
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("2345391662", forHTTPHeaderField: "Authorization")
         
-        if url == "showlalin" || url == "data/jalan_penghubung" || url == "data/pompa" || url == "data/bike" {
+        if url == "showlalin" || url == "data/jalan_penghubung" || url == "data/pompa" || url == "data/bike" || url == "data/midas" {
             request.httpMethod = "GET"
         }else{
             let json: [String: Any] = ["id_ruas": modelLogin.scope]
@@ -108,6 +110,42 @@ class RestApiController{
             parameters: dataParam,
             encoding: JSONEncoding.default,
             headers: self.headers)
+        .responseData { dataResponse in
+            switch dataResponse.result
+            {
+                case .success(let json):
+                    completion(json)
+                case .failure(let error):
+                    print(error)
+            }
+        }
+    }
+    
+    func resAPIDev(endPoint: String, method: HTTPMethod, dataParam: Parameters, token: String, completion: @escaping (_ data: Data?) -> ()) {
+        let headersdev: HTTPHeaders? = ["Authorization": "Bearer "+modelLogin.auth]
+        AF.request(self.url_based_dev+endPoint,
+            method: method,
+            parameters: dataParam,
+            encoding: JSONEncoding.default,
+            headers: headersdev)
+        .responseData { dataResponse in
+            switch dataResponse.result
+            {
+                case .success(let json):
+                    completion(json)
+                case .failure(let error):
+                    print(error)
+            }
+        }
+    }
+    
+    func resAPIDevGet(endPoint: String, method: HTTPMethod, completion: @escaping (_ data: Data?) -> ()) {
+        let headersdev: HTTPHeaders? = ["Authorization": "Bearer "+modelLogin.auth]
+        print(self.url_based_dev+endPoint)
+        AF.request(self.url_based_dev+endPoint,
+            method: method,
+            encoding: JSONEncoding.default,
+            headers: headersdev)
         .responseData { dataResponse in
             switch dataResponse.result
             {

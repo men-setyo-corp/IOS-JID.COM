@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RealtimePage: View {
     @State var showLoading: Bool = false
-    var baseUrl = "https://jid.jasamargalive.com/graph/"
+    var baseUrl = "https://jid.jasamarga.com/graph/"
     
     var body: some View {
         VStack{

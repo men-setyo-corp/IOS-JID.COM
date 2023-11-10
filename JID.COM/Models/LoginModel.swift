@@ -20,6 +20,7 @@ class LoginModel: ObservableObject {
     @Published var errorMsg: String = ""
     
     //mark: session in local storage
+    @AppStorage("auth") var auth: String = ""
     @AppStorage("name") var nama: String = ""
     @AppStorage("scope") var scope: String = ""
     @AppStorage("item") var item: String = ""
@@ -29,17 +30,19 @@ class LoginModel: ObservableObject {
     @AppStorage("isLogin") var isLogin: Bool = false
     @AppStorage("fcmToken") var fcmToken: String = ""
     @AppStorage("statusNotif") var statusNotif: Int = 0
+    @AppStorage("menuJalantoll") var menuJalantoll: String = ""
+    @AppStorage("menuSisinfokom") var menuSisinfokom: String = ""
+    @AppStorage("menuEventlalin") var menuEventlalin: String = ""
     
     //mark: auth login
     func PresLogin(paramsData: Parameters, completion: @escaping (Bool) -> (Void)) async throws{
         DispatchQueue.main.async {
-            RestApiController().resAPI(endPoint: "auth_login/", method: .put ,dataParam: paramsData){ (results) in
+            RestApiController().resAPIDev(endPoint: "auth/v1/login",method: .post ,dataParam: paramsData, token:""){ (results) in
                 let getJSON = JSON(results ?? "Null data from API")
-                
-                if getJSON["status"].intValue == 1 {
-                    self.addLogSession(name: self.nama){ success in
+                if getJSON["status"].boolValue {
+                    self.auth = getJSON["token"].stringValue
+                    self.addLogSession(){ success in
                         if success {
-                            //mark: set local storage
                             self.nama = getJSON["data"]["name"].stringValue
                             self.scope = getJSON["data"]["scope"].stringValue
                             self.item = getJSON["data"]["item"].stringValue
@@ -47,13 +50,17 @@ class LoginModel: ObservableObject {
                             self.dashboard = getJSON["data"]["dashboard"].stringValue
                             self.vip = getJSON["data"]["vip"].intValue
                             
+                            self.menuJalantoll = getJSON["data"]["infojalantol"].stringValue
+                            self.menuSisinfokom = getJSON["data"]["sisinfokom"].stringValue
+                            self.menuEventlalin = getJSON["data"]["eventjalantol"].stringValue
+                            
                             completion(true)
                         }else{
                             completion(false)
                         }
                     }
                 }else{
-                    self.errorMsg = getJSON["msg"].stringValue
+                    self.errorMsg = getJSON["message"].stringValue
                     self.showErr.toggle()
                     print(getJSON["msg"].stringValue)
                     completion(false)
@@ -62,16 +69,15 @@ class LoginModel: ObservableObject {
         }
     }
     
-    func addLogSession(name: String, completion: @escaping (Bool) -> (Void)){
+    func addLogSession(completion: @escaping (Bool) -> (Void)){
         let deviceNm = UIDevice.current.name
-        let strIPAddress : String = getIP().getIPAddress()
     
-        let parameters : Parameters = ["name": name, "device_name":deviceNm, "addr": strIPAddress, "token": fcmToken]
+        let parameters : Parameters = ["token_fcm": fcmToken, "device":"mobile", "device_name": deviceNm]
         DispatchQueue.main.async {
-            RestApiController().resAPI(endPoint: "add_session_dev/", method: .put ,dataParam: parameters){ results in
+            RestApiController().resAPIDev(endPoint: "auth/v1/update-session", method: .patch ,dataParam: parameters, token: self.auth){ results in
                 let getJSON = JSON(results ?? "Null data from API")
-                let status = getJSON["status"].intValue
-                if status == 1 {
+                let status = getJSON["status"].boolValue
+                if status {
                     self.errorMsg = getJSON["msg"].stringValue
                     self.isLogin = true
                     completion(true)
@@ -85,22 +91,22 @@ class LoginModel: ObservableObject {
     }
     
     func logoutLogin(completion: @escaping (Bool) -> (Void)){
-        let parameters : Parameters = ["name": self.nama]
-        DispatchQueue.main.async {
-            RestApiController().resAPI(endPoint: "del_session/", method: .put ,dataParam: parameters){ results in
-                let getJSON = JSON(results ?? "Null data from API")
-                let status = getJSON["status"].intValue
-                if status == 1 {
-                    self.errorMsg = getJSON["msg"].stringValue
-                    self.isLogin = false
-                    completion(true)
-                }else{
-                    self.errorMsg = getJSON["msg"].stringValue
-                    self.isLogin = true
-                    completion(false)
-                }
-            }
-        }
+        self.isLogin = false
+//        DispatchQueue.main.async {
+//            RestApiController().resAPIDevGet(endPoint: "auth/v1/logout", method: .get){ results in
+//                let getJSON = JSON(results ?? "Null data from API")
+//                let status = getJSON["status"].boolValue
+//                if status {
+//                    self.errorMsg = getJSON["message"].stringValue
+//                    self.isLogin = false
+//                    completion(true)
+//                }else{
+//                    self.errorMsg = getJSON["message"].stringValue
+//                    self.isLogin = true
+//                    completion(false)
+//                }
+//            }
+//        }
     }
     
     

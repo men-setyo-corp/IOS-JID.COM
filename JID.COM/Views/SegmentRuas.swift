@@ -12,6 +12,7 @@ struct SegmentRuas: View {
     
     @Environment(\.presentationMode) var presentationMode
     @State var search = ""
+    @State var nulldata = ""
     
     @State var datasegment : [Getsegment] = []
     
@@ -120,9 +121,15 @@ struct SegmentRuas: View {
 //                    .padding(.bottom, 10)
 //                    .padding(.horizontal, 25)
                     
-                    if datasegment.isEmpty {
-                        ForEach(1..<10){row in
-                            CardShimmerSegment()
+                    if searchResults.isEmpty {
+                        if nulldata == "kosong" {
+                            Text("Silahkan pilih semua segment !")
+                                .foregroundColor(Color.gray)
+                                .padding(.vertical)
+                        }else{
+                            ForEach(1..<10){row in
+                                CardShimmerSegment()
+                            }
                         }
                     }else{
                         ForEach(searchResults) { row in
@@ -182,7 +189,11 @@ struct SegmentRuas: View {
         .navigationBarHidden(true)
         .onAppear{
             SegmentModel().getSegment(idruas: writer.id_key){ (data) in
-                self.datasegment = data
+                if data.isEmpty{
+                    self.nulldata = "kosong"
+                }else{
+                    self.datasegment = data
+                }
             }
         }
     }

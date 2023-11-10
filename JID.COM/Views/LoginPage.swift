@@ -27,7 +27,7 @@ struct SecureTextField: View{
                 .onTapGesture {
                     isSecureField.toggle()
                 }
-                .foregroundColor(Color.blue)
+                .foregroundColor(Color(UIColor(hexString: "#00448C")))
         }
     }
 }
@@ -41,51 +41,56 @@ struct LoginPage: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack{
-                Image("bg_login")
-                    .resizable()
-                    .aspectRatio(geometry.size, contentMode: .fill)
-                    .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity)
-                    .edgesIgnoringSafeArea(.all)
-                Rectangle()
-                    .fill(.black.opacity(0.65))
-                    .aspectRatio(geometry.size, contentMode: .fill)
-                    .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity)
+                Color.white
+                    .ignoresSafeArea()
+                Ellipse()
+                    .fill(Color(UIColor(hexString: "#00448C")))
+                    .frame(width: geometry.size.width * 2.10, height: geometry.size.height * 1)
+                    .position(x: geometry.size.width / 2.0)
+                    .shadow(radius: 3)
                     .edgesIgnoringSafeArea(.all)
                 
-                VStack{
-                    Image("logowhite")
+                ZStack{
+                    Ellipse()
+                        .fill(Color.white)
+                        .frame(width: geometry.size.width * 0.35, height: geometry.size.height * 0.17)
+                        .position(x: geometry.size.width / 2.3, y: geometry.size.height / 4.3)
+                        .zIndex(0.1)
+                    Image("logonew")
                         .resizable()
-                        .frame(width: geometry.size.width * 0.25, height: geometry.size.height * 0.13, alignment: .center)
-                        .padding(.bottom, 35)
-                        .scaledToFit()
+                        .frame(width: geometry.size.width * 0.23, height: geometry.size.height * 0.1)
+                        .position(x: geometry.size.width / 2.3, y: geometry.size.height / 4.3)
+                        .zIndex(1)
                         .shadow(color: .black.opacity(0.30), radius: 20)
                     
-                    
                     VStack{
-                        Text("Hey, \nWelcome back!")
-                            .font(.largeTitle.bold())
-                            .scaledToFit()
-                            .foregroundColor(.black)
+                        Text("Welcome back!")
+                            .font(.system(size: 17))
+                            .foregroundColor(Color(UIColor(hexString: "#00448C")))
                             .hLeading()
+                            .padding(.top, 70)
                         //MARK:test field
                         Text("Username")
+                            .font(.system(size: 13))
                             .padding(.top, 10)
                             .foregroundColor(.black)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         TextField("Username", text: $modelLogin.email)
                             .padding()
                             .overlay(
-                                RoundedRectangle(cornerRadius: 8)
+                                RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color.blue, lineWidth: modelLogin.email == "" ? 0: 1)
                             )
                             .background{
-                                RoundedRectangle(cornerRadius: 8)
+                                RoundedRectangle(cornerRadius: 10)
                                     .fill(Color.black.opacity(0.05))
                             }
+                            .font(.system(size: 13))
                             .textInputAutocapitalization(.never)
                             .foregroundColor(.black)
                         
                         Text("Password")
+                            .font(.system(size: 13))
                             .padding(.top, 15)
                             .foregroundColor(.black)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -100,14 +105,15 @@ struct LoginPage: View {
                                 RoundedRectangle(cornerRadius: 8)
                                     .fill(Color.black.opacity(0.05))
                             }
+                            .font(.system(size: 13))
                             .foregroundColor(.black)
                             .textInputAutocapitalization(.never)
-                            
+        
                         
                         Button{
                             Task{
                                 modelLogin.txtLoging = false
-                                let parameters: Parameters = [ "username" : modelLogin.email, "password" : modelLogin.password ]
+                                let parameters: Parameters = [ "name" : modelLogin.email, "pass" : modelLogin.password ]
                                 do{
                                     try await modelLogin.PresLogin(paramsData: parameters){ success in
                                         modelLogin.txtLoging.toggle()
@@ -131,23 +137,25 @@ struct LoginPage: View {
                                 .background{
                                     RoundedRectangle(cornerRadius: 8)
                                         .fill(modelLogin.email == "" || modelLogin.password == "" ?
-                                            Color.blue.opacity(0.7) : Color.blue)
+                                              Color(UIColor(hexString: "#00448C")).opacity(0.7) : Color(UIColor(hexString: "#00448C")))
                                 }
+                                .font(.system(size: 13))
                         }
                         .padding(.top, 20)
                         .disabled(modelLogin.email == "" || modelLogin.password == "")
                         .alert(modelLogin.errorMsg ,isPresented: $modelLogin.showErr){
                             //alert in button
                         }
+                      
+//                        NavigationLink("",destination: MainPage()
+//                                        .navigationBarHidden(true)
+//                                        .navigationBarBackButtonHidden(true), isActive:self.$isActive)
                         
-                        NavigationLink("",destination: MainPage()
-                                        .navigationBarHidden(true)
-                                        .navigationBarBackButtonHidden(true), isActive:self.$isActive)
                         
                     }
                     .padding()
                     .background(Color.white)
-                    .cornerRadius(10)
+                    .cornerRadius(20)
                     .shadow(color: .black.opacity(0.30), radius: 20)
                     //end vstack
                     
@@ -155,13 +163,22 @@ struct LoginPage: View {
                     NavigationLink {
                         
                     } label: {
-                        Text("Jasamarga Integrated Digitalmap")
-                            .foregroundColor(.white)
-                            .fontWeight(Font.Weight.bold)
+                        Text("©Copyright 2018 - 2023 Jasa Marga")
+                            .foregroundColor(Color(UIColor(hexString: "#828282")))
+                            .font(.system(size: 12))
                     }
-                    .padding(.top, 20)
+                    .frame(alignment: .center)
+                    .position(x: geometry.size.width / 2.2, y: geometry.size.height / 1.1)
+                    
+                    Text("versi 1.3.2")
+                        .font(.system(size: 12))
+                        .frame(alignment: .center)
+                        .position(x: geometry.size.width / 2.2, y: geometry.size.height / 1.1)
+                        .foregroundColor(Color(UIColor(hexString: "#828282")))
+                        .padding(.top, 20)
+                        .zIndex(1)
                 }
-                .padding()
+                .padding(25)
                 
                 // end Vstack
             }

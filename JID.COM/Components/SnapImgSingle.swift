@@ -24,11 +24,12 @@ struct SnapImgSingle: View {
                         image
                             .resizable()
                     } else if phase.error != nil {
-                        CardShimmerSnap()
+                        ProgressView()
                     } else {
                         CardShimmerSnap()
                     }
                 }
+                .frame(maxWidth: .infinity)
                 .frame(height: 250)
                 .background(Color.white)
                 
@@ -81,7 +82,7 @@ struct SnapImgSingle: View {
     }
     
     private func startRunSnap() {
-       Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
            urlSet = "https://jid.jasamarga.com/cctv2/\(dataSnap.key_id)?tx=\(Float.random(in: 0...1))"
            
            if stopRun == false {

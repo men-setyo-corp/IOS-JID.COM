@@ -20,13 +20,13 @@ struct Gethistori: Codable, Identifiable {
     let jalur : String
     let nama_ruas : String
     let tanggal : String
-    
+    let created_at : String
 }
 
 class HistoriNotifModel: ObservableObject {
   
     func loadHistori(completion: @escaping ([Gethistori]) -> ()) {
-        let parameters : Parameters = ["limit": 10, "platform": "jid_mobile"]
+        let parameters : Parameters = ["limit": 30, "platform": "jid_mobile"]
         DispatchQueue.main.async {
             RestApiController().resAPI(endPoint: "push_notif/getallios", method: .post ,dataParam: parameters){ (results) in
                 let getJSON = JSON(results ?? "Null data from API")

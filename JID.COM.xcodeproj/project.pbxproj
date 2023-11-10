@@ -8,7 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		840E1CB7294493D0007788BC /* DetailEventLalin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E1CB6294493D0007788BC /* DetailEventLalin.swift */; };
-		848A19422949DB97003A30D0 /* NotificationTest.apns in Resources */ = {isa = PBXBuildFile; fileRef = 848A19412949DB97003A30D0 /* NotificationTest.apns */; };
+		841000F42AC67D4900A77E23 /* CustomGroupBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841000F32AC67D4900A77E23 /* CustomGroupBarChart.swift */; };
+		842ED9732ACD0C87003A2F13 /* ViewGrafikPemeliharaan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ED9722ACD0C87003A2F13 /* ViewGrafikPemeliharaan.swift */; };
+		842ED9752ACD0F2D003A2F13 /* ViewGrafikKegiatan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ED9742ACD0F2D003A2F13 /* ViewGrafikKegiatan.swift */; };
+		842ED9782ACD0F8F003A2F13 /* GrafikKegiatan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ED9772ACD0F8F003A2F13 /* GrafikKegiatan.swift */; };
+		842ED97F2ACD15C0003A2F13 /* datakegiatan.json in Resources */ = {isa = PBXBuildFile; fileRef = 842ED97E2ACD15BF003A2F13 /* datakegiatan.json */; };
+		842ED9812ACD4013003A2F13 /* ViewGrafikPerJalur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ED9802ACD4013003A2F13 /* ViewGrafikPerJalur.swift */; };
+		845B42F32AD6315E0080045F /* perjalur.json in Resources */ = {isa = PBXBuildFile; fileRef = 845B42F22AD6315E0080045F /* perjalur.json */; };
+		845F357F2AC266610046D0D3 /* GroupBarChartPemeliharaan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F357E2AC266610046D0D3 /* GroupBarChartPemeliharaan.swift */; };
+		845F35812AC27FF50046D0D3 /* xample.json in Resources */ = {isa = PBXBuildFile; fileRef = 845F35802AC27FF50046D0D3 /* xample.json */; };
+		8460F1802AC12A74006D7A00 /* DashPemeliharaan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8460F17F2AC12A74006D7A00 /* DashPemeliharaan.swift */; };
+		846D781B2AF4560600B4DAAE /* WaterLevelSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D781A2AF4560600B4DAAE /* WaterLevelSensor.swift */; };
+		84705DA62AF3DD3B000732D0 /* RuasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84705DA52AF3DD3B000732D0 /* RuasView.swift */; };
 		8490317229363E47003A8280 /* CctvCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8490317129363E47003A8280 /* CctvCarousel.swift */; };
 		8494E4B5294AACC600AC11FE /* GangguanLalinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494E4B4294AACC600AC11FE /* GangguanLalinModel.swift */; };
 		8494E4B7294AB23A00AC11FE /* GangguanModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494E4B6294AB23A00AC11FE /* GangguanModal.swift */; };
@@ -21,15 +32,21 @@
 		8494E4C5294B13B100AC11FE /* GerbangTollModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494E4C4294B13B100AC11FE /* GerbangTollModal.swift */; };
 		84A0B4DD2947EEED006260FD /* vmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0B4DC2947EEED006260FD /* vmsModel.swift */; };
 		84A0B4DF2947FE1F006260FD /* vmsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0B4DE2947FE1F006260FD /* vmsModal.swift */; };
+		84A0C7512ACCFA0C0059BE21 /* GrafikPemeliharaan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0C7502ACCFA0C0059BE21 /* GrafikPemeliharaan.swift */; };
 		84BEBD762951AEA20052A189 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84BEBD752951AEA20052A189 /* GoogleService-Info.plist */; };
 		84BEBD792951B4420052A189 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 84BEBD782951B4420052A189 /* FirebaseAnalytics */; };
 		84BEBD812951B4420052A189 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 84BEBD802951B4420052A189 /* FirebaseMessaging */; };
+		84BFAB6B2ACE702600AD338D /* GrafikPerjalur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFAB6A2ACE702600AD338D /* GrafikPerjalur.swift */; };
 		84CEE4D42919201D0092B333 /* SplashScrean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEE4D32919201D0092B333 /* SplashScrean.swift */; };
 		84CEE4D62919270D0092B333 /* AntrianPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEE4D52919270D0092B333 /* AntrianPage.swift */; };
 		84CEE4D829192C900092B333 /* RealtimePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEE4D729192C900092B333 /* RealtimePage.swift */; };
 		84CEE4DB2919DD960092B333 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 84CEE4DA2919DD960092B333 /* PopupView */; };
+		84D0549F2ABDA19A0047FF4E /* DGCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D0549C2ABDA1320047FF4E /* DGCharts.framework */; };
+		84D054A02ABDA19A0047FF4E /* DGCharts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84D0549C2ABDA1320047FF4E /* DGCharts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84D7EA7829529F9800F98EF7 /* HistoriNotifModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7EA7729529F9800F98EF7 /* HistoriNotifModel.swift */; };
 		84D7EA7A2952A33500F98EF7 /* HistoriNotif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7EA792952A33500F98EF7 /* HistoriNotif.swift */; };
+		84D94FF42955BA7400637CED /* lalin.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D94FF22955BA7400637CED /* lalin.json */; };
+		84D94FF52955BA7400637CED /* toll.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D94FF32955BA7400637CED /* toll.json */; };
 		84DBF789294C695800B6578C /* RestAreaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF788294C695800B6578C /* RestAreaModel.swift */; };
 		84DBF78B294D3C6B00B6578C /* ResAreaModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF78A294D3C6B00B6578C /* ResAreaModal.swift */; };
 		84DBF78D294D750F00B6578C /* RtmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF78C294D750F00B6578C /* RtmsModel.swift */; };
@@ -48,6 +65,11 @@
 		84DBF7A9294EDA2E00B6578C /* WimModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF7A8294EDA2E00B6578C /* WimModal.swift */; };
 		84DBF7AB294EDE6B00B6578C /* BikeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF7AA294EDE6B00B6578C /* BikeModel.swift */; };
 		84DBF7AD294EDFE900B6578C /* GpsKendaraanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF7AC294EDFE900B6578C /* GpsKendaraanModel.swift */; };
+		84E8BCA42954984A00815AF9 /* MidasModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E8BCA32954984A00815AF9 /* MidasModel.swift */; };
+		84FE5F422AB947C1002DAE6B /* MainDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE5F412AB947C1002DAE6B /* MainDashboard.swift */; };
+		84FE5F442ABA9E95002DAE6B /* DashboardPemeliharaan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE5F432ABA9E95002DAE6B /* DashboardPemeliharaan.swift */; };
+		84FE5F492ABAF55C002DAE6B /* DashLaluLintas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE5F482ABAF55C002DAE6B /* DashLaluLintas.swift */; };
+		84FE5F502ABAF5CE002DAE6B /* DataPemeliharaan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE5F4F2ABAF5CE002DAE6B /* DataPemeliharaan.swift */; };
 		FA0BBEDC28E295CD000278C6 /* SegmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0BBEDB28E295CD000278C6 /* SegmentModel.swift */; };
 		FA11848E28A0F636005C61AF /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = FA11848D28A0F636005C61AF /* SwiftyJSON */; };
 		FA16400B28D953E100954717 /* SegmentRuas.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA16400A28D953E100954717 /* SegmentRuas.swift */; };
@@ -58,7 +80,6 @@
 		FA16401728DBE35800954717 /* WebviewPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA16401628DBE35800954717 /* WebviewPresent.swift */; };
 		FA32DA8C28B3D1B5006C6B0F /* PemeliharaanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32DA8B28B3D1B5006C6B0F /* PemeliharaanModel.swift */; };
 		FA3E42DE28A3620E00C30323 /* catatan.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E42DD28A3620E00C30323 /* catatan.swift */; };
-		FA3E42E028A3662100C30323 /* toll.json in Resources */ = {isa = PBXBuildFile; fileRef = FA3E42DF28A3662100C30323 /* toll.json */; };
 		FA3E42E428A3732600C30323 /* RestApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E42E328A3732600C30323 /* RestApiController.swift */; };
 		FA3E42E628A38A7B00C30323 /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E42E528A38A7B00C30323 /* ColorSet.swift */; };
 		FA3E42F228A3B9D500C30323 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E42F128A3B9D500C30323 /* LoginModel.swift */; };
@@ -67,7 +88,6 @@
 		FA6BF793289EC047006EECC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA6BF792289EC047006EECC0 /* Assets.xcassets */; };
 		FA6BF796289EC047006EECC0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA6BF795289EC047006EECC0 /* Preview Assets.xcassets */; };
 		FA6BF79D289EC071006EECC0 /* MapBoxMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6BF79C289EC070006EECC0 /* MapBoxMapView.swift */; };
-		FA6BF7AB289ECA3A006EECC0 /* lalin.json in Resources */ = {isa = PBXBuildFile; fileRef = FA6BF7AA289ECA3A006EECC0 /* lalin.json */; };
 		FA7A2A3A28F1B4B4005672CC /* Layerset.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A2A3928F1B4B4005672CC /* Layerset.swift */; };
 		FA7A2A3C28F290B3005672CC /* LayerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A2A3B28F290B3005672CC /* LayerList.swift */; };
 		FA7B35A228B343DB0022FCC1 /* TollModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B35A128B343DB0022FCC1 /* TollModel.swift */; };
@@ -75,15 +95,12 @@
 		FA7FE4C928A4D9ED00669633 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FA7FE4C828A4D9ED00669633 /* Alamofire */; };
 		FA7FE4CB28A56DB200669633 /* GetIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7FE4CA28A56DB200669633 /* GetIP.swift */; };
 		FA7FE4CD28A6472500669633 /* ConManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7FE4CC28A6472500669633 /* ConManager.swift */; };
-		FA829A9528EC64ED0084AB82 /* SnapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA829A9428EC64ED0084AB82 /* SnapCarousel.swift */; };
-		FA829A9728ED269A0084AB82 /* CarauselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA829A9628ED269A0084AB82 /* CarauselView.swift */; };
 		FA8A12A928E2B3F700EECFD3 /* CctvSegemnt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A12A828E2B3F700EECFD3 /* CctvSegemnt.swift */; };
 		FA8A12AB28E2CE8A00EECFD3 /* ListCctvModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A12AA28E2CE8A00EECFD3 /* ListCctvModel.swift */; };
 		FA8A12AD28E3EDFF00EECFD3 /* CctvMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A12AC28E3EDFE00EECFD3 /* CctvMapModel.swift */; };
 		FA8A12AF28E427C900EECFD3 /* ImageLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A12AE28E427C900EECFD3 /* ImageLoad.swift */; };
 		FA8A12B328E4364A00EECFD3 /* WriteImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A12B228E4364A00EECFD3 /* WriteImg.swift */; };
 		FA8A12B628E48FD300EECFD3 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FA8A12B528E48FD300EECFD3 /* SDWebImageSwiftUI */; };
-		FA8A12BA28E52C7300EECFD3 /* SnapImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A12B928E52C7300EECFD3 /* SnapImage.swift */; };
 		FA8A12BC28E52D1E00EECFD3 /* SnapImgSingle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A12BB28E52D1E00EECFD3 /* SnapImgSingle.swift */; };
 		FA8A12C128E566E500EECFD3 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = FA8A12C028E566E500EECFD3 /* SDWebImage */; };
 		FAAFB0AC28D06E7700F8DE63 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFB0AB28D06E7700F8DE63 /* MainPage.swift */; };
@@ -109,6 +126,23 @@
 		FAD134B429068AD60036D231 /* MapboxCoreMaps.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAD134AA29068AD50036D231 /* MapboxCoreMaps.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		84D0549B2ABDA1320047FF4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84D054962ABDA1320047FF4E /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
+			remoteInfo = DGCharts;
+		};
+		84D0549D2ABDA1320047FF4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84D054962ABDA1320047FF4E /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
+			remoteInfo = DGChartsTests;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		FAD134B529068AD60036D231 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -116,6 +150,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				84D054A02ABDA19A0047FF4E /* DGCharts.framework in Embed Frameworks */,
 				FAD134B429068AD60036D231 /* MapboxCoreMaps.xcframework in Embed Frameworks */,
 				FAD134AC29068AD60036D231 /* Turf.xcframework in Embed Frameworks */,
 				FAD134B229068AD60036D231 /* MapboxMobileEvents.xcframework in Embed Frameworks */,
@@ -129,7 +164,18 @@
 
 /* Begin PBXFileReference section */
 		840E1CB6294493D0007788BC /* DetailEventLalin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventLalin.swift; sourceTree = "<group>"; };
-		848A19412949DB97003A30D0 /* NotificationTest.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = NotificationTest.apns; path = ../../NotificationTest.apns; sourceTree = "<group>"; };
+		841000F32AC67D4900A77E23 /* CustomGroupBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGroupBarChart.swift; sourceTree = "<group>"; };
+		842ED9722ACD0C87003A2F13 /* ViewGrafikPemeliharaan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewGrafikPemeliharaan.swift; sourceTree = "<group>"; };
+		842ED9742ACD0F2D003A2F13 /* ViewGrafikKegiatan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewGrafikKegiatan.swift; sourceTree = "<group>"; };
+		842ED9772ACD0F8F003A2F13 /* GrafikKegiatan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrafikKegiatan.swift; sourceTree = "<group>"; };
+		842ED97E2ACD15BF003A2F13 /* datakegiatan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = datakegiatan.json; sourceTree = "<group>"; };
+		842ED9802ACD4013003A2F13 /* ViewGrafikPerJalur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewGrafikPerJalur.swift; sourceTree = "<group>"; };
+		845B42F22AD6315E0080045F /* perjalur.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = perjalur.json; sourceTree = "<group>"; };
+		845F357E2AC266610046D0D3 /* GroupBarChartPemeliharaan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBarChartPemeliharaan.swift; sourceTree = "<group>"; };
+		845F35802AC27FF50046D0D3 /* xample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = xample.json; sourceTree = "<group>"; };
+		8460F17F2AC12A74006D7A00 /* DashPemeliharaan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashPemeliharaan.swift; sourceTree = "<group>"; };
+		846D781A2AF4560600B4DAAE /* WaterLevelSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterLevelSensor.swift; sourceTree = "<group>"; };
+		84705DA52AF3DD3B000732D0 /* RuasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuasView.swift; sourceTree = "<group>"; };
 		8490317129363E47003A8280 /* CctvCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CctvCarousel.swift; sourceTree = "<group>"; };
 		8494E4B4294AACC600AC11FE /* GangguanLalinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GangguanLalinModel.swift; sourceTree = "<group>"; };
 		8494E4B6294AB23A00AC11FE /* GangguanModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GangguanModal.swift; sourceTree = "<group>"; };
@@ -143,12 +189,18 @@
 		84A0B4DC2947EEED006260FD /* vmsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vmsModel.swift; sourceTree = "<group>"; };
 		84A0B4DE2947FE1F006260FD /* vmsModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vmsModal.swift; sourceTree = "<group>"; };
 		84A0B4E029482527006260FD /* JID.COM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JID.COM.entitlements; sourceTree = "<group>"; };
+		84A0C7502ACCFA0C0059BE21 /* GrafikPemeliharaan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrafikPemeliharaan.swift; sourceTree = "<group>"; };
 		84BEBD752951AEA20052A189 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84BFAB6A2ACE702600AD338D /* GrafikPerjalur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrafikPerjalur.swift; sourceTree = "<group>"; };
 		84CEE4D32919201D0092B333 /* SplashScrean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScrean.swift; sourceTree = "<group>"; };
 		84CEE4D52919270D0092B333 /* AntrianPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntrianPage.swift; sourceTree = "<group>"; };
 		84CEE4D729192C900092B333 /* RealtimePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimePage.swift; sourceTree = "<group>"; };
+		84D054962ABDA1320047FF4E /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = ../Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		84D7EA7729529F9800F98EF7 /* HistoriNotifModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoriNotifModel.swift; sourceTree = "<group>"; };
 		84D7EA792952A33500F98EF7 /* HistoriNotif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoriNotif.swift; sourceTree = "<group>"; };
+		84D94FF22955BA7400637CED /* lalin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lalin.json; sourceTree = "<group>"; };
+		84D94FF32955BA7400637CED /* toll.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = toll.json; sourceTree = "<group>"; };
+		84D94FF62955C9D000637CED /* lalin.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = lalin.json; path = ../../lalin.json; sourceTree = "<group>"; };
 		84DBF788294C695800B6578C /* RestAreaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAreaModel.swift; sourceTree = "<group>"; };
 		84DBF78A294D3C6B00B6578C /* ResAreaModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResAreaModal.swift; sourceTree = "<group>"; };
 		84DBF78C294D750F00B6578C /* RtmsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RtmsModel.swift; sourceTree = "<group>"; };
@@ -167,6 +219,11 @@
 		84DBF7A8294EDA2E00B6578C /* WimModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WimModal.swift; sourceTree = "<group>"; };
 		84DBF7AA294EDE6B00B6578C /* BikeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeModel.swift; sourceTree = "<group>"; };
 		84DBF7AC294EDFE900B6578C /* GpsKendaraanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GpsKendaraanModel.swift; sourceTree = "<group>"; };
+		84E8BCA32954984A00815AF9 /* MidasModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidasModel.swift; sourceTree = "<group>"; };
+		84FE5F412AB947C1002DAE6B /* MainDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDashboard.swift; sourceTree = "<group>"; };
+		84FE5F432ABA9E95002DAE6B /* DashboardPemeliharaan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPemeliharaan.swift; sourceTree = "<group>"; };
+		84FE5F482ABAF55C002DAE6B /* DashLaluLintas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashLaluLintas.swift; sourceTree = "<group>"; };
+		84FE5F4F2ABAF5CE002DAE6B /* DataPemeliharaan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPemeliharaan.swift; sourceTree = "<group>"; };
 		FA0BBEDB28E295CD000278C6 /* SegmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentModel.swift; sourceTree = "<group>"; };
 		FA16400A28D953E100954717 /* SegmentRuas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentRuas.swift; sourceTree = "<group>"; };
 		FA16400C28D954D200954717 /* Writer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Writer.swift; sourceTree = "<group>"; };
@@ -176,7 +233,6 @@
 		FA16401628DBE35800954717 /* WebviewPresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewPresent.swift; sourceTree = "<group>"; };
 		FA32DA8B28B3D1B5006C6B0F /* PemeliharaanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PemeliharaanModel.swift; sourceTree = "<group>"; };
 		FA3E42DD28A3620E00C30323 /* catatan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = catatan.swift; sourceTree = "<group>"; };
-		FA3E42DF28A3662100C30323 /* toll.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = toll.json; sourceTree = "<group>"; };
 		FA3E42E328A3732600C30323 /* RestApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApiController.swift; sourceTree = "<group>"; };
 		FA3E42E528A38A7B00C30323 /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
 		FA3E42F128A3B9D500C30323 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -187,21 +243,17 @@
 		FA6BF795289EC047006EECC0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FA6BF79C289EC070006EECC0 /* MapBoxMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBoxMapView.swift; sourceTree = "<group>"; };
 		FA6BF7A8289EC122006EECC0 /* JID-COM-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "JID-COM-Info.plist"; sourceTree = SOURCE_ROOT; };
-		FA6BF7AA289ECA3A006EECC0 /* lalin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lalin.json; sourceTree = "<group>"; };
 		FA7A2A3928F1B4B4005672CC /* Layerset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layerset.swift; sourceTree = "<group>"; };
 		FA7A2A3B28F290B3005672CC /* LayerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerList.swift; sourceTree = "<group>"; };
 		FA7B35A128B343DB0022FCC1 /* TollModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TollModel.swift; sourceTree = "<group>"; };
 		FA7B35A328B348A10022FCC1 /* LalinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LalinModel.swift; sourceTree = "<group>"; };
 		FA7FE4CA28A56DB200669633 /* GetIP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetIP.swift; sourceTree = "<group>"; };
 		FA7FE4CC28A6472500669633 /* ConManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConManager.swift; sourceTree = "<group>"; };
-		FA829A9428EC64ED0084AB82 /* SnapCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCarousel.swift; sourceTree = "<group>"; };
-		FA829A9628ED269A0084AB82 /* CarauselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarauselView.swift; sourceTree = "<group>"; };
 		FA8A12A828E2B3F700EECFD3 /* CctvSegemnt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CctvSegemnt.swift; sourceTree = "<group>"; };
 		FA8A12AA28E2CE8A00EECFD3 /* ListCctvModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCctvModel.swift; sourceTree = "<group>"; };
 		FA8A12AC28E3EDFE00EECFD3 /* CctvMapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CctvMapModel.swift; sourceTree = "<group>"; };
 		FA8A12AE28E427C900EECFD3 /* ImageLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoad.swift; sourceTree = "<group>"; };
 		FA8A12B228E4364A00EECFD3 /* WriteImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteImg.swift; sourceTree = "<group>"; };
-		FA8A12B928E52C7300EECFD3 /* SnapImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapImage.swift; sourceTree = "<group>"; };
 		FA8A12BB28E52D1E00EECFD3 /* SnapImgSingle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapImgSingle.swift; sourceTree = "<group>"; };
 		FAAFB0AB28D06E7700F8DE63 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		FAAFB0B128D2AB3E00F8DE63 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
@@ -225,6 +277,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D0549F2ABDA19A0047FF4E /* DGCharts.framework in Frameworks */,
 				84BEBD812951B4420052A189 /* FirebaseMessaging in Frameworks */,
 				FAD134B329068AD60036D231 /* MapboxCoreMaps.xcframework in Frameworks */,
 				FAD134AB29068AD60036D231 /* Turf.xcframework in Frameworks */,
@@ -244,6 +297,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		842ED9712ACD0C70003A2F13 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				842ED9722ACD0C87003A2F13 /* ViewGrafikPemeliharaan.swift */,
+				842ED9742ACD0F2D003A2F13 /* ViewGrafikKegiatan.swift */,
+				842ED9802ACD4013003A2F13 /* ViewGrafikPerJalur.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		842ED9762ACD0F41003A2F13 /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				84A0C7502ACCFA0C0059BE21 /* GrafikPemeliharaan.swift */,
+				842ED9772ACD0F8F003A2F13 /* GrafikKegiatan.swift */,
+				84BFAB6A2ACE702600AD338D /* GrafikPerjalur.swift */,
+			);
+			name = "Data Store";
+			sourceTree = "<group>";
+		};
+		84D054972ABDA1320047FF4E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84D0549C2ABDA1320047FF4E /* DGCharts.framework */,
+				84D0549E2ABDA1320047FF4E /* DGChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84FE5F472ABAF53D002DAE6B /* Lalu Lintas */ = {
+			isa = PBXGroup;
+			children = (
+				84FE5F482ABAF55C002DAE6B /* DashLaluLintas.swift */,
+			);
+			path = "Lalu Lintas";
+			sourceTree = "<group>";
+		};
+		84FE5F4E2ABAF5B1002DAE6B /* Pemeliharaan */ = {
+			isa = PBXGroup;
+			children = (
+				842ED9762ACD0F41003A2F13 /* Data Store */,
+				842ED9712ACD0C70003A2F13 /* Views */,
+				84FE5F432ABA9E95002DAE6B /* DashboardPemeliharaan.swift */,
+				84FE5F4F2ABAF5CE002DAE6B /* DataPemeliharaan.swift */,
+				846D781A2AF4560600B4DAAE /* WaterLevelSensor.swift */,
+			);
+			name = Pemeliharaan;
+			sourceTree = "<group>";
+		};
 		FA3E42E828A3B4B200C30323 /* Adapter */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +356,9 @@
 				FA16400C28D954D200954717 /* Writer.swift */,
 				FA16401628DBE35800954717 /* WebviewPresent.swift */,
 				FA8A12B228E4364A00EECFD3 /* WriteImg.swift */,
+				8460F17F2AC12A74006D7A00 /* DashPemeliharaan.swift */,
+				845F357E2AC266610046D0D3 /* GroupBarChartPemeliharaan.swift */,
+				841000F32AC67D4900A77E23 /* CustomGroupBarChart.swift */,
 			);
 			path = Adapter;
 			sourceTree = "<group>";
@@ -261,21 +366,17 @@
 		FA3E42E928A3B4F300C30323 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				845B42F22AD6315E0080045F /* perjalur.json */,
+				842ED97E2ACD15BF003A2F13 /* datakegiatan.json */,
+				84D94FF22955BA7400637CED /* lalin.json */,
+				84D94FF32955BA7400637CED /* toll.json */,
 				FA3E42E528A38A7B00C30323 /* ColorSet.swift */,
 				FA7FE4CA28A56DB200669633 /* GetIP.swift */,
 				FA7FE4CC28A6472500669633 /* ConManager.swift */,
 				FABA168E28B326D500BFD24D /* SetBottomSheet.swift */,
+				845F35802AC27FF50046D0D3 /* xample.json */,
 			);
 			path = Tools;
-			sourceTree = "<group>";
-		};
-		FA3E42EB28A3B55C00C30323 /* Files */ = {
-			isa = PBXGroup;
-			children = (
-				FA3E42DF28A3662100C30323 /* toll.json */,
-				FA6BF7AA289ECA3A006EECC0 /* lalin.json */,
-			);
-			path = Files;
 			sourceTree = "<group>";
 		};
 		FA3E42F028A3B9C700C30323 /* Models */ = {
@@ -308,6 +409,7 @@
 				84DBF7AA294EDE6B00B6578C /* BikeModel.swift */,
 				84DBF7AC294EDFE900B6578C /* GpsKendaraanModel.swift */,
 				84D7EA7729529F9800F98EF7 /* HistoriNotifModel.swift */,
+				84E8BCA32954984A00815AF9 /* MidasModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -315,6 +417,7 @@
 		FA6BF782289EC043006EECC0 = {
 			isa = PBXGroup;
 			children = (
+				84D054962ABDA1320047FF4E /* Charts.xcodeproj */,
 				FA6BF78D289EC043006EECC0 /* JID.COM */,
 				FA6BF78C289EC043006EECC0 /* Products */,
 				FAD134A529068AD50036D231 /* Frameworks */,
@@ -333,12 +436,10 @@
 			isa = PBXGroup;
 			children = (
 				84BEBD752951AEA20052A189 /* GoogleService-Info.plist */,
-				848A19412949DB97003A30D0 /* NotificationTest.apns */,
 				84A0B4E029482527006260FD /* JID.COM.entitlements */,
 				FAC0E64D28BC9CD0007146E5 /* Components */,
 				FABA169028B3279400BFD24D /* Views */,
 				FA3E42F028A3B9C700C30323 /* Models */,
-				FA3E42EB28A3B55C00C30323 /* Files */,
 				FA3E42E928A3B4F300C30323 /* Tools */,
 				FA3E42E828A3B4B200C30323 /* Adapter */,
 				FA6BF7A8289EC122006EECC0 /* JID-COM-Info.plist */,
@@ -362,6 +463,8 @@
 		FABA169028B3279400BFD24D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84FE5F4E2ABAF5B1002DAE6B /* Pemeliharaan */,
+				84FE5F472ABAF53D002DAE6B /* Lalu Lintas */,
 				FABA169128B327AC00BFD24D /* LoginPage.swift */,
 				FABA169328B327C600BFD24D /* MapPage.swift */,
 				FAAFB0AB28D06E7700F8DE63 /* MainPage.swift */,
@@ -374,6 +477,7 @@
 				84CEE4D52919270D0092B333 /* AntrianPage.swift */,
 				84CEE4D729192C900092B333 /* RealtimePage.swift */,
 				84D7EA792952A33500F98EF7 /* HistoriNotif.swift */,
+				84FE5F412AB947C1002DAE6B /* MainDashboard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -384,10 +488,7 @@
 				FAC0E65228BCA877007146E5 /* PemeliharaanComponent.swift */,
 				FA16401228DB490F00954717 /* MenuDashboard.swift */,
 				FA8A12AE28E427C900EECFD3 /* ImageLoad.swift */,
-				FA8A12B928E52C7300EECFD3 /* SnapImage.swift */,
 				FA8A12BB28E52D1E00EECFD3 /* SnapImgSingle.swift */,
-				FA829A9428EC64ED0084AB82 /* SnapCarousel.swift */,
-				FA829A9628ED269A0084AB82 /* CarauselView.swift */,
 				FA7A2A3928F1B4B4005672CC /* Layerset.swift */,
 				FA7A2A3B28F290B3005672CC /* LayerList.swift */,
 				8490317129363E47003A8280 /* CctvCarousel.swift */,
@@ -404,6 +505,7 @@
 				84DBF7A0294EC90000B6578C /* WaterLevelModal.swift */,
 				84DBF7A4294ECD7C00B6578C /* PompaBanjirModal.swift */,
 				84DBF7A8294EDA2E00B6578C /* WimModal.swift */,
+				84705DA52AF3DD3B000732D0 /* RuasView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -411,6 +513,7 @@
 		FAD134A529068AD50036D231 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84D94FF62955C9D000637CED /* lalin.json */,
 				FAD134A829068AD50036D231 /* MapboxCommon.xcframework */,
 				FAD134AA29068AD50036D231 /* MapboxCoreMaps.xcframework */,
 				FAD134A729068AD50036D231 /* MapboxMaps.xcframework */,
@@ -486,6 +589,12 @@
 			);
 			productRefGroup = FA6BF78C289EC043006EECC0 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 84D054972ABDA1320047FF4E /* Products */;
+					ProjectRef = 84D054962ABDA1320047FF4E /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				FA6BF78A289EC043006EECC0 /* JID.COM */,
@@ -493,16 +602,35 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		84D0549C2ABDA1320047FF4E /* DGCharts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DGCharts.framework;
+			remoteRef = 84D0549B2ABDA1320047FF4E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		84D0549E2ABDA1320047FF4E /* DGChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = DGChartsTests.xctest;
+			remoteRef = 84D0549D2ABDA1320047FF4E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		FA6BF789289EC043006EECC0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				848A19422949DB97003A30D0 /* NotificationTest.apns in Resources */,
-				FA3E42E028A3662100C30323 /* toll.json in Resources */,
-				FA6BF7AB289ECA3A006EECC0 /* lalin.json in Resources */,
+				84D94FF42955BA7400637CED /* lalin.json in Resources */,
+				84D94FF52955BA7400637CED /* toll.json in Resources */,
+				845B42F32AD6315E0080045F /* perjalur.json in Resources */,
+				842ED97F2ACD15C0003A2F13 /* datakegiatan.json in Resources */,
 				FA6BF796289EC047006EECC0 /* Preview Assets.xcassets in Resources */,
 				FA6BF793289EC047006EECC0 /* Assets.xcassets in Resources */,
+				845F35812AC27FF50046D0D3 /* xample.json in Resources */,
 				84BEBD762951AEA20052A189 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,17 +646,22 @@
 				FA3E42DE28A3620E00C30323 /* catatan.swift in Sources */,
 				84DBF797294DA45100B6578C /* RadarModal.swift in Sources */,
 				FA6BF791289EC043006EECC0 /* ContentView.swift in Sources */,
+				84E8BCA42954984A00815AF9 /* MidasModel.swift in Sources */,
 				84DBF7A1294EC90000B6578C /* WaterLevelModal.swift in Sources */,
 				FA7FE4CB28A56DB200669633 /* GetIP.swift in Sources */,
 				FA8A12B328E4364A00EECFD3 /* WriteImg.swift in Sources */,
+				84A0C7512ACCFA0C0059BE21 /* GrafikPemeliharaan.swift in Sources */,
+				84FE5F502ABAF5CE002DAE6B /* DataPemeliharaan.swift in Sources */,
 				84DBF7A3294ECC5000B6578C /* PompaBanjirModel.swift in Sources */,
 				FAC0E65328BCA877007146E5 /* PemeliharaanComponent.swift in Sources */,
-				FA8A12BA28E52C7300EECFD3 /* SnapImage.swift in Sources */,
+				84BFAB6B2ACE702600AD338D /* GrafikPerjalur.swift in Sources */,
 				8494E4C1294B031F00AC11FE /* JalanPenghubungModel.swift in Sources */,
 				FAC0E65528BCA99D007146E5 /* Initdata.swift in Sources */,
 				FA6BF78F289EC043006EECC0 /* JID_COMApp.swift in Sources */,
 				84DBF79D294DB62500B6578C /* SpeedModal.swift in Sources */,
 				8494E4BD294AC27600AC11FE /* LineRekayasaLalinModel.swift in Sources */,
+				84FE5F492ABAF55C002DAE6B /* DashLaluLintas.swift in Sources */,
+				8460F1802AC12A74006D7A00 /* DashPemeliharaan.swift in Sources */,
 				840E1CB7294493D0007788BC /* DetailEventLalin.swift in Sources */,
 				84CEE4D62919270D0092B333 /* AntrianPage.swift in Sources */,
 				FABA169228B327AC00BFD24D /* LoginPage.swift in Sources */,
@@ -536,12 +669,14 @@
 				FAAFB0B828D2F83300F8DE63 /* Ruasmodel.swift in Sources */,
 				FA8A12BC28E52D1E00EECFD3 /* SnapImgSingle.swift in Sources */,
 				84CEE4D829192C900092B333 /* RealtimePage.swift in Sources */,
+				846D781B2AF4560600B4DAAE /* WaterLevelSensor.swift in Sources */,
 				FA16401728DBE35800954717 /* WebviewPresent.swift in Sources */,
 				84DBF7A7294ED77F00B6578C /* WimModel.swift in Sources */,
 				84DBF789294C695800B6578C /* RestAreaModel.swift in Sources */,
 				FA0BBEDC28E295CD000278C6 /* SegmentModel.swift in Sources */,
+				842ED9752ACD0F2D003A2F13 /* ViewGrafikKegiatan.swift in Sources */,
 				84DBF78F294D76E300B6578C /* RtmsModal.swift in Sources */,
-				FA829A9528EC64ED0084AB82 /* SnapCarousel.swift in Sources */,
+				841000F42AC67D4900A77E23 /* CustomGroupBarChart.swift in Sources */,
 				84DBF795294DA14200B6578C /* RadarModel.swift in Sources */,
 				FA8A12AF28E427C900EECFD3 /* ImageLoad.swift in Sources */,
 				FABA169428B327C600BFD24D /* MapPage.swift in Sources */,
@@ -556,6 +691,7 @@
 				84DBF7AD294EDFE900B6578C /* GpsKendaraanModel.swift in Sources */,
 				FA16400D28D954D200954717 /* Writer.swift in Sources */,
 				8494E4B7294AB23A00AC11FE /* GangguanModal.swift in Sources */,
+				84FE5F442ABA9E95002DAE6B /* DashboardPemeliharaan.swift in Sources */,
 				FA3E42F228A3B9D500C30323 /* LoginModel.swift in Sources */,
 				FA8A12AB28E2CE8A00EECFD3 /* ListCctvModel.swift in Sources */,
 				84DBF78B294D3C6B00B6578C /* ResAreaModal.swift in Sources */,
@@ -564,7 +700,7 @@
 				FA32DA8C28B3D1B5006C6B0F /* PemeliharaanModel.swift in Sources */,
 				84DBF793294D983C00B6578C /* Rtms2Modal.swift in Sources */,
 				FA16401528DBE02A00954717 /* WebviewDashboard.swift in Sources */,
-				FA829A9728ED269A0084AB82 /* CarauselView.swift in Sources */,
+				845F357F2AC266610046D0D3 /* GroupBarChartPemeliharaan.swift in Sources */,
 				8494E4BF294AF68300AC11FE /* BatasKmModel.swift in Sources */,
 				FA7B35A228B343DB0022FCC1 /* TollModel.swift in Sources */,
 				84CEE4D42919201D0092B333 /* SplashScrean.swift in Sources */,
@@ -576,17 +712,22 @@
 				FAAFB0B228D2AB3E00F8DE63 /* HomePage.swift in Sources */,
 				84DBF79B294DB2BB00B6578C /* SpeedModel.swift in Sources */,
 				FA7A2A3C28F290B3005672CC /* LayerList.swift in Sources */,
+				84FE5F422AB947C1002DAE6B /* MainDashboard.swift in Sources */,
+				842ED9812ACD4013003A2F13 /* ViewGrafikPerJalur.swift in Sources */,
 				84DBF7A9294EDA2E00B6578C /* WimModal.swift in Sources */,
+				842ED9782ACD0F8F003A2F13 /* GrafikKegiatan.swift in Sources */,
 				FABA168F28B326D500BFD24D /* SetBottomSheet.swift in Sources */,
 				8494E4C5294B13B100AC11FE /* GerbangTollModal.swift in Sources */,
 				84D7EA7829529F9800F98EF7 /* HistoriNotifModel.swift in Sources */,
 				FAC0E65728BCAA00007146E5 /* Dataset.swift in Sources */,
 				FA3E42E428A3732600C30323 /* RestApiController.swift in Sources */,
 				8494E4B5294AACC600AC11FE /* GangguanLalinModel.swift in Sources */,
+				84705DA62AF3DD3B000732D0 /* RuasView.swift in Sources */,
 				84DBF791294D966E00B6578C /* Rtms2Model.swift in Sources */,
 				84A0B4DF2947FE1F006260FD /* vmsModal.swift in Sources */,
 				FA7B35A428B348A10022FCC1 /* LalinModel.swift in Sources */,
 				8494E4C3294B0EBE00AC11FE /* GerbangTollModel.swift in Sources */,
+				842ED9732ACD0C87003A2F13 /* ViewGrafikPemeliharaan.swift in Sources */,
 				84DBF79F294EC46F00B6578C /* WaterLevelModel.swift in Sources */,
 				8494E4BB294ABF5500AC11FE /* RekayasaLalinModal.swift in Sources */,
 				8490317229363E47003A8280 /* CctvCarousel.swift in Sources */,
@@ -721,26 +862,28 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = JID.COM/JID.COM.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1.0;
-				DEVELOPMENT_ASSET_PATHS = "JID.COM/Preview\\ Content JID.COM/Files/toll.json JID.COM/Files/lalin.json JID.COM/Files";
-				DEVELOPMENT_TEAM = 537AVW7LBB;
+				CURRENT_PROJECT_VERSION = 1.3.4;
+				DEVELOPMENT_ASSET_PATHS = "JID.COM/Preview\\ Content";
+				DEVELOPMENT_TEAM = GSHGCDZRUZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JID-COM-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jasamarga.jid;
 				PRODUCT_NAME = JID;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -758,28 +901,30 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = JID.COM/JID.COM.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1.0;
-				DEVELOPMENT_ASSET_PATHS = "JID.COM/Preview\\ Content JID.COM/Files/toll.json JID.COM/Files/lalin.json JID.COM/Files";
-				DEVELOPMENT_TEAM = 537AVW7LBB;
+				CURRENT_PROJECT_VERSION = 1.3.4;
+				DEVELOPMENT_ASSET_PATHS = "JID.COM/Preview\\ Content";
+				DEVELOPMENT_TEAM = GSHGCDZRUZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JID-COM-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.3.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jasamarga.jid;
 				PRODUCT_NAME = JID;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

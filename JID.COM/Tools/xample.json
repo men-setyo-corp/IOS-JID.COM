@@ -1,0 +1,59 @@
+{
+    "status": true,
+    "data": {
+        "total": 5,
+        "result": [
+            {
+                "_id": {
+                    "month": "01",
+                    "yearMonth": "2023-01",
+                    "bulan": "Januari"
+                },
+                "selesai": 29,
+                "proses": 0,
+                "rencana": 0
+            },
+            {
+                "_id": {
+                    "month": "02",
+                    "yearMonth": "2023-02",
+                    "bulan": "Februari"
+                },
+                "selesai": 45,
+                "proses": 0,
+                "rencana": 0
+            },
+            {
+                "_id": {
+                    "month": "03",
+                    "yearMonth": "2023-03",
+                    "bulan": "Maret"
+                },
+                "selesai": 53,
+                "proses": 0,
+                "rencana": 0
+            },
+            {
+                "_id": {
+                    "month": "04",
+                    "yearMonth": "2023-04",
+                    "bulan": "April"
+                },
+                "selesai": 13,
+                "proses": 0,
+                "rencana": 0
+            },
+            {
+                "_id": {
+                    "month": "05",
+                    "yearMonth": "2023-05",
+                    "bulan": "Mei"
+                },
+                "selesai": 21,
+                "proses": 0,
+                "rencana": 0
+            }
+        ]
+    },
+    "msg": "Berhasil mengambil data pemeliharaan"
+}

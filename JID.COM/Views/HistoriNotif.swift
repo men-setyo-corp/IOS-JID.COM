@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct HistoriNotif: View {
     @Environment(\.presentationMode) var presentationMode
@@ -41,9 +42,15 @@ struct HistoriNotif: View {
                             VStack(alignment: .leading){
                                 HStack{
                                     VStack(alignment: .leading){
-                                        Text(gethistori.tipe_event)
-                                            .font(.system(size: 12, weight: .bold))
-                                            .foregroundColor(Color.black)
+                                        HStack{
+                                            Text(gethistori.tipe_event)
+                                                .font(.system(size: 12, weight: .bold))
+                                                .foregroundColor(Color.black)
+                                            Spacer()
+                                            Text(formatBandingDate(date: gethistori.created_at))
+                                                .font(.system(size: 12, weight: .bold))
+                                                .foregroundColor(Color.black)
+                                        }
                                         Text(gethistori.ket_status)
                                             .font(.system(size: 12))
                                             .foregroundColor(Color.black)
@@ -61,7 +68,7 @@ struct HistoriNotif: View {
                                         Text("\(gethistori.nama_ruas) / \(gethistori.km) / \(gethistori.jalur)")
                                             .font(.system(size: 12, weight: .bold))
                                             .foregroundColor(Color.black)
-                                        Text(gethistori.tanggal)
+                                        Text(formatStringDate(date: gethistori.tanggal))
                                             .font(.system(size: 12, weight: .bold))
                                             .foregroundColor(Color.black)
                                     }
@@ -90,6 +97,38 @@ struct HistoriNotif: View {
             }
         }
     }
+    
+    func formatStringDate(date: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
+        let newDate = dateFormatter.date(from: date)
+        dateFormatter.setLocalizedDateFormatFromTemplate("MMMM d, yyyy HH:mm")
+        return dateFormatter.string(from: newDate!)
+    }
+    
+    func formatBandingDate(date: String) -> String {
+        let dateNow = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
+        let newDate = dateFormatter.date(from: date)
+        
+        dateFormatter.setLocalizedDateFormatFromTemplate("MMMM d, yyyy")
+        let nowDate = dateFormatter.string(from: dateNow)
+        let connewDate = dateFormatter.string(from: newDate!)
+        
+        dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
+        let jam = dateFormatter.string(from: newDate!)
+        
+        var saydate = ""
+        if connewDate == nowDate {
+            saydate = "Hari ini \(jam)"
+        }else{
+            saydate = date
+        }
+        
+        return saydate
+    }
+    
 }
 
 struct HistoriNotif_Previews: PreviewProvider {

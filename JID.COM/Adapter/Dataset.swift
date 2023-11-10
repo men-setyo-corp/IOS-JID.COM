@@ -13,7 +13,6 @@ import MapboxMaps
 
 class Dataset{
     
-    
     public func Dataset_pemeliharaan(dataSet: JSON) -> Data_pemeliharaan{
         let data_pemeliharaan_result = Data_pemeliharaan(
             title: dataSet["title"].stringValue,
@@ -231,7 +230,7 @@ class Dataset{
     
     public var info_jalan_tol = ["Jalan Tol","Batas KM","Jalan Penghubung","Gerbang Tol","Rest Area","Kondisi Traffic","Roughness Index"]
     
-    public var sisinfokom = ["DMS","CCTV","Traffic Counting (RTMS)","Smart Traffic Counting (CCTV)","Monitoring Traffic (Radar)","Speed Camp","Water Level Sensor","Pompa Banjir","WIM Bridge","GPS Kendaraan Operasional","Sepeda Motor"]
+    public var sisinfokom = ["DMS","CCTV","Traffic Counting (RTMS)","Monitoring Traffic (Radar)","Speed Camp","Water Level Sensor","Pompa Banjir","WIM Bridge","GPS Kendaraan Operasional","Sepeda Motor"]
     
     public var event_jalan_tol = ["Gangguan Lalin","Rekayasa Lalin","Pemeliharaan"]
     

@@ -1,0 +1,96 @@
+{
+    "status": true,
+    "data": [
+        {
+            "_id": {
+                "jenis_kegiatan": 5
+            },
+            "ket_jenis_kegiatan": "Pekerjaan Jembatan",
+            "selesai": 0,
+            "proses": 0,
+            "rencana": 0
+        },
+        {
+            "_id": {
+                "jenis_kegiatan": 7
+            },
+            "ket_jenis_kegiatan": "Pelebaran Jalan",
+            "selesai": 0,
+            "proses": 0,
+            "rencana": 0
+        },
+        {
+            "_id": {
+                "jenis_kegiatan": 2
+            },
+            "ket_jenis_kegiatan": "Rekonstruksi",
+            "selesai": 0,
+            "proses": 1799,
+            "rencana": 0
+        },
+        {
+            "_id": {
+                "jenis_kegiatan": 8
+            },
+            "ket_jenis_kegiatan": "Pekerjaan Expansion Joint",
+            "selesai": 0,
+            "proses": 0,
+            "rencana": 0
+        },
+        {
+            "_id": {
+                "jenis_kegiatan": 9
+            },
+            "ket_jenis_kegiatan": "Pekerjaan lainnya",
+            "selesai": 0,
+            "proses": 0,
+            "rencana": 0
+        },
+        {
+            "_id": {
+                "jenis_kegiatan": 0
+            },
+            "ket_jenis_kegiatan": "Pilih Jenis Kegiatan",
+            "selesai": 0,
+            "proses": 0,
+            "rencana": 0
+        },
+        {
+            "_id": {
+                "jenis_kegiatan": 3
+            },
+            "ket_jenis_kegiatan": "Patching",
+            "selesai": 1567,
+            "proses": 0,
+            "rencana": 0
+        },
+        {
+            "_id": {
+                "jenis_kegiatan": 1
+            },
+            "ket_jenis_kegiatan": "Scrapping Filling Overlay (SFO)",
+            "selesai": 0,
+            "proses": 0,
+            "rencana": 2371
+        },
+        {
+            "_id": {
+                "jenis_kegiatan": 6
+            },
+            "ket_jenis_kegiatan": "Pekerjaan Marka",
+            "selesai": 0,
+            "proses": 0,
+            "rencana": 0
+        },
+        {
+            "_id": {
+                "jenis_kegiatan": 4
+            },
+            "ket_jenis_kegiatan": "Pekerjaan Sarana Keselamatan Jalan",
+            "selesai": 0,
+            "proses": 0,
+            "rencana": 0
+        }
+    ],
+    "msg": "Berhasil mengambil data kegiatan"
+}

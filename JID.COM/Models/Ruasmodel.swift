@@ -47,4 +47,33 @@ class Ruasmodel: ObservableObject {
         }
     }
     
+    func getRuasApi(completion: @escaping ([GetRuasApi]) -> ()){
+        DispatchQueue.global().async {
+            RestApiController().resAPIDevGet(endPoint: "segmentation/v1/ruas", method: .get){ (results) in
+                let getJSON = JSON(results ?? "Null data from API")
+                DispatchQueue.main.async {
+                    if getJSON["status"].boolValue {
+                        do {
+                            let jsonData = try JSONEncoder().encode(getJSON["data"])
+                            let decodedSentences = try JSONDecoder().decode([GetRuasApi].self, from: jsonData)
+                            completion(decodedSentences)
+                        } catch let myJSONError {
+                            print(myJSONError)
+                        }
+                    }else{
+                        self.errorMsg = getJSON["msg"].stringValue
+                        self.showErr.toggle()
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+struct GetRuasApi: Codable, Identifiable {
+    let id_ruas: Int
+    let nama_ruas: String
+    let nama_ruas_2: String
+    var id: Int { id_ruas }
 }
