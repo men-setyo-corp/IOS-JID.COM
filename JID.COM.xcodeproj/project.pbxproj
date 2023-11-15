@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84037D0D2B04A58D00CB24F3 /* DashboardLalinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84037D0C2B04A58D00CB24F3 /* DashboardLalinModel.swift */; };
 		840E1CB7294493D0007788BC /* DetailEventLalin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E1CB6294493D0007788BC /* DetailEventLalin.swift */; };
 		841000F42AC67D4900A77E23 /* CustomGroupBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841000F32AC67D4900A77E23 /* CustomGroupBarChart.swift */; };
 		842ED9732ACD0C87003A2F13 /* ViewGrafikPemeliharaan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ED9722ACD0C87003A2F13 /* ViewGrafikPemeliharaan.swift */; };
@@ -165,6 +166,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		84037D0C2B04A58D00CB24F3 /* DashboardLalinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardLalinModel.swift; sourceTree = "<group>"; };
 		840E1CB6294493D0007788BC /* DetailEventLalin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventLalin.swift; sourceTree = "<group>"; };
 		841000F32AC67D4900A77E23 /* CustomGroupBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGroupBarChart.swift; sourceTree = "<group>"; };
 		842ED9722ACD0C87003A2F13 /* ViewGrafikPemeliharaan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewGrafikPemeliharaan.swift; sourceTree = "<group>"; };
@@ -423,6 +425,7 @@
 				84DBF7AC294EDFE900B6578C /* GpsKendaraanModel.swift */,
 				84D7EA7729529F9800F98EF7 /* HistoriNotifModel.swift */,
 				84E8BCA32954984A00815AF9 /* MidasModel.swift */,
+				84037D0C2B04A58D00CB24F3 /* DashboardLalinModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -673,6 +676,7 @@
 				8494E4C1294B031F00AC11FE /* JalanPenghubungModel.swift in Sources */,
 				FAC0E65528BCA99D007146E5 /* Initdata.swift in Sources */,
 				FA6BF78F289EC043006EECC0 /* JID_COMApp.swift in Sources */,
+				84037D0D2B04A58D00CB24F3 /* DashboardLalinModel.swift in Sources */,
 				84DBF79D294DB62500B6578C /* SpeedModal.swift in Sources */,
 				8494E4BD294AC27600AC11FE /* LineRekayasaLalinModel.swift in Sources */,
 				84FE5F492ABAF55C002DAE6B /* DashLaluLintas.swift in Sources */,
