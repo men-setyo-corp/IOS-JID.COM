@@ -118,7 +118,7 @@ struct MenuDashboard: View {
                     ForEach(0..<1){ num in
                         VStack{
                             NavigationLink(
-                                destination: MainDashboard(title: tabBottomBarName[num], menu: menuLaluLintas, index: num, parentmenu: selectedIndex),
+                                destination: MainDashboard(title: tabBottomBarName[num], menu: menuLaluLintas, index: 4, parentmenu: selectedIndex),
                             label:{
                                 Image(tabGangguanIcon[num])
                                     .font(.system(size: 17))

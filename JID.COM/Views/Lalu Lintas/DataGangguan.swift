@@ -1,21 +1,22 @@
 //
-//  DataPemeliharaan.swift
+//  DataGangguan.swift
 //  JID.COM
 //
-//  Created by Panda on 20/09/23.
+//  Created by Panda on 15/11/23.
 //
+
 import SwiftUI
 
-struct DataPemeliharaan: View {
-    @State var dataPemeliharaan : [InitDataPemeliharaan] = []
+struct DataGangguan: View {
+    @State var dataGangguan : [InitDataGangguan] = []
     @State var search = ""
     @State var showDetail : Bool = false
-    @State var namaRuas : String = ""
-    @State var range : String = ""
-    @State var kegiatan : String = ""
-    @State var awal: String = ""
-    @State var akhir: String = ""
-    @State var keterangan : String = ""
+    @State var namaRuas = ""
+    @State var jenis = ""
+    @State var waktu = ""
+    @State var selesai = ""
+    @State var detail = ""
+    @State var dampak = ""
     
     var body: some View {
         ZStack{
@@ -47,57 +48,56 @@ struct DataPemeliharaan: View {
                 Spacer()
                 
                 if searchResults.isEmpty {
-                    if dataPemeliharaan.isEmpty {
+                    if dataGangguan.isEmpty {
                         ProgressView()
                     }else{
-                        Text("Data Pemeliharaan Kosong !")
+                        Text("Data Gangguan Lalin Kosong !")
                     }
                 }else{
                     ScrollView{
-                        ForEach(searchResults) { pemeliharaan in
+                        ForEach(searchResults) { gangguan in
                             Button{
                                 showDetail = true
-                                namaRuas = pemeliharaan.nama_ruas
-                                range = pemeliharaan.range_km_pekerjaan
-                                kegiatan = pemeliharaan.ket_jenis_kegiatan
-                                awal = pemeliharaan.waktu_awal
-                                akhir = pemeliharaan.waktu_akhir
-                                keterangan = pemeliharaan.keterangan_detail
-                                
+                                namaRuas = gangguan.nama_ruas
+                                jenis = gangguan.ket_tipe_gangguan
+                                waktu = gangguan.waktu_kejadian
+                                selesai = gangguan.waktu_selesai ?? "-"
+                                detail = gangguan.detail_kejadian
+                                dampak = gangguan.dampak
                             }label:{
                                 VStack(alignment:.leading){
                                     HStack{
-                                        Text(pemeliharaan.nama_ruas)
+                                        Text(gangguan.nama_ruas)
                                             .font(.system(size: 14))
                                             .foregroundColor(Color.black)
                                         Spacer()
-                                        Text(pemeliharaan.ket_status)
+                                        Text(gangguan.ket_status)
                                             .padding(5)
                                             .padding(.horizontal, 5)
                                             .font(.system(size: 12, weight: .bold))
                                             .foregroundColor(Color.white)
-                                            .background(pemeliharaan.id_status == 3 ? Color(UIColor(hexString: "#0e6efd")) : pemeliharaan.id_status == 1 ? Color(UIColor(hexString: "#dc3545")) : Color(UIColor(hexString: "#ffc107")))
+                                            .background(gangguan.id_status == 3 ? Color(UIColor(hexString: "#0e6efd")) : gangguan.id_status == 1 ? Color(UIColor(hexString: "#dc3545")) : Color(UIColor(hexString: "#ffc107")))
                                             .cornerRadius(5)
                                     }
-                                    Text(Dataset().convertDateFormat(inputDate: pemeliharaan.waktu_awal))
+                                    Text(Dataset().convertDateFormat(inputDate: gangguan.waktu_kejadian))
                                         .font(.system(size: 14))
                                         .foregroundColor(Color.black)
                                     HStack{
-                                        Text(pemeliharaan.km)
+                                        Text(gangguan.km)
                                             .padding(5)
                                             .padding(.horizontal, 5)
                                             .font(.system(size: 12, weight: .bold))
                                             .foregroundColor(Color.white)
                                             .background(Color(UIColor(hexString: "#6d757d")))
                                             .cornerRadius(5)
-                                        Text(pemeliharaan.jalur)
+                                        Text(gangguan.jalur)
                                             .padding(5)
                                             .padding(.horizontal, 5)
                                             .font(.system(size: 12, weight: .bold))
                                             .foregroundColor(Color.white)
                                             .background(Color(UIColor(hexString: "#6d757d")))
                                             .cornerRadius(5)
-                                        Text(pemeliharaan.lajur)
+                                        Text(gangguan.lajur)
                                             .padding(5)
                                             .padding(.horizontal, 5)
                                             .font(.system(size: 12, weight: .bold))
@@ -127,85 +127,84 @@ struct DataPemeliharaan: View {
                 Spacer()
             }
             .padding()
-            
+            .sheet(isPresented: $showDetail){
+                VStack(alignment: .leading){
+                    HStack{
+                        Spacer()
+                        Text(namaRuas)
+                            .font(.system(size: 14, weight: .bold))
+                        Spacer()
+                    }
+                    .padding(.bottom, 5)
+                    HStack{
+                        Text("Jenis")
+                            .font(.system(size: 13, weight: .bold))
+                        Spacer()
+                        Text(jenis)
+                            .font(.system(size: 13))
+                    }
+                    Divider()
+                    HStack{
+                        Text("Waktu Kejadian")
+                            .font(.system(size: 13, weight: .bold))
+                        Spacer()
+                        Text(Dataset().convertDateFormat(inputDate: waktu))
+                            .font(.system(size: 13))
+                    }
+                    Divider()
+                    HStack{
+                        Text("Waktu Selesai")
+                            .font(.system(size: 13, weight: .bold))
+                        Spacer()
+                        Text(selesai == "-" ? "-" : Dataset().convertDateFormat(inputDate: selesai))
+                            .font(.system(size: 13))
+                    }
+                    Divider()
+                    HStack{
+                        Text("Dampak")
+                            .font(.system(size: 13, weight: .bold))
+                        Spacer()
+                        Text(dampak)
+                            .font(.system(size: 13))
+                    }
+                    
+                    Text("Detail Kejadian")
+                        .font(.system(size: 13, weight: .bold))
+                        .padding(.top, 5)
+                    Text(detail)
+                        .font(.system(size: 13))
+                        .padding(.top, 1)
+                }
+                .padding(.top, 15)
+                .padding(.horizontal)
+                .presentationDetents([.medium, .large, .height(250)])
+            }
         }
         .onAppear{
-            PemeliharaanModel().getListDataPemeliharaan{ (datares) in
-                dataPemeliharaan = datares
+            GangguanLalinModel().getListDataGangguan{ (datares) in
+                dataGangguan = datares
                 namaRuas = datares[0].nama_ruas
-                range = datares[0].range_km_pekerjaan
-                kegiatan = datares[0].ket_jenis_kegiatan
-                awal = datares[0].waktu_awal
-                akhir = datares[0].waktu_akhir
-                keterangan = datares[0].keterangan_detail
+                jenis = datares[0].ket_tipe_gangguan
+                waktu = datares[0].waktu_kejadian
+                selesai = datares[0].waktu_selesai ?? "-"
+                detail = datares[0].detail_kejadian
+                dampak = datares[0].dampak
             }
-        }
-        .sheet(isPresented: $showDetail){
-            VStack(alignment: .leading){
-                HStack{
-                    Spacer()
-                    Text(namaRuas)
-                        .font(.system(size: 14, weight: .bold))
-                    Spacer()
-                }
-                .padding(.bottom, 5)
-                HStack{
-                    Text("Range")
-                        .font(.system(size: 13, weight: .bold))
-                    Spacer()
-                    Text(range)
-                        .font(.system(size: 13))
-                }
-                Divider()
-                HStack{
-                    Text("Kegiatan")
-                        .font(.system(size: 13, weight: .bold))
-                    Spacer()
-                    Text(kegiatan)
-                        .font(.system(size: 13))
-                }
-                Divider()
-                HStack{
-                    Text("Waktu Awal")
-                        .font(.system(size: 13, weight: .bold))
-                    Spacer()
-                    Text(awal == "" ? "-" : Dataset().convertDateFormat(inputDate: awal))
-                        .font(.system(size: 13))
-                }
-                Divider()
-                HStack{
-                    Text("Waktu Akhir")
-                        .font(.system(size: 13, weight: .bold))
-                    Spacer()
-                    Text(akhir == "" ? "-" : Dataset().convertDateFormat(inputDate: akhir))
-                        .font(.system(size: 13))
-                }
-                
-                Text("Keterangan")
-                    .font(.system(size: 13, weight: .bold))
-                    .padding(.top, 5)
-                Text(keterangan)
-                    .font(.system(size: 13))
-                    .padding(.top, 1)
-            }
-            .padding(.top, 15)
-            .padding(.horizontal)
-            .presentationDetents([.medium, .large, .height(250)])
         }
     }
     
-    var searchResults: [InitDataPemeliharaan] {
+    var searchResults: [InitDataGangguan] {
         if search.isEmpty {
-            return self.dataPemeliharaan
+            return self.dataGangguan
         } else {
-            return self.dataPemeliharaan.filter { $0.nama_ruas.localizedStandardContains(search) }
+            return self.dataGangguan.filter { $0.nama_ruas.localizedStandardContains(search) }
         }
     }
+    
 }
 
-struct DataPemeliharaan_Previews: PreviewProvider {
+struct DataGangguan_Previews: PreviewProvider {
     static var previews: some View {
-        DataPemeliharaan()
+        DataGangguan()
     }
 }
-

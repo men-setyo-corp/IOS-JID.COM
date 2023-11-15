@@ -10,6 +10,22 @@ import MapboxMaps
 import SwiftyJSON
 import SwiftUI
 
+struct InitDataPemeliharaan: Codable, Identifiable {
+    var idx: Int
+    let id_ruas: Int
+    let nama_ruas: String
+    let waktu_awal: String
+    let waktu_akhir: String
+    let range_km_pekerjaan: String
+    let km: String
+    let jalur: String
+    let lajur: String
+    let id_status: Int
+    let ket_status: String
+    let ket_jenis_kegiatan: String
+    let keterangan_detail: String
+    var id: Int {idx}
+}
 
 class PemeliharaanModel: ObservableObject{
 
@@ -111,6 +127,29 @@ class PemeliharaanModel: ObservableObject{
     func viewWillDisappear(_ animated: Bool) {
         timer.invalidate()
         timer = Timer()
+    }
+    
+    
+    //List Data Pemeliharaan
+    func getListDataPemeliharaan(completion: @escaping ([InitDataPemeliharaan]) -> ())  {
+        DispatchQueue.global().async {
+            RestApiController().resAPIDevGet(endPoint: "pemeliharaan/v1/getPemeliharaan?offset=1&limit=10", method: .get) { (results) in
+                let getJSON = JSON(results ?? "Null data from API")
+                DispatchQueue.main.async {
+                    if getJSON["status"].boolValue {
+                        do {
+                            let jsonData = try JSONEncoder().encode(getJSON["data"])
+                            let decodedSentences = try JSONDecoder().decode([InitDataPemeliharaan].self, from: jsonData)
+                            completion(decodedSentences)
+                        } catch let myJSONError {
+                            print(myJSONError)
+                        }
+                    }else{
+                        print(getJSON["msg"].stringValue)
+                    }
+                }
+            }
+        }
     }
     
     //end class

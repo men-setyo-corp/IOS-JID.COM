@@ -33,6 +33,8 @@
 		84A0B4DD2947EEED006260FD /* vmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0B4DC2947EEED006260FD /* vmsModel.swift */; };
 		84A0B4DF2947FE1F006260FD /* vmsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0B4DE2947FE1F006260FD /* vmsModal.swift */; };
 		84A0C7512ACCFA0C0059BE21 /* GrafikPemeliharaan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0C7502ACCFA0C0059BE21 /* GrafikPemeliharaan.swift */; };
+		84A2898B2B040C8100B665C7 /* DataGangguan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2898A2B040C8100B665C7 /* DataGangguan.swift */; };
+		84A2898E2B0443BD00B665C7 /* MonitoringAlat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2898D2B0443BD00B665C7 /* MonitoringAlat.swift */; };
 		84BEBD762951AEA20052A189 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84BEBD752951AEA20052A189 /* GoogleService-Info.plist */; };
 		84BEBD792951B4420052A189 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 84BEBD782951B4420052A189 /* FirebaseAnalytics */; };
 		84BEBD812951B4420052A189 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 84BEBD802951B4420052A189 /* FirebaseMessaging */; };
@@ -190,6 +192,8 @@
 		84A0B4DE2947FE1F006260FD /* vmsModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vmsModal.swift; sourceTree = "<group>"; };
 		84A0B4E029482527006260FD /* JID.COM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JID.COM.entitlements; sourceTree = "<group>"; };
 		84A0C7502ACCFA0C0059BE21 /* GrafikPemeliharaan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrafikPemeliharaan.swift; sourceTree = "<group>"; };
+		84A2898A2B040C8100B665C7 /* DataGangguan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGangguan.swift; sourceTree = "<group>"; };
+		84A2898D2B0443BD00B665C7 /* MonitoringAlat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitoringAlat.swift; sourceTree = "<group>"; };
 		84BEBD752951AEA20052A189 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84BFAB6A2ACE702600AD338D /* GrafikPerjalur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrafikPerjalur.swift; sourceTree = "<group>"; };
 		84CEE4D32919201D0092B333 /* SplashScrean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScrean.swift; sourceTree = "<group>"; };
@@ -317,6 +321,14 @@
 			name = "Data Store";
 			sourceTree = "<group>";
 		};
+		84A2898C2B0443A500B665C7 /* Peralatan */ = {
+			isa = PBXGroup;
+			children = (
+				84A2898D2B0443BD00B665C7 /* MonitoringAlat.swift */,
+			);
+			path = Peralatan;
+			sourceTree = "<group>";
+		};
 		84D054972ABDA1320047FF4E /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				84FE5F482ABAF55C002DAE6B /* DashLaluLintas.swift */,
+				84A2898A2B040C8100B665C7 /* DataGangguan.swift */,
 			);
 			path = "Lalu Lintas";
 			sourceTree = "<group>";
@@ -463,6 +476,7 @@
 		FABA169028B3279400BFD24D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84A2898C2B0443A500B665C7 /* Peralatan */,
 				84FE5F4E2ABAF5B1002DAE6B /* Pemeliharaan */,
 				84FE5F472ABAF53D002DAE6B /* Lalu Lintas */,
 				FABA169128B327AC00BFD24D /* LoginPage.swift */,
@@ -647,6 +661,7 @@
 				84DBF797294DA45100B6578C /* RadarModal.swift in Sources */,
 				FA6BF791289EC043006EECC0 /* ContentView.swift in Sources */,
 				84E8BCA42954984A00815AF9 /* MidasModel.swift in Sources */,
+				84A2898B2B040C8100B665C7 /* DataGangguan.swift in Sources */,
 				84DBF7A1294EC90000B6578C /* WaterLevelModal.swift in Sources */,
 				FA7FE4CB28A56DB200669633 /* GetIP.swift in Sources */,
 				FA8A12B328E4364A00EECFD3 /* WriteImg.swift in Sources */,
@@ -728,6 +743,7 @@
 				FA7B35A428B348A10022FCC1 /* LalinModel.swift in Sources */,
 				8494E4C3294B0EBE00AC11FE /* GerbangTollModel.swift in Sources */,
 				842ED9732ACD0C87003A2F13 /* ViewGrafikPemeliharaan.swift in Sources */,
+				84A2898E2B0443BD00B665C7 /* MonitoringAlat.swift in Sources */,
 				84DBF79F294EC46F00B6578C /* WaterLevelModel.swift in Sources */,
 				8494E4BB294ABF5500AC11FE /* RekayasaLalinModal.swift in Sources */,
 				8490317229363E47003A8280 /* CctvCarousel.swift in Sources */,
@@ -866,7 +882,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.3.4;
 				DEVELOPMENT_ASSET_PATHS = "JID.COM/Preview\\ Content";
-				DEVELOPMENT_TEAM = GSHGCDZRUZ;
+				DEVELOPMENT_TEAM = 537AVW7LBB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JID-COM-Info.plist";
@@ -905,7 +921,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.3.4;
 				DEVELOPMENT_ASSET_PATHS = "JID.COM/Preview\\ Content";
-				DEVELOPMENT_TEAM = GSHGCDZRUZ;
+				DEVELOPMENT_TEAM = 537AVW7LBB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JID-COM-Info.plist";

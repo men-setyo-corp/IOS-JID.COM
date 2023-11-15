@@ -141,6 +141,7 @@ class RestApiController{
     
     func resAPIDevGet(endPoint: String, method: HTTPMethod, completion: @escaping (_ data: Data?) -> ()) {
         let headersdev: HTTPHeaders? = ["Authorization": "Bearer "+modelLogin.auth]
+        print(modelLogin.auth)
         print(self.url_based_dev+endPoint)
         AF.request(self.url_based_dev+endPoint,
             method: method,

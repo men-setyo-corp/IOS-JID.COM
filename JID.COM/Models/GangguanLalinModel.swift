@@ -10,6 +10,22 @@ import MapboxMaps
 import SwiftyJSON
 import SwiftUI
 
+struct InitDataGangguan: Codable, Identifiable {
+    var idx: Int
+    let id_ruas: Int
+    let nama_ruas: String
+    let waktu_kejadian: String
+    let waktu_selesai: String?
+    let ket_tipe_gangguan: String
+    let km: String
+    let jalur: String
+    let lajur: String
+    let id_status: Int
+    let ket_status: String
+    let dampak: String
+    let detail_kejadian: String
+    var id: Int {idx}
+}
 
 class GangguanLalinModel: ObservableObject{
 
@@ -111,6 +127,28 @@ class GangguanLalinModel: ObservableObject{
     func viewWillDisappear(_ animated: Bool) {
         timer.invalidate()
         timer = Timer()
+    }
+    
+    //List Data Gangguan
+    func getListDataGangguan(completion: @escaping ([InitDataGangguan]) -> ())  {
+        DispatchQueue.global().async {
+            RestApiController().resAPIDevGet(endPoint: "gangguan_lalin/v1/getGangguan?limit=10&order=asc&offset=1", method: .get) { (results) in
+                let getJSON = JSON(results ?? "Null data from API")
+                DispatchQueue.main.async {
+                    if getJSON["status"].boolValue {
+                        do {
+                            let jsonData = try JSONEncoder().encode(getJSON["data"])
+                            let decodedSentences = try JSONDecoder().decode([InitDataGangguan].self, from: jsonData)
+                            completion(decodedSentences)
+                        } catch let myJSONError {
+                            print(myJSONError)
+                        }
+                    }else{
+                        print(getJSON["msg"].stringValue)
+                    }
+                }
+            }
+        }
     }
     
     //end class

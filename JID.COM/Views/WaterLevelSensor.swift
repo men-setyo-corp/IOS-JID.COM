@@ -18,11 +18,13 @@ struct WaterLevelSensor: View {
     @State var idSelect = 0
     @State var filterRuas = false
     @State var colorWater = "#000000"
+    @State var isDisabled = true
     
     var body: some View {
         ZStack{
             VStack{
                 TextField(" Ruas", text: $searchWl)
+                    .disabled(isDisabled)
                     .tint(Color.white.opacity(0.8))
                     .padding(10)
                     .padding(.horizontal, 25)
@@ -53,6 +55,7 @@ struct WaterLevelSensor: View {
                     .padding(.bottom, 10)
                     .onTapGesture{
                         filterRuas = true
+                        isDisabled = false
                     }
                     .sheet(isPresented: $filterRuas){
                         VStack(alignment: .leading){
@@ -91,6 +94,7 @@ struct WaterLevelSensor: View {
                                                 dataWaterLevel = parsedata
 //                                                filterRuas = false
                                                 search.removeAll()
+                                                isDisabled = true
                                             }
                                         }label:{
                                             Text(Rua.nama_ruas)
@@ -152,7 +156,7 @@ struct WaterLevelSensor: View {
                                         .background(Color.white)
                                         .cornerRadius(5)
                                         Spacer()
-                                        Text(dataVal.waktu_update)
+                                        Text(Dataset().convertDateFormat(inputDate: dataVal.waktu_update))
                                             .font(.system(size: 12, weight: .bold))
                                             .foregroundColor(Color.white)
                                     }

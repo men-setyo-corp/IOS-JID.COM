@@ -98,26 +98,33 @@ struct MainDashboard: View {
                     Spacer()
                     
                     VStack(alignment: .leading){
-                        ScrollView(.horizontal){
-                            HStack{
-                                ForEach(0..<menu.count,id: \.self){ num in
-                                    Button{
-                                        selectedIndex = num
-                                    }label:{
-                                        Text(menu[num])
-                                            .padding(5)
-                                            .padding(.horizontal, 5)
-                                            .font(.system(size: 12))
-                                            .foregroundColor(selectedIndex == num ? Color(UIColor(hexString: "#390099")) : Color(UIColor(hexString: "#818181")))
-                                            
+                        ScrollViewReader { proxy in
+                            ScrollView(.horizontal, showsIndicators: false){
+                                HStack{
+                                    ForEach(0..<menu.count,id: \.self){ num in
+                                        Button{
+                                            selectedIndex = num
+                                        }label:{
+                                            Text(menu[num])
+                                                .padding(5)
+                                                .padding(.horizontal, 5)
+                                                .font(.system(size: 12))
+                                                .foregroundColor(selectedIndex == num ? Color(UIColor(hexString: "#390099")) : Color(UIColor(hexString: "#818181")))
+                                                .id(num)
+                                                
+                                        }
+                                        .background(selectedIndex == num ? Color(UIColor(hexString: "#DFEFFF")) : Color(.white))
+                                        .cornerRadius(10)
                                     }
-                                    .background(selectedIndex == num ? Color(UIColor(hexString: "#DFEFFF")) : Color(.white))
-                                    .cornerRadius(10)
+                                    .onChange(of: selectedIndex, perform: { value in
+                                        withAnimation(.spring()) {
+                                            proxy.scrollTo(value, anchor: nil)
+                                        }
+                                    })
                                 }
                             }
                             Spacer()
                         }
-                        
                     }
                     .padding(.vertical)
                     .padding(.horizontal)
@@ -135,6 +142,8 @@ struct MainDashboard: View {
                         switch selectedIndex{
                         case 0 :
                             DashLaluLintas()
+                        case 4 :
+                            DataGangguan()
                         default:
                             NavigationView{
                                 Text("Home Main")
@@ -155,8 +164,8 @@ struct MainDashboard: View {
                         }
                     }else if parentmenu == 2 {
                         switch selectedIndex{
-                        case 0 :
-                            DashboardPemeliharaan()
+                        case 1 :
+                            MonitoringAlat()
                         default:
                             NavigationView{
                                 Text("Home Main")

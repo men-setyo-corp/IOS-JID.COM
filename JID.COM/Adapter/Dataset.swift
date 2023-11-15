@@ -12,6 +12,17 @@ import MapboxMaps
 
 
 class Dataset{
+    public func convertDateFormat(inputDate: String) -> String {
+        let olDateFormatter = DateFormatter()
+        olDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+
+        let oldDate = olDateFormatter.date(from: inputDate)
+
+        let convertDateFormatter = DateFormatter()
+        convertDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+        return convertDateFormatter.string(from: oldDate!)
+    }
     
     public func Dataset_pemeliharaan(dataSet: JSON) -> Data_pemeliharaan{
         let data_pemeliharaan_result = Data_pemeliharaan(
