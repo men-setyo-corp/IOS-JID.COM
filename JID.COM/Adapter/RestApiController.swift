@@ -12,7 +12,8 @@ import Alamofire
 class RestApiController{
     
     public let url_based = "https://jid.jasamarga.com/client-api/"
-    public let url_based_dev = "https://jid.jasamarga.com/t3s/"
+//    public let url_based_dev = "https://jid.jasamarga.com/t3s/"
+    public let url_based_dev = "http://20.10.20.185:10010/"
     
     let headers: HTTPHeaders? = ["Content-Type": "application/json",
                                  "Authorization": "2345391662"]
