@@ -49,6 +49,7 @@ struct Data_cctv {
     var km: String
     var key_id: String
     var arteri: Int
+    var is_hls: Bool
 }
 
 struct Data_vms {

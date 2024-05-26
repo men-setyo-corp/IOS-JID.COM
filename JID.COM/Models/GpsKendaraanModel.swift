@@ -21,7 +21,7 @@ class GpsKendaraanModel: ObservableObject{
     func setUpGPSKendaraanAPI(setmapView: MapView)  {
         print("run layar data gps_kendaraan...")
         DispatchQueue.global().async {
-            RestApiController().getAPI(from: "data/gps_kendaraan"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/data/gps_kendaraan"){ (returnedData) in
                 if let jsonData = try? JSONEncoder().encode(returnedData) {
                     var featureCollection: FeatureCollection!
                     do{

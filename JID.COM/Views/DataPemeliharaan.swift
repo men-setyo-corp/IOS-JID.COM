@@ -54,16 +54,15 @@ struct DataPemeliharaan: View {
                     }
                 }else{
                     ScrollView{
-                        ForEach(searchResults) { pemeliharaan in
+                        ForEach(searchResults, id: \.idx) { pemeliharaan in
                             Button{
                                 showDetail = true
                                 namaRuas = pemeliharaan.nama_ruas
                                 range = pemeliharaan.range_km_pekerjaan
                                 kegiatan = pemeliharaan.ket_jenis_kegiatan
                                 awal = pemeliharaan.waktu_awal
-                                akhir = pemeliharaan.waktu_akhir
+                                akhir = pemeliharaan.waktu_akhir ?? ""
                                 keterangan = pemeliharaan.keterangan_detail
-                                
                             }label:{
                                 VStack(alignment:.leading){
                                     HStack{
@@ -79,8 +78,8 @@ struct DataPemeliharaan: View {
                                             .background(pemeliharaan.id_status == 3 ? Color(UIColor(hexString: "#0e6efd")) : pemeliharaan.id_status == 1 ? Color(UIColor(hexString: "#dc3545")) : Color(UIColor(hexString: "#ffc107")))
                                             .cornerRadius(5)
                                     }
-                                    Text(Dataset().convertDateFormat(inputDate: pemeliharaan.waktu_awal))
-                                        .font(.system(size: 14))
+                                    Text(pemeliharaan.ket_jenis_kegiatan)
+                                        .font(.system(size: 14, weight: .bold ))
                                         .foregroundColor(Color.black)
                                     HStack{
                                         Text(pemeliharaan.km)
@@ -136,7 +135,7 @@ struct DataPemeliharaan: View {
                 range = datares[0].range_km_pekerjaan
                 kegiatan = datares[0].ket_jenis_kegiatan
                 awal = datares[0].waktu_awal
-                akhir = datares[0].waktu_akhir
+                akhir = datares[0].waktu_akhir ?? ""
                 keterangan = datares[0].keterangan_detail
             }
         }
@@ -177,7 +176,7 @@ struct DataPemeliharaan: View {
                     Text("Waktu Akhir")
                         .font(.system(size: 13, weight: .bold))
                     Spacer()
-                    Text(akhir == "" ? "-" : Dataset().convertDateFormat(inputDate: akhir))
+                    Text(akhir != "" ? Dataset().convertDateFormat(inputDate: akhir) : "-")
                         .font(.system(size: 13))
                 }
                 

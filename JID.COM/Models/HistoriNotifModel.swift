@@ -10,7 +10,7 @@ import Alamofire
 import SwiftyJSON
 
 struct Gethistori: Codable, Identifiable {
-    let id : String
+    let id : Int
     let akun : String
     let tipe_event: String
     let ket_jenis_event: String
@@ -28,7 +28,7 @@ class HistoriNotifModel: ObservableObject {
     func loadHistori(completion: @escaping ([Gethistori]) -> ()) {
         let parameters : Parameters = ["limit": 30, "platform": "jid_mobile"]
         DispatchQueue.main.async {
-            RestApiController().resAPI(endPoint: "push_notif/getallios", method: .post ,dataParam: parameters){ (results) in
+            RestApiController().resAPI(endPoint: "client-api/push_notif/getallios", method: .post ,dataParam: parameters){ (results) in
                 let getJSON = JSON(results ?? "Null data from API")
                 
                 if getJSON["status"].intValue == 1 {

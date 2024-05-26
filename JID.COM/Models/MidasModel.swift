@@ -23,7 +23,7 @@ class MidasModel: ObservableObject{
     func setUpMidasAPI(setmapView: MapView)  {
         print("run layar data midas...")
         DispatchQueue.global().async {
-            RestApiController().getAPI(from: "data/midas"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/data/midas"){ (returnedData) in
                 if let jsonData = try? JSONEncoder().encode(returnedData) {
                     var featureCollection: FeatureCollection!
                     do{

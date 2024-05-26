@@ -8,6 +8,7 @@
 import SwiftUI
 import SDWebImage
 import SDWebImageSwiftUI
+import AVKit
 
 struct CctvSegemnt: View {
     var writer: Writer
@@ -16,23 +17,31 @@ struct CctvSegemnt: View {
     @State var datacctv : [Getcctv] = []
     @State var datacctvnonjm : [Getcctvsnonjm] = []
     
-    @State var stopRun: Bool = true;
-    @State var urlStreamImg = URL(string: "")
-    @State var urlStreamImgNil = URL(string: "")
+    @State var stopRun: Bool = false;
+    @State var urlStreamImg = ""
+    @State var urlStreamHls = ""
     @State var urlSet = ""
+    @State var urlSetDef = ""
     @State var namaSet = ""
     @State var namaSegmentSet = ""
+    @State var is_hls: Bool = true
     @State var selectedCard: Bool = true;
     @State var keyStream = ""
     @State var selectedIndex: Int = 0
+    @State var selectedCctv: String = ""
     @State var errShow: Bool = false;
+    @State var playerHls = AVPlayer()
+    @State var controlPlay = AVPlayerViewController()
+    @State var playerItem:AVPlayerItem?
+    @State var timer: Any?
+    @State var showLoadingHsl: Bool = true
     
     var body: some View {
         ZStack{
             VStack{
                 HStack{
                     Button{
-                        stopRun = false
+                        stopRun = true
                         self.presentationMode.wrappedValue.dismiss()
                     }label:{
                         Text(Image(systemName: "chevron.backward"))
@@ -45,7 +54,7 @@ struct CctvSegemnt: View {
                             .foregroundColor(Color(UIColor(hexString: "#818181")))
                             .font(.system(size: 15))
                             .padding(.bottom, 1)
-                        Text(writer.nama_ruas != "" ? writer.nama_ruas : "nama segment")
+                        Text(writer.id_segment != 0 ? writer.nama_segment : "Semua Segment")
                             .font(.system(size: 16))
                             .foregroundColor(.black)
                     }
@@ -58,19 +67,43 @@ struct CctvSegemnt: View {
                         CardShimmerImg()
                     }else{
                         VStack{
-                            AsyncImage(url: URL(string:urlSet)) { phase in
-                                if let image = phase.image {
-                                    image
-                                        .resizable()
-                                } else if phase.error != nil {
-                                    ProgressView()
-                                } else {
-                                    CardShimmerImg()
+                            if is_hls {
+                                VideoPlayer(player: playerHls)
+                                    .onAppear(){
+                                        controlPlay.player = playerHls
+                                        controlPlay.showsPlaybackControls = false
+                                        controlPlay.videoGravity = .resizeAspectFill
+                                    }
+                                    .onDisappear(){
+                                        if let timer = timer {
+                                            playerHls.removeTimeObserver(timer)
+                                        }
+                                    }
+                            }else{
+                                AsyncImage(url: URL(string:urlSet)) { phase in
+                                    if let image = phase.image {
+                                        image
+                                            .resizable()
+                                            .onAppear{
+                                                startRun()
+                                            }
+                                    } else if phase.error != nil {
+                                        ProgressView()
+                                    } else {
+                                        ProgressView()
+                                    }
                                 }
                             }
                         }
-                        .onAppear{
-                            startRun()
+                        ZStack{
+                            if showLoadingHsl {
+                                VStack{
+                                    Spacer()
+                                    ProgressView()
+                                        .tint(.white)
+                                    Spacer()
+                                }
+                            }
                         }
                     }
                     
@@ -83,156 +116,100 @@ struct CctvSegemnt: View {
                 .shadow(radius: 2)
                 .padding(.horizontal, 25)
                 
-                if writer.id_key == 39 || writer.id_key == 40 || writer.id_key == 38{
-                    Text("Lokasi")
-                        .foregroundColor(Color(UIColor(hexString: "#818181")))
-                        .padding(.top, 4)
-                    HStack{
-                        Image(systemName: "mappin.and.ellipse")
-                            .font(.system(size: 16, weight: .bold))
-                            .foregroundColor(.black)
-                        Text("\(namaSet) | \(namaSegmentSet)")
-                            .font(.system(size: 13, weight: .bold))
-                            .foregroundColor(.black)
-                    }
-                    .padding(.top, 1)
-                    .redacted(reason: datacctvnonjm.isEmpty ? .placeholder : [])
-                }else{
-                    Text("Lokasi")
-                        .foregroundColor(Color(UIColor(hexString: "#818181")))
-                        .padding(.top, 4)
-                    HStack{
-                        Image(systemName: "mappin.and.ellipse")
-                            .font(.system(size: 16, weight: .bold))
-                            .foregroundColor(.black)
-                        Text("\(namaSet) | \(namaSegmentSet)")
-                            .font(.system(size: 13, weight: .bold))
-                            .foregroundColor(.black)
-                    }
-                    .padding(.top, 1)
-                    .redacted(reason: datacctv.isEmpty ? .placeholder : [])
+                Text("Lokasi")
+                    .foregroundColor(Color(UIColor(hexString: "#818181")))
+                    .padding(.top, 4)
+                HStack{
+                    Image(systemName: "mappin.and.ellipse")
+                        .font(.system(size: 16, weight: .bold))
+                        .foregroundColor(.black)
+                    Text("\(namaSet) | \(namaSegmentSet)")
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundColor(.black)
                 }
+                .frame(maxWidth: .infinity)
+                .padding(.top, 1)
+                .padding(.horizontal,15)
+                .redacted(reason: datacctv.isEmpty ? .placeholder : [])
                 
                 ZStack{
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack{
-                            if writer.id_key == 39 || writer.id_key == 40 || writer.id_key == 38{
-                                ForEach(datacctvnonjm){ row in
-                                    Button{
-                                        urlSet = "https://jid.jasamarga.com/cctv2/\(row.key_id)?tx=\(Float.random(in: 0...1))"
-                                        selectedIndex = row.id
-                                        keyStream = row.key_id
-                                        namaSet = row.nama
-                                        namaSegmentSet = row.cabang
-                                    }label:{
-                                        ZStack{
-                                            VStack{
-                                                ZStack{
-                                                    HStack{
-                                                        Image("cctv_icon")
-                                                            .font(.system(size: 35, weight: .bold))
-                                                            .foregroundColor(Color(UIColor(hexString: "#390099")))
-                                                    }
-                                                    .padding(25)
-                                                    .background(Color(UIColor(hexString: "#DFEFFF")))
-                                                    .clipShape(Circle())
-                                                }
-                                                .padding(.top, 20)
-                                                
-                                                ZStack{
-                                                    VStack{
-                                                        Text("\(row.nama)")
-                                                            .font(.system(size: 10))
-                                                            .foregroundColor(Color.black)
-                                                        Text(row.cabang)
-                                                            .padding(.top, 1)
-                                                            .font(.system(size: 10))
-                                                            .foregroundColor(Color.black)
-                                                    }
-                                                    .padding(.horizontal, 10)
-                                                    .padding(.top, 5)
-                                                    .padding(.bottom, 10)
-                                                }
-                                                .frame(width: 200)
-                                                .redacted(reason: row.nama.isEmpty ? .placeholder : [])
+                            ForEach(datacctv, id: \.key_id){ row in
+                                Button{
+                                    showLoadingHsl = true
+                                    urlStreamImg = "https://jid.jasamarga.com/cctv2/\(row.key_id)?tx=\(Float.random(in: 0...1))"
+                                    urlStreamHls = "https://jmlive.jasamarga.com/hls/"+row.id_ruas+"/"+row.key_id+"/index.m3u8"
+                                    is_hls = row.is_hls
+                                    if row.is_hls {
+                                        urlSet = urlStreamHls
+                                        playerItem = AVPlayerItem(url: URL(string: urlSet)!)
+                                        playerHls = AVPlayer(playerItem: playerItem)
+                                        playerHls.replaceCurrentItem(with: playerItem)
+                                        
+                                        playerHls.play()
+                                        playerHls.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, preferredTimescale: 1), queue: DispatchQueue.main){ (CMTime) -> Void in
+                                            
+                                            if playerHls.currentItem?.status == .readyToPlay {
+                                                playerHls.play()
+                                            }
+                                            let playbackLikelyToKeepUp = playerHls.currentItem?.isPlaybackLikelyToKeepUp
+                                            if playbackLikelyToKeepUp == false{
+                                                print("IsBuffering")
+                                                showLoadingHsl = true
+                                            } else {
+                                                showLoadingHsl = false
                                             }
                                         }
-                                        .frame(alignment: .center)
-                                        .background(selectedIndex == row.id ? Color(UIColor(hexString: "#DFEFFF")) : Color.white)
-                                        .cornerRadius(10)
-                                        .shadow(radius: 2)
+                                        bufferHandle()
+                                    }else{
+                                        urlSet = urlStreamImg
                                     }
-                                    
-                                }
-                            }else{
-                                ForEach(datacctv){ row in
-                                    Button{
-                                        urlSet = "https://jid.jasamarga.com/cctv2/\(row.key_id)?tx=\(Float.random(in: 0...1))"
-                                        selectedIndex = row.id
-                                        keyStream = row.key_id
-                                        namaSet = row.nama
-                                        namaSegmentSet = row.nama_segment
-                                    }label:{
-                                        ZStack{
-                                            VStack{
-    //                                            ZStack{
-    //                                                Image("cctv_icon")
-    //                                                    .data(url: "https://jid.jasamarga.com/cctv2/\(row.key_id)?tx=\(Float.random(in: 5...20))")
-    //                                                    .clipped()
-    //                                            }
-    //                                            .frame(width: 200, height: 150)
-    //                                            AsyncImage(url: URL(string: "https://jid.jasamarga.com/cctv2/\(row.key_id)?tx=\(Float.random(in: 5...20))")) { phase in
-    //                                                if let image = phase.image {
-    //                                                    image
-    //                                                        .resizable()
-    //                                                        .frame(width: 200, height: 150)
-    //                                                } else if phase.error != nil {
-    //                                                    CardShimmerImgSmall()
-    //                                                } else {
-    //                                                    ProgressView()
-    //                                                }
-    //                                            }
-    //                                            .background(Color.white)
-                                                
-                                                ZStack{
-                                                    HStack{
-                                                        Image("cctv_icon")
-                                                            .font(.system(size: 35, weight: .bold))
-                                                            .foregroundColor(Color(UIColor(hexString: "#390099")))
-                                                    }
-                                                    .padding(25)
-                                                    .background(Color(UIColor(hexString: "#DFEFFF")))
-                                                    .clipShape(Circle())
+                                    selectedCctv = row.nama
+                                    selectedIndex = row.id
+                                    keyStream = row.key_id
+                                    namaSet = row.nama
+                                    namaSegmentSet = row.nama_segment
+                                }label:{
+                                    ZStack{
+                                        VStack{
+                                            ZStack{
+                                                HStack{
+                                                    Image("cctv_icon")
+                                                        .font(.system(size: 35, weight: .bold))
+                                                        .foregroundColor(Color(UIColor(hexString: "#390099")))
                                                 }
-                                                .padding(.top, 20)
-                                                
-                                                ZStack{
-                                                    VStack{
-                                                        Text("\(row.nama)")
-                                                            .font(.system(size: 10))
-                                                            .foregroundColor(Color.black)
-                                                        Text(row.nama_segment)
-                                                            .padding(.top, 1)
-                                                            .font(.system(size: 10))
-                                                            .foregroundColor(Color.black)
-                                                    }
-                                                    .padding(.horizontal, 10)
-                                                    .padding(.top, 5)
-                                                    .padding(.bottom, 10)
-                                                }
-                                                .frame(width: 200)
-                                                .redacted(reason: row.nama.isEmpty ? .placeholder : [])
+                                                .padding(25)
+                                                .background(Color(UIColor(hexString: "#DFEFFF")))
+                                                .clipShape(Circle())
                                             }
+                                            .padding(.top, 20)
+                                            
+                                            ZStack{
+                                                VStack{
+                                                    Text("\(row.nama)")
+                                                        .font(.system(size: 10))
+                                                        .foregroundColor(Color.black)
+                                                    Text(row.nama_segment)
+                                                        .padding(.top, 1)
+                                                        .font(.system(size: 10))
+                                                        .foregroundColor(Color.black)
+                                                }
+                                                .padding(.horizontal, 10)
+                                                .padding(.top, 5)
+                                                .padding(.bottom, 10)
+                                            }
+                                            .frame(width: 200)
+                                            .redacted(reason: row.nama.isEmpty ? .placeholder : [])
                                         }
-                                        .frame(alignment: .center)
-                                        .background(selectedIndex == row.id ? Color(UIColor(hexString: "#DFEFFF")) : Color.white)
-                                        .cornerRadius(10)
-                                        .shadow(radius: 2)
                                     }
-                                    
+                                    .frame(alignment: .center)
+                                    .background(selectedCctv == row.nama ? Color(UIColor(hexString: "#DFEFFF")) : Color.white)
+                                    .cornerRadius(10)
+                                    .shadow(radius: 2)
                                 }
+                                
                             }
-                            
                         }
                         .padding(.horizontal, 5)
                         .padding(.vertical, 10)
@@ -249,32 +226,41 @@ struct CctvSegemnt: View {
         .background(.white)
         .navigationBarHidden(true)
         .onAppear{
-            if writer.id_key == 39 || writer.id_key == 40 || writer.id_key == 38{
-                ListCctvModel().getCctvNonJM(idruas: writer.id_key, idsegment: writer.id_segment){ (resultcctv) in
-                    self.datacctvnonjm = resultcctv
-                    if let valueFirst = datacctvnonjm.first {
-                        urlSet = "https://jid.jasamarga.com/cctv2/\(valueFirst.key_id)?tx=\(Float.random(in: 0...1))"
-                        namaSet = valueFirst.nama
-                        namaSegmentSet = valueFirst.cabang
-                        urlStreamImg = URL(string: urlSet)
-                        keyStream = valueFirst.key_id
-                        selectedIndex = valueFirst.id
+            ListCctvModel().getCctv(idruas: writer.id_key, nama_segment: writer.nama_segment){ (resultcctv) in
+                self.datacctv = resultcctv
+                if let valueFirst = datacctv.first {
+                    urlStreamImg = "https://jid.jasamarga.com/cctv2/\(valueFirst.key_id)?tx=\(Float.random(in: 0...1))"
+                    urlStreamHls = "https://jmlive.jasamarga.com/hls/"+valueFirst.id_ruas+"/"+valueFirst.key_id+"/index.m3u8"
+                    if valueFirst.is_hls {
+                        showLoadingHsl = true
+                        urlSet = urlStreamHls
+                        
+                        playerHls = AVPlayer(url: URL(string: urlSet)!)
+                        playerHls.play()
+                        playerHls.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, preferredTimescale: 1), queue: DispatchQueue.main){ (CMTime) -> Void in
+                           
+                            let playbackLikelyToKeepUp = playerHls.currentItem?.isPlaybackLikelyToKeepUp
+                            if playbackLikelyToKeepUp == false{
+                                print("IsBuffering")
+                                showLoadingHsl = true
+                            } else {
+                                print("Buffer Done")
+                                showLoadingHsl = false
+                            }
+                        }
+                        bufferHandle()
+                    }else{
+                        urlSet = urlStreamImg
                     }
-                }
-            }else{
-                ListCctvModel().getCctv(idruas: writer.id_key, idsegment: writer.id_segment){ (resultcctv) in
-                    self.datacctv = resultcctv
-                    if let valueFirst = datacctv.first {
-                        urlSet = "https://jid.jasamarga.com/cctv2/\(valueFirst.key_id)?tx=\(Float.random(in: 0...1))"
-                        namaSet = valueFirst.nama
-                        namaSegmentSet = valueFirst.nama_segment
-                        urlStreamImg = URL(string: urlSet)
-                        keyStream = valueFirst.key_id
-                        selectedIndex = valueFirst.id
-                    }
+                    namaSet = valueFirst.nama
+                    namaSegmentSet = valueFirst.nama_segment
+                   
+                    keyStream = valueFirst.key_id
+                    selectedIndex = valueFirst.id
+                    selectedCctv = valueFirst.nama
+                    is_hls = valueFirst.is_hls
                 }
             }
-            
         }
         .alert("Important message", isPresented: $modelListcctv.showErr) {
             Button("OK", role: .cancel) { }
@@ -283,12 +269,27 @@ struct CctvSegemnt: View {
     }
     
     private func startRun() {
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+        Timer.scheduledTimer(withTimeInterval: 0.7, repeats: true) { timer in
            urlSet = "https://jid.jasamarga.com/cctv2/\(keyStream)?tx=\(Float.random(in: 0...1))"
-           if stopRun == false {
+           if stopRun == true {
                timer.invalidate()
                print("stop..")
            }
+        }
+    }
+    
+    private func bufferHandle() {
+        // Delay of 7 seconds
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
+            if showLoadingHsl {
+                print("buffer selama 7 detik")
+                urlSet = urlStreamImg
+                is_hls = false
+                showLoadingHsl = false
+            }else{
+                urlSet = urlStreamHls
+                is_hls = true
+            }
         }
     }
     
@@ -357,7 +358,7 @@ struct CctvSegemnt_Previews: PreviewProvider {
     static let writerPreview = Writer(
         id_key: 0,
         id_segment: 0,
-        nama_ruas: ""
+        nama_segment: ""
     )
     
     static var previews: some View {

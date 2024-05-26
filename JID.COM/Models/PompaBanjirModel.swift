@@ -21,7 +21,7 @@ class PompaBanjirModel: ObservableObject{
     func setUpPompaBanjirAPI(setmapView: MapView)  {
         print("run layar data pompa...")
         DispatchQueue.global().async {
-            RestApiController().getAPI(from: "data/pompa"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/data/pompa"){ (returnedData) in
                 if let jsonData = try? JSONEncoder().encode(returnedData) {
                     var featureCollection: FeatureCollection!
                     do{

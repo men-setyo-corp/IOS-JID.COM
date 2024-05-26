@@ -39,7 +39,7 @@ class GangguanLalinModel: ObservableObject{
     func setUpGangguanlalinAPI(setmapView: MapView)  {
         print("run layar gangguanlalin...")
         DispatchQueue.global().async{
-            RestApiController().getAPI(from: "gangguanlalin"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/gangguanlalin"){ (returnedData) in
                 if let jsonData = try? JSONEncoder().encode(returnedData) {
                     var featureCollection: FeatureCollection!
                     do{
@@ -101,7 +101,7 @@ class GangguanLalinModel: ObservableObject{
     @objc func setUpdateLayersGangguanlalin(){
         print("Update gangguanlalin is running...")
         DispatchQueue.global(qos: .background).async {
-            RestApiController().getAPI(from: "gangguanlalin"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/gangguanlalin"){ (returnedData) in
                 DispatchQueue.main.async {
                     if let jsonData = try? JSONEncoder().encode(returnedData) {
                         var featureCollection: FeatureCollection!
@@ -132,7 +132,7 @@ class GangguanLalinModel: ObservableObject{
     //List Data Gangguan
     func getListDataGangguan(completion: @escaping ([InitDataGangguan]) -> ())  {
         DispatchQueue.global().async {
-            RestApiController().resAPIDevGet(endPoint: "gangguan_lalin/v1/getGangguan?limit=10&order=asc&offset=1", method: .get) { (results) in
+            RestApiController().resAPIGet(endPoint: "gangguan_lalin/v1/getGangguan?limit=100&order=desc&offset=0", method: .get) { (results) in
                 let getJSON = JSON(results ?? "Null data from API")
                 DispatchQueue.main.async {
                     if getJSON["status"].boolValue {
@@ -144,7 +144,7 @@ class GangguanLalinModel: ObservableObject{
                             print(myJSONError)
                         }
                     }else{
-                        print(getJSON["msg"].stringValue)
+                        print(getJSON["message"].stringValue)
                     }
                 }
             }

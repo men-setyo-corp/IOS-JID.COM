@@ -33,6 +33,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         UIApplication.shared.registerForRemoteNotifications()
+        application.registerForRemoteNotifications()
         
         FirebaseApp.configure()
         

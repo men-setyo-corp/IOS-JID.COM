@@ -21,7 +21,7 @@ class GerbangTollModel: ObservableObject{
     func setUpGerbagToillPI(setmapView: MapView)  {
         print("run layar gerbangtoll...")
         DispatchQueue.global().async {
-            RestApiController().getAPI(from: "data/gerbangtol"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/data/gerbangtol"){ (returnedData) in
                 if let jsonData = try? JSONEncoder().encode(returnedData) {
                     var featureCollection: FeatureCollection!
                     do{

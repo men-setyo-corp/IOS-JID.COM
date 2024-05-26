@@ -35,7 +35,7 @@ class WaterLevelModel: ObservableObject{
     func setUpWaterLevelAPI(setmapView: MapView)  {
         print("run layar data water_level...")
         DispatchQueue.global().async {
-            RestApiController().getAPI(from: "data/water_level"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/data/water_level"){ (returnedData) in
                 if let jsonData = try? JSONEncoder().encode(returnedData) {
                     var featureCollection: FeatureCollection!
                     do{
@@ -127,10 +127,10 @@ class WaterLevelModel: ObservableObject{
         if idruas == 0 {
             setIdruas = ""
         }else{
-            setIdruas = String(idruas)
+            setIdruas = "?id_ruas=\(String(idruas))"
         }
         DispatchQueue.global().async {
-            RestApiController().resAPIDevGet(endPoint: "water_level_sensor/v1/getWaterLevelSensor?id_ruas=\(setIdruas)", method: .get) { (results) in
+            RestApiController().resAPIGet(endPoint: "water_level_sensor/v1/getWaterLevelSensor\(setIdruas)", method: .get) { (results) in
                 let getJSON = JSON(results ?? "Null data from API")
                 DispatchQueue.main.async {
                     if getJSON["status"].boolValue {

@@ -113,7 +113,7 @@ struct LoginPage: View {
                         Button{
                             Task{
                                 modelLogin.txtLoging = false
-                                let parameters: Parameters = [ "name" : modelLogin.email, "pass" : modelLogin.password ]
+                                let parameters: Parameters = [ "user" : modelLogin.email, "pass" : modelLogin.password, "token_fcm": modelLogin.fcmToken ]
                                 do{
                                     try await modelLogin.PresLogin(paramsData: parameters){ success in
                                         modelLogin.txtLoging.toggle()
@@ -163,14 +163,14 @@ struct LoginPage: View {
                     NavigationLink {
                         
                     } label: {
-                        Text("©Copyright 2018 - 2023 Jasa Marga")
+                        Text("©Copyright 2018 - 2024 Jasa Marga")
                             .foregroundColor(Color(UIColor(hexString: "#828282")))
                             .font(.system(size: 12))
                     }
                     .frame(alignment: .center)
                     .position(x: geometry.size.width / 2.2, y: geometry.size.height / 1.1)
                     
-                    Text("versi 1.3.2")
+                    Text("versi 1.3.3")
                         .font(.system(size: 12))
                         .frame(alignment: .center)
                         .position(x: geometry.size.width / 2.2, y: geometry.size.height / 1.1)

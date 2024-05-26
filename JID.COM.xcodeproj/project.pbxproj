@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		84037D0D2B04A58D00CB24F3 /* DashboardLalinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84037D0C2B04A58D00CB24F3 /* DashboardLalinModel.swift */; };
+		8408F6882BEF2914006E2386 /* SetLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408F6872BEF2914006E2386 /* SetLocalStorage.swift */; };
 		840E1CB7294493D0007788BC /* DetailEventLalin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E1CB6294493D0007788BC /* DetailEventLalin.swift */; };
 		841000F42AC67D4900A77E23 /* CustomGroupBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841000F32AC67D4900A77E23 /* CustomGroupBarChart.swift */; };
+		8414BC862BFDFA000005BB05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8414BC852BFDFA000005BB05 /* GoogleService-Info.plist */; };
 		842ED9732ACD0C87003A2F13 /* ViewGrafikPemeliharaan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ED9722ACD0C87003A2F13 /* ViewGrafikPemeliharaan.swift */; };
 		842ED9752ACD0F2D003A2F13 /* ViewGrafikKegiatan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ED9742ACD0F2D003A2F13 /* ViewGrafikKegiatan.swift */; };
 		842ED9782ACD0F8F003A2F13 /* GrafikKegiatan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ED9772ACD0F8F003A2F13 /* GrafikKegiatan.swift */; };
@@ -20,6 +22,7 @@
 		845F35812AC27FF50046D0D3 /* xample.json in Resources */ = {isa = PBXBuildFile; fileRef = 845F35802AC27FF50046D0D3 /* xample.json */; };
 		8460F1802AC12A74006D7A00 /* DashPemeliharaan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8460F17F2AC12A74006D7A00 /* DashPemeliharaan.swift */; };
 		846D781B2AF4560600B4DAAE /* WaterLevelSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D781A2AF4560600B4DAAE /* WaterLevelSensor.swift */; };
+		846E75262BEAEFC70079ADDF /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E75252BEAEFC70079ADDF /* VideoPlayer.swift */; };
 		84705DA62AF3DD3B000732D0 /* RuasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84705DA52AF3DD3B000732D0 /* RuasView.swift */; };
 		8490317229363E47003A8280 /* CctvCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8490317129363E47003A8280 /* CctvCarousel.swift */; };
 		8494E4B5294AACC600AC11FE /* GangguanLalinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494E4B4294AACC600AC11FE /* GangguanLalinModel.swift */; };
@@ -36,7 +39,6 @@
 		84A0C7512ACCFA0C0059BE21 /* GrafikPemeliharaan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0C7502ACCFA0C0059BE21 /* GrafikPemeliharaan.swift */; };
 		84A2898B2B040C8100B665C7 /* DataGangguan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2898A2B040C8100B665C7 /* DataGangguan.swift */; };
 		84A2898E2B0443BD00B665C7 /* MonitoringAlat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2898D2B0443BD00B665C7 /* MonitoringAlat.swift */; };
-		84BEBD762951AEA20052A189 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84BEBD752951AEA20052A189 /* GoogleService-Info.plist */; };
 		84BEBD792951B4420052A189 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 84BEBD782951B4420052A189 /* FirebaseAnalytics */; };
 		84BEBD812951B4420052A189 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 84BEBD802951B4420052A189 /* FirebaseMessaging */; };
 		84BFAB6B2ACE702600AD338D /* GrafikPerjalur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFAB6A2ACE702600AD338D /* GrafikPerjalur.swift */; };
@@ -44,8 +46,8 @@
 		84CEE4D62919270D0092B333 /* AntrianPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEE4D52919270D0092B333 /* AntrianPage.swift */; };
 		84CEE4D829192C900092B333 /* RealtimePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEE4D729192C900092B333 /* RealtimePage.swift */; };
 		84CEE4DB2919DD960092B333 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 84CEE4DA2919DD960092B333 /* PopupView */; };
-		84D0549F2ABDA19A0047FF4E /* DGCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D0549C2ABDA1320047FF4E /* DGCharts.framework */; };
-		84D054A02ABDA19A0047FF4E /* DGCharts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84D0549C2ABDA1320047FF4E /* DGCharts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		84D0549F2ABDA19A0047FF4E /* DGCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D0549C2ABDA1320047FF4E /* DGCharts.framework */; platformFilter = ios; };
+		84D054A02ABDA19A0047FF4E /* DGCharts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84D0549C2ABDA1320047FF4E /* DGCharts.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84D7EA7829529F9800F98EF7 /* HistoriNotifModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7EA7729529F9800F98EF7 /* HistoriNotifModel.swift */; };
 		84D7EA7A2952A33500F98EF7 /* HistoriNotif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7EA792952A33500F98EF7 /* HistoriNotif.swift */; };
 		84D94FF42955BA7400637CED /* lalin.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D94FF22955BA7400637CED /* lalin.json */; };
@@ -167,8 +169,10 @@
 
 /* Begin PBXFileReference section */
 		84037D0C2B04A58D00CB24F3 /* DashboardLalinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardLalinModel.swift; sourceTree = "<group>"; };
+		8408F6872BEF2914006E2386 /* SetLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLocalStorage.swift; sourceTree = "<group>"; };
 		840E1CB6294493D0007788BC /* DetailEventLalin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventLalin.swift; sourceTree = "<group>"; };
 		841000F32AC67D4900A77E23 /* CustomGroupBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGroupBarChart.swift; sourceTree = "<group>"; };
+		8414BC852BFDFA000005BB05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GooggleService JID/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		842ED9722ACD0C87003A2F13 /* ViewGrafikPemeliharaan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewGrafikPemeliharaan.swift; sourceTree = "<group>"; };
 		842ED9742ACD0F2D003A2F13 /* ViewGrafikKegiatan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewGrafikKegiatan.swift; sourceTree = "<group>"; };
 		842ED9772ACD0F8F003A2F13 /* GrafikKegiatan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrafikKegiatan.swift; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 		845F35802AC27FF50046D0D3 /* xample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = xample.json; sourceTree = "<group>"; };
 		8460F17F2AC12A74006D7A00 /* DashPemeliharaan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashPemeliharaan.swift; sourceTree = "<group>"; };
 		846D781A2AF4560600B4DAAE /* WaterLevelSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterLevelSensor.swift; sourceTree = "<group>"; };
+		846E75252BEAEFC70079ADDF /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
 		84705DA52AF3DD3B000732D0 /* RuasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuasView.swift; sourceTree = "<group>"; };
 		8490317129363E47003A8280 /* CctvCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CctvCarousel.swift; sourceTree = "<group>"; };
 		8494E4B4294AACC600AC11FE /* GangguanLalinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GangguanLalinModel.swift; sourceTree = "<group>"; };
@@ -196,7 +201,6 @@
 		84A0C7502ACCFA0C0059BE21 /* GrafikPemeliharaan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrafikPemeliharaan.swift; sourceTree = "<group>"; };
 		84A2898A2B040C8100B665C7 /* DataGangguan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGangguan.swift; sourceTree = "<group>"; };
 		84A2898D2B0443BD00B665C7 /* MonitoringAlat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitoringAlat.swift; sourceTree = "<group>"; };
-		84BEBD752951AEA20052A189 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84BFAB6A2ACE702600AD338D /* GrafikPerjalur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrafikPerjalur.swift; sourceTree = "<group>"; };
 		84CEE4D32919201D0092B333 /* SplashScrean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScrean.swift; sourceTree = "<group>"; };
 		84CEE4D52919270D0092B333 /* AntrianPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntrianPage.swift; sourceTree = "<group>"; };
@@ -451,7 +455,7 @@
 		FA6BF78D289EC043006EECC0 /* JID.COM */ = {
 			isa = PBXGroup;
 			children = (
-				84BEBD752951AEA20052A189 /* GoogleService-Info.plist */,
+				8414BC852BFDFA000005BB05 /* GoogleService-Info.plist */,
 				84A0B4E029482527006260FD /* JID.COM.entitlements */,
 				FAC0E64D28BC9CD0007146E5 /* Components */,
 				FABA169028B3279400BFD24D /* Views */,
@@ -523,6 +527,8 @@
 				84DBF7A4294ECD7C00B6578C /* PompaBanjirModal.swift */,
 				84DBF7A8294EDA2E00B6578C /* WimModal.swift */,
 				84705DA52AF3DD3B000732D0 /* RuasView.swift */,
+				846E75252BEAEFC70079ADDF /* VideoPlayer.swift */,
+				8408F6872BEF2914006E2386 /* SetLocalStorage.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -642,13 +648,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				84D94FF42955BA7400637CED /* lalin.json in Resources */,
+				8414BC862BFDFA000005BB05 /* GoogleService-Info.plist in Resources */,
 				84D94FF52955BA7400637CED /* toll.json in Resources */,
 				845B42F32AD6315E0080045F /* perjalur.json in Resources */,
 				842ED97F2ACD15C0003A2F13 /* datakegiatan.json in Resources */,
 				FA6BF796289EC047006EECC0 /* Preview Assets.xcassets in Resources */,
 				FA6BF793289EC047006EECC0 /* Assets.xcassets in Resources */,
 				845F35812AC27FF50046D0D3 /* xample.json in Resources */,
-				84BEBD762951AEA20052A189 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -727,6 +733,7 @@
 				84DBF7AB294EDE6B00B6578C /* BikeModel.swift in Sources */,
 				FAAFB0AC28D06E7700F8DE63 /* MainPage.swift in Sources */,
 				FA16401328DB490F00954717 /* MenuDashboard.swift in Sources */,
+				846E75262BEAEFC70079ADDF /* VideoPlayer.swift in Sources */,
 				FAAFB0B428D2DC0D00F8DE63 /* CctvPage.swift in Sources */,
 				FAAFB0B228D2AB3E00F8DE63 /* HomePage.swift in Sources */,
 				84DBF79B294DB2BB00B6578C /* SpeedModel.swift in Sources */,
@@ -750,6 +757,7 @@
 				84A2898E2B0443BD00B665C7 /* MonitoringAlat.swift in Sources */,
 				84DBF79F294EC46F00B6578C /* WaterLevelModel.swift in Sources */,
 				8494E4BB294ABF5500AC11FE /* RekayasaLalinModal.swift in Sources */,
+				8408F6882BEF2914006E2386 /* SetLocalStorage.swift in Sources */,
 				8490317229363E47003A8280 /* CctvCarousel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -885,16 +893,14 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.3.4;
-				DEVELOPMENT_ASSET_PATHS = "JID.COM/Preview\\ Content";
+				DEVELOPMENT_ASSET_PATHS = "JID.COM/Tools/datakegiatan.json JID.COM/Tools/perjalur.json JID.COM/Preview\\ Content JID.COM/Tools/toll.json JID.COM/Tools/lalin.json";
 				DEVELOPMENT_TEAM = 537AVW7LBB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JID-COM-Info.plist";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -924,16 +930,14 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.3.4;
-				DEVELOPMENT_ASSET_PATHS = "JID.COM/Preview\\ Content";
+				DEVELOPMENT_ASSET_PATHS = "JID.COM/Tools/datakegiatan.json JID.COM/Tools/perjalur.json JID.COM/Preview\\ Content JID.COM/Tools/toll.json JID.COM/Tools/lalin.json";
 				DEVELOPMENT_TEAM = 537AVW7LBB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JID-COM-Info.plist";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

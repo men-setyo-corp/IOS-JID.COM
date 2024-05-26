@@ -22,7 +22,7 @@ class vmsModel: ObservableObject{
     func setUpVMSAPI(setmapView: MapView)  {
         print("run layar vms...")
         DispatchQueue.global().async {
-            RestApiController().getAPI(from: "showvms"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/showvms"){ (returnedData) in
                 if let jsonData = try? JSONEncoder().encode(returnedData) {
                     var featureCollection: FeatureCollection!
                     do{

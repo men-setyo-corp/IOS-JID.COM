@@ -11,9 +11,9 @@ import Alamofire
 
 class RestApiController{
     
-    public let url_based = "https://jid.jasamarga.com/client-api/"
+    public let url_based = "https://api-provider-jid.jasamarga.com/" //client-api/
 //    public let url_based_dev = "https://jid.jasamarga.com/t3s/"
-    public let url_based_dev = "http://20.10.20.185:10010/"
+    public let url_based_dev = "https://api-provider-jid.jasamarga.com/"
     
     let headers: HTTPHeaders? = ["Content-Type": "application/json",
                                  "Authorization": "2345391662"]
@@ -39,9 +39,9 @@ class RestApiController{
         var request = URLRequest(url: urlset)
         
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("2345391662", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer "+modelLogin.auth, forHTTPHeaderField: "Authorization")
         
-        if url == "showlalin" || url == "data/jalan_penghubung" || url == "data/pompa" || url == "data/bike" || url == "data/midas" {
+        if url == "client-api/showlalin" || url == "client-api/data/jalan_penghubung" || url == "client-api/data/pompa" || url == "client-api/data/bike" || url == "client-api/data/midas" {
             request.httpMethod = "GET"
         }else{
             let json: [String: Any] = ["id_ruas": modelLogin.scope]
@@ -77,7 +77,7 @@ class RestApiController{
         var request = URLRequest(url: urlset)
         
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("2345391662", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer "+modelLogin.auth, forHTTPHeaderField: "Authorization")
         
         let json: [String: Any] = ["id_ruas": modelLogin.scope]
         let params = try? JSONSerialization.data(withJSONObject: json)
@@ -106,11 +106,31 @@ class RestApiController{
     }
     
     func resAPI(endPoint: String, method: HTTPMethod, dataParam: Parameters, completion: @escaping (_ data: Data?) -> ()) {
+        let headers: HTTPHeaders? = ["Authorization": "Bearer "+modelLogin.auth]
+       
         AF.request(self.url_based+endPoint,
             method: method,
             parameters: dataParam,
             encoding: JSONEncoding.default,
-            headers: self.headers)
+            headers: headers)
+        .responseData { dataResponse in
+            switch dataResponse.result
+            {
+                case .success(let json):
+                    completion(json)
+                case .failure(let error):
+                    print(error)
+            }
+        }
+    }
+    func resAPIGet(endPoint: String, method: HTTPMethod, completion: @escaping (_ data: Data?) -> ()) {
+        let headers: HTTPHeaders? = ["Authorization": "Bearer "+modelLogin.auth]
+//        print("Bearer "+modelLogin.auth)
+//        print(self.url_based+endPoint)
+        AF.request(self.url_based+endPoint,
+            method: method,
+            encoding: JSONEncoding.default,
+            headers: headers)
         .responseData { dataResponse in
             switch dataResponse.result
             {
@@ -142,8 +162,7 @@ class RestApiController{
     
     func resAPIDevGet(endPoint: String, method: HTTPMethod, completion: @escaping (_ data: Data?) -> ()) {
         let headersdev: HTTPHeaders? = ["Authorization": "Bearer "+modelLogin.auth]
-        print(modelLogin.auth)
-        print(self.url_based_dev+endPoint)
+      
         AF.request(self.url_based_dev+endPoint,
             method: method,
             encoding: JSONEncoding.default,

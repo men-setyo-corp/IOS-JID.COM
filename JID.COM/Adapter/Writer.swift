@@ -10,7 +10,7 @@ import Foundation
 struct Writer {
     var id_key: Int
     var id_segment: Int
-    var nama_ruas: String
+    var nama_segment: String
 }
 
 

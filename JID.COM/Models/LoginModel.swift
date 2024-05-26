@@ -33,11 +33,12 @@ class LoginModel: ObservableObject {
     @AppStorage("menuJalantoll") var menuJalantoll: String = ""
     @AppStorage("menuSisinfokom") var menuSisinfokom: String = ""
     @AppStorage("menuEventlalin") var menuEventlalin: String = ""
+    var timerRefesToken = Timer()
     
     //mark: auth login
     func PresLogin(paramsData: Parameters, completion: @escaping (Bool) -> (Void)) async throws{
         DispatchQueue.main.async {
-            RestApiController().resAPIDev(endPoint: "auth/v1/login",method: .post ,dataParam: paramsData, token:""){ (results) in
+            RestApiController().resAPI(endPoint: "auth/v2/login",method: .post ,dataParam: paramsData){ (results) in
                 let getJSON = JSON(results ?? "Null data from API")
                 if getJSON["status"].boolValue {
                     self.auth = getJSON["token"].stringValue
@@ -74,12 +75,15 @@ class LoginModel: ObservableObject {
     
         let parameters : Parameters = ["token_fcm": fcmToken, "device":"mobile", "device_name": deviceNm]
         DispatchQueue.main.async {
-            RestApiController().resAPIDev(endPoint: "auth/v1/update-session", method: .patch ,dataParam: parameters, token: self.auth){ results in
+            RestApiController().resAPI(endPoint: "auth/v1/update-session", method: .patch ,dataParam: parameters){ results in
                 let getJSON = JSON(results ?? "Null data from API")
                 let status = getJSON["status"].boolValue
                 if status {
                     self.errorMsg = getJSON["msg"].stringValue
                     self.isLogin = true
+                    
+                    self.timerRefesToken = Timer.scheduledTimer(timeInterval: 50, target: self, selector: #selector(self.refresSession), userInfo: nil, repeats: true)
+                    
                     completion(true)
                 }else{
                     self.isLogin = false
@@ -91,22 +95,39 @@ class LoginModel: ObservableObject {
     }
     
     func logoutLogin(completion: @escaping (Bool) -> (Void)){
-        self.isLogin = false
-//        DispatchQueue.main.async {
-//            RestApiController().resAPIDevGet(endPoint: "auth/v1/logout", method: .get){ results in
-//                let getJSON = JSON(results ?? "Null data from API")
-//                let status = getJSON["status"].boolValue
-//                if status {
-//                    self.errorMsg = getJSON["message"].stringValue
-//                    self.isLogin = false
-//                    completion(true)
-//                }else{
-//                    self.errorMsg = getJSON["message"].stringValue
-//                    self.isLogin = true
-//                    completion(false)
-//                }
-//            }
-//        }
+        DispatchQueue.main.async {
+            RestApiController().resAPIGet(endPoint: "auth/v1/logout", method: .get){ results in
+                let getJSON = JSON(results ?? "Null data from API")
+                let status = getJSON["status"].boolValue
+                if status {
+                    self.errorMsg = getJSON["message"].stringValue
+                    self.timerRefesToken.invalidate()
+                    completion(true)
+                }else{
+                    self.errorMsg = getJSON["message"].stringValue
+                    completion(false)
+                }
+                self.isLogin = false
+            }
+        }
+    }
+    
+    @objc func refresSession(){
+        DispatchQueue.global().async{
+            if self.isLogin == true{
+                RestApiController().resAPIGet(endPoint: "auth/v1/refresh-session", method: .patch){ results in
+                    let getJSON = JSON(results ?? "Null data from API")
+                    let status = getJSON["status"].boolValue
+                    if status {
+                        print("Refresh Session...")
+                    }else{
+                        print("Refresh Session Gagal !")
+                    }
+                }
+            }else{
+                self.isLogin = false
+            }
+        }
     }
     
     

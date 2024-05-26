@@ -21,7 +21,7 @@ class RestAreamodel: ObservableObject{
     func setUpRestAreaAPI(setmapView: MapView)  {
         print("run layar data rest_area...")
         DispatchQueue.global().async {
-            RestApiController().getAPI(from: "data/rest_area"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/data/rest_area"){ (returnedData) in
                 if let jsonData = try? JSONEncoder().encode(returnedData) {
                     var featureCollection: FeatureCollection!
                     do{

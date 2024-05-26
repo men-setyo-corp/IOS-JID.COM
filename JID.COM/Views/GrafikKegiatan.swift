@@ -55,7 +55,7 @@ class GrafikKegiatan: ObservableObject {
     @objc func GetDataDashKegiatanServer(){
         print("get data dashboard kegiatan...")
         DispatchQueue.global().async{
-            RestApiController().resAPIDevGet(endPoint: "dashboard_pemeliharaan/v1/getKegiatanTot?ruas="+self.setParmsRuas+"&waktu=bulan&dari="+self.setParmsDari+"&sampai="+self.setParmsSampai, method: .get){ result in
+            RestApiController().resAPIGet(endPoint: "dashboard_pemeliharaan/v1/getKegiatanTot?ruas="+self.setParmsRuas+"&waktu=bulan&dari="+self.setParmsDari+"&sampai="+self.setParmsSampai, method: .get){ result in
                 let getJSON = JSON(result ?? "Null data from API")
                 do{
                     if getJSON["status"].boolValue {

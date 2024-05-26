@@ -21,7 +21,7 @@ class RadarModel: ObservableObject{
     func setUpRadarAPI(setmapView: MapView)  {
         print("run layar data radar ...")
         DispatchQueue.global().async {
-            RestApiController().getAPI(from: "data/radar"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/data/radar"){ (returnedData) in
                 if let jsonData = try? JSONEncoder().encode(returnedData) {
                     var featureCollection: FeatureCollection!
                     do{

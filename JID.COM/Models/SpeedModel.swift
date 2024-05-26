@@ -21,7 +21,7 @@ class SpeedModel: ObservableObject{
     func setUpSpeedAPI(setmapView: MapView)  {
         print("run layar data speed...")
         DispatchQueue.global().async {
-            RestApiController().getAPI(from: "data/speed"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/data/speed"){ (returnedData) in
                 if let jsonData = try? JSONEncoder().encode(returnedData) {
                     var featureCollection: FeatureCollection!
                     do{

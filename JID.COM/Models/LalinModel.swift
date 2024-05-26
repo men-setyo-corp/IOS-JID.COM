@@ -97,7 +97,7 @@ class LalinModel: ObservableObject{
     @objc func setUpdateLayers(){
         print("Update Lalin is running...")
         DispatchQueue.global().async{
-            RestApiController().getAPI(from: "showlalin"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/showlalin"){ (returnedData) in
                 if let jsonData = try? JSONEncoder().encode(returnedData) {
                     var featureCollection: FeatureCollection!
                     do{

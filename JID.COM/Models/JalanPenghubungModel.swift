@@ -22,7 +22,7 @@ class JalanPenghubungModel: ObservableObject{
     func setUpJlnPengubungAPI(setmapView: MapView)  {
         print("run layar Jalan penguhubng...")
         DispatchQueue.global().async{
-            RestApiController().getAPI(from: "data/jalan_penghubung"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/data/jalan_penghubung"){ (returnedData) in
               
                 if let jsonData = try? JSONEncoder().encode(returnedData) {
                 

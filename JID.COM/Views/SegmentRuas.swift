@@ -13,6 +13,7 @@ struct SegmentRuas: View {
     @Environment(\.presentationMode) var presentationMode
     @State var search = ""
     @State var nulldata = ""
+    @State var allsegemnt: [String] = []
     
     @State var datasegment : [Getsegment] = []
     
@@ -37,7 +38,7 @@ struct SegmentRuas: View {
                             .foregroundColor(Color(UIColor(hexString: "#818181")))
                             .font(.system(size: 15))
                             .padding(.bottom, 1)
-                        Text(writer.nama_ruas != "" ? writer.nama_ruas : "nama ruas")
+                        Text(writer.nama_segment != "" ? writer.nama_segment : "nama segemnt")
                             .font(.system(size: 16))
                             .foregroundColor(.black)
                     }
@@ -78,7 +79,7 @@ struct SegmentRuas: View {
                     let parseKey = Writer(
                         id_key: writer.id_key,
                         id_segment: 0,
-                        nama_ruas: "Semua Segment"
+                        nama_segment: allsegemnt.joined(separator: ",")
                     )
                     NavigationLink(
                         destination: CctvSegemnt(writer: parseKey),
@@ -132,11 +133,11 @@ struct SegmentRuas: View {
                             }
                         }
                     }else{
-                        ForEach(searchResults) { row in
+                        ForEach(searchResults, id: \.nama_segment) { row in
                             let parseKey = Writer(
                                 id_key: row.id_ruas,
                                 id_segment: row.idx,
-                                nama_ruas: row.nama_segment
+                                nama_segment: row.nama_segment
                             )
                             NavigationLink(
                                 destination: CctvSegemnt(writer:parseKey),
@@ -193,6 +194,9 @@ struct SegmentRuas: View {
                     self.nulldata = "kosong"
                 }else{
                     self.datasegment = data
+                    for datum in data {
+                        allsegemnt.append(datum.nama_segment)
+                    }
                 }
             }
         }
@@ -242,7 +246,7 @@ struct SegmentRuas_Previews: PreviewProvider {
     static let writerPreview = Writer(
         id_key: 0,
         id_segment: 0,
-        nama_ruas: ""
+        nama_segment: ""
     )
     
     static var previews: some View {

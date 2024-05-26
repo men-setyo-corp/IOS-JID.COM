@@ -142,6 +142,12 @@ struct MainDashboard: View {
                         switch selectedIndex{
                         case 0 :
                             DashLaluLintas()
+                        case 1 :
+                            WebviewDashboard(urlweb: "lalin/realtime-traffic", title: "Realtime Traffic")
+                        case 2 :
+                            WebviewDashboard(urlweb: "lalin/antrian-gerbang", title: "Antrian Gerbang")
+                        case 3 :
+                            WebviewDashboard(urlweb: "lalin/perjam", title: "Lalin Perjam")
                         case 4 :
                             DataGangguan()
                         default:
@@ -152,7 +158,7 @@ struct MainDashboard: View {
                     }else if parentmenu == 1 {
                         switch selectedIndex{
                         case 0 :
-                            DashboardPemeliharaan()
+                            WebviewDashboard(urlweb: "pemeliharaan", title: "Dashboard Pemeliharaan")
                         case 1:
                             DataPemeliharaan()
                         case 2:
@@ -164,8 +170,14 @@ struct MainDashboard: View {
                         }
                     }else if parentmenu == 2 {
                         switch selectedIndex{
+                        case 0 :
+                            WebviewDashboard(urlweb: "peralatan", title: "Dashboard Peralatan")
                         case 1 :
-                            MonitoringAlat()
+                            WebviewDashboard(urlweb: "peralatan/monitoring-alat", title: "Monitoring Alat")
+                        case 2 :
+                            WebviewDashboard(urlweb: "peralatan/realtime-cctv", title: "Realtime CCTV")
+                        case 3 :
+                            WebviewDashboard(urlweb: "peralatan/realtime-vms", title: "Realtime DMS")
                         default:
                             NavigationView{
                                 Text("Home Main")

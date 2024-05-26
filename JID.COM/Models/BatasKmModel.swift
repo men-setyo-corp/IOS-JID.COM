@@ -23,7 +23,7 @@ class BatasKmModel: ObservableObject{
     func setUpBatasKmAPI(setmapView: MapView)  {
         print("run layar bataskm...")
         DispatchQueue.global(qos: .background).async {
-            RestApiController().getAPI(from: "data/bataskm/"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/data/bataskm/"){ (returnedData) in
                 if let jsonData = try? JSONEncoder().encode(returnedData) {
                     var featureCollection: FeatureCollection!
                     do{

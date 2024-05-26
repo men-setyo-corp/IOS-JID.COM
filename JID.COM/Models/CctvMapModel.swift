@@ -23,7 +23,7 @@ class CctvMapModel: ObservableObject{
     func setUpCctvAPI(setmapView: MapView)  {
         print("run layar cctv...")
         DispatchQueue.global().async {
-            RestApiController().getAPI(from: "showcctv"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/showcctv"){ (returnedData) in
             if let jsonData = try? JSONEncoder().encode(returnedData) {
                 var featureCollection: FeatureCollection!
                 do{
@@ -186,7 +186,7 @@ class CctvMapModel: ObservableObject{
     @objc func setUpdateLayersCctv(){
         print("Update Cctv is running...")
         DispatchQueue.global(qos: .background).async {
-            RestApiController().getAPI(from: "showcctv"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/showcctv"){ (returnedData) in
                 DispatchQueue.main.async {
                     if let jsonData = try? JSONEncoder().encode(returnedData) {
                         var featureCollection: FeatureCollection!

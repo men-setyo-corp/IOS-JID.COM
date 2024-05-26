@@ -21,7 +21,7 @@ class RekayasaLalinModel: ObservableObject{
     func setUpRekayasalalinAPI(setmapView: MapView)  {
         print("run layar rekayasalalin...")
         DispatchQueue.global().async{
-            RestApiController().getAPI(from: "rekayasalalin"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/rekayasalalin"){ (returnedData) in
                 if let jsonData = try? JSONEncoder().encode(returnedData) {
                     var featureCollection: FeatureCollection!
                     do{
@@ -99,7 +99,7 @@ class RekayasaLalinModel: ObservableObject{
     @objc func setUpdateLayersRekayasalalin(){
         print("Update rekayasalalin is running...")
         DispatchQueue.global(qos: .background).async {
-            RestApiController().getAPI(from: "rekayasalalin"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/rekayasalalin"){ (returnedData) in
                 DispatchQueue.main.async {
                     if let jsonData = try? JSONEncoder().encode(returnedData) {
                         var featureCollection: FeatureCollection!

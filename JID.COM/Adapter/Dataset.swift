@@ -14,14 +14,13 @@ import MapboxMaps
 class Dataset{
     public func convertDateFormat(inputDate: String) -> String {
         let olDateFormatter = DateFormatter()
-        olDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-
+        
+        olDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        olDateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         let oldDate = olDateFormatter.date(from: inputDate)
-
-        let convertDateFormatter = DateFormatter()
-        convertDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-
-        return convertDateFormatter.string(from: oldDate!)
+       
+        olDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return olDateFormatter.string(from: oldDate!)
     }
     
     public func Dataset_pemeliharaan(dataSet: JSON) -> Data_pemeliharaan{
@@ -71,7 +70,8 @@ class Dataset{
             status: dataSet["status"].stringValue,
             km: dataSet["km"].stringValue,
             key_id: dataSet["key_id"].stringValue,
-            arteri: dataSet["arteri"].intValue
+            arteri: dataSet["arteri"].intValue,
+            is_hls: dataSet["is_hls"].boolValue
         )
        return data_cctv_result
     }

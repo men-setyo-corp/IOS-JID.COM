@@ -16,7 +16,7 @@ extension View{
 struct WebviewDashboard: View {
     
     @Environment(\.presentationMode) var presentationMode
-    var baseUrl = "https://jid.jasamarga.com/graph/"
+    var baseUrl = "https://jid.jasamarga.com/dashboard/"
     @State var urlweb : String
     @State var title : String
     @State var showLoading: Bool = false
@@ -24,37 +24,31 @@ struct WebviewDashboard: View {
     var body: some View {
         ZStack {
             VStack{
-                HStack{
-                    Button{
-                        self.presentationMode.wrappedValue.dismiss()
-                    }label:{
-                        Text(Image(systemName: "chevron.backward"))
-                            .foregroundColor(Color(UIColor(hexString: "#323232")))
-                            .font(.system(size: 20, weight: .bold))
-                    }
-                    Spacer()
-                    
-                    Text(title.replacingOccurrences(of: "\n", with: " "))
-                        .foregroundColor(Color(UIColor(hexString: "#323232")))
-                        .font(.system(size: 15, weight: .bold))
-                    Spacer()
-                }
-                .padding(.horizontal, 25)
-                .padding(.bottom, 15)
-                Spacer()
-                
+//                HStack{
+//                    Button{
+//                        self.presentationMode.wrappedValue.dismiss()
+//                    }label:{
+//                        Text(Image(systemName: "chevron.backward"))
+//                            .foregroundColor(Color(UIColor(hexString: "#323232")))
+//                            .font(.system(size: 20, weight: .bold))
+//                    }
+//                    Spacer()
+//
+//                    Text(title.replacingOccurrences(of: "\n", with: " "))
+//                        .foregroundColor(Color(UIColor(hexString: "#323232")))
+//                        .font(.system(size: 15, weight: .bold))
+//                    Spacer()
+//                }
+//                .padding(.horizontal, 25)
+//                .padding(.bottom, 15)
+//                Spacer()
+//
                 ZStack{
                     if urlweb.isEmpty {
                         CardLoadingWebview()
                     }else{
-                        if title == "Dashboard Radar" {
-                            WebView(url: URL(string: urlweb)!, showLoading: $showLoading)
-                                .overlay(showLoading ? ProgressView("Loading...").toAnyView() : EmptyView().toAnyView())
-                        }else{
-                            WebView(url: URL(string: baseUrl+urlweb)!, showLoading: $showLoading)
-                                .overlay(showLoading ? ProgressView("Loading...").toAnyView() : EmptyView().toAnyView())
-                        }
-                        
+                        WebView(url: URL(string: baseUrl+urlweb)!, showLoading: $showLoading)
+                            .overlay(showLoading ? ProgressView("Loading...").toAnyView() : EmptyView().toAnyView())
                     }
                 }
                 

@@ -20,7 +20,7 @@ class WimModel: ObservableObject{
     func setUpWimAPI(setmapView: MapView)  {
         print("run layar data wim...")
         DispatchQueue.global().async {
-            RestApiController().getAPI(from: "data/wim"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/data/wim"){ (returnedData) in
                 if let jsonData = try? JSONEncoder().encode(returnedData) {
                     var featureCollection: FeatureCollection!
                     do{

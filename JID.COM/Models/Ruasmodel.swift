@@ -9,8 +9,8 @@ import SwiftUI
 import Alamofire
 import SwiftyJSON
 
-struct Getruas: Codable, Identifiable {
-    let id: Int
+struct Getruas: Codable, Identifiable, Hashable {
+    var id: Int { id_ruas }
     let id_ruas: Int
     let nama_ruas: String
     let nama_ruas_2: String
@@ -24,13 +24,13 @@ class Ruasmodel: ObservableObject {
     
     func getRuas(completion: @escaping ([Getruas]) -> ()){
         DispatchQueue.global().async {
-            let paramsData: Parameters = ["id_ruas": self.modelLogin.scope]
-            RestApiController().resAPI(endPoint: "data_ruas/", method: .put, dataParam: paramsData){ (results) in
+//            let paramsData: Parameters = ["id_ruas": self.modelLogin.scope]
+            RestApiController().resAPIGet(endPoint: "segmentation/v1/ruas?dashboard=matrix_cctv", method: .get){ (results) in
                 let getJSON = JSON(results ?? "Null data from API")
                 DispatchQueue.main.async {
-                    if getJSON["status"].intValue == 1 {
+                    if getJSON["status"].boolValue {
                         do {
-                            let jsonData = try JSONEncoder().encode(getJSON["results"])
+                            let jsonData = try JSONEncoder().encode(getJSON["data"])
 //                            let jsonString = String(data: results!, encoding: .utf8)!
 //                            print(jsonString)
                             let decodedSentences = try JSONDecoder().decode([Getruas].self, from: jsonData)
@@ -49,7 +49,7 @@ class Ruasmodel: ObservableObject {
     
     func getRuasApi(completion: @escaping ([GetRuasApi]) -> ()){
         DispatchQueue.global().async {
-            RestApiController().resAPIDevGet(endPoint: "segmentation/v1/ruas", method: .get){ (results) in
+            RestApiController().resAPIGet(endPoint: "segmentation/v1/ruas", method: .get){ (results) in
                 let getJSON = JSON(results ?? "Null data from API")
                 DispatchQueue.main.async {
                     if getJSON["status"].boolValue {

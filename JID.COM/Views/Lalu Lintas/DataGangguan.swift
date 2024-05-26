@@ -79,8 +79,8 @@ struct DataGangguan: View {
                                             .background(gangguan.id_status == 3 ? Color(UIColor(hexString: "#0e6efd")) : gangguan.id_status == 1 ? Color(UIColor(hexString: "#dc3545")) : Color(UIColor(hexString: "#ffc107")))
                                             .cornerRadius(5)
                                     }
-                                    Text(Dataset().convertDateFormat(inputDate: gangguan.waktu_kejadian))
-                                        .font(.system(size: 14))
+                                    Text(gangguan.ket_tipe_gangguan)
+                                        .font(.system(size: 14, weight: .bold))
                                         .foregroundColor(Color.black)
                                     HStack{
                                         Text(gangguan.km)

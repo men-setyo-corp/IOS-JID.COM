@@ -223,7 +223,7 @@ struct HomePage: View {
                                                         titleJdl = "Rekayasa Lalu Lintas"
                                                     }
                                                     
-                                                    dataInSide = Data_event_lalin(id: result.idx , title: titleJdl, nama_ruas: result.nama_ruas, nama_ruas_2: result.nama_ruas_2, km: result.km, jalur: result.jalur, lajur: result.lajur, waktu: result.waktu, jenis_event: result.jenis_event, arah_jalur: result.arah_jalur, ket_status: result.ket_status, ket: result.ket, range_km: result.range_km, waktu_end: result.waktu_end)
+                                                    dataInSide = Data_event_lalin(id: result.id , title: titleJdl, nama_ruas: result.nama_ruas, nama_ruas_2: result.nama_ruas_2, km: result.km, jalur: result.jalur, lajur: result.lajur, waktu: result.waktu, jenis_event: result.jenis_event, arah_jalur: result.arah_jalur, ket_status: result.ket_status, ket: result.ket, range_km: result.range_km, waktu_end: result.waktu_end ?? "-")
                                                     
                                                 }label:{
                                                     VStack{

@@ -14,11 +14,16 @@ struct WaterLevelSensor: View {
     @State private var selectedOptionWL = "Pilih Ruas"
     @State var search = ""
     @State var searchWl = ""
-    @State var ruasSelect = "All"
+    @State var ruasSelect = "SEMUA RUAS"
     @State var idSelect = 0
     @State var filterRuas = false
+    @State var showCCTV = false
     @State var colorWater = "#000000"
     @State var isDisabled = true
+    @State var playCCTV: Bool = true;
+    @State var urlSet = ""
+    @State var nmLokasi = ""
+    @State private var sheetHeight: CGFloat = .zero
     
     var body: some View {
         ZStack{
@@ -146,7 +151,9 @@ struct WaterLevelSensor: View {
                                             .font(.system(size: 12, weight: .bold))
                                             .foregroundColor(Color.white)
                                         Button{
-                                            
+                                            nmLokasi = dataVal.nama_lokasi
+                                            showCCTV = true
+                                            urlSet = dataVal.url_cctv
                                         }label:{
                                             Image(systemName: "eye")
                                                 .font(.system(size: 12))
@@ -155,11 +162,39 @@ struct WaterLevelSensor: View {
                                         .padding(5)
                                         .background(Color.white)
                                         .cornerRadius(5)
+                                        
                                         Spacer()
                                         Text(Dataset().convertDateFormat(inputDate: dataVal.waktu_update))
                                             .font(.system(size: 12, weight: .bold))
                                             .foregroundColor(Color.white)
                                     }
+                                    .sheet(isPresented: $showCCTV){
+                                        VStack{
+                                            Text("\(nmLokasi)")
+                                                .font(.system(size: 13, weight: .bold))
+                                                .padding(.top, 5)
+                                            Spacer()
+                                            AsyncImage(url: URL(string:urlSet)) { phase in
+                                                if let image = phase.image {
+                                                    image
+                                                        .resizable()
+                                                        .onAppear{
+                                                            startRun(uri_set: urlSet)
+                                                        }
+                                                } else if phase.error != nil {
+                                                    ProgressView()
+                                                } else {
+                                                    ProgressView()
+                                                }
+                                            }
+                                            Spacer()
+                                        }
+                                        .padding(.horizontal)
+                                        .padding(.vertical)
+                                        .frame(height:280)
+                                        .presentationDetents([.medium, .medium, .height(280)])
+                                    }
+                                    
                                     Spacer()
                                     VStack{
                                         Text(dataVal.pompa)
@@ -172,11 +207,11 @@ struct WaterLevelSensor: View {
                                             .padding(.top, 1)
                                         Text(dataVal.level)
                                             .font(.system(size: 12, weight: .bold))
-                                            .foregroundColor(Color.yellow)
+                                            .foregroundColor(dataVal.level == "NORMAL" ? Color(UIColor(hexString: "47DD10")) : dataVal.level == "SIAGA 1" ? Color(UIColor(hexString: "#FFD20A")) : dataVal.level == "SIAGA 2" ? Color(UIColor(hexString: "#FF6E3D")) : dataVal.level == "SIAGA 3" ? Color(UIColor(hexString: "#F80505")) : Color(UIColor(hexString: "#AE0000")))
                                             .padding(.top, 1)
                                         ZStack{
                                             Ellipse()
-                                                .fill(Color(UIColor(hexString: "47DD10")))
+                                                .fill(dataVal.level == "NORMAL" ? Color(UIColor(hexString: "47DD10")) : dataVal.level == "SIAGA 1" ? Color(UIColor(hexString: "#FFD20A")) : dataVal.level == "SIAGA 2" ? Color(UIColor(hexString: "#FF6E3D")) : dataVal.level == "SIAGA 3" ? Color(UIColor(hexString: "#F80505")) : Color(UIColor(hexString: "#AE0000")))
                                                 .frame(width: 70, height: 70)
                                                 .shadow(color: .black.opacity(0.30), radius: 20)
                                             Text("\(dataVal.level_sensor)")
@@ -247,6 +282,7 @@ struct WaterLevelSensor: View {
             WaterLevelModel().getWaterLevelSensor(idruas: idSelect){ (parsedata)  in
                 dataWaterLevel = parsedata
                 let groupedRuas = Dictionary(grouping: parsedata) { $0.nama_ruas }
+                dataRuas.append(initRuas(id: 0,ruas_id: 0, nama_ruas: "SEMUA RUAS"))
                 for (key, value) in groupedRuas {
                     var idRuas = 0
                     for _ in 0 ..< value.count{
@@ -263,6 +299,17 @@ struct WaterLevelSensor: View {
             return self.dataRuas
         } else {
             return self.dataRuas.filter { $0.nama_ruas.localizedStandardContains(search) }
+        }
+    }
+    
+    private func startRun(uri_set:String) {
+        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { timer in
+            urlSet = uri_set
+            print(urlSet)
+           if showCCTV == false {
+               timer.invalidate()
+               print("stop..")
+           }
         }
     }
     

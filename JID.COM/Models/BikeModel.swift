@@ -21,7 +21,7 @@ class BikeModel: ObservableObject{
     func setUpBikeAPI(setmapView: MapView)  {
         print("run layar data bike...")
         DispatchQueue.global().async {
-            RestApiController().getAPI(from: "data/bike"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/data/bike"){ (returnedData) in
                 if let jsonData = try? JSONEncoder().encode(returnedData) {
                     var featureCollection: FeatureCollection!
                     do{

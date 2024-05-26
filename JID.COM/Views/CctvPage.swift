@@ -67,7 +67,7 @@ struct CctvPage: View {
                                     let parseKey = Writer(
                                         id_key: result.id_ruas,
                                         id_segment: 0,
-                                        nama_ruas: result.nama_ruas
+                                        nama_segment: result.nama_ruas
                                     )
                                     NavigationLink(
                                         destination: SegmentRuas(writer: parseKey),
@@ -91,18 +91,18 @@ struct CctvPage: View {
                                                 .multilineTextAlignment(.center)
                                             Spacer()
                                             
-                                            NavigationLink(
-                                                destination: MapPage(showCarousel: true, idruas: result.id_ruas, stopRun: stoprun),
-                                            label:{
-                                                Image(systemName: "map")
-                                                    .font(.system(size: 18))
-                                                    .foregroundColor(Color(UIColor(hexString: "#390099")))
-                                            })
-                                            .padding(7)
-                                            .background(Color(UIColor(hexString: "#DFEFFF")))
-                                            .clipShape(Circle())
-                                            .shadow(radius: 2)
-                                            .accentColor(.black)
+//                                            NavigationLink(
+//                                                destination: MapPage(showCarousel: true, idruas: result.id_ruas, stopRun: stoprun),
+//                                            label:{
+//                                                Image(systemName: "map")
+//                                                    .font(.system(size: 18))
+//                                                    .foregroundColor(Color(UIColor(hexString: "#390099")))
+//                                            })
+//                                            .padding(7)
+//                                            .background(Color(UIColor(hexString: "#DFEFFF")))
+//                                            .clipShape(Circle())
+//                                            .shadow(radius: 2)
+//                                            .accentColor(.black)
                                           
 //                                            ZStack{
 //                                                HStack{
@@ -126,6 +126,7 @@ struct CctvPage: View {
                                         }
                                         .padding(15)
                                         .frame(maxWidth: .infinity)
+                                        .frame(height: 70)
                                         .overlay(
                                             RoundedRectangle(cornerRadius: 16)
                                                 .stroke(Color.black.opacity(0.5), lineWidth: 0.5)

@@ -15,7 +15,7 @@ struct InitDataPemeliharaan: Codable, Identifiable {
     let id_ruas: Int
     let nama_ruas: String
     let waktu_awal: String
-    let waktu_akhir: String
+    let waktu_akhir: String?
     let range_km_pekerjaan: String
     let km: String
     let jalur: String
@@ -39,7 +39,7 @@ class PemeliharaanModel: ObservableObject{
     func setUpPemeliharaanAPI(setmapView: MapView)  {
         print("run layar pemeliharaan...")
         DispatchQueue.global().async{
-            RestApiController().getAPI(from: "pemeliharaan"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/pemeliharaan"){ (returnedData) in
                 if let jsonData = try? JSONEncoder().encode(returnedData) {
                     var featureCollection: FeatureCollection!
                     do{
@@ -89,19 +89,18 @@ class PemeliharaanModel: ObservableObject{
                     }
                     
                     self.timer.invalidate()
-                    
                     self.timer = Timer.scheduledTimer(timeInterval: 100, target: self, selector: #selector(self.setUpdateLayersPemeliharaan), userInfo: nil, repeats: true)
-                    
                     
                 }
             }
         }
+        
     }
     
     @objc func setUpdateLayersPemeliharaan(){
         print("Update Pemeliharaan is running...")
         DispatchQueue.global(qos: .background).async {
-            RestApiController().getAPI(from: "pemeliharaan"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/pemeliharaan"){ (returnedData) in
                 DispatchQueue.main.async {
                     if let jsonData = try? JSONEncoder().encode(returnedData) {
                         var featureCollection: FeatureCollection!
@@ -133,19 +132,20 @@ class PemeliharaanModel: ObservableObject{
     //List Data Pemeliharaan
     func getListDataPemeliharaan(completion: @escaping ([InitDataPemeliharaan]) -> ())  {
         DispatchQueue.global().async {
-            RestApiController().resAPIDevGet(endPoint: "pemeliharaan/v1/getPemeliharaan?offset=1&limit=10", method: .get) { (results) in
+            RestApiController().resAPIGet(endPoint: "pemeliharaan/v1/getPemeliharaan?offset=0&limit=100&order=desc", method: .get) { (results) in
                 let getJSON = JSON(results ?? "Null data from API")
                 DispatchQueue.main.async {
                     if getJSON["status"].boolValue {
                         do {
                             let jsonData = try JSONEncoder().encode(getJSON["data"])
                             let decodedSentences = try JSONDecoder().decode([InitDataPemeliharaan].self, from: jsonData)
+                            
                             completion(decodedSentences)
                         } catch let myJSONError {
                             print(myJSONError)
                         }
                     }else{
-                        print(getJSON["msg"].stringValue)
+                        print(getJSON["message"].stringValue)
                     }
                 }
             }

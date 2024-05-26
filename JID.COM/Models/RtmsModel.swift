@@ -21,7 +21,7 @@ class RtmsModel: ObservableObject{
     func setUpRtmsAPI(setmapView: MapView)  {
         print("run layar data rtms...")
         DispatchQueue.global().async {
-            RestApiController().getAPI(from: "data/rtms"){ (returnedData) in
+            RestApiController().getAPI(from: "client-api/data/rtms"){ (returnedData) in
                 if let jsonData = try? JSONEncoder().encode(returnedData) {
                     var featureCollection: FeatureCollection!
                     do{
