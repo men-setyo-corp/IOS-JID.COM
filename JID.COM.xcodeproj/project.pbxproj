@@ -11,7 +11,6 @@
 		8408F6882BEF2914006E2386 /* SetLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408F6872BEF2914006E2386 /* SetLocalStorage.swift */; };
 		840E1CB7294493D0007788BC /* DetailEventLalin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E1CB6294493D0007788BC /* DetailEventLalin.swift */; };
 		841000F42AC67D4900A77E23 /* CustomGroupBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841000F32AC67D4900A77E23 /* CustomGroupBarChart.swift */; };
-		8414BC862BFDFA000005BB05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8414BC852BFDFA000005BB05 /* GoogleService-Info.plist */; };
 		842ED9732ACD0C87003A2F13 /* ViewGrafikPemeliharaan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ED9722ACD0C87003A2F13 /* ViewGrafikPemeliharaan.swift */; };
 		842ED9752ACD0F2D003A2F13 /* ViewGrafikKegiatan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ED9742ACD0F2D003A2F13 /* ViewGrafikKegiatan.swift */; };
 		842ED9782ACD0F8F003A2F13 /* GrafikKegiatan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ED9772ACD0F8F003A2F13 /* GrafikKegiatan.swift */; };
@@ -42,6 +41,7 @@
 		84BEBD792951B4420052A189 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 84BEBD782951B4420052A189 /* FirebaseAnalytics */; };
 		84BEBD812951B4420052A189 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 84BEBD802951B4420052A189 /* FirebaseMessaging */; };
 		84BFAB6B2ACE702600AD338D /* GrafikPerjalur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFAB6A2ACE702600AD338D /* GrafikPerjalur.swift */; };
+		84C057D52C05D10800E7DEB3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84C057D42C05D10800E7DEB3 /* GoogleService-Info.plist */; };
 		84CEE4D42919201D0092B333 /* SplashScrean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEE4D32919201D0092B333 /* SplashScrean.swift */; };
 		84CEE4D62919270D0092B333 /* AntrianPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEE4D52919270D0092B333 /* AntrianPage.swift */; };
 		84CEE4D829192C900092B333 /* RealtimePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEE4D729192C900092B333 /* RealtimePage.swift */; };
@@ -172,7 +172,6 @@
 		8408F6872BEF2914006E2386 /* SetLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLocalStorage.swift; sourceTree = "<group>"; };
 		840E1CB6294493D0007788BC /* DetailEventLalin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventLalin.swift; sourceTree = "<group>"; };
 		841000F32AC67D4900A77E23 /* CustomGroupBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGroupBarChart.swift; sourceTree = "<group>"; };
-		8414BC852BFDFA000005BB05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GooggleService JID/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		842ED9722ACD0C87003A2F13 /* ViewGrafikPemeliharaan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewGrafikPemeliharaan.swift; sourceTree = "<group>"; };
 		842ED9742ACD0F2D003A2F13 /* ViewGrafikKegiatan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewGrafikKegiatan.swift; sourceTree = "<group>"; };
 		842ED9772ACD0F8F003A2F13 /* GrafikKegiatan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrafikKegiatan.swift; sourceTree = "<group>"; };
@@ -202,6 +201,7 @@
 		84A2898A2B040C8100B665C7 /* DataGangguan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGangguan.swift; sourceTree = "<group>"; };
 		84A2898D2B0443BD00B665C7 /* MonitoringAlat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitoringAlat.swift; sourceTree = "<group>"; };
 		84BFAB6A2ACE702600AD338D /* GrafikPerjalur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrafikPerjalur.swift; sourceTree = "<group>"; };
+		84C057D42C05D10800E7DEB3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GooggleService JID/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84CEE4D32919201D0092B333 /* SplashScrean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScrean.swift; sourceTree = "<group>"; };
 		84CEE4D52919270D0092B333 /* AntrianPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntrianPage.swift; sourceTree = "<group>"; };
 		84CEE4D729192C900092B333 /* RealtimePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimePage.swift; sourceTree = "<group>"; };
@@ -455,7 +455,7 @@
 		FA6BF78D289EC043006EECC0 /* JID.COM */ = {
 			isa = PBXGroup;
 			children = (
-				8414BC852BFDFA000005BB05 /* GoogleService-Info.plist */,
+				84C057D42C05D10800E7DEB3 /* GoogleService-Info.plist */,
 				84A0B4E029482527006260FD /* JID.COM.entitlements */,
 				FAC0E64D28BC9CD0007146E5 /* Components */,
 				FABA169028B3279400BFD24D /* Views */,
@@ -648,7 +648,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84D94FF42955BA7400637CED /* lalin.json in Resources */,
-				8414BC862BFDFA000005BB05 /* GoogleService-Info.plist in Resources */,
+				84C057D52C05D10800E7DEB3 /* GoogleService-Info.plist in Resources */,
 				84D94FF52955BA7400637CED /* toll.json in Resources */,
 				845B42F32AD6315E0080045F /* perjalur.json in Resources */,
 				842ED97F2ACD15C0003A2F13 /* datakegiatan.json in Resources */,
@@ -891,13 +891,17 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = JID.COM/JID.COM.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.3.4;
 				DEVELOPMENT_ASSET_PATHS = "JID.COM/Tools/datakegiatan.json JID.COM/Tools/perjalur.json JID.COM/Preview\\ Content JID.COM/Tools/toll.json JID.COM/Tools/lalin.json";
-				DEVELOPMENT_TEAM = 537AVW7LBB;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 537AVW7LBB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JID-COM-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "JID Mobile";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -910,6 +914,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jasamarga.jid;
 				PRODUCT_NAME = JID;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "JID Mobile";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -928,13 +933,17 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = JID.COM/JID.COM.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.3.4;
 				DEVELOPMENT_ASSET_PATHS = "JID.COM/Tools/datakegiatan.json JID.COM/Tools/perjalur.json JID.COM/Preview\\ Content JID.COM/Tools/toll.json JID.COM/Tools/lalin.json";
-				DEVELOPMENT_TEAM = 537AVW7LBB;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 537AVW7LBB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JID-COM-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "JID Mobile";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -949,6 +958,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jasamarga.jid;
 				PRODUCT_NAME = JID;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "JID Mobile";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

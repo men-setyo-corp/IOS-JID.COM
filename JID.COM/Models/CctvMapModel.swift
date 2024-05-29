@@ -17,7 +17,7 @@ class CctvMapModel: ObservableObject{
     let sourceDataCctv = "source-cctv"
     var mapView: MapView!
     var timer = Timer()
-    var sizeIcon: Double = 0.9
+    var sizeIcon: Double = 0.5
     
     
     func setUpCctvAPI(setmapView: MapView)  {

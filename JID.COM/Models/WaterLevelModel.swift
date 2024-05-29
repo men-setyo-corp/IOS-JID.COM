@@ -30,7 +30,7 @@ class WaterLevelModel: ObservableObject{
     var geoJSONSource = GeoJSONSource()
     let sourceDatawater = "source-waterlevel"
     var mapView: MapView!
-    var sizeIcon: Double = 0.6
+    var sizeIcon: Double = 0.4
     
     func setUpWaterLevelAPI(setmapView: MapView)  {
         print("run layar data water_level...")
@@ -46,17 +46,17 @@ class WaterLevelModel: ObservableObject{
                     }
                     self.geoJSONSource.data = .featureCollection(featureCollection)
                     
-                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "level_awas")!,
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "wls_awas")!,
                                                              id: "ic_level_awas")
-                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "level_normal")!,
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "wls_normal")!,
                                                              id: "ic_level_normal")
-                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "level_normal")!,
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "wls_disconnect")!,
                                                              id: "ic_diskonek")
-                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "level_siaga1")!,
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "wls_siaga1")!,
                                                              id: "ic_level_siaga1")
-                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "level_siaga2")!,
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "wls_siaga2")!,
                                                              id: "ic_level_siaga2")
-                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "level_siaga3")!,
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "wls_siaga3")!,
                                                              id: "ic_level_siaga3")
                    
                     

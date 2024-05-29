@@ -28,20 +28,17 @@ struct JID_COMApp: App {
 
 class AppDelegate: NSObject, UIApplicationDelegate {
 
-    let gcmMessageIDKey = "gcm.message_id"
+    let gcmMessageIDKey = "gcm.Message_ID"
     func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         UIApplication.shared.registerForRemoteNotifications()
-        application.registerForRemoteNotifications()
-        
         FirebaseApp.configure()
-        
         Messaging.messaging().delegate = self
         
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
-              
+
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
                 UNUserNotificationCenter.current().requestAuthorization(
                 options: authOptions,
@@ -52,7 +49,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                 UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
                 application.registerUserNotificationSettings(settings)
         }
+        
         application.registerForRemoteNotifications()
+        
         return true
     }
     
@@ -76,7 +75,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        print(deviceToken)
+        print("Reister for Apple Remote Notifications")
         Messaging.messaging().setAPNSToken(deviceToken, type: .unknown)
     }
     

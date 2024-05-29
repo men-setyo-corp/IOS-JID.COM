@@ -35,7 +35,7 @@ struct SnapImgSingle: View {
                                 let control = AVPlayerViewController()
                                 control.player = playerHls
                                 control.showsPlaybackControls = false
-                                control.videoGravity = .resize
+                                control.videoGravity = .resizeAspectFill
                                 
                                 playerItem = AVPlayerItem(url: URL(string: urlSet)!)
                                 playerHls = AVPlayer(playerItem: playerItem)
@@ -73,16 +73,19 @@ struct SnapImgSingle: View {
                             image
                                 .resizable()
                                 .onAppear{
-                                    startRunSnap()                                }
+                                    startRunSnap()
+                                }
                         } else if phase.error != nil {
                             ProgressView()
+                                .tint(.white)
                         } else {
                             ProgressView()
+                                .tint(.white)
                         }
                     }
                     .frame(maxWidth: .infinity)
                     .frame(height: 250)
-                    .background(Color.white)
+                    .background(Color.black)
                 }
                 
                 

@@ -33,7 +33,8 @@ struct CctvSegemnt: View {
     @State var playerHls = AVPlayer()
     @State var controlPlay = AVPlayerViewController()
     @State var playerItem:AVPlayerItem?
-    @State var timer: Any?
+    @State var timeObserver: Any?
+    @State var timerRunImg: Timer? = nil
     @State var showLoadingHsl: Bool = true
     
     var body: some View {
@@ -42,6 +43,8 @@ struct CctvSegemnt: View {
                 HStack{
                     Button{
                         stopRun = true
+                        timerRunImg?.invalidate()
+                        timerRunImg = nil
                         self.presentationMode.wrappedValue.dismiss()
                     }label:{
                         Text(Image(systemName: "chevron.backward"))
@@ -75,9 +78,7 @@ struct CctvSegemnt: View {
                                         controlPlay.videoGravity = .resizeAspectFill
                                     }
                                     .onDisappear(){
-                                        if let timer = timer {
-                                            playerHls.removeTimeObserver(timer)
-                                        }
+                                        playerHls.pause()
                                     }
                             }else{
                                 AsyncImage(url: URL(string:urlSet)) { phase in
@@ -89,8 +90,30 @@ struct CctvSegemnt: View {
                                             }
                                     } else if phase.error != nil {
                                         ProgressView()
+                                            .tint(.white)
+                                            .onAppear(){
+                                                stopRun = true
+                                                timerRunImg?.invalidate()
+                                                timerRunImg = nil
+                                            }
+                                            .onChange(of: stopRun){ val in
+                                                if val == true {
+                                                    startRun()
+                                                }
+                                            }
                                     } else {
                                         ProgressView()
+                                            .tint(.white)
+                                            .onAppear(){
+                                                stopRun = true
+                                                timerRunImg?.invalidate()
+                                                timerRunImg = nil
+                                            }
+                                            .onChange(of: stopRun){ val in
+                                                if val == true {
+                                                    startRun()
+                                                }
+                                            }
                                     }
                                 }
                             }
@@ -110,7 +133,7 @@ struct CctvSegemnt: View {
                 }
                 .frame(maxWidth: .infinity)
                 .frame(height: 250, alignment: .center)
-                .background(Color(.white))
+                .background(Color(.black))
                 .cornerRadius(10)
                 .padding(.top, 10)
                 .shadow(radius: 2)
@@ -148,8 +171,9 @@ struct CctvSegemnt: View {
                                         playerHls.replaceCurrentItem(with: playerItem)
                                         
                                         playerHls.play()
-                                        playerHls.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, preferredTimescale: 1), queue: DispatchQueue.main){ (CMTime) -> Void in
-                                            
+                                        
+                                        playerHls.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1), queue: .main) { (CMTime) -> Void in
+                                           
                                             if playerHls.currentItem?.status == .readyToPlay {
                                                 playerHls.play()
                                             }
@@ -161,6 +185,7 @@ struct CctvSegemnt: View {
                                                 showLoadingHsl = false
                                             }
                                         }
+                                      
                                         bufferHandle()
                                     }else{
                                         urlSet = urlStreamImg
@@ -228,23 +253,29 @@ struct CctvSegemnt: View {
         .onAppear{
             ListCctvModel().getCctv(idruas: writer.id_key, nama_segment: writer.nama_segment){ (resultcctv) in
                 self.datacctv = resultcctv
+               
                 if let valueFirst = datacctv.first {
                     urlStreamImg = "https://jid.jasamarga.com/cctv2/\(valueFirst.key_id)?tx=\(Float.random(in: 0...1))"
                     urlStreamHls = "https://jmlive.jasamarga.com/hls/"+valueFirst.id_ruas+"/"+valueFirst.key_id+"/index.m3u8"
                     if valueFirst.is_hls {
                         showLoadingHsl = true
-                        urlSet = urlStreamHls
                         
-                        playerHls = AVPlayer(url: URL(string: urlSet)!)
+                        urlSet = urlStreamHls
+                        playerItem = AVPlayerItem(url: URL(string: urlSet)!)
+                        playerHls = AVPlayer(playerItem: playerItem)
+                        playerHls.replaceCurrentItem(with: playerItem)
+                       
                         playerHls.play()
                         playerHls.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, preferredTimescale: 1), queue: DispatchQueue.main){ (CMTime) -> Void in
-                           
+                            
+                            if playerHls.currentItem?.status == .readyToPlay {
+                                playerHls.play()
+                            }
                             let playbackLikelyToKeepUp = playerHls.currentItem?.isPlaybackLikelyToKeepUp
                             if playbackLikelyToKeepUp == false{
                                 print("IsBuffering")
                                 showLoadingHsl = true
                             } else {
-                                print("Buffer Done")
                                 showLoadingHsl = false
                             }
                         }
@@ -252,6 +283,7 @@ struct CctvSegemnt: View {
                     }else{
                         urlSet = urlStreamImg
                     }
+                    
                     namaSet = valueFirst.nama
                     namaSegmentSet = valueFirst.nama_segment
                    
@@ -269,12 +301,13 @@ struct CctvSegemnt: View {
     }
     
     private func startRun() {
-        Timer.scheduledTimer(withTimeInterval: 0.7, repeats: true) { timer in
-           urlSet = "https://jid.jasamarga.com/cctv2/\(keyStream)?tx=\(Float.random(in: 0...1))"
-           if stopRun == true {
-               timer.invalidate()
-               print("stop..")
-           }
+        timerRunImg = Timer.scheduledTimer(withTimeInterval: 0.7, repeats: true) { timer in
+            urlSet = "https://jid.jasamarga.com/cctv2/\(keyStream)?tx=\(Float.random(in: 0...1))"
+            if stopRun == true {
+                timerRunImg?.invalidate()
+                timerRunImg = nil
+                print("stop..")
+            }
         }
     }
     
@@ -285,7 +318,6 @@ struct CctvSegemnt: View {
                 print("buffer selama 7 detik")
                 urlSet = urlStreamImg
                 is_hls = false
-                showLoadingHsl = false
             }else{
                 urlSet = urlStreamHls
                 is_hls = true

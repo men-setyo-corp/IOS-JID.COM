@@ -17,6 +17,17 @@ struct ContentView: View {
             if modelLogin.isLogin {
                 MainPage()
                     .navigationBarHidden(true)
+                    .onAppear(){
+                        if modelLogin.isLogin {
+                            modelLogin.refresSession(){ success in
+                                if success {
+                                    modelLogin.isLogin = true
+                                }else{
+                                    modelLogin.isLogin = false
+                                }
+                            }
+                        }
+                    }
             }else{
                 LoginPage()
                     .navigationBarHidden(true)

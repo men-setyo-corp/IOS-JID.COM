@@ -82,8 +82,6 @@ class LoginModel: ObservableObject {
                     self.errorMsg = getJSON["msg"].stringValue
                     self.isLogin = true
                     
-                    self.timerRefesToken = Timer.scheduledTimer(timeInterval: 50, target: self, selector: #selector(self.refresSession), userInfo: nil, repeats: true)
-                    
                     completion(true)
                 }else{
                     self.isLogin = false
@@ -101,7 +99,6 @@ class LoginModel: ObservableObject {
                 let status = getJSON["status"].boolValue
                 if status {
                     self.errorMsg = getJSON["message"].stringValue
-                    self.timerRefesToken.invalidate()
                     completion(true)
                 }else{
                     self.errorMsg = getJSON["message"].stringValue
@@ -112,16 +109,17 @@ class LoginModel: ObservableObject {
         }
     }
     
-    @objc func refresSession(){
+    func refresSession(completion: @escaping (Bool) -> (Void)){
         DispatchQueue.global().async{
             if self.isLogin == true{
                 RestApiController().resAPIGet(endPoint: "auth/v1/refresh-session", method: .patch){ results in
                     let getJSON = JSON(results ?? "Null data from API")
                     let status = getJSON["status"].boolValue
                     if status {
-                        print("Refresh Session...")
+                        print("Refresh...")
+                        completion(true)
                     }else{
-                        print("Refresh Session Gagal !")
+                        completion(false)
                     }
                 }
             }else{

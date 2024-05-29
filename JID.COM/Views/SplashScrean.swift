@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct SplashScrean: View {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @State private var isActive = false
     @State private var opacity = 0.5
+    
+    @StateObject var modelLogin : LoginModel = LoginModel()
+    
     var body: some View {
         if isActive == true {
             ContentView()
+                .onAppear(){
+                    if modelLogin.isLogin {
+                        modelLogin.refresSession(){ success in
+                            if success {
+                                modelLogin.isLogin = true
+                            }else{
+                                modelLogin.isLogin = false
+                            }
+                        }
+                    }
+                }
         }else{
             VStack{
                 VStack{
