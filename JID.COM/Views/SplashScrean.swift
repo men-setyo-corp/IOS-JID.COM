@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SplashScrean: View {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     @State private var isActive = false
     @State private var opacity = 0.5
     

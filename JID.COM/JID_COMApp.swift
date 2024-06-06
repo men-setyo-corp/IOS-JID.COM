@@ -10,12 +10,13 @@ import FirebaseCore
 import FirebaseMessaging
 import Firebase
 import FirebaseAnalytics
+import UserNotifications
 
 
 @main
 struct JID_COMApp: App {
-    // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     @StateObject var modelLogin : LoginModel = LoginModel()
 
     var body: some Scene {
@@ -24,7 +25,6 @@ struct JID_COMApp: App {
         }
     }
 }
-
 
 class AppDelegate: NSObject, UIApplicationDelegate {
 

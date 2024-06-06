@@ -21,7 +21,7 @@ struct ContentView: View {
                         if modelLogin.isLogin {
                             modelLogin.refresSession(){ success in
                                 if success {
-                                    modelLogin.isLogin = true
+                                    print("update token")
                                 }else{
                                     modelLogin.isLogin = false
                                 }
