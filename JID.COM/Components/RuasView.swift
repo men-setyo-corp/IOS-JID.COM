@@ -65,13 +65,13 @@ struct RuasView: View {
     }
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             List(searchResults) { movie in
                 Text(movie.name)
             }
-            .searchable(text: $searchText, tokens: $currentTokens, suggestedTokens: .constant(suggestedTokens), prompt: Text("Type to filter, or use # for tags")) { token in
-                Text(token.name)
-            }
+//            .searchable(text: $searchText, tokens: $currentTokens, suggestedTokens: .constant(suggestedTokens), prompt: Text("Type to filter, or use # for tags")) { token in
+//                Text(token.name)
+//            }
         }
     }
 }

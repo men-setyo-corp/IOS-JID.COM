@@ -17,23 +17,21 @@ struct ContentView: View {
             if modelLogin.isLogin {
                 MainPage()
                     .navigationBarHidden(true)
-                    .onAppear(){
-                        if modelLogin.isLogin {
-                            modelLogin.refresSession(){ success in
-                                if success {
-                                    print("update token")
-                                }else{
-                                    modelLogin.isLogin = false
-                                }
-                            }
-                        }
-                    }
             }else{
                 LoginPage()
                     .navigationBarHidden(true)
             }
         }
         .onAppear{
+            if modelLogin.isLogin {
+                modelLogin.refresSession(){ success in
+                    if success {
+                        print("update token")
+                    }else{
+                        modelLogin.isLogin = false
+                    }
+                }
+            }
             if Dataset.stsInfoJalanTol.isEmpty {
                 Dataset.stsInfoJalanTol = ["yes","no","no","no","no","yes","no"]
             }

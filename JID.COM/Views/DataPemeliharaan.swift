@@ -5,6 +5,7 @@
 //  Created by Panda on 20/09/23.
 //
 import SwiftUI
+import SheetDetentsModifier
 
 struct DataPemeliharaan: View {
     @State var dataPemeliharaan : [InitDataPemeliharaan] = []
@@ -49,6 +50,7 @@ struct DataPemeliharaan: View {
                 if searchResults.isEmpty {
                     if dataPemeliharaan.isEmpty {
                         ProgressView()
+                            .tint(.black)
                     }else{
                         Text("Data Pemeliharaan Kosong !")
                     }
@@ -140,56 +142,76 @@ struct DataPemeliharaan: View {
             }
         }
         .sheet(isPresented: $showDetail){
-            VStack(alignment: .leading){
-                HStack{
-                    Spacer()
-                    Text(namaRuas)
-                        .font(.system(size: 14, weight: .bold))
+            ZStack{
+                Color.white.edgesIgnoringSafeArea(.all)
+                VStack(alignment: .leading){
+                    HStack{
+                        Spacer()
+                        Text(namaRuas)
+                            .font(.system(size: 14, weight: .bold))
+                            .foregroundColor(.black)
+                        Spacer()
+                    }
+                    .padding(.bottom, 15)
+                    HStack{
+                        Text("Range")
+                            .font(.system(size: 13, weight: .bold))
+                            .foregroundColor(.black)
+                        Spacer()
+                        Text(range)
+                            .font(.system(size: 13))
+                            .foregroundColor(.black)
+                    }
+                    Divider()
+                    HStack{
+                        Text("Kegiatan")
+                            .font(.system(size: 13, weight: .bold))
+                            .foregroundColor(.black)
+                        Spacer()
+                        Text(kegiatan)
+                            .font(.system(size: 13))
+                            .foregroundColor(.black)
+                    }
+                    Divider()
+                    HStack{
+                        Text("Waktu Awal")
+                            .font(.system(size: 13, weight: .bold))
+                            .foregroundColor(.black)
+                        Spacer()
+                        Text(awal == "" ? "-" : Dataset().convertDateFormat(inputDate: awal))
+                            .font(.system(size: 13))
+                            .foregroundColor(.black)
+                    }
+                    Divider()
+                    HStack{
+                        Text("Waktu Akhir")
+                            .font(.system(size: 13, weight: .bold))
+                            .foregroundColor(.black)
+                        Spacer()
+                        Text(akhir != "" ? Dataset().convertDateFormat(inputDate: akhir) : "-")
+                            .font(.system(size: 13))
+                            .foregroundColor(.black)
+                    }
+                    
+                    VStack(alignment: .leading){
+                        Text("Keterangan")
+                            .font(.system(size: 13, weight: .bold))
+                            .foregroundColor(.black)
+                            .padding(.top, 5)
+                        Text(keterangan)
+                            .font(.system(size: 13))
+                            .foregroundColor(.black)
+                            .padding(.top, 1)
+                    }
+                    .padding(.top, 15)
+                    
                     Spacer()
                 }
-                .padding(.bottom, 5)
-                HStack{
-                    Text("Range")
-                        .font(.system(size: 13, weight: .bold))
-                    Spacer()
-                    Text(range)
-                        .font(.system(size: 13))
-                }
-                Divider()
-                HStack{
-                    Text("Kegiatan")
-                        .font(.system(size: 13, weight: .bold))
-                    Spacer()
-                    Text(kegiatan)
-                        .font(.system(size: 13))
-                }
-                Divider()
-                HStack{
-                    Text("Waktu Awal")
-                        .font(.system(size: 13, weight: .bold))
-                    Spacer()
-                    Text(awal == "" ? "-" : Dataset().convertDateFormat(inputDate: awal))
-                        .font(.system(size: 13))
-                }
-                Divider()
-                HStack{
-                    Text("Waktu Akhir")
-                        .font(.system(size: 13, weight: .bold))
-                    Spacer()
-                    Text(akhir != "" ? Dataset().convertDateFormat(inputDate: akhir) : "-")
-                        .font(.system(size: 13))
-                }
-                
-                Text("Keterangan")
-                    .font(.system(size: 13, weight: .bold))
-                    .padding(.top, 5)
-                Text(keterangan)
-                    .font(.system(size: 13))
-                    .padding(.top, 1)
+                .background(Color.white)
+                .padding(.top, 25)
+                .padding(.horizontal)
             }
-            .padding(.top, 15)
-            .padding(.horizontal)
-            .presentationDetents([.medium, .large, .height(250)])
+            .presentationDetents([.medium, .medium])
         }
     }
     

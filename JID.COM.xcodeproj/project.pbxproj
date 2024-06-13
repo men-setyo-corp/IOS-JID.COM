@@ -10,16 +10,9 @@
 		84037D0D2B04A58D00CB24F3 /* DashboardLalinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84037D0C2B04A58D00CB24F3 /* DashboardLalinModel.swift */; };
 		8408F6882BEF2914006E2386 /* SetLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408F6872BEF2914006E2386 /* SetLocalStorage.swift */; };
 		840E1CB7294493D0007788BC /* DetailEventLalin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E1CB6294493D0007788BC /* DetailEventLalin.swift */; };
-		841000F42AC67D4900A77E23 /* CustomGroupBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841000F32AC67D4900A77E23 /* CustomGroupBarChart.swift */; };
-		842ED9732ACD0C87003A2F13 /* ViewGrafikPemeliharaan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ED9722ACD0C87003A2F13 /* ViewGrafikPemeliharaan.swift */; };
-		842ED9752ACD0F2D003A2F13 /* ViewGrafikKegiatan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ED9742ACD0F2D003A2F13 /* ViewGrafikKegiatan.swift */; };
-		842ED9782ACD0F8F003A2F13 /* GrafikKegiatan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ED9772ACD0F8F003A2F13 /* GrafikKegiatan.swift */; };
 		842ED97F2ACD15C0003A2F13 /* datakegiatan.json in Resources */ = {isa = PBXBuildFile; fileRef = 842ED97E2ACD15BF003A2F13 /* datakegiatan.json */; };
-		842ED9812ACD4013003A2F13 /* ViewGrafikPerJalur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842ED9802ACD4013003A2F13 /* ViewGrafikPerJalur.swift */; };
 		845B42F32AD6315E0080045F /* perjalur.json in Resources */ = {isa = PBXBuildFile; fileRef = 845B42F22AD6315E0080045F /* perjalur.json */; };
-		845F357F2AC266610046D0D3 /* GroupBarChartPemeliharaan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F357E2AC266610046D0D3 /* GroupBarChartPemeliharaan.swift */; };
 		845F35812AC27FF50046D0D3 /* xample.json in Resources */ = {isa = PBXBuildFile; fileRef = 845F35802AC27FF50046D0D3 /* xample.json */; };
-		8460F1802AC12A74006D7A00 /* DashPemeliharaan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8460F17F2AC12A74006D7A00 /* DashPemeliharaan.swift */; };
 		846D781B2AF4560600B4DAAE /* WaterLevelSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D781A2AF4560600B4DAAE /* WaterLevelSensor.swift */; };
 		846E75262BEAEFC70079ADDF /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E75252BEAEFC70079ADDF /* VideoPlayer.swift */; };
 		84705DA62AF3DD3B000732D0 /* RuasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84705DA52AF3DD3B000732D0 /* RuasView.swift */; };
@@ -35,19 +28,16 @@
 		8494E4C5294B13B100AC11FE /* GerbangTollModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494E4C4294B13B100AC11FE /* GerbangTollModal.swift */; };
 		84A0B4DD2947EEED006260FD /* vmsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0B4DC2947EEED006260FD /* vmsModel.swift */; };
 		84A0B4DF2947FE1F006260FD /* vmsModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0B4DE2947FE1F006260FD /* vmsModal.swift */; };
-		84A0C7512ACCFA0C0059BE21 /* GrafikPemeliharaan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0C7502ACCFA0C0059BE21 /* GrafikPemeliharaan.swift */; };
 		84A2898B2B040C8100B665C7 /* DataGangguan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2898A2B040C8100B665C7 /* DataGangguan.swift */; };
 		84A2898E2B0443BD00B665C7 /* MonitoringAlat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2898D2B0443BD00B665C7 /* MonitoringAlat.swift */; };
+		84B86DB72C1AA32C0067159F /* SheetDetentsModifier in Frameworks */ = {isa = PBXBuildFile; productRef = 84B86DB62C1AA32C0067159F /* SheetDetentsModifier */; };
 		84BEBD792951B4420052A189 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 84BEBD782951B4420052A189 /* FirebaseAnalytics */; };
 		84BEBD812951B4420052A189 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 84BEBD802951B4420052A189 /* FirebaseMessaging */; };
-		84BFAB6B2ACE702600AD338D /* GrafikPerjalur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFAB6A2ACE702600AD338D /* GrafikPerjalur.swift */; };
 		84C057D52C05D10800E7DEB3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84C057D42C05D10800E7DEB3 /* GoogleService-Info.plist */; };
 		84CEE4D42919201D0092B333 /* SplashScrean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEE4D32919201D0092B333 /* SplashScrean.swift */; };
 		84CEE4D62919270D0092B333 /* AntrianPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEE4D52919270D0092B333 /* AntrianPage.swift */; };
 		84CEE4D829192C900092B333 /* RealtimePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEE4D729192C900092B333 /* RealtimePage.swift */; };
 		84CEE4DB2919DD960092B333 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 84CEE4DA2919DD960092B333 /* PopupView */; };
-		84D0549F2ABDA19A0047FF4E /* DGCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D0549C2ABDA1320047FF4E /* DGCharts.framework */; platformFilter = ios; };
-		84D054A02ABDA19A0047FF4E /* DGCharts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84D0549C2ABDA1320047FF4E /* DGCharts.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84D7EA7829529F9800F98EF7 /* HistoriNotifModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7EA7729529F9800F98EF7 /* HistoriNotifModel.swift */; };
 		84D7EA7A2952A33500F98EF7 /* HistoriNotif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7EA792952A33500F98EF7 /* HistoriNotif.swift */; };
 		84D94FF42955BA7400637CED /* lalin.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D94FF22955BA7400637CED /* lalin.json */; };
@@ -72,7 +62,6 @@
 		84DBF7AD294EDFE900B6578C /* GpsKendaraanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBF7AC294EDFE900B6578C /* GpsKendaraanModel.swift */; };
 		84E8BCA42954984A00815AF9 /* MidasModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E8BCA32954984A00815AF9 /* MidasModel.swift */; };
 		84FE5F422AB947C1002DAE6B /* MainDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE5F412AB947C1002DAE6B /* MainDashboard.swift */; };
-		84FE5F442ABA9E95002DAE6B /* DashboardPemeliharaan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE5F432ABA9E95002DAE6B /* DashboardPemeliharaan.swift */; };
 		84FE5F492ABAF55C002DAE6B /* DashLaluLintas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE5F482ABAF55C002DAE6B /* DashLaluLintas.swift */; };
 		84FE5F502ABAF5CE002DAE6B /* DataPemeliharaan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE5F4F2ABAF5CE002DAE6B /* DataPemeliharaan.swift */; };
 		FA0BBEDC28E295CD000278C6 /* SegmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0BBEDB28E295CD000278C6 /* SegmentModel.swift */; };
@@ -131,23 +120,6 @@
 		FAD134B429068AD60036D231 /* MapboxCoreMaps.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAD134AA29068AD50036D231 /* MapboxCoreMaps.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		84D0549B2ABDA1320047FF4E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 84D054962ABDA1320047FF4E /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
-			remoteInfo = DGCharts;
-		};
-		84D0549D2ABDA1320047FF4E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 84D054962ABDA1320047FF4E /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
-			remoteInfo = DGChartsTests;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		FAD134B529068AD60036D231 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -155,7 +127,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				84D054A02ABDA19A0047FF4E /* DGCharts.framework in Embed Frameworks */,
 				FAD134B429068AD60036D231 /* MapboxCoreMaps.xcframework in Embed Frameworks */,
 				FAD134AC29068AD60036D231 /* Turf.xcframework in Embed Frameworks */,
 				FAD134B229068AD60036D231 /* MapboxMobileEvents.xcframework in Embed Frameworks */,
@@ -171,16 +142,9 @@
 		84037D0C2B04A58D00CB24F3 /* DashboardLalinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardLalinModel.swift; sourceTree = "<group>"; };
 		8408F6872BEF2914006E2386 /* SetLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLocalStorage.swift; sourceTree = "<group>"; };
 		840E1CB6294493D0007788BC /* DetailEventLalin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventLalin.swift; sourceTree = "<group>"; };
-		841000F32AC67D4900A77E23 /* CustomGroupBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGroupBarChart.swift; sourceTree = "<group>"; };
-		842ED9722ACD0C87003A2F13 /* ViewGrafikPemeliharaan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewGrafikPemeliharaan.swift; sourceTree = "<group>"; };
-		842ED9742ACD0F2D003A2F13 /* ViewGrafikKegiatan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewGrafikKegiatan.swift; sourceTree = "<group>"; };
-		842ED9772ACD0F8F003A2F13 /* GrafikKegiatan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrafikKegiatan.swift; sourceTree = "<group>"; };
 		842ED97E2ACD15BF003A2F13 /* datakegiatan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = datakegiatan.json; sourceTree = "<group>"; };
-		842ED9802ACD4013003A2F13 /* ViewGrafikPerJalur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewGrafikPerJalur.swift; sourceTree = "<group>"; };
 		845B42F22AD6315E0080045F /* perjalur.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = perjalur.json; sourceTree = "<group>"; };
-		845F357E2AC266610046D0D3 /* GroupBarChartPemeliharaan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBarChartPemeliharaan.swift; sourceTree = "<group>"; };
 		845F35802AC27FF50046D0D3 /* xample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = xample.json; sourceTree = "<group>"; };
-		8460F17F2AC12A74006D7A00 /* DashPemeliharaan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashPemeliharaan.swift; sourceTree = "<group>"; };
 		846D781A2AF4560600B4DAAE /* WaterLevelSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterLevelSensor.swift; sourceTree = "<group>"; };
 		846E75252BEAEFC70079ADDF /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
 		84705DA52AF3DD3B000732D0 /* RuasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuasView.swift; sourceTree = "<group>"; };
@@ -197,15 +161,12 @@
 		84A0B4DC2947EEED006260FD /* vmsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vmsModel.swift; sourceTree = "<group>"; };
 		84A0B4DE2947FE1F006260FD /* vmsModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vmsModal.swift; sourceTree = "<group>"; };
 		84A0B4E029482527006260FD /* JID.COM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JID.COM.entitlements; sourceTree = "<group>"; };
-		84A0C7502ACCFA0C0059BE21 /* GrafikPemeliharaan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrafikPemeliharaan.swift; sourceTree = "<group>"; };
 		84A2898A2B040C8100B665C7 /* DataGangguan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGangguan.swift; sourceTree = "<group>"; };
 		84A2898D2B0443BD00B665C7 /* MonitoringAlat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitoringAlat.swift; sourceTree = "<group>"; };
-		84BFAB6A2ACE702600AD338D /* GrafikPerjalur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrafikPerjalur.swift; sourceTree = "<group>"; };
 		84C057D42C05D10800E7DEB3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GooggleService JID/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84CEE4D32919201D0092B333 /* SplashScrean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScrean.swift; sourceTree = "<group>"; };
 		84CEE4D52919270D0092B333 /* AntrianPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntrianPage.swift; sourceTree = "<group>"; };
 		84CEE4D729192C900092B333 /* RealtimePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimePage.swift; sourceTree = "<group>"; };
-		84D054962ABDA1320047FF4E /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = ../Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		84D7EA7729529F9800F98EF7 /* HistoriNotifModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoriNotifModel.swift; sourceTree = "<group>"; };
 		84D7EA792952A33500F98EF7 /* HistoriNotif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoriNotif.swift; sourceTree = "<group>"; };
 		84D94FF22955BA7400637CED /* lalin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lalin.json; sourceTree = "<group>"; };
@@ -231,7 +192,6 @@
 		84DBF7AC294EDFE900B6578C /* GpsKendaraanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GpsKendaraanModel.swift; sourceTree = "<group>"; };
 		84E8BCA32954984A00815AF9 /* MidasModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidasModel.swift; sourceTree = "<group>"; };
 		84FE5F412AB947C1002DAE6B /* MainDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDashboard.swift; sourceTree = "<group>"; };
-		84FE5F432ABA9E95002DAE6B /* DashboardPemeliharaan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPemeliharaan.swift; sourceTree = "<group>"; };
 		84FE5F482ABAF55C002DAE6B /* DashLaluLintas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashLaluLintas.swift; sourceTree = "<group>"; };
 		84FE5F4F2ABAF5CE002DAE6B /* DataPemeliharaan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPemeliharaan.swift; sourceTree = "<group>"; };
 		FA0BBEDB28E295CD000278C6 /* SegmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentModel.swift; sourceTree = "<group>"; };
@@ -287,8 +247,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84D0549F2ABDA19A0047FF4E /* DGCharts.framework in Frameworks */,
 				84BEBD812951B4420052A189 /* FirebaseMessaging in Frameworks */,
+				84B86DB72C1AA32C0067159F /* SheetDetentsModifier in Frameworks */,
 				FAD134B329068AD60036D231 /* MapboxCoreMaps.xcframework in Frameworks */,
 				FAD134AB29068AD60036D231 /* Turf.xcframework in Frameworks */,
 				84BEBD792951B4420052A189 /* FirebaseAnalytics in Frameworks */,
@@ -307,41 +267,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		842ED9712ACD0C70003A2F13 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				842ED9722ACD0C87003A2F13 /* ViewGrafikPemeliharaan.swift */,
-				842ED9742ACD0F2D003A2F13 /* ViewGrafikKegiatan.swift */,
-				842ED9802ACD4013003A2F13 /* ViewGrafikPerJalur.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		842ED9762ACD0F41003A2F13 /* Data Store */ = {
-			isa = PBXGroup;
-			children = (
-				84A0C7502ACCFA0C0059BE21 /* GrafikPemeliharaan.swift */,
-				842ED9772ACD0F8F003A2F13 /* GrafikKegiatan.swift */,
-				84BFAB6A2ACE702600AD338D /* GrafikPerjalur.swift */,
-			);
-			name = "Data Store";
-			sourceTree = "<group>";
-		};
 		84A2898C2B0443A500B665C7 /* Peralatan */ = {
 			isa = PBXGroup;
 			children = (
 				84A2898D2B0443BD00B665C7 /* MonitoringAlat.swift */,
 			);
 			path = Peralatan;
-			sourceTree = "<group>";
-		};
-		84D054972ABDA1320047FF4E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				84D0549C2ABDA1320047FF4E /* DGCharts.framework */,
-				84D0549E2ABDA1320047FF4E /* DGChartsTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		84FE5F472ABAF53D002DAE6B /* Lalu Lintas */ = {
@@ -356,9 +287,6 @@
 		84FE5F4E2ABAF5B1002DAE6B /* Pemeliharaan */ = {
 			isa = PBXGroup;
 			children = (
-				842ED9762ACD0F41003A2F13 /* Data Store */,
-				842ED9712ACD0C70003A2F13 /* Views */,
-				84FE5F432ABA9E95002DAE6B /* DashboardPemeliharaan.swift */,
 				84FE5F4F2ABAF5CE002DAE6B /* DataPemeliharaan.swift */,
 				846D781A2AF4560600B4DAAE /* WaterLevelSensor.swift */,
 			);
@@ -375,9 +303,6 @@
 				FA16400C28D954D200954717 /* Writer.swift */,
 				FA16401628DBE35800954717 /* WebviewPresent.swift */,
 				FA8A12B228E4364A00EECFD3 /* WriteImg.swift */,
-				8460F17F2AC12A74006D7A00 /* DashPemeliharaan.swift */,
-				845F357E2AC266610046D0D3 /* GroupBarChartPemeliharaan.swift */,
-				841000F32AC67D4900A77E23 /* CustomGroupBarChart.swift */,
 			);
 			path = Adapter;
 			sourceTree = "<group>";
@@ -437,7 +362,6 @@
 		FA6BF782289EC043006EECC0 = {
 			isa = PBXGroup;
 			children = (
-				84D054962ABDA1320047FF4E /* Charts.xcodeproj */,
 				FA6BF78D289EC043006EECC0 /* JID.COM */,
 				FA6BF78C289EC043006EECC0 /* Products */,
 				FAD134A529068AD50036D231 /* Frameworks */,
@@ -572,6 +496,7 @@
 				84CEE4DA2919DD960092B333 /* PopupView */,
 				84BEBD782951B4420052A189 /* FirebaseAnalytics */,
 				84BEBD802951B4420052A189 /* FirebaseMessaging */,
+				84B86DB62C1AA32C0067159F /* SheetDetentsModifier */,
 			);
 			productName = JID.COM;
 			productReference = FA6BF78B289EC043006EECC0 /* JID.app */;
@@ -609,38 +534,16 @@
 				FA8A12BF28E566E500EECFD3 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				84CEE4D92919DD960092B333 /* XCRemoteSwiftPackageReference "PopupView" */,
 				84BEBD772951B4420052A189 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				84B86DB52C1AA32C0067159F /* XCRemoteSwiftPackageReference "SheetDetentsModifier" */,
 			);
 			productRefGroup = FA6BF78C289EC043006EECC0 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 84D054972ABDA1320047FF4E /* Products */;
-					ProjectRef = 84D054962ABDA1320047FF4E /* Charts.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				FA6BF78A289EC043006EECC0 /* JID.COM */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		84D0549C2ABDA1320047FF4E /* DGCharts.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = DGCharts.framework;
-			remoteRef = 84D0549B2ABDA1320047FF4E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		84D0549E2ABDA1320047FF4E /* DGChartsTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = DGChartsTests.xctest;
-			remoteRef = 84D0549D2ABDA1320047FF4E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FA6BF789289EC043006EECC0 /* Resources */ = {
@@ -674,11 +577,9 @@
 				84DBF7A1294EC90000B6578C /* WaterLevelModal.swift in Sources */,
 				FA7FE4CB28A56DB200669633 /* GetIP.swift in Sources */,
 				FA8A12B328E4364A00EECFD3 /* WriteImg.swift in Sources */,
-				84A0C7512ACCFA0C0059BE21 /* GrafikPemeliharaan.swift in Sources */,
 				84FE5F502ABAF5CE002DAE6B /* DataPemeliharaan.swift in Sources */,
 				84DBF7A3294ECC5000B6578C /* PompaBanjirModel.swift in Sources */,
 				FAC0E65328BCA877007146E5 /* PemeliharaanComponent.swift in Sources */,
-				84BFAB6B2ACE702600AD338D /* GrafikPerjalur.swift in Sources */,
 				8494E4C1294B031F00AC11FE /* JalanPenghubungModel.swift in Sources */,
 				FAC0E65528BCA99D007146E5 /* Initdata.swift in Sources */,
 				FA6BF78F289EC043006EECC0 /* JID_COMApp.swift in Sources */,
@@ -686,7 +587,6 @@
 				84DBF79D294DB62500B6578C /* SpeedModal.swift in Sources */,
 				8494E4BD294AC27600AC11FE /* LineRekayasaLalinModel.swift in Sources */,
 				84FE5F492ABAF55C002DAE6B /* DashLaluLintas.swift in Sources */,
-				8460F1802AC12A74006D7A00 /* DashPemeliharaan.swift in Sources */,
 				840E1CB7294493D0007788BC /* DetailEventLalin.swift in Sources */,
 				84CEE4D62919270D0092B333 /* AntrianPage.swift in Sources */,
 				FABA169228B327AC00BFD24D /* LoginPage.swift in Sources */,
@@ -699,9 +599,7 @@
 				84DBF7A7294ED77F00B6578C /* WimModel.swift in Sources */,
 				84DBF789294C695800B6578C /* RestAreaModel.swift in Sources */,
 				FA0BBEDC28E295CD000278C6 /* SegmentModel.swift in Sources */,
-				842ED9752ACD0F2D003A2F13 /* ViewGrafikKegiatan.swift in Sources */,
 				84DBF78F294D76E300B6578C /* RtmsModal.swift in Sources */,
-				841000F42AC67D4900A77E23 /* CustomGroupBarChart.swift in Sources */,
 				84DBF795294DA14200B6578C /* RadarModel.swift in Sources */,
 				FA8A12AF28E427C900EECFD3 /* ImageLoad.swift in Sources */,
 				FABA169428B327C600BFD24D /* MapPage.swift in Sources */,
@@ -716,7 +614,6 @@
 				84DBF7AD294EDFE900B6578C /* GpsKendaraanModel.swift in Sources */,
 				FA16400D28D954D200954717 /* Writer.swift in Sources */,
 				8494E4B7294AB23A00AC11FE /* GangguanModal.swift in Sources */,
-				84FE5F442ABA9E95002DAE6B /* DashboardPemeliharaan.swift in Sources */,
 				FA3E42F228A3B9D500C30323 /* LoginModel.swift in Sources */,
 				FA8A12AB28E2CE8A00EECFD3 /* ListCctvModel.swift in Sources */,
 				84DBF78B294D3C6B00B6578C /* ResAreaModal.swift in Sources */,
@@ -725,7 +622,6 @@
 				FA32DA8C28B3D1B5006C6B0F /* PemeliharaanModel.swift in Sources */,
 				84DBF793294D983C00B6578C /* Rtms2Modal.swift in Sources */,
 				FA16401528DBE02A00954717 /* WebviewDashboard.swift in Sources */,
-				845F357F2AC266610046D0D3 /* GroupBarChartPemeliharaan.swift in Sources */,
 				8494E4BF294AF68300AC11FE /* BatasKmModel.swift in Sources */,
 				FA7B35A228B343DB0022FCC1 /* TollModel.swift in Sources */,
 				84CEE4D42919201D0092B333 /* SplashScrean.swift in Sources */,
@@ -739,9 +635,7 @@
 				84DBF79B294DB2BB00B6578C /* SpeedModel.swift in Sources */,
 				FA7A2A3C28F290B3005672CC /* LayerList.swift in Sources */,
 				84FE5F422AB947C1002DAE6B /* MainDashboard.swift in Sources */,
-				842ED9812ACD4013003A2F13 /* ViewGrafikPerJalur.swift in Sources */,
 				84DBF7A9294EDA2E00B6578C /* WimModal.swift in Sources */,
-				842ED9782ACD0F8F003A2F13 /* GrafikKegiatan.swift in Sources */,
 				FABA168F28B326D500BFD24D /* SetBottomSheet.swift in Sources */,
 				8494E4C5294B13B100AC11FE /* GerbangTollModal.swift in Sources */,
 				84D7EA7829529F9800F98EF7 /* HistoriNotifModel.swift in Sources */,
@@ -753,7 +647,6 @@
 				84A0B4DF2947FE1F006260FD /* vmsModal.swift in Sources */,
 				FA7B35A428B348A10022FCC1 /* LalinModel.swift in Sources */,
 				8494E4C3294B0EBE00AC11FE /* GerbangTollModel.swift in Sources */,
-				842ED9732ACD0C87003A2F13 /* ViewGrafikPemeliharaan.swift in Sources */,
 				84A2898E2B0443BD00B665C7 /* MonitoringAlat.swift in Sources */,
 				84DBF79F294EC46F00B6578C /* WaterLevelModel.swift in Sources */,
 				8494E4BB294ABF5500AC11FE /* RekayasaLalinModal.swift in Sources */,
@@ -816,7 +709,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -872,7 +765,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -892,7 +785,7 @@
 				CODE_SIGN_ENTITLEMENTS = JID.COM/JID.COM.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3.4;
+				CURRENT_PROJECT_VERSION = 1.3.5;
 				DEVELOPMENT_ASSET_PATHS = "JID.COM/Tools/datakegiatan.json JID.COM/Tools/perjalur.json JID.COM/Preview\\ Content JID.COM/Tools/toll.json JID.COM/Tools/lalin.json";
 				DEVELOPMENT_TEAM = 537AVW7LBB;
 				ENABLE_PREVIEWS = YES;
@@ -905,12 +798,12 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.2;
+				MARKETING_VERSION = 1.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jasamarga.jid;
 				PRODUCT_NAME = JID;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -933,7 +826,7 @@
 				CODE_SIGN_ENTITLEMENTS = JID.COM/JID.COM.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3.4;
+				CURRENT_PROJECT_VERSION = 1.3.5;
 				DEVELOPMENT_ASSET_PATHS = "JID.COM/Tools/datakegiatan.json JID.COM/Tools/perjalur.json JID.COM/Preview\\ Content JID.COM/Tools/toll.json JID.COM/Tools/lalin.json";
 				DEVELOPMENT_TEAM = 537AVW7LBB;
 				ENABLE_PREVIEWS = YES;
@@ -946,12 +839,12 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.2;
+				MARKETING_VERSION = 1.3.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jasamarga.jid;
@@ -991,6 +884,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		84B86DB52C1AA32C0067159F /* XCRemoteSwiftPackageReference "SheetDetentsModifier" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bartleby/SheetDetentsModifier.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		84BEBD772951B4420052A189 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1050,6 +951,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		84B86DB62C1AA32C0067159F /* SheetDetentsModifier */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84B86DB52C1AA32C0067159F /* XCRemoteSwiftPackageReference "SheetDetentsModifier" */;
+			productName = SheetDetentsModifier;
+		};
 		84BEBD782951B4420052A189 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 84BEBD772951B4420052A189 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

@@ -44,15 +44,14 @@ struct WebviewDashboard: View {
 //                Spacer()
 //
                 ZStack{
-                    if urlweb.isEmpty {
-                        CardLoadingWebview()
-                    }else{
-                        WebView(url: URL(string: baseUrl+urlweb)!, showLoading: $showLoading)
-                            .overlay(showLoading ? ProgressView("Loading...").toAnyView() : EmptyView().toAnyView())
-                    }
+                    WebView(url: URL(string: baseUrl+urlweb)!, showLoading: $showLoading)
+                        .overlay(showLoading ? ProgressView("Loading...").toAnyView() : EmptyView().toAnyView())
                 }
                 
             }
+        }
+        .onAppear{
+            self.showLoading.toggle()
         }
         .navigationBarHidden(true)
         .background(.white)

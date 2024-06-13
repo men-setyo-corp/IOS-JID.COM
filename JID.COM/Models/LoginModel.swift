@@ -54,9 +54,11 @@ class LoginModel: ObservableObject {
                             self.menuJalantoll = getJSON["data"]["infojalantol"].stringValue
                             self.menuSisinfokom = getJSON["data"]["sisinfokom"].stringValue
                             self.menuEventlalin = getJSON["data"]["eventjalantol"].stringValue
+                            self.isLogin = true
                             
                             completion(true)
                         }else{
+                            self.isLogin = false
                             completion(false)
                         }
                     }
@@ -80,11 +82,9 @@ class LoginModel: ObservableObject {
                 let status = getJSON["status"].boolValue
                 if status {
                     self.errorMsg = getJSON["msg"].stringValue
-                    self.isLogin = true
-                    
                     completion(true)
                 }else{
-                    self.isLogin = false
+                   
                     self.errorMsg = getJSON["msg"].stringValue
                     completion(false)
                 }
@@ -119,6 +119,7 @@ class LoginModel: ObservableObject {
                         print("Refresh...")
                         completion(true)
                     }else{
+                        self.isLogin = false
                         completion(false)
                     }
                 }

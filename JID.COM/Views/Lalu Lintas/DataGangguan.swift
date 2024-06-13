@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SheetDetentsModifier
 
 struct DataGangguan: View {
     @State var dataGangguan : [InitDataGangguan] = []
@@ -50,6 +51,7 @@ struct DataGangguan: View {
                 if searchResults.isEmpty {
                     if dataGangguan.isEmpty {
                         ProgressView()
+                            .tint(.black)
                     }else{
                         Text("Data Gangguan Lalin Kosong !")
                     }
@@ -128,56 +130,76 @@ struct DataGangguan: View {
             }
             .padding()
             .sheet(isPresented: $showDetail){
-                VStack(alignment: .leading){
-                    HStack{
-                        Spacer()
-                        Text(namaRuas)
-                            .font(.system(size: 14, weight: .bold))
-                        Spacer()
-                    }
-                    .padding(.bottom, 5)
-                    HStack{
-                        Text("Jenis")
-                            .font(.system(size: 13, weight: .bold))
-                        Spacer()
-                        Text(jenis)
-                            .font(.system(size: 13))
-                    }
-                    Divider()
-                    HStack{
-                        Text("Waktu Kejadian")
-                            .font(.system(size: 13, weight: .bold))
-                        Spacer()
-                        Text(Dataset().convertDateFormat(inputDate: waktu))
-                            .font(.system(size: 13))
-                    }
-                    Divider()
-                    HStack{
-                        Text("Waktu Selesai")
-                            .font(.system(size: 13, weight: .bold))
-                        Spacer()
-                        Text(selesai == "-" ? "-" : Dataset().convertDateFormat(inputDate: selesai))
-                            .font(.system(size: 13))
-                    }
-                    Divider()
-                    HStack{
-                        Text("Dampak")
-                            .font(.system(size: 13, weight: .bold))
-                        Spacer()
-                        Text(dampak)
-                            .font(.system(size: 13))
-                    }
+                ZStack{
+                    Color.white.edgesIgnoringSafeArea(.all)
+                    VStack(alignment:.leading){
+                        HStack{
+                            Spacer()
+                            Text(namaRuas)
+                                .font(.system(size: 14, weight: .bold))
+                                .foregroundColor(Color.black)
+                            Spacer()
+                        }
+                        .padding(.bottom, 15)
+                        HStack{
+                            Text("Jenis")
+                                .font(.system(size: 13, weight: .bold))
+                                .foregroundColor(Color.black)
+                            Spacer()
+                            Text(jenis)
+                                .font(.system(size: 13))
+                                .foregroundColor(Color.black)
+                        }
+                        Divider()
+                        HStack{
+                            Text("Waktu Kejadian")
+                                .font(.system(size: 13, weight: .bold))
+                                .foregroundColor(Color.black)
+                            Spacer()
+                            Text(Dataset().convertDateFormat(inputDate: waktu))
+                                .font(.system(size: 13))
+                                .foregroundColor(Color.black)
+                        }
+                        Divider()
+                        HStack{
+                            Text("Waktu Selesai")
+                                .font(.system(size: 13, weight: .bold))
+                                .foregroundColor(Color.black)
+                            Spacer()
+                            Text(selesai == "-" ? "-" : Dataset().convertDateFormat(inputDate: selesai))
+                                .font(.system(size: 13))
+                                .foregroundColor(Color.black)
+                        }
+                        Divider()
+                        HStack{
+                            Text("Dampak")
+                                .font(.system(size: 13, weight: .bold))
+                                .foregroundColor(Color.black)
+                            Spacer()
+                            Text(dampak)
+                                .font(.system(size: 13))
+                                .foregroundColor(Color.black)
+                        }
                     
-                    Text("Detail Kejadian")
-                        .font(.system(size: 13, weight: .bold))
-                        .padding(.top, 5)
-                    Text(detail)
-                        .font(.system(size: 13))
-                        .padding(.top, 1)
+                        VStack(alignment: .leading){
+                            Text("Detail Kejadian")
+                                .font(.system(size: 13, weight: .bold))
+                                .foregroundColor(Color.black)
+                                .padding(.top, 5)
+                            Text(detail)
+                                .font(.system(size: 13))
+                                .foregroundColor(Color.black)
+                                .padding(.top, 1)
+                        }
+                        .padding(.top, 15)
+
+                        Spacer()
+                    }
+                    .background(Color.white)
+                    .padding(.top, 25)
+                    .padding(.horizontal)
                 }
-                .padding(.top, 15)
-                .padding(.horizontal)
-                .presentationDetents([.medium, .large, .height(250)])
+                .presentationDetents([.medium, .medium])
             }
         }
         .onAppear{
@@ -208,3 +230,4 @@ struct DataGangguan_Previews: PreviewProvider {
         DataGangguan()
     }
 }
+

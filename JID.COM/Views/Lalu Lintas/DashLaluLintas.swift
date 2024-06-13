@@ -42,6 +42,7 @@ struct DashLaluLintas: View {
             HStack{
                 Text("Filter")
                     .font(.system(size: 13))
+                    .foregroundColor(.black)
                 Spacer()
                 HStack{
                     Button{
@@ -67,6 +68,7 @@ struct DashLaluLintas: View {
                     }
                     Text("Tahun")
                         .font(.system(size: 13, weight: .bold))
+                        .foregroundColor(.black)
                     
                     Button{
                         selectTahun = false
@@ -92,10 +94,12 @@ struct DashLaluLintas: View {
                     }
                     Text("Hari")
                         .font(.system(size: 13, weight: .bold))
+                        .foregroundColor(.black)
                 }
             }
             Text("Dashboard Rekayasa Lalu Lintas")
                 .font(.system(size: 13, weight: .bold))
+                .foregroundColor(.black)
                 .padding(.top, 15)
                 .padding(.bottom, 10)
             
@@ -164,11 +168,13 @@ struct DashLaluLintas: View {
             
             Text("Last update \(dateNow == "" ? "2023-11-16 13:37:30" : dateNow)")
                 .font(.system(size: 13, weight: .regular))
+                .foregroundColor(.black)
                 .padding(.top, 5)
                 .padding(.bottom, 2)
             
             Text("Dashboard Gangguan Lalu Lintas")
                 .font(.system(size: 13, weight: .bold))
+                .foregroundColor(.black)
                 .padding(.top, 15)
                 .padding(.bottom, 10)
             
@@ -215,6 +221,7 @@ struct DashLaluLintas: View {
             }
             Text("Last update \(dateNow == "" ? "2023-11-16 13:37:30" : dateNow)")
                 .font(.system(size: 13, weight: .regular))
+                .foregroundColor(.black)
                 .padding(.top, 5)
                 .padding(.bottom, 2)
             Spacer()
