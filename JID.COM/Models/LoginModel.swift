@@ -42,6 +42,7 @@ class LoginModel: ObservableObject {
                 let getJSON = JSON(results ?? "Null data from API")
                 if getJSON["status"].boolValue {
                     self.auth = getJSON["token"].stringValue
+                    self.isLogin = true
                     self.addLogSession(){ success in
                         if success {
                             self.nama = getJSON["data"]["name"].stringValue
@@ -54,7 +55,6 @@ class LoginModel: ObservableObject {
                             self.menuJalantoll = getJSON["data"]["infojalantol"].stringValue
                             self.menuSisinfokom = getJSON["data"]["sisinfokom"].stringValue
                             self.menuEventlalin = getJSON["data"]["eventjalantol"].stringValue
-                            self.isLogin = true
                             
                             completion(true)
                         }else{

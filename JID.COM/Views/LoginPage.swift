@@ -86,8 +86,8 @@ struct LoginPage: View {
                                     .fill(Color.black.opacity(0.05))
                             }
                             .font(.system(size: 13))
-                            .textInputAutocapitalization(.never)
                             .foregroundColor(.black)
+                            .textInputAutocapitalization(.never)
                         
                         Text("Password")
                             .font(.system(size: 13))
@@ -118,8 +118,10 @@ struct LoginPage: View {
                                     try await modelLogin.PresLogin(paramsData: parameters){ success in
                                         modelLogin.txtLoging.toggle()
                                         if success {
+                                            modelLogin.isLogin = true
                                             isActive = true
                                         }else{
+                                            modelLogin.isLogin = false
                                             isActive = false
                                         }
                                     }

@@ -211,7 +211,7 @@ struct DataPemeliharaan: View {
                 .padding(.top, 25)
                 .padding(.horizontal)
             }
-            .presentationDetents([.medium, .medium])
+            .presentationDetents([.medium, .height(240)])
         }
     }
     

@@ -122,7 +122,7 @@ struct WaterLevelSensor: View {
                             .padding(.vertical)
                             .padding(.horizontal)
                         }
-                        .presentationDetents([.medium, .large])
+                        .presentationDetents([.medium, .height(240)])
                     }
                 
                 
@@ -165,30 +165,35 @@ struct WaterLevelSensor: View {
                                             .foregroundColor(Color.white)
                                     }
                                     .sheet(isPresented: $showCCTV){
-                                        VStack{
-                                            Text("\(nmLokasi)")
-                                                .font(.system(size: 13, weight: .bold))
-                                                .padding(.top, 5)
-                                            Spacer()
-                                            AsyncImage(url: URL(string:urlSet)) { phase in
-                                                if let image = phase.image {
-                                                    image
-                                                        .resizable()
-                                                        .onAppear{
-                                                            startRun(uri_set: urlSet)
-                                                        }
-                                                } else if phase.error != nil {
-                                                    ProgressView()
-                                                } else {
-                                                    ProgressView()
+                                        ZStack{
+                                            Color.white.edgesIgnoringSafeArea(.all)
+                                            VStack{
+                                                Text("\(nmLokasi)")
+                                                    .font(.system(size: 13, weight: .bold))
+                                                    .foregroundColor(.black)
+                                                    .padding(.top, 5)
+                                                Spacer()
+                                                AsyncImage(url: URL(string:urlSet)) { phase in
+                                                    if let image = phase.image {
+                                                        image
+                                                            .resizable()
+                                                            .onAppear{
+                                                                startRun(uri_set: urlSet)
+                                                            }
+                                                    } else if phase.error != nil {
+                                                        ProgressView()
+                                                            .tint(.black)
+                                                    } else {
+                                                        ProgressView()
+                                                            .tint(.black)
+                                                    }
                                                 }
+                                                Spacer()
                                             }
-                                            Spacer()
+                                            .padding(.horizontal)
+                                            .padding(.vertical)
                                         }
-                                        .padding(.horizontal)
-                                        .padding(.vertical)
-                                        .frame(height:280)
-//                                        .presentationDetents([.medium, .medium, .height(280)])
+                                        .presentationDetents([.height(240)])
                                     }
                                     
                                     Spacer()
