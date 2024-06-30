@@ -92,6 +92,7 @@ struct RadarModal: View {
                                 }
                                 .padding(.top, 3)
                             }
+                            Spacer()
                         }
                         .padding(.horizontal, 20)
                         .padding(.top, 10)

@@ -16,7 +16,7 @@ class RadarModel: ObservableObject{
     var geoJSONSource = GeoJSONSource()
     let sourceData = "source-radar"
     var mapView: MapView!
-    var sizeIcon: Double = 0.8
+    var sizeIcon: Double = 0.4
     
     func setUpRadarAPI(setmapView: MapView)  {
         print("run layar data radar ...")
@@ -32,7 +32,7 @@ class RadarModel: ObservableObject{
                     }
                     self.geoJSONSource.data = .featureCollection(featureCollection)
                     
-                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "radar_on")!,
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "trafik_radar")!,
                                                              id: "radaron")
                     try! setmapView.mapboxMap.style.addImage(UIImage(named: "radar_off")!,
                                                              id: "radaroff")

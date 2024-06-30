@@ -10,12 +10,14 @@
 		84037D0D2B04A58D00CB24F3 /* DashboardLalinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84037D0C2B04A58D00CB24F3 /* DashboardLalinModel.swift */; };
 		8408F6882BEF2914006E2386 /* SetLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408F6872BEF2914006E2386 /* SetLocalStorage.swift */; };
 		840E1CB7294493D0007788BC /* DetailEventLalin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E1CB6294493D0007788BC /* DetailEventLalin.swift */; };
-		842ED97F2ACD15C0003A2F13 /* datakegiatan.json in Resources */ = {isa = PBXBuildFile; fileRef = 842ED97E2ACD15BF003A2F13 /* datakegiatan.json */; };
-		845B42F32AD6315E0080045F /* perjalur.json in Resources */ = {isa = PBXBuildFile; fileRef = 845B42F22AD6315E0080045F /* perjalur.json */; };
+		842ED97F2ACD15C0003A2F13 /* kegiatan.json in Resources */ = {isa = PBXBuildFile; fileRef = 842ED97E2ACD15BF003A2F13 /* kegiatan.json */; };
+		845B42F32AD6315E0080045F /* dataperjalur.json in Resources */ = {isa = PBXBuildFile; fileRef = 845B42F22AD6315E0080045F /* dataperjalur.json */; };
 		845F35812AC27FF50046D0D3 /* xample.json in Resources */ = {isa = PBXBuildFile; fileRef = 845F35802AC27FF50046D0D3 /* xample.json */; };
 		846D781B2AF4560600B4DAAE /* WaterLevelSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D781A2AF4560600B4DAAE /* WaterLevelSensor.swift */; };
 		846E75262BEAEFC70079ADDF /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E75252BEAEFC70079ADDF /* VideoPlayer.swift */; };
 		84705DA62AF3DD3B000732D0 /* RuasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84705DA52AF3DD3B000732D0 /* RuasView.swift */; };
+		84873A742C2D03EC0024AF65 /* DataLalinJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84873A732C2D03EC0024AF65 /* DataLalinJson.swift */; };
+		84873A762C2D08A90024AF65 /* DataTollJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84873A752C2D08A90024AF65 /* DataTollJson.swift */; };
 		8490317229363E47003A8280 /* CctvCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8490317129363E47003A8280 /* CctvCarousel.swift */; };
 		8494E4B5294AACC600AC11FE /* GangguanLalinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494E4B4294AACC600AC11FE /* GangguanLalinModel.swift */; };
 		8494E4B7294AB23A00AC11FE /* GangguanModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494E4B6294AB23A00AC11FE /* GangguanModal.swift */; };
@@ -142,12 +144,14 @@
 		84037D0C2B04A58D00CB24F3 /* DashboardLalinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardLalinModel.swift; sourceTree = "<group>"; };
 		8408F6872BEF2914006E2386 /* SetLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLocalStorage.swift; sourceTree = "<group>"; };
 		840E1CB6294493D0007788BC /* DetailEventLalin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventLalin.swift; sourceTree = "<group>"; };
-		842ED97E2ACD15BF003A2F13 /* datakegiatan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = datakegiatan.json; sourceTree = "<group>"; };
-		845B42F22AD6315E0080045F /* perjalur.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = perjalur.json; sourceTree = "<group>"; };
+		842ED97E2ACD15BF003A2F13 /* kegiatan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kegiatan.json; sourceTree = "<group>"; };
+		845B42F22AD6315E0080045F /* dataperjalur.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dataperjalur.json; sourceTree = "<group>"; };
 		845F35802AC27FF50046D0D3 /* xample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = xample.json; sourceTree = "<group>"; };
 		846D781A2AF4560600B4DAAE /* WaterLevelSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterLevelSensor.swift; sourceTree = "<group>"; };
 		846E75252BEAEFC70079ADDF /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
 		84705DA52AF3DD3B000732D0 /* RuasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuasView.swift; sourceTree = "<group>"; };
+		84873A732C2D03EC0024AF65 /* DataLalinJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLalinJson.swift; sourceTree = "<group>"; };
+		84873A752C2D08A90024AF65 /* DataTollJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTollJson.swift; sourceTree = "<group>"; };
 		8490317129363E47003A8280 /* CctvCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CctvCarousel.swift; sourceTree = "<group>"; };
 		8494E4B4294AACC600AC11FE /* GangguanLalinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GangguanLalinModel.swift; sourceTree = "<group>"; };
 		8494E4B6294AB23A00AC11FE /* GangguanModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GangguanModal.swift; sourceTree = "<group>"; };
@@ -310,8 +314,8 @@
 		FA3E42E928A3B4F300C30323 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				845B42F22AD6315E0080045F /* perjalur.json */,
-				842ED97E2ACD15BF003A2F13 /* datakegiatan.json */,
+				845B42F22AD6315E0080045F /* dataperjalur.json */,
+				842ED97E2ACD15BF003A2F13 /* kegiatan.json */,
 				84D94FF22955BA7400637CED /* lalin.json */,
 				84D94FF32955BA7400637CED /* toll.json */,
 				FA3E42E528A38A7B00C30323 /* ColorSet.swift */,
@@ -319,6 +323,8 @@
 				FA7FE4CC28A6472500669633 /* ConManager.swift */,
 				FABA168E28B326D500BFD24D /* SetBottomSheet.swift */,
 				845F35802AC27FF50046D0D3 /* xample.json */,
+				84873A732C2D03EC0024AF65 /* DataLalinJson.swift */,
+				84873A752C2D08A90024AF65 /* DataTollJson.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -553,8 +559,8 @@
 				84D94FF42955BA7400637CED /* lalin.json in Resources */,
 				84C057D52C05D10800E7DEB3 /* GoogleService-Info.plist in Resources */,
 				84D94FF52955BA7400637CED /* toll.json in Resources */,
-				845B42F32AD6315E0080045F /* perjalur.json in Resources */,
-				842ED97F2ACD15C0003A2F13 /* datakegiatan.json in Resources */,
+				845B42F32AD6315E0080045F /* dataperjalur.json in Resources */,
+				842ED97F2ACD15C0003A2F13 /* kegiatan.json in Resources */,
 				FA6BF796289EC047006EECC0 /* Preview Assets.xcassets in Resources */,
 				FA6BF793289EC047006EECC0 /* Assets.xcassets in Resources */,
 				845F35812AC27FF50046D0D3 /* xample.json in Resources */,
@@ -597,6 +603,7 @@
 				846D781B2AF4560600B4DAAE /* WaterLevelSensor.swift in Sources */,
 				FA16401728DBE35800954717 /* WebviewPresent.swift in Sources */,
 				84DBF7A7294ED77F00B6578C /* WimModel.swift in Sources */,
+				84873A742C2D03EC0024AF65 /* DataLalinJson.swift in Sources */,
 				84DBF789294C695800B6578C /* RestAreaModel.swift in Sources */,
 				FA0BBEDC28E295CD000278C6 /* SegmentModel.swift in Sources */,
 				84DBF78F294D76E300B6578C /* RtmsModal.swift in Sources */,
@@ -643,6 +650,7 @@
 				FA3E42E428A3732600C30323 /* RestApiController.swift in Sources */,
 				8494E4B5294AACC600AC11FE /* GangguanLalinModel.swift in Sources */,
 				84705DA62AF3DD3B000732D0 /* RuasView.swift in Sources */,
+				84873A762C2D08A90024AF65 /* DataTollJson.swift in Sources */,
 				84DBF791294D966E00B6578C /* Rtms2Model.swift in Sources */,
 				84A0B4DF2947FE1F006260FD /* vmsModal.swift in Sources */,
 				FA7B35A428B348A10022FCC1 /* LalinModel.swift in Sources */,
@@ -709,7 +717,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -765,7 +773,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -786,7 +794,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.3.5;
-				DEVELOPMENT_ASSET_PATHS = "JID.COM/Tools/datakegiatan.json JID.COM/Tools/perjalur.json JID.COM/Preview\\ Content JID.COM/Tools/toll.json JID.COM/Tools/lalin.json";
+				DEVELOPMENT_ASSET_PATHS = "JID.COM/Preview\\ Content JID.COM/Tools/toll.json JID.COM/Tools/lalin.json";
 				DEVELOPMENT_TEAM = 537AVW7LBB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -798,7 +806,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -827,7 +835,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.3.5;
-				DEVELOPMENT_ASSET_PATHS = "JID.COM/Tools/datakegiatan.json JID.COM/Tools/perjalur.json JID.COM/Preview\\ Content JID.COM/Tools/toll.json JID.COM/Tools/lalin.json";
+				DEVELOPMENT_ASSET_PATHS = "JID.COM/Preview\\ Content JID.COM/Tools/toll.json JID.COM/Tools/lalin.json";
 				DEVELOPMENT_TEAM = 537AVW7LBB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -839,7 +847,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -897,7 +905,7 @@
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
+				minimumVersion = 10.22.0;
 			};
 		};
 		84CEE4D92919DD960092B333 /* XCRemoteSwiftPackageReference "PopupView" */ = {

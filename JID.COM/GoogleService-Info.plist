@@ -30,5 +30,7 @@
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:474666845677:ios:4a6a365962bc525bd753e4</string>
+	<key>MinimumOSVersion</key>
+	<string>16.0</string>
 </dict>
 </plist>

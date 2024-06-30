@@ -22,15 +22,15 @@ class LalinModel: ObservableObject{
     var sizeIcon1: Double = 0.01
     
     func JSONLalin(from fileName: String) throws -> FeatureCollection? {
-        guard let path = Bundle.main.path(forResource: fileName, ofType: "json") else {
-            preconditionFailure("File '\(fileName)' not found.")
-        }
+//        guard let path = Bundle.main.path(forResource: fileName, ofType: "json") else {
+//            preconditionFailure("File '\(fileName)' not found.")
+//        }
 
-        let filePath = URL(fileURLWithPath: path)
+//        let filePath = URL(fileURLWithPath: path)
         var featureCollection: FeatureCollection?
         do {
-            let data = try Data(contentsOf: filePath)
-            featureCollection = try JSONDecoder().decode(FeatureCollection.self, from: data)
+//            let data = try Data(contentsOf: filePath)
+            featureCollection = try JSONDecoder().decode(FeatureCollection.self, from: lalinjson)
         } catch {
             print("Error parsing data: \(error)")
         }

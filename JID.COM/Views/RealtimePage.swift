@@ -25,7 +25,10 @@ struct RealtimePage: View {
 //            Spacer()
             ZStack{
                 WebView(url: URL(string: baseUrl+"lalin/realtime-traffic")!, showLoading: $showLoading)
-                    .overlay(showLoading ? ProgressView("Loading...").toAnyView() : EmptyView().toAnyView())
+                    .overlay(showLoading ? ProgressView("Loading...")
+                        .tint(Color.black)
+                        .foregroundColor(Color.black)
+                        .toAnyView() : EmptyView().toAnyView())
             }
             
         }

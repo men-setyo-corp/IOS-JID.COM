@@ -25,6 +25,7 @@ struct GerbangTollModal: View {
                         .foregroundColor(.black)
                         .font(.system(size: 13, weight: .bold))
                 }
+                .padding(.top, 20)
                 VStack{
                     HStack
                     {
@@ -99,6 +100,7 @@ struct GerbangTollModal: View {
                     }.padding(.top, 3)
                     
                 }
+                Spacer()
             }
             .padding(.horizontal, 20)
             .background(Color.white)

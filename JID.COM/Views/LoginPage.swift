@@ -85,8 +85,8 @@ struct LoginPage: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .fill(Color.black.opacity(0.05))
                             }
+                            .foregroundColor(Color.black)
                             .font(.system(size: 13))
-                            .foregroundColor(.black)
                             .textInputAutocapitalization(.never)
                         
                         Text("Password")
@@ -95,7 +95,6 @@ struct LoginPage: View {
                             .foregroundColor(.black)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         SecureTextField(text: $modelLogin.password)
-                            .foregroundColor(.black)
                             .padding()
                             .overlay(
                                 RoundedRectangle(cornerRadius: 8)
@@ -105,8 +104,8 @@ struct LoginPage: View {
                                 RoundedRectangle(cornerRadius: 8)
                                     .fill(Color.black.opacity(0.05))
                             }
+                            .foregroundColor(Color.black)
                             .font(.system(size: 13))
-                            .foregroundColor(.black)
                             .textInputAutocapitalization(.never)
         
                         

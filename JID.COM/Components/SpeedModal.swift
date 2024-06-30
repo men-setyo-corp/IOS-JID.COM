@@ -94,11 +94,13 @@ struct SpeedModal: View {
                     .padding(.top, 3)
                     
                 }
+                Spacer()
             }
             .padding(.horizontal, 20)
             .padding(.top, 10)
             .padding(.bottom, 10)
             .background(Color.white)
+            
         }
         .frame(maxWidth: .infinity, alignment: .bottom)
     }

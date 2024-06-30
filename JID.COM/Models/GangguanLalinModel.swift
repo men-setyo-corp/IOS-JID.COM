@@ -33,7 +33,7 @@ class GangguanLalinModel: ObservableObject{
     let sourceData = "source-gangguanlalin"
     var mapView: MapView!
     var timer = Timer()
-    var sizeIcon: Double = 0.6
+    var sizeIcon: Double = 0.4
     
     
     func setUpGangguanlalinAPI(setmapView: MapView)  {
@@ -50,7 +50,7 @@ class GangguanLalinModel: ObservableObject{
                     }
                     self.geoJSONSource.data = .featureCollection(featureCollection)
                     
-                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "crash_32")!,
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "gangguan_lalin3")!,
                                                              id: "icon_gangguanlalin")
                     
                     var symbollayer = SymbolLayer(id: "gangguanlalin")

@@ -55,6 +55,7 @@ struct Data_cctv {
 struct Data_vms {
     var title: String
     var id_ruas: Int
+    var nama_tol: String
     var nama_lokasi: String
     var kode_lokasi: String
     var cabang: String

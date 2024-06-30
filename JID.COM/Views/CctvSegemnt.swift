@@ -118,13 +118,15 @@ struct CctvSegemnt: View {
                                 }
                             }
                         }
-                        ZStack{
-                            if showLoadingHsl {
-                                VStack{
-                                    Spacer()
-                                    ProgressView()
-                                        .tint(.white)
-                                    Spacer()
+                        if is_hls {
+                            ZStack{
+                                if showLoadingHsl {
+                                    VStack{
+                                        Spacer()
+                                        ProgressView()
+                                            .tint(.white)
+                                        Spacer()
+                                    }
                                 }
                             }
                         }

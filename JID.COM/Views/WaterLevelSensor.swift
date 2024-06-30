@@ -122,7 +122,7 @@ struct WaterLevelSensor: View {
                             .padding(.vertical)
                             .padding(.horizontal)
                         }
-                        .presentationDetents([.medium, .height(240)])
+                        .presentationDetents([.medium])
                     }
                 
                 
@@ -133,7 +133,6 @@ struct WaterLevelSensor: View {
                     
                 }else{
                     ScrollView{
-                        
                         ForEach(dataWaterLevel) { dataVal in
                             ZStack{
                                 Image("Cloudy")
@@ -148,8 +147,9 @@ struct WaterLevelSensor: View {
                                             .foregroundColor(Color.white)
                                         Button{
                                             nmLokasi = dataVal.nama_lokasi
-                                            showCCTV = true
                                             urlSet = dataVal.url_cctv
+                                            print(urlSet, nmLokasi)
+                                            showCCTV = true
                                         }label:{
                                             Image(systemName: "eye")
                                                 .font(.system(size: 12))
@@ -163,37 +163,6 @@ struct WaterLevelSensor: View {
                                         Text(Dataset().convertDateFormat(inputDate: dataVal.waktu_update))
                                             .font(.system(size: 12, weight: .bold))
                                             .foregroundColor(Color.white)
-                                    }
-                                    .sheet(isPresented: $showCCTV){
-                                        ZStack{
-                                            Color.white.edgesIgnoringSafeArea(.all)
-                                            VStack{
-                                                Text("\(nmLokasi)")
-                                                    .font(.system(size: 13, weight: .bold))
-                                                    .foregroundColor(.black)
-                                                    .padding(.top, 5)
-                                                Spacer()
-                                                AsyncImage(url: URL(string:urlSet)) { phase in
-                                                    if let image = phase.image {
-                                                        image
-                                                            .resizable()
-                                                            .onAppear{
-                                                                startRun(uri_set: urlSet)
-                                                            }
-                                                    } else if phase.error != nil {
-                                                        ProgressView()
-                                                            .tint(.black)
-                                                    } else {
-                                                        ProgressView()
-                                                            .tint(.black)
-                                                    }
-                                                }
-                                                Spacer()
-                                            }
-                                            .padding(.horizontal)
-                                            .padding(.vertical)
-                                        }
-                                        .presentationDetents([.height(240)])
                                     }
                                     
                                     Spacer()
@@ -266,6 +235,38 @@ struct WaterLevelSensor: View {
                                 .padding()
                             }
                         }
+                        
+                    }
+                    .sheet(isPresented: $showCCTV){
+                        ZStack{
+                            Color.white.edgesIgnoringSafeArea(.all)
+                            VStack{
+                                Text("\(nmLokasi)")
+                                    .font(.system(size: 13, weight: .bold))
+                                    .foregroundColor(.black)
+                                    .padding(.top, 5)
+                                Spacer()
+                                AsyncImage(url: URL(string:urlSet)) { phase in
+                                    if let image = phase.image {
+                                        image
+                                            .resizable()
+                                            .onAppear{
+                                                startRun(uri_set: urlSet)
+                                            }
+                                    } else if phase.error != nil {
+                                        ProgressView()
+                                            .tint(.black)
+                                    } else {
+                                        ProgressView()
+                                            .tint(.black)
+                                    }
+                                }
+                                Spacer()
+                            }
+                            .padding(.horizontal)
+                            .padding(.vertical)
+                        }
+                        .presentationDetents([.medium])
                     }
                 }
                 Spacer()
@@ -303,7 +304,7 @@ struct WaterLevelSensor: View {
     }
     
     private func startRun(uri_set:String) {
-        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { timer in
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
             urlSet = uri_set
             print(urlSet)
            if showCCTV == false {

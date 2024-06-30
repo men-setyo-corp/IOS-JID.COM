@@ -19,6 +19,12 @@ struct DataGangguan: View {
     @State var detail = ""
     @State var dampak = ""
     
+    @State var km = ""
+    @State var lajur = ""
+    @State var rangkm = ""
+    @State var jalur = ""
+    @State var status = ""
+    
     var body: some View {
         ZStack{
             VStack{
@@ -66,12 +72,87 @@ struct DataGangguan: View {
                                 selesai = gangguan.waktu_selesai ?? "-"
                                 detail = gangguan.detail_kejadian
                                 dampak = gangguan.dampak
+                                km = gangguan.km
+                                lajur = gangguan.lajur
+                                jalur = gangguan.jalur
                             }label:{
                                 VStack(alignment:.leading){
                                     HStack{
                                         Text(gangguan.nama_ruas)
-                                            .font(.system(size: 14))
+                                            .font(.system(size: 12, weight: .bold))
                                             .foregroundColor(Color.black)
+                                        Spacer()
+                                    }
+                                    .padding(.bottom, 3)
+                                    
+                                    ZStack{
+                                        HStack{
+                                            VStack(alignment: .leading){
+                                                Text("Tipe Gangguan")
+                                                    .font(.system(size: 12))
+                                                    .foregroundColor(Color.gray)
+                                                    .padding(.bottom, 1)
+                                                Text(gangguan.ket_tipe_gangguan)
+                                                    .font(.system(size: 12, weight: .bold))
+                                                    .foregroundColor(Color.black)
+                                            }
+                                            Spacer()
+                                            
+                                        }
+                                    }
+                                    
+                                    HStack{
+                                        VStack(alignment: .leading){
+                                            Text("KM")
+                                                .font(.system(size: 12))
+                                                .foregroundColor(Color.gray)
+                                            Text(gangguan.km)
+                                                .font(.system(size: 12, weight: .bold))
+                                                .foregroundColor(Color.white)
+                                                .padding(.horizontal)
+                                                .padding(.vertical, 2)
+                                                .background(Color(UIColor(hexString: "#6d757d")))
+                                                .cornerRadius(5)
+                                        }
+                                        VStack(alignment: .leading){
+                                            Text("Jalur")
+                                                .font(.system(size: 12))
+                                                .foregroundColor(Color.gray)
+                                            Text(gangguan.jalur)
+                                                .font(.system(size: 12, weight: .bold))
+                                                .foregroundColor(Color.white)
+                                                .padding(.horizontal)
+                                                .padding(.vertical, 2)
+                                                .background(Color(UIColor(hexString: "#6d757d")))
+                                                .cornerRadius(5)
+                                        }
+                                        VStack(alignment: .leading){
+                                            Text("Lajur")
+                                                .font(.system(size: 12))
+                                                .foregroundColor(Color.gray)
+                                            Text(gangguan.lajur)
+                                                .font(.system(size: 12, weight: .bold))
+                                                .foregroundColor(Color.white)
+                                                .padding(.horizontal)
+                                                .padding(.vertical, 2)
+                                                .background(Color(UIColor(hexString: "#6d757d")))
+                                                .cornerRadius(5)
+                                        }
+                                    }
+                                    .padding(.top, 1)
+                                    .padding(.bottom, 5)
+                                    
+                                    HStack{
+                                        VStack(alignment: .leading){
+                                            Text("Waktu Awal")
+                                                .font(.system(size: 12))
+                                                .foregroundColor(Color.gray)
+                                                .padding(.bottom, 1)
+                                            Text(Dataset().convertDateFormat(inputDate: gangguan.waktu_kejadian))
+                                                .font(.system(size: 12))
+                                                .foregroundColor(Color.black)
+                                                .padding(.bottom, 3)
+                                        }
                                         Spacer()
                                         Text(gangguan.ket_status)
                                             .padding(5)
@@ -81,32 +162,7 @@ struct DataGangguan: View {
                                             .background(gangguan.id_status == 3 ? Color(UIColor(hexString: "#0e6efd")) : gangguan.id_status == 1 ? Color(UIColor(hexString: "#dc3545")) : Color(UIColor(hexString: "#ffc107")))
                                             .cornerRadius(5)
                                     }
-                                    Text(gangguan.ket_tipe_gangguan)
-                                        .font(.system(size: 14, weight: .bold))
-                                        .foregroundColor(Color.black)
-                                    HStack{
-                                        Text(gangguan.km)
-                                            .padding(5)
-                                            .padding(.horizontal, 5)
-                                            .font(.system(size: 12, weight: .bold))
-                                            .foregroundColor(Color.white)
-                                            .background(Color(UIColor(hexString: "#6d757d")))
-                                            .cornerRadius(5)
-                                        Text(gangguan.jalur)
-                                            .padding(5)
-                                            .padding(.horizontal, 5)
-                                            .font(.system(size: 12, weight: .bold))
-                                            .foregroundColor(Color.white)
-                                            .background(Color(UIColor(hexString: "#6d757d")))
-                                            .cornerRadius(5)
-                                        Text(gangguan.lajur)
-                                            .padding(5)
-                                            .padding(.horizontal, 5)
-                                            .font(.system(size: 12, weight: .bold))
-                                            .foregroundColor(Color.white)
-                                            .background(Color(UIColor(hexString: "#6d757d")))
-                                            .cornerRadius(5)
-                                    }
+                                    
                                 }
                                 .padding()
                                 .frame(maxWidth: .infinity)
@@ -141,6 +197,7 @@ struct DataGangguan: View {
                             Spacer()
                         }
                         .padding(.bottom, 15)
+                        
                         HStack{
                             Text("Jenis")
                                 .font(.system(size: 13, weight: .bold))
@@ -170,6 +227,36 @@ struct DataGangguan: View {
                                 .font(.system(size: 13))
                                 .foregroundColor(Color.black)
                         }
+//                        Divider()
+//                        HStack{
+//                            Text("KM")
+//                                .font(.system(size: 13, weight: .bold))
+//                                .foregroundColor(Color.black)
+//                            Spacer()
+//                            Text(km)
+//                                .font(.system(size: 13))
+//                                .foregroundColor(Color.black)
+//                        }
+//                        Divider()
+//                        HStack{
+//                            Text("Lajur")
+//                                .font(.system(size: 13, weight: .bold))
+//                                .foregroundColor(Color.black)
+//                            Spacer()
+//                            Text(lajur)
+//                                .font(.system(size: 13))
+//                                .foregroundColor(Color.black)
+//                        }
+//                        Divider()
+//                        HStack{
+//                            Text("Jalur")
+//                                .font(.system(size: 13, weight: .bold))
+//                                .foregroundColor(Color.black)
+//                            Spacer()
+//                            Text(jalur)
+//                                .font(.system(size: 13))
+//                                .foregroundColor(Color.black)
+//                        }
                         Divider()
                         HStack{
                             Text("Dampak")
@@ -192,14 +279,13 @@ struct DataGangguan: View {
                                 .padding(.top, 1)
                         }
                         .padding(.top, 15)
-
                         Spacer()
                     }
                     .background(Color.white)
                     .padding(.top, 25)
                     .padding(.horizontal)
                 }
-                .presentationDetents([.medium, .height(240)])
+                .presentationDetents([.medium])
             }
         }
         .onAppear{

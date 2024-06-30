@@ -17,15 +17,15 @@ class TollModel: ObservableObject{
     
     //load json from local directory
     func JSONLalinToll(from fileName: String) throws -> FeatureCollection? {
-        guard let path = Bundle.main.path(forResource: fileName, ofType: "json") else {
-            preconditionFailure("File '\(fileName)' not found.")
-        }
+//        guard let path = Bundle.main.path(forResource: fileName, ofType: "json") else {
+//            preconditionFailure("File '\(fileName)' not found.")
+//        }
 
-        let filePath = URL(fileURLWithPath: path)
+//        let filePath = URL(fileURLWithPath: path)
         var featureCollection: FeatureCollection?
         do {
-            let data = try Data(contentsOf: filePath)
-            featureCollection = try JSONDecoder().decode(FeatureCollection.self, from: data)
+//            let data = try Data(contentsOf: filePath)
+            featureCollection = try JSONDecoder().decode(FeatureCollection.self, from: jalantol)
         } catch {
             print("Error parsing data: \(error)")
         }
@@ -56,4 +56,6 @@ class TollModel: ObservableObject{
         try! setmapView.mapboxMap.style.addLayer(lineLayer, layerPosition: nil)
         
     }
+    
+    
 }

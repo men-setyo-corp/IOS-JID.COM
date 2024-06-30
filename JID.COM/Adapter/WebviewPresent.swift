@@ -19,6 +19,7 @@ struct WebView: UIViewRepresentable {
         webView.navigationDelegate = context.coordinator
         webView.evaluateJavaScript("localStorage.setItem(\"token\", \"\(modelLogin.auth)\")")
         let request = URLRequest(url: url)
+        webView.backgroundColor = .white
         webView.load(request)
         return webView
     }

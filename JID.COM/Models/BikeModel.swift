@@ -16,7 +16,7 @@ class BikeModel: ObservableObject{
     var geoJSONSource = GeoJSONSource()
     let sourceDatawater = "source-bike"
     var mapView: MapView!
-    var sizeIcon: Double = 0.5
+    var sizeIcon: Double = 0.7
     
     func setUpBikeAPI(setmapView: MapView)  {
         print("run layar data bike...")
@@ -32,8 +32,10 @@ class BikeModel: ObservableObject{
                     }
                     self.geoJSONSource.data = .featureCollection(featureCollection)
                     
-                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "bike")!,
-                                                             id: "ic_bike")
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "bike_on")!,
+                                                             id: "ic_bike_on")
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "bike_off")!,
+                                                             id: "ic_bike_off")
                    
                     
                     var symbollayer = SymbolLayer(id: "bike-symbol")
@@ -44,7 +46,7 @@ class BikeModel: ObservableObject{
                     
                     symbollayer.source = self.sourceDatawater
                     
-                    symbollayer.iconImage = .constant(.name("ic_bike"))
+                    symbollayer.iconImage = .constant(.name("ic_bike_on"))
                     
                     symbollayer.iconSize = .constant(self.sizeIcon)
                     symbollayer.textField = .expression(Exp(.get){"nama_lokasi"})

@@ -155,6 +155,7 @@ class MapViewController: UIViewController {
                         self.modalSheet(dataSet: objData)
                     }else if objData["title"].stringValue == "vms"{
                         self.modalSheet(dataSet: objData)
+                        print(objData)
                     }else if objData["title"].stringValue == "gangguanlalin"{
                         self.modalSheet(dataSet: objData)
                     }else if objData["title"].stringValue == "rekayasalalin"{

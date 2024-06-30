@@ -12,6 +12,7 @@ import SDWebImage
 struct vmsModal: View {
     @Environment(\.presentationMode) var presentationMode
     
+    var modelLogin : LoginModel = LoginModel()
     var dataResult : Data_vms
     @State var urlSet : String = ""
     @State var stopRun: Bool = true
@@ -23,7 +24,7 @@ struct vmsModal: View {
                     HStack{
                         Spacer()
                         if dataResult.status_koneksi == "TERPUTUS" {
-                            Text("VMS OFF")
+                            Text("DMS OFF")
                                 .font(.system(size: 12, weight: .bold))
                                 .foregroundColor(.white)
                                 .frame(height: 60)
@@ -34,8 +35,10 @@ struct vmsModal: View {
                                         .resizable()
                                 }else if phase.error != nil {
                                     ProgressView()
+                                        .tint(.white)
                                 } else {
                                     ProgressView()
+                                        .tint(.white)
                                 }
                             }
                             .frame(height: 60)
@@ -65,10 +68,10 @@ struct vmsModal: View {
                 .cornerRadius(10)
                 
                 VStack{
-                    Text("CABANG")
+                    Text("Nama Ruas")
                         .font(.system(size: 13))
                         .foregroundColor(Color.black.opacity(0.50))
-                    Text(dataResult.cabang)
+                    Text(dataResult.nama_tol)
                         .font(.system(size: 13))
                         .foregroundColor(Color.black)
                         .multilineTextAlignment(.center)
@@ -103,10 +106,11 @@ struct vmsModal: View {
     
     private func startRunSnap() {
         var nourut = 0;
-        urlSet = "https://jid.jasamarga.com/client-api/getimg/\(dataResult.kode_lokasi)/1"
+        //https://api-provider-jid.jasamarga.com/client-api/getimg/GTCIMANGGISGOLF/1
+        urlSet = "https://api-provider-jid.jasamarga.com/client-api/getimg/\(dataResult.kode_lokasi)/1"
         Timer.scheduledTimer(withTimeInterval: 2.5, repeats: true) { timer in
             nourut = nourut + 1
-            urlSet = "https://jid.jasamarga.com/client-api/getimg/\(dataResult.kode_lokasi)/\(nourut)"
+            urlSet = "https://api-provider-jid.jasamarga.com/client-api/getimg/\(dataResult.kode_lokasi)/\(nourut)"
             print(nourut)
             
             if stopRun == false {
@@ -123,7 +127,7 @@ struct vmsModal: View {
 
 
 struct vmsModal_Previews: PreviewProvider {
-    static let sendDataVms = Data_vms(title: "", id_ruas: 0, nama_lokasi: "", kode_lokasi: "", cabang: "", jml_pesan: 0, waktu_kirim_terakhir: "", status_koneksi: "")
+    static let sendDataVms = Data_vms(title: "", id_ruas: 0, nama_tol:"", nama_lokasi: "", kode_lokasi: "", cabang: "", jml_pesan: 0, waktu_kirim_terakhir: "", status_koneksi: "")
     
     static var previews: some View {
         vmsModal(dataResult: sendDataVms)

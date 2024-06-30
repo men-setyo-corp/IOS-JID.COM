@@ -19,7 +19,7 @@ class Dataset{
         olDateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         let oldDate = olDateFormatter.date(from: inputDate)
        
-        olDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        olDateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
         return olDateFormatter.string(from: oldDate!)
     }
     
@@ -80,6 +80,7 @@ class Dataset{
         let data_vms_result = Data_vms(
             title: dataSet["title"].stringValue,
             id_ruas: dataSet["id_ruas"].intValue,
+            nama_tol: dataSet["nama_tol"].stringValue,
             nama_lokasi: dataSet["nama_lokasi"].stringValue,
             kode_lokasi: dataSet["kode_lokasi"].stringValue,
             cabang: dataSet["cabang"].stringValue,

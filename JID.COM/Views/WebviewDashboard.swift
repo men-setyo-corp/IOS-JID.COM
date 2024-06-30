@@ -23,32 +23,20 @@ struct WebviewDashboard: View {
     
     var body: some View {
         ZStack {
+            Color.white.ignoresSafeArea()
             VStack{
-//                HStack{
-//                    Button{
-//                        self.presentationMode.wrappedValue.dismiss()
-//                    }label:{
-//                        Text(Image(systemName: "chevron.backward"))
-//                            .foregroundColor(Color(UIColor(hexString: "#323232")))
-//                            .font(.system(size: 20, weight: .bold))
-//                    }
-//                    Spacer()
-//
-//                    Text(title.replacingOccurrences(of: "\n", with: " "))
-//                        .foregroundColor(Color(UIColor(hexString: "#323232")))
-//                        .font(.system(size: 15, weight: .bold))
-//                    Spacer()
-//                }
-//                .padding(.horizontal, 25)
-//                .padding(.bottom, 15)
-//                Spacer()
-//
                 ZStack{
                     WebView(url: URL(string: baseUrl+urlweb)!, showLoading: $showLoading)
-                        .overlay(showLoading ? ProgressView("Loading...").toAnyView() : EmptyView().toAnyView())
+                        .background(Color.white)
+                        .overlay(showLoading ? ProgressView("Loading...")
+                            .tint(Color.black)
+                            .foregroundColor(Color.black)
+                            .toAnyView() : EmptyView().toAnyView())
                 }
+                .background(.white)
                 
             }
+            .background(.white)
         }
         .onAppear{
             self.showLoading.toggle()

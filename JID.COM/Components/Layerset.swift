@@ -35,11 +35,11 @@ struct Layerset: View {
                     ZStack{
                         Capsule()
                             .frame(width: 40, height: 6)
-                            .background(Color(UIColor(hexString: "#101010")))
+                            .background(Color.black)
                     }
                     .frame(height:40)
                     .frame(maxWidth:.infinity)
-                    .background(Color.white)
+                    .background(Color.gray)
                     .gesture(dragGesture)
                     
                     

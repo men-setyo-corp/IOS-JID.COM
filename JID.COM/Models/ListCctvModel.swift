@@ -55,6 +55,7 @@ class ListCctvModel: ObservableObject {
             RestApiController().resAPIGet(endPoint: "cctv/matrix/v1/show?segment_name="+replaceStr+"&ruas_id="+String(idruas)+"&limit=500&offset=0", method: .get){ (results) in
                 let getJSON = JSON(results ?? "Null data from API")
                 DispatchQueue.main.async {
+                    print(getJSON)
                     if getJSON["rows"].count > 0 {
                         self.showErr.toggle()
                         do {

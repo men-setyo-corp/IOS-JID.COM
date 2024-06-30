@@ -120,6 +120,7 @@ class RestApiController{
                     completion(json)
                 case .failure(let error):
                     print(error)
+                    self.modelLogin.isLogin = false
             }
         }
     }
@@ -138,6 +139,7 @@ class RestApiController{
                     completion(json)
                 case .failure(let error):
                     print(error)
+                    self.modelLogin.isLogin = false
             }
         }
     }
@@ -156,6 +158,7 @@ class RestApiController{
                     completion(json)
                 case .failure(let error):
                     print(error)
+                    self.modelLogin.isLogin = false
             }
         }
     }
@@ -174,6 +177,7 @@ class RestApiController{
                     completion(json)
                 case .failure(let error):
                     print(error)
+                    self.modelLogin.isLogin = false
             }
         }
     }

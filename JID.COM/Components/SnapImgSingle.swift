@@ -78,9 +78,25 @@ struct SnapImgSingle: View {
                         } else if phase.error != nil {
                             ProgressView()
                                 .tint(.white)
+                                .onAppear(){
+                                    stopRun = true
+                                }
+                                .onChange(of: stopRun){ val in
+                                    if val == true {
+                                        startRunSnap()
+                                    }
+                                }
                         } else {
                             ProgressView()
                                 .tint(.white)
+                                .onAppear(){
+                                    stopRun = true
+                                }
+                                .onChange(of: stopRun){ val in
+                                    if val == true {
+                                        startRunSnap()
+                                    }
+                                }
                         }
                     }
                     .frame(maxWidth: .infinity)

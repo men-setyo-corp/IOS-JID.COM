@@ -14,7 +14,8 @@ struct MainPage: View {
         UITabBar.appearance().barTintColor = .systemBackground
     }
     @State var selectedIndex = 0
-    let tabbarImgaeName = ["house", "play.tv.fill", "map.fill", "bookmark.circle.fill", "stopwatch.fill"]
+    let tabbarImgaeName = ["menu_home", "menu_cctv", "menu_map", "menu_gerang", "menu_realtime"]
+    let tabbarImgaeNamewarna = ["menu_home_warna", "menu_cctv_warna", "menu_map_warna", "menu_gerang_warna", "menu_realtime_warna"]
     let tabNameMenu = ["Home", "CCTV", "Map", "Antrian", "Realtime"]
     
     @State var showTopMenuBar = true
@@ -72,7 +73,7 @@ struct MainPage: View {
                                     .font(.system(size: 18, weight: .bold))
                                     .foregroundColor(Color(UIColor(hexString: "#390099")))
                             }
-                            .alert("Peringatan Akun", isPresented: $showAlertLogout) {
+                            .alert("Logout", isPresented: $showAlertLogout) {
                                 Button {
                                     // nothing needed here
                                 } label: {
@@ -158,7 +159,7 @@ struct MainPage: View {
                     } label: {
                         Spacer()
                         VStack{
-                            Image(systemName: tabbarImgaeName[num])
+                            Image(selectedIndex == num ? tabbarImgaeNamewarna[num] : tabbarImgaeName[num])
                                 .font(.system(size: 24, weight: .bold))
                                 .foregroundColor(selectedIndex == num ? Color(UIColor(hexString: "#390099")) : .init(white: 0.6))
                             Text(tabNameMenu[num])

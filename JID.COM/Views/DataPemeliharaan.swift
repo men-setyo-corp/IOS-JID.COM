@@ -69,8 +69,73 @@ struct DataPemeliharaan: View {
                                 VStack(alignment:.leading){
                                     HStack{
                                         Text(pemeliharaan.nama_ruas)
-                                            .font(.system(size: 14))
+                                            .font(.system(size: 12, weight: .bold))
                                             .foregroundColor(Color.black)
+                                        Spacer()
+                                    }
+                                    .padding(.bottom, 3)
+                                    
+                                    Text("Tipe Pemeliharaan")
+                                        .font(.system(size: 12))
+                                        .foregroundColor(Color.gray)
+                                        .padding(.bottom, 1)
+                                    Text(pemeliharaan.ket_jenis_kegiatan)
+                                        .font(.system(size: 12, weight: .bold ))
+                                        .foregroundColor(Color.black)
+                                        .padding(.bottom, 5)
+                                    
+                                    HStack{
+                                        VStack(alignment: .leading){
+                                            Text("KM")
+                                                .font(.system(size: 12))
+                                                .foregroundColor(Color.gray)
+                                            Text(pemeliharaan.km)
+                                                .padding(.horizontal)
+                                                .padding(.vertical, 2)
+                                                .font(.system(size: 12, weight: .bold))
+                                                .foregroundColor(Color.white)
+                                                .background(Color(UIColor(hexString: "#6d757d")))
+                                                .cornerRadius(5)
+                                        }
+                                        VStack(alignment: .leading){
+                                            Text("Jalur")
+                                                .font(.system(size: 12))
+                                                .foregroundColor(Color.gray)
+                                            Text(pemeliharaan.jalur)
+                                                .padding(.horizontal)
+                                                .padding(.vertical, 2)
+                                                .font(.system(size: 12, weight: .bold))
+                                                .foregroundColor(Color.white)
+                                                .background(Color(UIColor(hexString: "#6d757d")))
+                                                .cornerRadius(5)
+                                        }
+                                        VStack(alignment: .leading){
+                                            Text("Lajur")
+                                                .font(.system(size: 12))
+                                                .foregroundColor(Color.gray)
+                                            Text(pemeliharaan.lajur)
+                                                .padding(.horizontal)
+                                                .padding(.vertical, 2)
+                                                .font(.system(size: 12, weight: .bold))
+                                                .foregroundColor(Color.white)
+                                                .background(Color(UIColor(hexString: "#6d757d")))
+                                                .cornerRadius(5)
+                                        }
+                                        
+                                    }
+                                    .padding(.bottom, 5)
+                                    
+                                    HStack{
+                                        VStack(alignment: .leading){
+                                            Text("Waktu Awal")
+                                                .font(.system(size: 12))
+                                                .foregroundColor(Color.gray)
+                                                .padding(.bottom, 1)
+                                            Text(Dataset().convertDateFormat(inputDate: pemeliharaan.waktu_awal))
+                                                .font(.system(size: 12))
+                                                .foregroundColor(Color.black)
+                                                .padding(.bottom, 3)
+                                        }
                                         Spacer()
                                         Text(pemeliharaan.ket_status)
                                             .padding(5)
@@ -80,32 +145,7 @@ struct DataPemeliharaan: View {
                                             .background(pemeliharaan.id_status == 3 ? Color(UIColor(hexString: "#0e6efd")) : pemeliharaan.id_status == 1 ? Color(UIColor(hexString: "#dc3545")) : Color(UIColor(hexString: "#ffc107")))
                                             .cornerRadius(5)
                                     }
-                                    Text(pemeliharaan.ket_jenis_kegiatan)
-                                        .font(.system(size: 14, weight: .bold ))
-                                        .foregroundColor(Color.black)
-                                    HStack{
-                                        Text(pemeliharaan.km)
-                                            .padding(5)
-                                            .padding(.horizontal, 5)
-                                            .font(.system(size: 12, weight: .bold))
-                                            .foregroundColor(Color.white)
-                                            .background(Color(UIColor(hexString: "#6d757d")))
-                                            .cornerRadius(5)
-                                        Text(pemeliharaan.jalur)
-                                            .padding(5)
-                                            .padding(.horizontal, 5)
-                                            .font(.system(size: 12, weight: .bold))
-                                            .foregroundColor(Color.white)
-                                            .background(Color(UIColor(hexString: "#6d757d")))
-                                            .cornerRadius(5)
-                                        Text(pemeliharaan.lajur)
-                                            .padding(5)
-                                            .padding(.horizontal, 5)
-                                            .font(.system(size: 12, weight: .bold))
-                                            .foregroundColor(Color.white)
-                                            .background(Color(UIColor(hexString: "#6d757d")))
-                                            .cornerRadius(5)
-                                    }
+                                    
                                 }
                                 .padding()
                                 .frame(maxWidth: .infinity)
@@ -211,7 +251,7 @@ struct DataPemeliharaan: View {
                 .padding(.top, 25)
                 .padding(.horizontal)
             }
-            .presentationDetents([.medium, .height(240)])
+            .presentationDetents([.medium])
         }
     }
     
