@@ -68,7 +68,7 @@ struct vmsModal: View {
                 .cornerRadius(10)
                 
                 VStack{
-                    Text("Nama Ruas")
+                    Text("Nama Segment")
                         .font(.system(size: 13))
                         .foregroundColor(Color.black.opacity(0.50))
                     Text(dataResult.nama_tol)
@@ -81,7 +81,7 @@ struct vmsModal: View {
                         .foregroundColor(Color.black)
                         .padding(.top, 0.5)
                     
-                    Button("Tutup") {
+                    Button("Close") {
                         stopRun = false
                         presentationMode.wrappedValue.dismiss()
                     }

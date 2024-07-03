@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftyJSON
+import Foundation
 
 struct ContentView: View {
     
@@ -41,8 +42,8 @@ struct ContentView: View {
             if Dataset.stsEventTol.isEmpty {
                 Dataset.stsEventTol = ["no","no","no"]
             }
-            
         }
+        
     }
     
     
@@ -52,4 +53,12 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+}
+
+struct RestData: Codable {
+    let resultCount: Int
+    let results: [GetDataRes]
+}
+struct GetDataRes: Codable {
+    var version: String
 }

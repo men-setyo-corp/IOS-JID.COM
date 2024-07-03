@@ -129,6 +129,16 @@ class LoginModel: ObservableObject {
         }
     }
     
+    func cek_versi_update(completion: @escaping (String) -> (Void)){
+        DispatchQueue.global().async{
+            RestApiController().resAPIGet(endPoint: "mobile/v1/version-check", method: .get){ results in
+                let getJSON = JSON(results ?? "Null data from API")
+                let versi = getJSON["data"]["current_version"].stringValue
+                completion(versi)
+            }
+        }
+    }
+    
     
 }
 

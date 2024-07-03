@@ -77,20 +77,20 @@ struct RadarModal: View {
                                         .font(.system(size: 13))
                                 }
                                 .padding(.top, 3)
-                                HStack{
-                                    Spacer()
-                                    NavigationLink(
-                                        destination: WebviewDashboard(urlweb: writer.url_radar, title: "Dashboard Radar"),
-                                    label:{
-                                        Text("LIHAT DATA")
-                                            .font(.system(size: 12, weight: .bold))
-                                            .foregroundColor(Color(UIColor(hexString: "#344879")))
-                                            .padding(10)
-                                    })
-                                    .background(Color(UIColor(hexString: "#DFEFFF")))
-                                    .cornerRadius(5)
-                                }
-                                .padding(.top, 3)
+//                                HStack{
+//                                    Spacer()
+//                                    NavigationLink(
+//                                        destination: WebviewDashboard(urlweb: writer.url_radar, title: "Dashboard Radar"),
+//                                    label:{
+//                                        Text("LIHAT DATA")
+//                                            .font(.system(size: 12, weight: .bold))
+//                                            .foregroundColor(Color(UIColor(hexString: "#344879")))
+//                                            .padding(10)
+//                                    })
+//                                    .background(Color(UIColor(hexString: "#DFEFFF")))
+//                                    .cornerRadius(5)
+//                                }
+//                                .padding(.top, 3)
                             }
                             Spacer()
                         }

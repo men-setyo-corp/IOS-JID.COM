@@ -17,7 +17,7 @@ class BatasKmModel: ObservableObject{
     var geoJSONSource = GeoJSONSource()
     let sourceData = "source-bataskm"
     var mapView: MapView!
-    var sizeIcon: Double = 0.9
+    var sizeIcon: Double = 0.3
     
     
     func setUpBatasKmAPI(setmapView: MapView)  {
@@ -34,7 +34,7 @@ class BatasKmModel: ObservableObject{
                     }
                     self.geoJSONSource.data = .featureCollection(featureCollection)
                     
-                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "km_20")!,
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "kmbatas")!,
                                                              id: "ic_bataskm")
                    
                     

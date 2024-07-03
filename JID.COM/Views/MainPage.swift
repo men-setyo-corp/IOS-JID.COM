@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Alamofire
 
 struct MainPage: View {
     @StateObject var modelLogin : LoginModel = LoginModel()
@@ -21,6 +22,7 @@ struct MainPage: View {
     @State var showTopMenuBar = true
     @State var showAlertLogout = false
     @State var showProgresLoading = false
+    @State private var showUpdate = false
     
     var body: some View {
         VStack{
@@ -129,18 +131,37 @@ struct MainPage: View {
                 switch selectedIndex{
                 case 0 :
                     HomePage()
+                        .onAppear{
+                            cekUpdateApp()
+                        }
                 case 1:
                     CctvPage()
+                        .onAppear{
+                            cekUpdateApp()
+                        }
                 case 2:
                     MapPage(showCarousel: false, idruas: 0, stopRun: false)
+                        .onAppear{
+                            cekUpdateApp()
+                        }
                 case 3:
                     AntrianPage()
+                        .onAppear{
+                            cekUpdateApp()
+                        }
                 case 4:
                     RealtimePage()
+                        .onAppear{
+                            cekUpdateApp()
+                        }
                 default:
                     NavigationView{
                         Text("Home Main")
-                    }.foregroundColor(.white)
+                    }
+                    .foregroundColor(.white)
+                    .onAppear{
+                        cekUpdateApp()
+                    }
                 }
             }
             
@@ -174,6 +195,39 @@ struct MainPage: View {
             }
         }
         .background(Color(.white))
+        .alert("Update Versi JID Moile", isPresented: $showUpdate) {
+            Button {
+                if let url = URL(string: "itms-apps://itunes.apple.com/app/6444597322"), UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                    exit(1)
+                }
+            } label: {
+                Text("Update")
+                    .foregroundColor(.red)
+            }
+        } message: {
+            Text("Silahkan Melakukan Update Versi Teraru JID Mobile !")
+        }
+    }
+    
+    func cekUpdateApp(){
+        let currentAppVersion = Bundle.main.infoDictionary
+        AF.request("http://itunes.apple.com/jp/lookup/?id=6444597322",
+                   method: .get,
+                   parameters: nil,
+                   headers: nil)
+        .responseDecodable(of: RestData.self){ response in
+            switch response.result {
+            case .success(let data):
+                let curVer = currentAppVersion?["CFBundleShortVersionString"] as! String
+                let lastVer = data.results[0].version
+                if lastVer != curVer {
+                    showUpdate = true
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
 

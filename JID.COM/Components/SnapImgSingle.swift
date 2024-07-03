@@ -28,82 +28,92 @@ struct SnapImgSingle: View {
     var body: some View {
         VStack{
             VStack(alignment: .leading, spacing: 0){
-                if is_hls {
-                    ZStack{
-                        VideoPlayer(player: playerHls)
-                            .onAppear(){
-                                let control = AVPlayerViewController()
-                                control.player = playerHls
-                                control.showsPlaybackControls = false
-                                control.videoGravity = .resizeAspectFill
-                                
-                                playerItem = AVPlayerItem(url: URL(string: urlSet)!)
-                                playerHls = AVPlayer(playerItem: playerItem)
-                                playerHls.replaceCurrentItem(with: playerItem)
-                                
-                                playerHls.play()
-                                playerHls.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, preferredTimescale: 1), queue: DispatchQueue.main){ (CMTime) -> Void in
+                if dataSnap.status == "1" {
+                    if is_hls {
+                        ZStack{
+                            VideoPlayer(player: playerHls)
+                                .onAppear(){
+                                    let control = AVPlayerViewController()
+                                    control.player = playerHls
+                                    control.showsPlaybackControls = false
+                                    control.videoGravity = .resizeAspectFill
                                     
-                                    if playerHls.currentItem?.status == .readyToPlay {
-                                        playerHls.play()
-                                    }
-                                    let playbackLikelyToKeepUp = playerHls.currentItem?.isPlaybackLikelyToKeepUp
-                                    if playbackLikelyToKeepUp == false{
-                                        print("IsBuffering")
-                                        showLoadingHsl = true
-                                    } else {
-                                        showLoadingHsl = false
+                                    playerItem = AVPlayerItem(url: URL(string: urlSet)!)
+                                    playerHls = AVPlayer(playerItem: playerItem)
+                                    playerHls.replaceCurrentItem(with: playerItem)
+                                    
+                                    playerHls.play()
+                                    playerHls.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, preferredTimescale: 1), queue: DispatchQueue.main){ (CMTime) -> Void in
+                                        
+                                        if playerHls.currentItem?.status == .readyToPlay {
+                                            playerHls.play()
+                                        }
+                                        let playbackLikelyToKeepUp = playerHls.currentItem?.isPlaybackLikelyToKeepUp
+                                        if playbackLikelyToKeepUp == false{
+                                            print("IsBuffering")
+                                            showLoadingHsl = true
+                                        } else {
+                                            showLoadingHsl = false
+                                        }
                                     }
                                 }
+                                .onDisappear(){
+                                    playerHls.pause()
+                                }
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 250)
+                            if showLoadingHsl {
+                                ProgressView()
+                                    .tint(.white)
                             }
-                            .onDisappear(){
-                                playerHls.pause()
-                            }
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 250)
-                        if showLoadingHsl {
-                            ProgressView()
-                                .tint(.white)
                         }
+                    }else{
+                        AsyncImage(url: URL(string: urlSet)) { phase in
+                            if let image = phase.image {
+                                image
+                                    .resizable()
+                                    .onAppear{
+                                        startRunSnap()
+                                    }
+                            } else if phase.error != nil {
+                                ProgressView()
+                                    .tint(.white)
+                                    .onAppear(){
+                                        stopRun = true
+                                    }
+                                    .onChange(of: stopRun){ val in
+                                        if val == true {
+                                            startRunSnap()
+                                        }
+                                    }
+                            } else {
+                                ProgressView()
+                                    .tint(.white)
+                                    .onAppear(){
+                                        stopRun = true
+                                    }
+                                    .onChange(of: stopRun){ val in
+                                        if val == true {
+                                            startRunSnap()
+                                        }
+                                    }
+                            }
+                        }
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 250)
+                        .background(Color.black)
                     }
-                    
                 }else{
-                    AsyncImage(url: URL(string: urlSet)) { phase in
-                        if let image = phase.image {
-                            image
-                                .resizable()
-                                .onAppear{
-                                    startRunSnap()
-                                }
-                        } else if phase.error != nil {
-                            ProgressView()
-                                .tint(.white)
-                                .onAppear(){
-                                    stopRun = true
-                                }
-                                .onChange(of: stopRun){ val in
-                                    if val == true {
-                                        startRunSnap()
-                                    }
-                                }
-                        } else {
-                            ProgressView()
-                                .tint(.white)
-                                .onAppear(){
-                                    stopRun = true
-                                }
-                                .onChange(of: stopRun){ val in
-                                    if val == true {
-                                        startRunSnap()
-                                    }
-                                }
-                        }
+                    VStack{
+                        Text("CCTV OFF")
+                            .font(.system(size: 13, weight: .bold))
+                            .foregroundColor(.white)
                     }
                     .frame(maxWidth: .infinity)
                     .frame(height: 250)
                     .background(Color.black)
+                    
                 }
-                
                 
                 HStack{
                     Image("logocctv")
@@ -147,7 +157,7 @@ struct SnapImgSingle: View {
                     .padding(.top, 2)
                     .multilineTextAlignment(.center)
                 
-                Button("Tutup") {
+                Button("Close") {
                     stopRun = true
                     presentationMode.wrappedValue.dismiss()
                 }

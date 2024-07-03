@@ -32,16 +32,41 @@ class GpsKendaraanModel: ObservableObject{
                     }
                     self.geoJSONSource.data = .featureCollection(featureCollection)
                     
+                    //ambulan
                     try! setmapView.mapboxMap.style.addImage(UIImage(named: "ambulance")!,
                                                              id: "ic_ambulance")
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "vehicle_ambulance_idle")!,
+                                                             id: "ic_ambulance_stop")
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "vehicle_ambulance_move")!,
+                                                             id: "ic_ambulance_run")
+                    //derek
                     try! setmapView.mapboxMap.style.addImage(UIImage(named: "derek")!,
                                                              id: "ic_derek")
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "vehicle_derek_idle")!,
+                                                             id: "ic_derek_stop")
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "vehicle_derek_move")!,
+                                                             id: "ic_derek_run")
+                    //kamtib
                     try! setmapView.mapboxMap.style.addImage(UIImage(named: "kamtib")!,
                                                              id: "ic_kamtib")
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "vehicle_kamtib_idle")!,
+                                                             id: "ic_kamtib_stop")
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "vehicle_kamtib_move")!,
+                                                             id: "ic_kamtib_run")
+                    //patroli
                     try! setmapView.mapboxMap.style.addImage(UIImage(named: "patroli")!,
                                                              id: "ic_patroli")
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "vehicle_patroli_idle")!,
+                                                             id: "ic_patroli_stop")
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "vehicle_patroli_move")!,
+                                                             id: "ic_patroli_runn")
+                    //support
                     try! setmapView.mapboxMap.style.addImage(UIImage(named: "support")!,
                                                              id: "ic_support")
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "vehicle_support_idle")!,
+                                                             id: "ic_support_stop")
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "vehicle_patroli_move")!,
+                                                             id: "ic_support_run")
                    
                     
                     var symbollayer = SymbolLayer(id: "gpskendaraan-symbol")
@@ -55,28 +80,28 @@ class GpsKendaraanModel: ObservableObject{
                     let expressionIcon = Exp(.switchCase) {
                         Exp(.eq) {
                             Exp(.get) { "poi" }
-                                "ambulance_30"
-                            }
+                            "ambulance_30"
+                        }
                         "ic_ambulance"
                         Exp(.eq) {
                             Exp(.get) { "poi" }
-                                "derek_30"
-                            }
+                            "derek_30"
+                        }
                         "ic_derek"
                         Exp(.eq) {
                             Exp(.get) { "poi" }
-                                "kamtib_30"
-                            }
+                            "kamtib_30"
+                        }
                         "ic_kamtib"
                         Exp(.eq) {
                             Exp(.get) { "poi" }
-                                "patroli_30"
-                            }
+                            "patroli_30"
+                        }
                         "ic_patroli"
                         Exp(.eq) {
                             Exp(.get) { "poi" }
-                                "support_30"
-                            }
+                            "support_30"
+                        }
                         "ic_support"
                         "ic_ambulance"
                     }

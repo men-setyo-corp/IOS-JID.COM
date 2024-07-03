@@ -16,7 +16,7 @@ class GerbangTollModel: ObservableObject{
     var geoJSONSource = GeoJSONSource()
     let sourceDataGerbang = "source-gerbangtoll"
     var mapView: MapView!
-    var sizeIcon: Double = 0.5
+    var sizeIcon: Double = 0.4
     
     func setUpGerbagToillPI(setmapView: MapView)  {
         print("run layar gerbangtoll...")
@@ -32,9 +32,9 @@ class GerbangTollModel: ObservableObject{
                     }
                     self.geoJSONSource.data = .featureCollection(featureCollection)
                     
-                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "gate_b_32")!,
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "gerbang_normal")!,
                                                              id: "G_on")
-                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "gate_r_32")!,
+                    try! setmapView.mapboxMap.style.addImage(UIImage(named: "gerbang_padat")!,
                                                              id: "G_off")
                    
                     

@@ -150,7 +150,7 @@ struct DetailEventLalin: View {
                     Button{
                         isShowModal.toggle()
                     }label:{
-                        Text("TUTUP")
+                        Text("CLOSE")
                             .padding(15)
                             .font(.system(size: 12))
                             .foregroundColor(Color(UIColor(hexString: "#FFFFFF")))
@@ -165,7 +165,6 @@ struct DetailEventLalin: View {
                 .background(Color(.white))
                 .cornerRadius(10)
                 .shadow(radius: 2)
-                .transition(.move(edge: .bottom))
                 
             }
         }

@@ -304,9 +304,8 @@ struct WaterLevelSensor: View {
     }
     
     private func startRun(uri_set:String) {
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { timer in
             urlSet = uri_set
-            print(urlSet)
            if showCCTV == false {
                timer.invalidate()
                print("stop..")

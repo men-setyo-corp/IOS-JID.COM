@@ -31,7 +31,7 @@ struct MenuDashboard: View {
 //    new
     let menuLaluLintas = ["Dashboard Lalin", "Realtime Lalin", "Antrian Gerbang", "Lalin Perjam", "Data Gangguan"]
     let menuPemeliharaan = ["Dashboard Pemeliharaan", "Data Pemeliharaan", "Water Level Sensor"]
-    let menuPeralatan = ["Dashboard Peralatan", "Monitoring Alat", "Realtime CCTV", "Realtime VMS"]
+    let menuPeralatan = ["Dashboard Peralatan", "Monitoring Alat", "Realtime CCTV", "Realtime DMS"]
     
     
     //pemeliharaan menu

@@ -193,7 +193,7 @@ struct ResAreaModal: View {
                     
                 }
                 
-                Button("Tutup") {
+                Button("Close") {
                     stopRun = false
                     presentationMode.wrappedValue.dismiss()
                 }
@@ -214,6 +214,7 @@ struct ResAreaModal: View {
         }
         
     }
+    
 }
 
 struct ResAreaModal_Previews: PreviewProvider {
