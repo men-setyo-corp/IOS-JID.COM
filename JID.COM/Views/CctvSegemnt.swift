@@ -253,51 +253,65 @@ struct CctvSegemnt: View {
         .background(.white)
         .navigationBarHidden(true)
         .onAppear{
-            ListCctvModel().getCctv(idruas: writer.id_key, nama_segment: writer.nama_segment){ (resultcctv) in
-                self.datacctv = resultcctv
-               
-                if let valueFirst = datacctv.first {
-                    urlStreamImg = "https://jid.jasamarga.com/cctv2/\(valueFirst.key_id)?tx=\(Float.random(in: 0...1))"
-                    urlStreamHls = "https://jmlive.jasamarga.com/hls/"+valueFirst.id_ruas+"/"+valueFirst.key_id+"/index.m3u8"
-                    if valueFirst.is_hls {
-                        showLoadingHsl = true
-                        
-                        urlSet = urlStreamHls
-                        playerItem = AVPlayerItem(url: URL(string: urlSet)!)
-                        playerHls = AVPlayer(playerItem: playerItem)
-                        playerHls.replaceCurrentItem(with: playerItem)
-                       
-                        playerHls.play()
-                        playerHls.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, preferredTimescale: 1), queue: DispatchQueue.main){ (CMTime) -> Void in
+            modelListcctv.getCctv(idruas: writer.id_key, nama_segment: writer.nama_segment){ (resultcctv, status) in
+                if status {
+                    self.datacctv = resultcctv
+                    if let valueFirst = datacctv.first {
+                        urlStreamImg = "https://jid.jasamarga.com/cctv2/\(valueFirst.key_id)?tx=\(Float.random(in: 0...1))"
+                        urlStreamHls = "https://jmlive.jasamarga.com/hls/"+valueFirst.id_ruas+"/"+valueFirst.key_id+"/index.m3u8"
+                        if valueFirst.is_hls {
+                            showLoadingHsl = true
                             
-                            if playerHls.currentItem?.status == .readyToPlay {
-                                playerHls.play()
+                            urlSet = urlStreamHls
+                            playerItem = AVPlayerItem(url: URL(string: urlSet)!)
+                            playerHls = AVPlayer(playerItem: playerItem)
+                            playerHls.replaceCurrentItem(with: playerItem)
+                           
+                            playerHls.play()
+                            playerHls.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, preferredTimescale: 1), queue: DispatchQueue.main){ (CMTime) -> Void in
+                                
+                                if playerHls.currentItem?.status == .readyToPlay {
+                                    playerHls.play()
+                                }
+                                let playbackLikelyToKeepUp = playerHls.currentItem?.isPlaybackLikelyToKeepUp
+                                if playbackLikelyToKeepUp == false{
+                                    print("IsBuffering")
+                                    showLoadingHsl = true
+                                } else {
+                                    showLoadingHsl = false
+                                }
                             }
-                            let playbackLikelyToKeepUp = playerHls.currentItem?.isPlaybackLikelyToKeepUp
-                            if playbackLikelyToKeepUp == false{
-                                print("IsBuffering")
-                                showLoadingHsl = true
-                            } else {
-                                showLoadingHsl = false
-                            }
+                            bufferHandle()
+                        }else{
+                            urlSet = urlStreamImg
                         }
-                        bufferHandle()
-                    }else{
-                        urlSet = urlStreamImg
+                        
+                        namaSet = valueFirst.nama
+                        namaSegmentSet = valueFirst.nama_segment
+                       
+                        keyStream = valueFirst.key_id
+                        selectedIndex = valueFirst.id
+                        selectedCctv = valueFirst.nama
+                        is_hls = valueFirst.is_hls
                     }
-                    
-                    namaSet = valueFirst.nama
-                    namaSegmentSet = valueFirst.nama_segment
-                   
-                    keyStream = valueFirst.key_id
-                    selectedIndex = valueFirst.id
-                    selectedCctv = valueFirst.nama
-                    is_hls = valueFirst.is_hls
+                }else{
+                    errShow = true
                 }
             }
         }
-        .alert("Important message", isPresented: $modelListcctv.showErr) {
-            Button("OK", role: .cancel) { }
+        .alert("CCTV Segment", isPresented: $errShow) {
+            Button{
+                stopRun = true
+                timerRunImg?.invalidate()
+                timerRunImg = nil
+                errShow = false
+                self.presentationMode.wrappedValue.dismiss()
+            } label: {
+                Text("Close")
+                    .foregroundColor(.red)
+            }
+        } message: {
+            Text("Maaf, Data CCTV pada segment ini belum ada !")
         }
         
     }

@@ -45,7 +45,7 @@ class ListCctvModel: ObservableObject {
     @Published var showErr: Bool = false
     @Published var errorMsg: String = ""
     
-    func getCctv(idruas: Int, nama_segment: String,completion: @escaping ([Getcctv]) -> ()){
+    func getCctv(idruas: Int, nama_segment: String,completion: @escaping ([Getcctv], Bool) -> ()){
         DispatchQueue.global().async {
             // let paramsData: Parameters = ["id_ruas": String(idruas), "id_segment": String(idsegment)]
             // cctv/matrix/v1/show?segment_name=SS+CAWANG+-+TEBET&ruas_id=2&limit=6&offset=0
@@ -55,19 +55,21 @@ class ListCctvModel: ObservableObject {
             RestApiController().resAPIGet(endPoint: "cctv/matrix/v1/show?segment_name="+replaceStr+"&ruas_id="+String(idruas)+"&limit=500&offset=0", method: .get){ (results) in
                 let getJSON = JSON(results ?? "Null data from API")
                 DispatchQueue.main.async {
-                    print(getJSON)
                     if getJSON["rows"].count > 0 {
-                        self.showErr.toggle()
+                        self.showErr = false
                         do {
                             let jsonData = try JSONEncoder().encode(getJSON["rows"])
                             let decodedSentences = try JSONDecoder().decode([Getcctv].self, from: jsonData)
-                            completion(decodedSentences)
+                            completion(decodedSentences, true)
                         } catch let myJSONError {
-                            print(myJSONError)
+                            self.errorMsg = "Data CCTV Kosong !"
+                            self.showErr = true
+                            print("err format: \(myJSONError)")
+                            completion([], false)
                         }
                     }else{
                         self.errorMsg = "Data CCTV Kosong !"
-                        self.showErr.toggle()
+                        self.showErr = true
                     }
                 }
             }
