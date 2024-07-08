@@ -118,10 +118,11 @@ struct LoginPage: View {
                                         modelLogin.txtLoging.toggle()
                                         if success {
                                             modelLogin.isLogin = true
-                                            isActive = true
+                                            modelLogin.isActive = true
                                         }else{
                                             modelLogin.isLogin = false
-                                            isActive = false
+                                            modelLogin.isActive = false
+                                            modelLogin.txtLoging = true
                                         }
                                     }
                                 }catch{

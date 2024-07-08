@@ -119,8 +119,12 @@ class RestApiController{
                 case .success(let json):
                     completion(json)
                 case .failure(let error):
-                    print(error)
-                    self.modelLogin.isLogin = false
+                    if endPoint == "auth/v2/login" {
+                        print(error)
+                        self.modelLogin.txtLoging = false
+                        self.modelLogin.showErr = true
+                        self.modelLogin.errorMsg = "Could not connect to the server."
+                    }
             }
         }
     }
@@ -139,7 +143,9 @@ class RestApiController{
                     completion(json)
                 case .failure(let error):
                     print(error)
-                    self.modelLogin.isLogin = false
+                    if endPoint == "auth/v1/refresh-session" {
+                        self.modelLogin.isLogin = false
+                    }
             }
         }
     }
@@ -158,7 +164,6 @@ class RestApiController{
                     completion(json)
                 case .failure(let error):
                     print(error)
-                    self.modelLogin.isLogin = false
             }
         }
     }
@@ -177,7 +182,6 @@ class RestApiController{
                     completion(json)
                 case .failure(let error):
                     print(error)
-                    self.modelLogin.isLogin = false
             }
         }
     }

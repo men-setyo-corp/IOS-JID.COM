@@ -19,8 +19,13 @@ struct ContentView: View {
                 MainPage()
                     .navigationBarHidden(true)
             }else{
-                LoginPage()
-                    .navigationBarHidden(true)
+                if modelLogin.isLogin {
+                    MainPage()
+                        .navigationBarHidden(true)
+                }else{
+                    LoginPage()
+                        .navigationBarHidden(true)
+                }
             }
         }
         .onAppear{

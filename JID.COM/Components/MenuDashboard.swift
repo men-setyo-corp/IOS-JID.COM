@@ -13,7 +13,8 @@ struct MenuDashboard: View {
     @State var aktiveClick: Bool = false
     @State var selectedIndex = 0
     let tabTopBarName = ["Lalu Lintas","Pemeliharaan", "Peralatan"]
-    let tabMidleBarName = ["Dashboard\nLalu Lintas", "Realtime\nTraffic", "Antrian\nGerbang", "Lalin\nPer Jam"]
+//    let tabMidleBarName = ["Dashboard\nLalu Lintas", "Realtime\nTraffic", "Antrian\nGerbang", "Lalin\nPer Jam"]
+    let tabMidleBarName = ["Dashboard\nLalu Lintas", "Realtime\nTraffic", "Lalin\nPer Jam"]
     let tabBottomBarName = ["Gangguan\nLalu Lintas"]
     
     let tabMidleBarIcon = ["dashboardsvg", "reltraf", "antger", "lalperjam"]
@@ -29,7 +30,8 @@ struct MenuDashboard: View {
 //    let menuPeralatan = ["dashboard/mobile", "preview_dashboard/mobile", "realtime_peralatan_cctv", "realtime_peralatan_vms"]
     
 //    new
-    let menuLaluLintas = ["Dashboard Lalin", "Realtime Lalin", "Antrian Gerbang", "Lalin Perjam", "Data Gangguan"]
+//    let menuLaluLintas = ["Dashboard Lalin", "Realtime Lalin", "Antrian Gerbang", "Lalin Perjam", "Data Gangguan"]
+    let menuLaluLintas = ["Dashboard Lalin", "Realtime Lalin", "Lalin Perjam", "Data Gangguan"]
     let menuPemeliharaan = ["Dashboard Pemeliharaan", "Data Pemeliharaan", "Water Level Sensor"]
     let menuPeralatan = ["Dashboard Peralatan", "Monitoring Alat", "Realtime CCTV", "Realtime DMS"]
     
@@ -40,9 +42,12 @@ struct MenuDashboard: View {
     //Peralatan
     let tabPeralatanBarName = ["Dashboard\nPeralatan", "Monitoring\nAlat", "Realtime\nCCTV", "Realtime\nDMS"]
     
-    @State var tabArryData = ["Dashboard\nLalu Lintas", "Realtime\nTraffic", "Antrian\nGerbang", "Lalin\nPer Jam"];
-    @State var tabArryUrl = ["Dashboard Lalin", "Realtime Lalin", "Antrian Gerbang", "Lalin Perjam", "Data Gangguan"];
-    @State var tabArryIcon = ["dashboardsvg", "reltraf", "antger", "lalperjam"];
+//    @State var tabArryData = ["Dashboard\nLalu Lintas", "Realtime\nTraffic", "Antrian\nGerbang", "Lalin\nPer Jam"];
+    @State var tabArryData = ["Dashboard\nLalu Lintas", "Realtime\nTraffic", "Lalin\nPer Jam", "Gangguan\nLalu Lintas"];
+    @State var tabArryUrl = ["Dashboard Lalin", "Realtime Lalin", "Lalin Perjam", "Data Gangguan"];
+//    @State var tabArryUrl = ["Dashboard Lalin", "Realtime Lalin", "Antrian Gerbang", "Lalin Perjam", "Data Gangguan"];
+    @State var tabArryIcon = ["dashboardsvg", "reltraf", "lalperjam","datgang"];
+//    @State var tabArryIcon = ["dashboardsvg", "reltraf", "antger", "lalperjam"];
     
     var urlweb: String = ""
     @State var isShowBottomMenu: Bool = true
@@ -113,32 +118,32 @@ struct MenuDashboard: View {
                 }
             }
          
-            if isShowBottomMenu == true {
-                HStack(alignment: .center, spacing: 0){
-                    ForEach(0..<1){ num in
-                        VStack{
-                            NavigationLink(
-                                destination: MainDashboard(title: tabBottomBarName[num], menu: menuLaluLintas, index: 4, parentmenu: selectedIndex),
-                            label:{
-                                Image(tabGangguanIcon[num])
-                                    .font(.system(size: 17))
-                                    .foregroundColor(Color(UIColor(hexString: "#390099")))
-                            })
-                            .padding(20)
-                            .background(Color(UIColor(hexString: "#DFEFFF")))
-                            .clipShape(Circle())
-                            Text(tabBottomBarName[num])
-                                .font(.system(size:12))
-                                .scaledToFit()
-                                .foregroundColor(Color(UIColor(hexString: "#390099")))
-                                .multilineTextAlignment(.center)
-                        }.frame(alignment: .center)
-                        Spacer()
-                    }
-                }
-                .padding(.horizontal, 20)
-                .padding(.top, 15)
-            }
+//            if isShowBottomMenu == true {
+//                HStack(alignment: .center, spacing: 0){
+//                    ForEach(0..<1){ num in
+//                        VStack{
+//                            NavigationLink(
+//                                destination: MainDashboard(title: tabBottomBarName[num], menu: menuLaluLintas, index: 4, parentmenu: selectedIndex),
+//                            label:{
+//                                Image(tabGangguanIcon[num])
+//                                    .font(.system(size: 17))
+//                                    .foregroundColor(Color(UIColor(hexString: "#390099")))
+//                            })
+//                            .padding(20)
+//                            .background(Color(UIColor(hexString: "#DFEFFF")))
+//                            .clipShape(Circle())
+//                            Text(tabBottomBarName[num])
+//                                .font(.system(size:12))
+//                                .scaledToFit()
+//                                .foregroundColor(Color(UIColor(hexString: "#390099")))
+//                                .multilineTextAlignment(.center)
+//                        }.frame(alignment: .center)
+//                        Spacer()
+//                    }
+//                }
+//                .padding(.horizontal, 20)
+//                .padding(.top, 15)
+//            }
             
 
             Spacer()

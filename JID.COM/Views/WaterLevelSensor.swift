@@ -19,6 +19,7 @@ struct WaterLevelSensor: View {
     @State var idSelect = 0
     @State var filterRuas = false
     @State var showCCTV = false
+    @State var stopCCTV = false
     @State var colorWater = "#000000"
     @State var isDisabled = true
     @State var playCCTV: Bool = true;
@@ -147,9 +148,9 @@ struct WaterLevelSensor: View {
                                             .foregroundColor(Color.white)
                                         Button{
                                             nmLokasi = dataVal.nama_lokasi
-                                            urlSet = dataVal.url_cctv
-                                            print(urlSet, nmLokasi)
+                                            urlSet = "\(dataVal.url_cctv)?tx=\(Float.random(in: 0...1))"
                                             showCCTV = true
+                                            stopCCTV = false
                                         }label:{
                                             Image(systemName: "eye")
                                                 .font(.system(size: 12))
@@ -251,14 +252,33 @@ struct WaterLevelSensor: View {
                                         image
                                             .resizable()
                                             .onAppear{
+                                                stopCCTV = false
                                                 startRun(uri_set: urlSet)
                                             }
                                     } else if phase.error != nil {
                                         ProgressView()
                                             .tint(.black)
+                                            .onAppear(){
+                                                stopCCTV = true
+                                            }
+                                            .onChange(of: stopCCTV){ val in
+                                                if val == true {
+                                                    stopCCTV = false
+                                                    startRun(uri_set: urlSet)
+                                                }
+                                            }
                                     } else {
                                         ProgressView()
                                             .tint(.black)
+                                            .onAppear(){
+                                                stopCCTV = true
+                                            }
+                                            .onChange(of: stopCCTV){ val in
+                                                if val == true {
+                                                    stopCCTV = false
+                                                    startRun(uri_set: urlSet)
+                                                }
+                                            }
                                     }
                                 }
                                 Spacer()
@@ -282,6 +302,10 @@ struct WaterLevelSensor: View {
         .onAppear{
             WaterLevelModel().getWaterLevelSensor(idruas: idSelect){ (parsedata)  in
                 dataWaterLevel = parsedata
+                if let valueFirst = parsedata.first {
+                    nmLokasi = valueFirst.nama_lokasi
+                    urlSet = "\(valueFirst.url_cctv)?tx=\(Float.random(in: 0...1))"
+                }
                 let groupedRuas = Dictionary(grouping: parsedata) { $0.nama_ruas }
                 dataRuas.append(initRuas(id: 0,ruas_id: 0, nama_ruas: "SEMUA RUAS"))
                 for (key, value) in groupedRuas {
@@ -304,9 +328,10 @@ struct WaterLevelSensor: View {
     }
     
     private func startRun(uri_set:String) {
-        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { timer in
-            urlSet = uri_set
-           if showCCTV == false {
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
+            urlSet = "\(uri_set)"
+            print(uri_set)
+           if stopCCTV == true || showCCTV == false{
                timer.invalidate()
                print("stop..")
            }

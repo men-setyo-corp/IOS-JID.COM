@@ -15,9 +15,10 @@ struct MainPage: View {
         UITabBar.appearance().barTintColor = .systemBackground
     }
     @State var selectedIndex = 0
-    let tabbarImgaeName = ["menu_home", "menu_cctv", "menu_map", "menu_gerang", "menu_realtime"]
-    let tabbarImgaeNamewarna = ["menu_home_warna", "menu_cctv_warna", "menu_map_warna", "menu_gerang_warna", "menu_realtime_warna"]
-    let tabNameMenu = ["Home", "CCTV", "Map", "Antrian", "Realtime"]
+    let tabbarImgaeName = ["menu_home", "menu_cctv", "menu_map", "menu_perjam", "menu_realtime"]
+    let tabbarImgaeNamewarna = ["menu_home_warna", "menu_cctv_warna", "menu_map_warna", "menu_perjam_warna", "menu_realtime_warna"]
+//    let tabNameMenu = ["Home", "CCTV", "Map", "Antrian", "Realtime"]
+    let tabNameMenu = ["Home", "CCTV", "Map", "Lalin", "Realtime"]
     
     @State var showTopMenuBar = true
     @State var showAlertLogout = false
@@ -195,18 +196,18 @@ struct MainPage: View {
             }
         }
         .background(Color(.white))
-        .alert("Update Versi JID Moile", isPresented: $showUpdate) {
+        .alert("Update Versi JID Moible", isPresented: $showUpdate) {
             Button {
                 if let url = URL(string: "itms-apps://itunes.apple.com/app/6444597322"), UIApplication.shared.canOpenURL(url) {
                     UIApplication.shared.open(url)
-                    exit(1)
+//                    exit(1)
                 }
             } label: {
                 Text("Update")
                     .foregroundColor(.red)
             }
         } message: {
-            Text("Silahkan Melakukan Update Versi Teraru JID Mobile !")
+            Text("Silahkan Melakukan Update Versi Terbaru JID Mobile !")
         }
     }
     

@@ -24,7 +24,8 @@ struct AntrianPage: View {
 //            .padding(.bottom, 15)
 //            Spacer()
             ZStack{
-                WebView(url: URL(string: baseUrl+"lalin/antrian-gerbang")!, showLoading: $showLoading)
+                //lalin/antrian-gerbang
+                WebView(url: URL(string: baseUrl+"lalin/perjam")!, showLoading: $showLoading)
                     .overlay(showLoading ? ProgressView("Loading...")
                         .tint(Color.black)
                         .foregroundColor(Color.black)

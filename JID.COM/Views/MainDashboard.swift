@@ -145,9 +145,11 @@ struct MainDashboard: View {
                         case 1 :
                             WebviewDashboard(urlweb: "lalin/realtime-traffic", title: "Realtime Traffic")
                         case 2 :
-                            WebviewDashboard(urlweb: "lalin/antrian-gerbang", title: "Antrian Gerbang")
-                        case 3 :
+//                            WebviewDashboard(urlweb: "lalin/antrian-gerbang", title: "Antrian Gerbang")
                             WebviewDashboard(urlweb: "lalin/perjam", title: "Lalin Perjam")
+                        case 3 :
+//                            WebviewDashboard(urlweb: "lalin/perjam", title: "Lalin Perjam")
+                            DataGangguan()
                         case 4 :
                             DataGangguan()
                         default:

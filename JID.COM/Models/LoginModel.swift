@@ -17,6 +17,7 @@ class LoginModel: ObservableObject {
     @Published var txtLoging: Bool = true
     @Published var showErr: Bool = false
     @Published var showPopup: Bool = false
+    @Published var isActive: Bool = false
     @Published var errorMsg: String = ""
     
     //mark: session in local storage
